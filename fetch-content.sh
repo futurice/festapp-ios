@@ -3,7 +3,7 @@
 set -e
 set -x
 
-BASEURL="http://festapp.heroku.com"
+BASEURL="http://festapp-server.heroku.com"
 OUTPUTDIR="Resources/Content"
 
 JSONS="artists faq general news program services stages"
