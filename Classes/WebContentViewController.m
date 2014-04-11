@@ -64,7 +64,7 @@
     if (iOS7) {
         self.webView.frame = CGRectMake(0, 64, 320, self.view.height - (64 + 44));
         self.topCurtainView.y = 64;
-        self.backgroundView.y = 64;
+        self.backgroundView.y = 0;
     }
 }
 
