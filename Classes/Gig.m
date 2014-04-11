@@ -29,6 +29,8 @@
 @synthesize descriptionHTML;
 @synthesize imageURL;
 @synthesize alternativeGigs;
+@synthesize spotifyUrl;
+@synthesize youtubeUrl;
 
 @dynamic image;
 @dynamic isLoadingArtistImage;

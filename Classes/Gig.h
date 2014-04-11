@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSString *descriptionHTML;
 @property (nonatomic, strong) NSURL *imageURL;
 @property (nonatomic, strong) NSMutableArray *alternativeGigs;
+@property (nonatomic, strong) NSString *spotifyUrl;
+@property (nonatomic, strong) NSString *youtubeUrl;
 
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) BOOL isLoadingArtistImage;
