@@ -1,6 +1,8 @@
 festapp-ios
 ===========
 
+[![Build Status](https://travis-ci.org/futurice/festapp-ios.svg)](https://travis-ci.org/futurice/festapp-ios)
+
 
 ## Bootstrapping
 
@@ -19,11 +21,8 @@ have. Sorry about the hassle, let's hope Homebrew fixes their scripts on OS X
 
 
 ```sh
-# Init submodules
-git submodule init
-
-# Fetch submodules (ReactiveCocoa, ...)
-git submodule update --recursive
+# Update submodules (also initializes if needed)
+git submodule update --init --recursive
 
 # Bootstrap ReactiveCocoa
 ReactiveCocoa/script/bootstrap
@@ -32,5 +31,19 @@ ReactiveCocoa/script/bootstrap
 ## Fetching newest content
 
 ```sh
-./fetch-content.sh
+rake fetch_content
+```
+
+## Run tests
+
+You can run tests once with:
+
+```sh
+rake test
+```
+
+Or you can use guard to watch changed files and notify results:
+
+```sh
+bin/guard
 ```
