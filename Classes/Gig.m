@@ -73,6 +73,8 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 		gig.artistName      = [NSString cast:dict[@"name"]];
 		gig.venue           = [[NSString cast:dict[@"stage"]] capitalizedString];
         gig.descriptionHTML = [NSString cast:dict[@"content"]];
+        gig.spotifyUrl = [NSString cast:dict[@"spotify"]];
+        gig.youtubeUrl = [NSString cast:dict[@"youtube"]];
 
         NSString *imagePath = [NSString cast:dict[@"picture"]];
         if (imagePath) {

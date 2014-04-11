@@ -20,6 +20,7 @@
 @synthesize artistImageView;
 @synthesize imageLoadingSpinner;
 @synthesize favoriteButton;
+@synthesize youtubeButton;
 
 @synthesize shouldFavoriteAllAlternatives;
 
@@ -32,6 +33,7 @@
     [self.scrollView addSubview:self.artistImageView];
     [self.scrollView addSubview:self.artistImageFrameView];
     [self.scrollView addSubview:self.favoriteButton];
+    [self.scrollView addSubview:self.youtubeButton];
 
     self.edgeInsets = UIEdgeInsetsMake(185, 6, 20, 6);
 
