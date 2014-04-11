@@ -34,6 +34,8 @@
     [self.scrollView addSubview:self.artistImageFrameView];
     [self.scrollView addSubview:self.favoriteButton];
     [self.scrollView addSubview:self.youtubeButton];
+    
+    [self.youtubeButton setTitle:gig.youtubeUrl forState:UIControlStateNormal];
 
     self.edgeInsets = UIEdgeInsetsMake(185, 6, 20, 6);
 

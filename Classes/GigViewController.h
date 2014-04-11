@@ -18,14 +18,11 @@
 @property (nonatomic, weak) IBOutlet UIImageView *artistImageView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *imageLoadingSpinner;
 @property (nonatomic, weak) IBOutlet UIButton *favoriteButton;
-
 @property (nonatomic, weak) IBOutlet UIButton *youtubeButton;
 
 
 @property (nonatomic, assign) BOOL shouldFavoriteAllAlternatives;
 
 - (IBAction)favoriteButtonPressed:(UIButton *)button;
-
-//- (IBAction)youtubeButtonPressed:(UIButton *)button;
 
 @end
