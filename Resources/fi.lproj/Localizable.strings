@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  FestApp
+*/
+
+"lang" = "fi";
+
+"Friday" = "Perjantai";
+"Saturday" = "Lauantai";
+"Sunday" = "Sunnuntai";
+
+"button.ok" = "OK";
+
+"title.general" = "Yleisinfo";
+"title.bands" = "Bändit";
+"title.services" = "Palvelut";
+"title.fooddrinks" = "Ruoka ja juoma";
+"title.arrival" = "Liikkuminen";
+"title.news" = "Uutiset";
+
+"gig.favorite.label" = "Merkitty suosikiksi";
+"gig.nonfavorite.label" = "Merkitse suosikiksi";
+"gig.reminder.title" = "Kohta alkaa keikka!";
+"gig.reminder.instruction" = "Voit luoda oman aikataulun painamalla tähtisymbolia ja merkitsemällä keikan suosikiksi. Merkityistä keikoista tulee hälytys 15 minuuttia ennen keikan alkua.";
+
+"map.accuracyformat" = "Tarkkuus:  %.0f m";
+"map.userlocation.label" = "Olet tässä";
+"map.venue.nomoregigs" = "Keikkoja jälleen 2013!";
+
+"navigation.back" = "Takaisin";
+"navigation.cancel" = "Peruuta";
+"navigation.ok" = "OK";
+
+"fonecta.call" = "Soita";
+"fonecta.cancel" = "Peruuta";
+"fonecta.confirmation" = "Olet soittamassa Fonectan maksulliseen 020202-palveluun. Haluatko jatkaa?";
+
+"link.open" = "Avaa Safarissa";
+"link.copy" = "Kopioi osoite";
+"link.copied" = "Osoite kopioitu leikepöydälle";
+
+"conn.problem" = "Yhteysongelma";
+"conn.pagenotloaded" = "Sivua ei saatu ladattua.";

@@ -1,0 +1,16 @@
+//
+// Prefix header for all source files of the 'FestApp' target in the 'FestApp' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <ReactiveCocoa/ReactiveCocoa.h>
+    #import "FestApp.h"
+#endif
+
+#ifdef NDEBUG
+#define NSLog(...)
+#else
+#define NSLog(__FORMAT__, ...)    NSLog(@"%s:%d " __FORMAT__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif

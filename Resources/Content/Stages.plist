@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Niitty</string>
+		<key>x</key>
+		<integer>909</integer>
+		<key>y</key>
+		<integer>843</integer>
+		<key>width</key>
+		<integer>106</integer>
+		<key>height</key>
+		<integer>70</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Ranta</string>
+		<key>x</key>
+		<integer>1363</integer>
+		<key>y</key>
+		<integer>1153</integer>
+		<key>width</key>
+		<integer>98</integer>
+		<key>height</key>
+		<integer>70</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Teltta</string>
+		<key>x</key>
+		<integer>748</integer>
+		<key>y</key>
+		<integer>421</integer>
+		<key>width</key>
+		<integer>174</integer>
+		<key>height</key>
+		<integer>96</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Louna</string>
+		<key>x</key>
+		<integer>1287</integer>
+		<key>y</key>
+		<integer>575</integer>
+		<key>width</key>
+		<string>87</string>
+		<key>height</key>
+		<integer>58</integer>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Mini</string>
+		<key>x</key>
+		<integer>1462</integer>
+		<key>y</key>
+		<integer>851</integer>
+		<key>width</key>
+		<integer>57</integer>
+		<key>height</key>
+		<integer>57</integer>
+	</dict>
+</array>
+</plist>
