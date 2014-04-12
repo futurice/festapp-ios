@@ -44,8 +44,8 @@
 
     CGContextClearRect(c, rect);
 
-    UIFont *timeLabelFont = [UIFont fontWithName:@"Futura" size:20];
-	UIFont *artistLabelFont = [UIFont fontWithName:@"Futura" size:13];
+    UIFont *timeLabelFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
+	UIFont *artistLabelFont = [UIFont fontWithName:@"HelveticaNeue" size:13];
 
 	CGFloat venueHeight = [delegate heightForVenueRow];
 	CGFloat timeScaleHeight = [delegate heightForTimeScale];
