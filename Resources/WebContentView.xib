@@ -18,9 +18,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="top" image="background_generic.png" id="24" userLabel="Image View - background.jpg">
+                <imageView userInteractionEnabled="NO" contentMode="top" image="bg.png" id="24" userLabel="Image View - background.jpg">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="549"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" id="33">
+                    <rect key="frame" x="0.0" y="63" width="320" height="417"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
                 <webView contentMode="scaleToFill" id="23">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -28,10 +33,6 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <dataDetectorType key="dataDetectorTypes"/>
                 </webView>
-                <imageView userInteractionEnabled="NO" alpha="0.94999998807907104" contentMode="scaleToFill" image="background_top.png" id="33">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="8"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                </imageView>
             </subviews>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -39,7 +40,6 @@
         </view>
     </objects>
     <resources>
-        <image name="background_generic.png" width="320" height="416"/>
-        <image name="background_top.png" width="320" height="8"/>
+        <image name="bg.png" width="320" height="568"/>
     </resources>
 </document>

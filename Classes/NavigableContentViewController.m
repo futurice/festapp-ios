@@ -184,7 +184,8 @@
         cellButton.titleLabel.numberOfLines = 2;
         cellButton.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 30);
         [cellButton setTitleColor:kColorYellowLight forState:UIControlStateNormal];
-        [cellButton setBackgroundImage:[[UIImage imageNamed:@"menu_item_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(37, 37, 37, 37)] forState:UIControlStateNormal];
+       // [cellButton setBackgroundImage:[[UIImage imageNamed:@"menu_item_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(37, 37, 37, 37)] forState:UIControlStateNormal];
+        [cellButton setBackgroundImage:[[UIImage imageNamed:@""] resizableImageWithCapInsets:UIEdgeInsetsMake(37, 37, 37, 37)] forState:UIControlStateNormal];
         [cellButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         cellButton.tag = kCellButtonTag;
         [cell addSubview:cellButton];

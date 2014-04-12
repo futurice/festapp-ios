@@ -22,9 +22,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="top" image="background_generic.png" id="39">
+                <imageView userInteractionEnabled="NO" contentMode="top" image="bg.png" id="39">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" id="cMl-dI-Vzt">
+                    <rect key="frame" x="0.0" y="-1" width="320" height="481"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
                 <webView contentMode="scaleToFill" id="5">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -46,10 +51,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="text_frame.png" id="38">
                     <rect key="frame" x="10" y="14" width="300" height="181"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.94999998807907104" contentMode="scaleToFill" image="background_top.png" id="cMl-dI-Vzt">
-                    <rect key="frame" x="0.0" y="-1" width="320" height="8"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="21">
                     <rect key="frame" x="131" y="178" width="179" height="25"/>
@@ -74,8 +75,7 @@
         </view>
     </objects>
     <resources>
-        <image name="background_generic.png" width="320" height="416"/>
-        <image name="background_top.png" width="320" height="8"/>
+        <image name="bg.png" width="320" height="568"/>
         <image name="favorite_arrow_unstarred.png" width="179" height="25"/>
         <image name="text_frame.png" width="300" height="340"/>
     </resources>

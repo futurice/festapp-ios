@@ -25,11 +25,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="Sn4-bA-YOu">
-                    <rect key="frame" x="-6" y="-16" width="326" height="52"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="hv3-jh-Y3d">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -41,7 +40,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <nil key="simulatedDestinationMetrics"/>
-            <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="107">
+            <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectedItem="145" id="107">
                 <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -138,6 +137,7 @@
         </tabBarController>
     </objects>
     <resources>
+        <image name="bg.png" width="320" height="568"/>
         <image name="tab-clock.png" width="19" height="25"/>
         <image name="tab-info.png" width="22" height="22"/>
         <image name="tab-map.png" width="25" height="21"/>
