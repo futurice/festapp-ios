@@ -1,0 +1,10 @@
+language: objective-c
+xcode_project: FestApp.xcodeproj
+xcode_scheme: FestApp
+xcode_sdk: iphonesimulator
+git:
+  submodules: false
+before_install:
+  - git submodule update --init --recursive
+notifications:
+  flowdock: 43542f5ac151698f320ae1c4b95f9536

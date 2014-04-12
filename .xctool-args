@@ -1,0 +1,7 @@
+[
+  "-project", "FestApp.xcodeproj",
+  "-scheme", "FestApp",
+  "-configuration", "Debug",
+  "-sdk", "iphonesimulator",
+  "-arch", "i386"
+]
