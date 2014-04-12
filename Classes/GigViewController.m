@@ -20,6 +20,7 @@
 @synthesize artistImageView;
 @synthesize imageLoadingSpinner;
 @synthesize favoriteButton;
+@synthesize youtubeButton;
 
 @synthesize shouldFavoriteAllAlternatives;
 
@@ -32,8 +33,18 @@
     [self.scrollView addSubview:self.artistImageView];
     [self.scrollView addSubview:self.artistImageFrameView];
     [self.scrollView addSubview:self.favoriteButton];
+    [self.scrollView addSubview:self.youtubeButton];
+    [self.scrollView addSubview:self.spotifyButton];
+    
+    if (!gig.youtubeUrl) {
+        [self.youtubeButton setEnabled:false];
+    }
+    
+    if(!gig.spotifyUrl) {
+        [self.spotifyButton setEnabled:false];
+    }
 
-    self.edgeInsets = UIEdgeInsetsMake(185, 6, 20, 6);
+    self.edgeInsets = UIEdgeInsetsMake(215, 6, 20, 6);
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(artistImageLoaded:) name:kNotificationForLoadedArtistImage object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(artistImageFailedToLoad:) name:kNotificationForFailedLoadingArtistImage object:nil];
@@ -114,6 +125,14 @@
     [self updateFavoriteButton];
 }
 
+- (IBAction)youtubeButtonPressed:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:gig.youtubeUrl];
+}
+
+- (IBAction)spotifyButtonPressed:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:gig.spotifyUrl];
+}
+
 - (void)updateFavoriteButton
 {
     if (gig.isFavorite) {
@@ -139,5 +158,6 @@
         [imageLoadingSpinner stopAnimating];
     }
 }
+
 
 @end

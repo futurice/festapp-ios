@@ -29,6 +29,8 @@
 @synthesize descriptionHTML;
 @synthesize imageURL;
 @synthesize alternativeGigs;
+@synthesize spotifyUrl;
+@synthesize youtubeUrl;
 
 @dynamic image;
 @dynamic isLoadingArtistImage;
@@ -71,6 +73,16 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 		gig.artistName      = [NSString cast:dict[@"name"]];
 		gig.venue           = [[NSString cast:dict[@"stage"]] capitalizedString];
         gig.descriptionHTML = [NSString cast:dict[@"content"]];
+        
+        NSString *spotifyUrlStr = [NSString cast:dict[@"spotify"]];
+        if([spotifyUrlStr length] != 0) {
+            gig.spotifyUrl = [NSURL URLWithString:spotifyUrlStr];
+        }
+        
+        NSString *youtubeUrlStr = [NSString cast:dict[@"youtube"]];
+        if([youtubeUrlStr length] != 0) {
+            gig.youtubeUrl = [NSURL URLWithString:youtubeUrlStr];
+        }
 
         NSString *imagePath = [NSString cast:dict[@"picture"]];
         if (imagePath) {
