@@ -36,11 +36,11 @@
     [self.scrollView addSubview:self.youtubeButton];
     [self.scrollView addSubview:self.spotifyButton];
     
-    if ([gig.youtubeUrl length] == 0) {
+    if (!gig.youtubeUrl) {
         [self.youtubeButton setEnabled:false];
     }
     
-    if([gig.spotifyUrl length] == 0) {
+    if(!gig.spotifyUrl) {
         [self.spotifyButton setEnabled:false];
     }
 
@@ -126,11 +126,11 @@
 }
 
 - (IBAction)youtubeButtonPressed:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:gig.youtubeUrl]];
+    [[UIApplication sharedApplication] openURL:gig.youtubeUrl];
 }
 
 - (IBAction)spotifyButtonPressed:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:gig.spotifyUrl]];
+    [[UIApplication sharedApplication] openURL:gig.spotifyUrl];
 }
 
 - (void)updateFavoriteButton
