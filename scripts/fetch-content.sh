@@ -6,10 +6,10 @@ set -x
 BASEURL="http://festapp-server.heroku.com"
 OUTPUTDIR="Resources/Content"
 
-JSONS="artists faq general news program services stages"
+JSONS="artists faqs news programs festivals stages"
 ASSETS="arrival.html map.png"
 
-JSONURL="${BASEURL}/api"
+JSONURL="${BASEURL}/api/v1"
 HTMLURL="${BASEURL}/public"
 
 for json in $JSONS; do
