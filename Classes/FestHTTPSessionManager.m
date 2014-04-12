@@ -13,7 +13,7 @@
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedFestHTTPSessionManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:kResourceBaseUrl]];
+        _sharedFestHTTPSessionManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:kResourceBaseURL]];
     });
 
     return _sharedFestHTTPSessionManager;

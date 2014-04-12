@@ -2,9 +2,7 @@
 #import "NSString+Additions.h"
 #import "UIView+XYWidthHeight.h"
 
-#define kResourceBaseUrl           @"http://festapp-server.herokuapp.com"
-
-#define kResourceURLFormat         @"http://festapp-server.herokuapp.com/api/%@"
+#define kResourceBaseURL           @"http://festapp-server.herokuapp.com"
 #define kResourceImageURLFormat    @"http://festapp-server.herokuapp.com/%@"
 
 #define kResourceTypeSuffix        @"json"

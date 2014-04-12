@@ -29,7 +29,7 @@
 
 - (void)testResourceBaseUrlIsCorrect
 {
-    XCTAssertEqual(kResourceBaseUrl, @"http://festapp-server.herokuapp.com");
+    XCTAssertEqual(kResourceBaseURL, @"http://festapp-server.herokuapp.com");
 }
 
 @end

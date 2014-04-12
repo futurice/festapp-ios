@@ -41,43 +41,43 @@
                                                             @{
                                                                 @"name": kResourceNameBands,
                                                                 @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/artists",
+                                                                @"url": @"/api/v1/artists",
                                                                 @"selector": @"transformGigs:"
                                                                 },
                                                             @{
                                                                 @"name": kResourceNameNews,
                                                                 @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/news",
+                                                                @"url": @"/api/v1/news",
                                                                 @"selector": @"transformNews:"
                                                                 },
                                                             @{
                                                                 @"name": kResourceNameFAQ,
                                                                 @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/faq",
+                                                                @"url": @"/api/v1/faq",
                                                                 @"selector": @"transformFaq:"
                                                                 },
                                                             @{
                                                                 @"name": kResourceNameNews,
                                                                 @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/program",
+                                                                @"url": @"/api/v1/program",
                                                                 @"selector": @"transformProgram:"
                                                                 },
                                                             @{
                                                                 @"name": kResourceNameGeneral,
                                                                 @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/general",
+                                                                @"url": @"/api/v1/general",
                                                                 @"selector": @"transformGeneral:"
                                                                 },
                                                             @{
                                                                 @"name": kResourceNameServices,
                                                                 @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/services",
+                                                                @"url": @"/api/v1/services",
                                                                 @"selector": @"transformServices:"
                                                                 },
                                                             @{
                                                                 @"name": kResourceNameStages,
                                                                 @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/stages",
+                                                                @"url": @"/api/v1/stages",
                                                                 @"selector": @"transformStages:"
                                                                 }
                                                             ]];
