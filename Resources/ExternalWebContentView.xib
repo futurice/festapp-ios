@@ -25,9 +25,10 @@
                         <outlet property="delegate" destination="-1" id="5"/>
                     </connections>
                 </webView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="7">
+                <activityIndicatorView opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" style="whiteLarge" id="7">
                     <rect key="frame" x="142" y="165" width="37" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="deviceRGB"/>
                 </activityIndicatorView>
             </subviews>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

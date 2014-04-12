@@ -72,10 +72,6 @@ NSArray *combineGeneralInfo(NSDictionary *generalJson, NSDictionary *faqJSON) {
 {
     [super viewDidLoad];
 
-    if ([UIScreen mainScreen].bounds.size.height > 480) {
-        self.backgroundView.image = [UIImage imageNamed:@"main-568h"];
-    }
-
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
     FestDataManager *dataManager = [FestDataManager sharedFestDataManager];

@@ -87,7 +87,7 @@
 
         UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.backgroundColor = [UIColor clearColor];
-        UIFont *titleFont = [UIFont fontWithName:@"Futura" size:kNewsCellTitleLabelFontSize];
+        UIFont *titleFont = [UIFont fontWithName:@"HelveticaNeue" size:kNewsCellTitleLabelFontSize];
         titleLabel.font = titleFont;
         titleLabel.numberOfLines = 0;
         titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -97,7 +97,7 @@
         UILabel *detailLabel = [[UILabel alloc] init];
         detailLabel.backgroundColor = [UIColor clearColor];
         detailLabel.textColor = [UIColor darkGrayColor];
-        UIFont *detailFont = [UIFont fontWithName:@"Futura" size:13];
+        UIFont *detailFont = [UIFont fontWithName:@"HelveticaNeue" size:13];
         detailLabel.font = detailFont;
         detailLabel.tag = kCellDetailLabelTag;
         [cell addSubview:detailLabel];
@@ -158,7 +158,7 @@
 
     NSDictionary *contentItemDict = self.contentItems[indexPath.row - 1];
     NSString *rowContent = [contentItemDict valueForKey:@"title"];
-    UIFont *rowContentFont = [UIFont fontWithName:@"Futura" size:kNewsCellTitleLabelFontSize];
+    UIFont *rowContentFont = [UIFont fontWithName:@"HelveticaNeue" size:kNewsCellTitleLabelFontSize];
     CGFloat rowContentHeight = [rowContent
                             boundingRectWithSize:CGSizeMake(kNewsCellLabelWidth, 10000)
                             options:NSStringDrawingUsesDeviceMetrics

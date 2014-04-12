@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="top" image="background_generic.png" id="14">
+                <imageView userInteractionEnabled="NO" contentMode="top" image="bg.png" id="14">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -58,7 +58,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="background_generic.png" width="320" height="416"/>
+        <image name="bg.png" width="320" height="568"/>
         <image name="timeline-board.png" width="320" height="314"/>
         <image name="timeline-strings.png" width="320" height="251"/>
     </resources>

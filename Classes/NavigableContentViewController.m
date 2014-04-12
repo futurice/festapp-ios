@@ -45,7 +45,7 @@
     if (iOS7 && self.navigationController.viewControllers.count > 1) {
         self.table.frame = CGRectMake(0, 64, 320, self.view.height - (64 + 44));
         self.topCurtainView.y = 64;
-        self.backgroundView.y = 64;
+        self.backgroundView.y = 0;
     }
 }
 
@@ -153,7 +153,7 @@
 
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TitleCellIdentifier];
-            UIFont *titleFont = [UIFont fontWithName:@"Futura" size:28];
+            UIFont *titleFont = [UIFont fontWithName:@"HelveticaNeue" size:28];
             cell.textLabel.font = titleFont;
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             cell.textLabel.numberOfLines = 0;
@@ -180,11 +180,10 @@
         UIButton *cellButton = [UIButton buttonWithType:UIButtonTypeCustom];
         cellButton.frame = CGRectMake(0, 0, 320, 75);
         cellButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        cellButton.titleLabel.font = [UIFont fontWithName:@"Futura" size:(showIndex) ? 20 : 24];
+        cellButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:(showIndex) ? 20 : 24];
         cellButton.titleLabel.numberOfLines = 2;
         cellButton.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 30);
         [cellButton setTitleColor:kColorYellowLight forState:UIControlStateNormal];
-        [cellButton setBackgroundImage:[[UIImage imageNamed:@"menu_item_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(37, 37, 37, 37)] forState:UIControlStateNormal];
         [cellButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         cellButton.tag = kCellButtonTag;
         [cell addSubview:cellButton];
@@ -239,7 +238,7 @@
             NSString *indexLetter = [kIndices componentsSeparatedByString:@","][section - 1];
             UILabel *indexLabel = [[UILabel alloc] init];
             indexLabel.frame = CGRectMake(20, 0, view.width - 20, view.height);
-            indexLabel.font = [UIFont fontWithName:@"Futura" size:24];
+            indexLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:24];
             indexLabel.backgroundColor = [UIColor clearColor];
             indexLabel.text = indexLetter;
             indexLabel.alpha = 0.1f;

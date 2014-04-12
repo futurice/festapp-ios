@@ -43,8 +43,8 @@
         self.subtitleLabel = [[UILabel alloc] init];
         self.detailDisclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
-        titleLabel.font = [UIFont fontWithName:@"Futura" size:14];
-        subtitleLabel.font = [UIFont fontWithName:@"Futura" size:11];
+        titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
+        subtitleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:11];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         subtitleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.textColor = [UIColor whiteColor];

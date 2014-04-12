@@ -154,7 +154,7 @@
 			[self.view addSubview:venueBackground];
 
 			UILabel *venueLabel = [[UILabel alloc] init];
-			UIFont *venueFont = [UIFont fontWithName:@"Futura" size:13];
+			UIFont *venueFont = [UIFont fontWithName:@"HelveticaNeue" size:13];
             venueLabel.font = venueFont;
 			venueLabel.text = venue;
 			venueLabel.textColor = [UIColor colorWithWhite:1 alpha:0.95f];

@@ -64,7 +64,7 @@
     if (iOS7) {
         self.webView.frame = CGRectMake(0, 64, 320, self.view.height - (64 + 44));
         self.topCurtainView.y = 64;
-        self.backgroundView.y = 64;
+        self.backgroundView.y = 0;
     }
 }
 
@@ -78,32 +78,46 @@
                              "<head> "
                              "  <style> "
                              "    div#main { "
-//                             "      background-color: #fff; "
-                             "      font-family: Futura, HelveticaNeue-Light, Helvetica; "
-                             "      font-size: 13pt; "
-                             "      margin-top: %.0fpx; margin-left: %.0fpx; margin-bottom: %.0fpx; margin-right: %.0fpx; "
-                             "      padding-top: 12px; padding-left: 18px; padding-bottom: 30px; padding-right: 18px; "
+                             
+                             "      font-family: HelveticaNeue-Light,HelveticaNeue, Helvetica; "
+                             "      font-size: 15px;        "
+                             
+                             "      margin-top: %.0fpx;     "
+                             "      margin-left: %.0fpx;    "
+                             "      margin-bottom: %.0fpx;  "
+                             "      margin-right: %.0fpx;   "
+                             
+                             "      padding-top: 1px;      "
+                             "      padding-left: 0px;      "
+                             "      padding-bottom: 10px;   "
+                             "      padding-right: 0px;     "
+                             
 //                             "      -webkit-box-shadow: 0px 2px 5px 1px #222; "
+                             
                              "    } "
+                             
                              "    h1, h2, h3 { "
-                             "      font-family: Futura, HelveticaNeue-Bold, Helvetica; "
+                             "      font-family: HelveticaNeue-Light, HelveticaNeue, Helvetica; "
                              "    } "
+                             
                              "    b, strong { "
-                             "      font-family: Futura, HelveticaNeue-Bold, Helvetica; "
+                             "      font-family: HelveticaNeue-Light, HelveticaNeue, Helvetica; "
                              "    } "
+                             
                              "    h1.title { "
-                             "      font-size: 22pt; "
-                             "      font-weight: normal; "
-                             "      text-align: center; "
+                             "      font-size: 22px; "
+                             "      font-weight: 200; "
+                             "      text-align: left; "
                              "      margin-bottom: 20px; "
                              "      color: #000; /* previous known as red */"
                              "    } "
+                             
                              "    h2.subtitle { "
-                             "      font-family: Futura, HelveticaNeue-Light, Helvetica; "
+                             "      font-family: HelveticaNeue-Light,HelveticaNeue, Helvetica; "
                              "      color: #555; "
-                             "      font-size: 12pt; "
+                             "      font-size: 13px; "
                              "      font-weight: normal; "
-                             "      text-align: center; "
+                             "      text-align: left; "
                              "      margin-top: -10px; "
                              "      margin-bottom: -2px; "
                              "    } "
