@@ -26,7 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[self navigationController] setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)didReceiveMemoryWarning

@@ -136,6 +136,7 @@
 		88355E7E19460719003E2F90 /* RR2014Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88355E7D19460719003E2F90 /* RR2014Window.xib */; };
 		88355E82194609E7003E2F90 /* RR2014MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88355E80194609E7003E2F90 /* RR2014MainViewController.m */; };
 		88355E83194609E7003E2F90 /* RR2014MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88355E81194609E7003E2F90 /* RR2014MainViewController.xib */; };
+		88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */; };
 		883BD75918DF4C5A00154A9A /* band-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 883BD75818DF4C5A00154A9A /* band-placeholder.png */; };
 		88619A3E18F53DCC00AABC23 /* icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 88619A3D18F53DCC00AABC23 /* icon-app.png */; };
 		88619A4118F53DDA00AABC23 /* icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 88619A3F18F53DDA00AABC23 /* icon-settings.png */; };
@@ -435,6 +436,7 @@
 		88355E7F194609E7003E2F90 /* RR2014MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR2014MainViewController.h; path = Ruisrock2014/RR2014MainViewController.h; sourceTree = "<group>"; };
 		88355E80194609E7003E2F90 /* RR2014MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR2014MainViewController.m; path = Ruisrock2014/RR2014MainViewController.m; sourceTree = "<group>"; };
 		88355E81194609E7003E2F90 /* RR2014MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR2014MainViewController.xib; path = Ruisrock2014/RR2014MainViewController.xib; sourceTree = "<group>"; };
+		88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ruisrock_logo_w_date@2x.png"; path = "Resources/Ruisrock2014/ruisrock_logo_w_date@2x.png"; sourceTree = "<group>"; };
 		883BD75818DF4C5A00154A9A /* band-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "band-placeholder.png"; path = "Resources/Images/band-placeholder.png"; sourceTree = "<group>"; };
 		88619A3D18F53DCC00AABC23 /* icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app.png"; sourceTree = "<group>"; };
 		88619A3F18F53DDA00AABC23 /* icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings.png"; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				88355E8419460B94003E2F90 /* Ruisrock2014 */,
 				48AD03B3158A52F700546602 /* Localizable.strings */,
 				8D1107310486CEB800E47090 /* FestApp-Info.plist */,
 				4D1ED38A139CB81500BB1D47 /* Riff1.aif */,
@@ -913,6 +916,14 @@
 				88355E7F194609E7003E2F90 /* RR2014MainViewController.h */,
 				88355E80194609E7003E2F90 /* RR2014MainViewController.m */,
 				88355E81194609E7003E2F90 /* RR2014MainViewController.xib */,
+			);
+			name = Ruisrock2014;
+			sourceTree = "<group>";
+		};
+		88355E8419460B94003E2F90 /* Ruisrock2014 */ = {
+			isa = PBXGroup;
+			children = (
+				88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */,
 			);
 			name = Ruisrock2014;
 			sourceTree = "<group>";
@@ -1208,6 +1219,7 @@
 				88BCA3B518DED71900654E64 /* arrival.html in Resources */,
 				88619A3E18F53DCC00AABC23 /* icon-app.png in Resources */,
 				AD1FC61B18F99FEB00F96A78 /* insta_icon.png in Resources */,
+				88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */,
 				4D30E7F61396434E007E9D0B /* tab-rss.png in Resources */,
 				4D30E7F71396434E007E9D0B /* tab-rss@2x.png in Resources */,
 				AD14D20E18F97DE2006890E7 /* map_icon.png in Resources */,
