@@ -8,6 +8,8 @@
 
 #import "RR2014MainViewController.h"
 
+#import "FestDataManager.h"
+
 @interface RR2014MainViewController ()
 
 @end
@@ -27,6 +29,13 @@
 {
     [super viewDidLoad];
 
+    // Subscribe
+    RACSignal *newsSignal = [FestDataManager.sharedFestDataManager signalForResource:FestResourceNews];
+    [newsSignal subscribeNext:^(NSArray *news) {
+        NSAssert(news.count >= 0, @"We assume there is at least one news entry") ;
+
+        self.newsTitleLabel.text = [((NSDictionary *)[news firstObject]) objectForKey:@"title"];
+    }];
     // Do any additional setup after loading the view from its nib.
 }
 

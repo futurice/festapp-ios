@@ -10,4 +10,6 @@
 
 @interface RR2014MainViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UILabel *newsTitleLabel;
+
 @end
