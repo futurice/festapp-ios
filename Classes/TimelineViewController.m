@@ -262,11 +262,12 @@
 - (IBAction)venueSelected:(UIButton *)button
 {
 	self.selectedVenue = button.titleLabel.text;
-
+/*
     MapViewController *mapViewController = ((FestAppDelegate *) [[UIApplication sharedApplication] delegate]).mapViewController;
     UIView *stageView = (mapViewController.stageViews)[[venues indexOfObject:selectedVenue]];
     [mapViewController performSelector:@selector(selectStageView:) withObject:stageView afterDelay:0.1];
     [self.tabBarController performSelector:@selector(setSelectedViewController:) withObject:mapViewController afterDelay:0.1];
+ */
 }
 
 - (IBAction)daySelected

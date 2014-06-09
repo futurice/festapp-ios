@@ -133,6 +133,9 @@
 		7449289418F8595C00924012 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		7449289A18F8595D00924012 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7449289818F8595D00924012 /* InfoPlist.strings */; };
 		7449289C18F8595D00924012 /* FestApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449289B18F8595D00924012 /* FestApp_Tests.m */; };
+		88355E7E19460719003E2F90 /* RR2014Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88355E7D19460719003E2F90 /* RR2014Window.xib */; };
+		88355E82194609E7003E2F90 /* RR2014MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88355E80194609E7003E2F90 /* RR2014MainViewController.m */; };
+		88355E83194609E7003E2F90 /* RR2014MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88355E81194609E7003E2F90 /* RR2014MainViewController.xib */; };
 		883BD75918DF4C5A00154A9A /* band-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 883BD75818DF4C5A00154A9A /* band-placeholder.png */; };
 		88619A3E18F53DCC00AABC23 /* icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = 88619A3D18F53DCC00AABC23 /* icon-app.png */; };
 		88619A4118F53DDA00AABC23 /* icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 88619A3F18F53DDA00AABC23 /* icon-settings.png */; };
@@ -222,7 +225,7 @@
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
-			remoteInfo = "FestApp";
+			remoteInfo = FestApp;
 		};
 		8894AE1618DDE68F00991593 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -428,6 +431,10 @@
 		7449289918F8595D00924012 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7449289B18F8595D00924012 /* FestApp_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FestApp_Tests.m; sourceTree = "<group>"; };
 		7449289D18F8595D00924012 /* FestApp Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp Tests-Prefix.pch"; sourceTree = "<group>"; };
+		88355E7D19460719003E2F90 /* RR2014Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR2014Window.xib; path = Ruisrock2014/RR2014Window.xib; sourceTree = "<group>"; };
+		88355E7F194609E7003E2F90 /* RR2014MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR2014MainViewController.h; path = Ruisrock2014/RR2014MainViewController.h; sourceTree = "<group>"; };
+		88355E80194609E7003E2F90 /* RR2014MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR2014MainViewController.m; path = Ruisrock2014/RR2014MainViewController.m; sourceTree = "<group>"; };
+		88355E81194609E7003E2F90 /* RR2014MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR2014MainViewController.xib; path = Ruisrock2014/RR2014MainViewController.xib; sourceTree = "<group>"; };
 		883BD75818DF4C5A00154A9A /* band-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "band-placeholder.png"; path = "Resources/Images/band-placeholder.png"; sourceTree = "<group>"; };
 		88619A3D18F53DCC00AABC23 /* icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-app.png"; sourceTree = "<group>"; };
 		88619A3F18F53DDA00AABC23 /* icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings.png"; sourceTree = "<group>"; };
@@ -574,6 +581,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				88355E6D194600EF003E2F90 /* Ruisrock2014 */,
 				4D2FA5F2139BE6E500F03209 /* FestApp.h */,
 				8894AE2F18DDF00000991593 /* FestDataManager.h */,
 				8894AE3018DDF00000991593 /* FestDataManager.m */,
@@ -898,6 +906,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		88355E6D194600EF003E2F90 /* Ruisrock2014 */ = {
+			isa = PBXGroup;
+			children = (
+				88355E7D19460719003E2F90 /* RR2014Window.xib */,
+				88355E7F194609E7003E2F90 /* RR2014MainViewController.h */,
+				88355E80194609E7003E2F90 /* RR2014MainViewController.m */,
+				88355E81194609E7003E2F90 /* RR2014MainViewController.xib */,
+			);
+			name = Ruisrock2014;
+			sourceTree = "<group>";
+		};
 		8894AE0B18DDE68E00991593 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1027,7 +1046,7 @@
 			dependencies = (
 				8894AE2518DDE71300991593 /* PBXTargetDependency */,
 			);
-			name = "FestApp";
+			name = FestApp;
 			productName = Ruisrock;
 			productReference = 1D6058910D05DD3D006BFB54 /* FestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -1250,6 +1269,7 @@
 				485C1865176AA1DB008BAD14 /* Default@2x.png in Resources */,
 				8863330218F15BB00091E0A9 /* map.png in Resources */,
 				485C1866176AA1DB008BAD14 /* background_timeline-568h@2x.png in Resources */,
+				88355E83194609E7003E2F90 /* RR2014MainViewController.xib in Resources */,
 				AD14D20618F97DE2006890E7 /* info_icon.png in Resources */,
 				AD14D20818F97DE2006890E7 /* insta_icon.png in Resources */,
 				485C1877176AA1DB008BAD14 /* mark_as_played_bg.png in Resources */,
@@ -1289,6 +1309,7 @@
 				48DD6A1B177A3A5200FC6948 /* favorite_arrow_unstarred.png in Resources */,
 				48DD6A1C177A3A5200FC6948 /* favorite_arrow_unstarred@2x.png in Resources */,
 				48DD6A1D177A3A5200FC6948 /* favorite_arrow_starred.png in Resources */,
+				88355E7E19460719003E2F90 /* RR2014Window.xib in Resources */,
 				AD1FC62118F99FEB00F96A78 /* map_icon.png in Resources */,
 				48DD6A1E177A3A5200FC6948 /* favorite_arrow_starred@2x.png in Resources */,
 				48DD6A21177A513900FC6948 /* background_top.png in Resources */,
@@ -1330,6 +1351,7 @@
 				8894AE3118DDF00000991593 /* FestDataManager.m in Sources */,
 				CD7852AC1378BD6C00711F11 /* NSDate+Additions.m in Sources */,
 				CD7853E7137AA39F00711F11 /* TimelineView.m in Sources */,
+				88355E82194609E7003E2F90 /* RR2014MainViewController.m in Sources */,
 				4D587151138C809000B0A0BC /* GigViewController.m in Sources */,
 				4D587155138C854500B0A0BC /* DayChooser.m in Sources */,
 				4D186E0A139329E100CDA3DB /* InfoViewController.m in Sources */,

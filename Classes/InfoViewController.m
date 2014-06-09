@@ -10,7 +10,6 @@
 #import "Gig.h"
 #import "UIViewController+Additions.h"
 #import "FestDataManager.h"
-#import "ReactiveCocoa/ReactiveCocoa.h"
 
 NSArray *sortedArtists(NSArray *gigs);
 NSArray *combineGeneralInfo(NSDictionary *generalJson, NSDictionary *faqJSON);
@@ -111,6 +110,12 @@ NSArray *combineGeneralInfo(NSDictionary *generalJson, NSDictionary *faqJSON) {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
     [super viewWillDisappear:animated];
+}
+
+#pragma mark Statusbar
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark Actions

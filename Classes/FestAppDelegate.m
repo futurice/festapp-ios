@@ -21,14 +21,6 @@
 
 @implementation FestAppDelegate
 
-@synthesize window;
-@synthesize tabBarController;
-
-@synthesize infoViewController;
-@synthesize mapViewController;
-@synthesize timelineViewController;
-@synthesize newsViewController;
-
 #pragma mark Application lifecycle
 
 void uncaughtExceptionHandler(NSException *exception);
@@ -54,8 +46,10 @@ void uncaughtExceptionHandler(NSException *exception)
     }
 
     [defaults synchronize];
-    self.tabBarController.tabBar.selectedImageTintColor = kColorRed;
-    self.window.rootViewController = self.tabBarController;
+
+    self.infoViewController = (InfoViewController *) [[UIViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
+
+    self.window.rootViewController = self.navController;
 
     [self.window makeKeyAndVisible];
 
@@ -64,14 +58,14 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    [mapViewController.locationManager stopUpdatingLocation];
+    // [mapViewController.locationManager stopUpdatingLocation];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // TODO: refresh data in festdatamanager?
-    [mapViewController.locationManager startUpdatingLocation];
-    [timelineViewController selectCurrentDayIfViable];
+    // [mapViewController.locationManager startUpdatingLocation];
+    // [timelineViewController selectCurrentDayIfViable];
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
