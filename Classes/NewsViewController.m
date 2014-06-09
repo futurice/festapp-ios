@@ -117,7 +117,7 @@
 
     NSTimeInterval pubDateTime = [contentItemDict[@"time"] doubleValue];
     NSDate *pubDate = [NSDate dateWithTimeIntervalSince1970:pubDateTime];
-    NSDateFormatter *formatter = [NSDate dateFormatterWithFormat:@"dd.MM.yyyy  HH:mm"];
+    NSDateFormatter *formatter = [NSDate dateFormatterWithFormat:@"HH:mm"];
     detailLabel.text = [formatter stringFromDate:pubDate];
 
     titleLabel.frame = CGRectMake(24, 4, kNewsCellLabelWidth, cellHeight-40);

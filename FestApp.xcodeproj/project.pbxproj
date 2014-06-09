@@ -209,6 +209,15 @@
 		AD1FC62118F99FEB00F96A78 /* map_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1FC61618F99FEB00F96A78 /* map_icon.png */; };
 		AD1FC62218F99FEB00F96A78 /* map_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1FC61718F99FEB00F96A78 /* map_icon@2x.png */; };
 		AD1FC62418F9A7DB00F96A78 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1FC62318F9A7DB00F96A78 /* logo@2x.png */; };
+		AD68824819462C140015F409 /* fret@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68823F19462C140015F409 /* fret@2x.png */; };
+		AD68824919462C140015F409 /* fretboard_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824019462C140015F409 /* fretboard_bg@2x.png */; };
+		AD68824A19462C140015F409 /* fretboard_strings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824119462C140015F409 /* fretboard_strings@2x.png */; };
+		AD68824B19462C140015F409 /* frontpage_bottom_deco@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824219462C140015F409 /* frontpage_bottom_deco@2x.png */; };
+		AD68824C19462C140015F409 /* ruisrock_logo_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824319462C140015F409 /* ruisrock_logo_header@2x.png */; };
+		AD68824D19462C140015F409 /* schedule_bottom_deco@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824419462C140015F409 /* schedule_bottom_deco@2x.png */; };
+		AD68824E19462C140015F409 /* schedule_favourite_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824519462C140015F409 /* schedule_favourite_selected@2x.png */; };
+		AD68824F19462C140015F409 /* schedule_favourite.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824619462C140015F409 /* schedule_favourite.png */; };
+		AD68825019462C140015F409 /* schedule_favourite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD68824719462C140015F409 /* schedule_favourite@2x.png */; };
 		ADE7A206194617A00073C4D8 /* bg_pattern_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A200194617A00073C4D8 /* bg_pattern_green@2x.png */; };
 		ADE7A207194617A00073C4D8 /* bg_pattern_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A201194617A00073C4D8 /* bg_pattern_light@2x.png */; };
 		ADE7A208194617A00073C4D8 /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A202194617A00073C4D8 /* default-568h@2x.png */; };
@@ -537,6 +546,15 @@
 		AD1FC61618F99FEB00F96A78 /* map_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_icon.png; path = "Resources/ios-images/map_icon.png"; sourceTree = "<group>"; };
 		AD1FC61718F99FEB00F96A78 /* map_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_icon@2x.png"; path = "Resources/ios-images/map_icon@2x.png"; sourceTree = "<group>"; };
 		AD1FC62318F9A7DB00F96A78 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		AD68823F19462C140015F409 /* fret@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fret@2x.png"; path = "Resources/Ruisrock2014/fret@2x.png"; sourceTree = "<group>"; };
+		AD68824019462C140015F409 /* fretboard_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fretboard_bg@2x.png"; path = "Resources/Ruisrock2014/fretboard_bg@2x.png"; sourceTree = "<group>"; };
+		AD68824119462C140015F409 /* fretboard_strings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fretboard_strings@2x.png"; path = "Resources/Ruisrock2014/fretboard_strings@2x.png"; sourceTree = "<group>"; };
+		AD68824219462C140015F409 /* frontpage_bottom_deco@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "frontpage_bottom_deco@2x.png"; path = "Resources/Ruisrock2014/frontpage_bottom_deco@2x.png"; sourceTree = "<group>"; };
+		AD68824319462C140015F409 /* ruisrock_logo_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ruisrock_logo_header@2x.png"; path = "Resources/Ruisrock2014/ruisrock_logo_header@2x.png"; sourceTree = "<group>"; };
+		AD68824419462C140015F409 /* schedule_bottom_deco@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "schedule_bottom_deco@2x.png"; path = "Resources/Ruisrock2014/schedule_bottom_deco@2x.png"; sourceTree = "<group>"; };
+		AD68824519462C140015F409 /* schedule_favourite_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "schedule_favourite_selected@2x.png"; path = "Resources/Ruisrock2014/schedule_favourite_selected@2x.png"; sourceTree = "<group>"; };
+		AD68824619462C140015F409 /* schedule_favourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = schedule_favourite.png; path = Resources/Ruisrock2014/schedule_favourite.png; sourceTree = "<group>"; };
+		AD68824719462C140015F409 /* schedule_favourite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "schedule_favourite@2x.png"; path = "Resources/Ruisrock2014/schedule_favourite@2x.png"; sourceTree = "<group>"; };
 		ADE7A200194617A00073C4D8 /* bg_pattern_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_pattern_green@2x.png"; path = "Resources/Ruisrock2014/bg_pattern_green@2x.png"; sourceTree = "<group>"; };
 		ADE7A201194617A00073C4D8 /* bg_pattern_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_pattern_light@2x.png"; path = "Resources/Ruisrock2014/bg_pattern_light@2x.png"; sourceTree = "<group>"; };
 		ADE7A202194617A00073C4D8 /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-568h@2x.png"; path = "Resources/Ruisrock2014/default-568h@2x.png"; sourceTree = "<group>"; };
@@ -938,6 +956,15 @@
 		88355E8419460B94003E2F90 /* Ruisrock2014 */ = {
 			isa = PBXGroup;
 			children = (
+				AD68823F19462C140015F409 /* fret@2x.png */,
+				AD68824019462C140015F409 /* fretboard_bg@2x.png */,
+				AD68824119462C140015F409 /* fretboard_strings@2x.png */,
+				AD68824219462C140015F409 /* frontpage_bottom_deco@2x.png */,
+				AD68824319462C140015F409 /* ruisrock_logo_header@2x.png */,
+				AD68824419462C140015F409 /* schedule_bottom_deco@2x.png */,
+				AD68824519462C140015F409 /* schedule_favourite_selected@2x.png */,
+				AD68824619462C140015F409 /* schedule_favourite.png */,
+				AD68824719462C140015F409 /* schedule_favourite@2x.png */,
 				88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */,
 				ADE7A200194617A00073C4D8 /* bg_pattern_green@2x.png */,
 				ADE7A201194617A00073C4D8 /* bg_pattern_light@2x.png */,
@@ -1210,12 +1237,14 @@
 				AD1FC62018F99FEB00F96A78 /* logo@2x.png in Resources */,
 				CD7852471378B0A900711F11 /* tab-clock.png in Resources */,
 				AD14D20918F97DE2006890E7 /* insta_icon@2x.png in Resources */,
+				AD68824B19462C140015F409 /* frontpage_bottom_deco@2x.png in Resources */,
 				CD7852481378B0A900711F11 /* tab-clock@2x.png in Resources */,
 				CD7852491378B0A900711F11 /* tab-map.png in Resources */,
 				CD78524A1378B0A900711F11 /* tab-map@2x.png in Resources */,
 				AD1FC60318F99FD300F96A78 /* band_page_play_spotify.png in Resources */,
 				AD1FC5F718F99EC600F96A78 /* bg.png in Resources */,
 				4D587121138BED9A00B0A0BC /* userlocation.png in Resources */,
+				AD68824919462C140015F409 /* fretboard_bg@2x.png in Resources */,
 				4D587122138BED9A00B0A0BC /* userlocation@2x.png in Resources */,
 				AD14D21818F97F47006890E7 /* logo.png in Resources */,
 				88619A4218F53DDA00AABC23 /* icon-spotlight.png in Resources */,
@@ -1265,6 +1294,7 @@
 				AD1FC60818F99FD300F96A78 /* band_page_star_icon_active@2x.png in Resources */,
 				4DDA0350139C083B0003FFA4 /* callout-left@2x.png in Resources */,
 				4DDA0351139C083B0003FFA4 /* callout-right@2x.png in Resources */,
+				AD68825019462C140015F409 /* schedule_favourite@2x.png in Resources */,
 				ADE7A208194617A00073C4D8 /* default-568h@2x.png in Resources */,
 				4D1ED386139C36B400BB1D47 /* Riff2.aif in Resources */,
 				ADE7A206194617A00073C4D8 /* bg_pattern_green@2x.png in Resources */,
@@ -1279,6 +1309,7 @@
 				AD1FC61C18F99FEB00F96A78 /* insta_icon@2x.png in Resources */,
 				48EE8C18158B3B6600C5345E /* content_area_bottom.png in Resources */,
 				48EE8C19158B3B6600C5345E /* content_area_middle.png in Resources */,
+				AD68824819462C140015F409 /* fret@2x.png in Resources */,
 				AD14D20718F97DE2006890E7 /* info_icon@2x.png in Resources */,
 				48EE8C1A158B3B6600C5345E /* content_area_top.png in Resources */,
 				AD1FC61E18F99FEB00F96A78 /* instagram_popup_close@2x.png in Resources */,
@@ -1287,6 +1318,7 @@
 				4845E7D61590B22300CE791A /* artists.json in Resources */,
 				AD1FC60918F99FD300F96A78 /* band_page_star_icon.png in Resources */,
 				4845E7D71590B22300CE791A /* faq.json in Resources */,
+				AD68824D19462C140015F409 /* schedule_bottom_deco@2x.png in Resources */,
 				4845E7D81590B22300CE791A /* program.json in Resources */,
 				4845E7D91590B22300CE791A /* general.json in Resources */,
 				AD1FC61D18F99FEB00F96A78 /* instagram_popup_close.png in Resources */,
@@ -1311,6 +1343,7 @@
 				AD14D20618F97DE2006890E7 /* info_icon.png in Resources */,
 				AD14D20818F97DE2006890E7 /* insta_icon.png in Resources */,
 				485C1877176AA1DB008BAD14 /* mark_as_played_bg.png in Resources */,
+				AD68824C19462C140015F409 /* ruisrock_logo_header@2x.png in Resources */,
 				485C1878176AA1DB008BAD14 /* mark_as_played_bg@2x.png in Resources */,
 				883BD75918DF4C5A00154A9A /* band-placeholder.png in Resources */,
 				485C1879176AA1DB008BAD14 /* menu_item_bg.png in Resources */,
@@ -1328,6 +1361,7 @@
 				485C1881176AA1DB008BAD14 /* timeline_fri_sun_bg@2x.png in Resources */,
 				AD14D21418F97DE2006890E7 /* schedule_page_star_icon.png in Resources */,
 				AD1FC5EF18F99E8A00F96A78 /* schedule_page_stage_name_bg.png in Resources */,
+				AD68824E19462C140015F409 /* schedule_favourite_selected@2x.png in Resources */,
 				AD1FC60518F99FD300F96A78 /* band_page_play_youtube.png in Resources */,
 				AD1FC5E818F98E2E00F96A78 /* info_menu_item@2x.png in Resources */,
 				485C1882176AA1DB008BAD14 /* timeline_fri_sun_bg_selected.png in Resources */,
@@ -1341,6 +1375,7 @@
 				485C188B176B6AD6008BAD14 /* selected_tab.png in Resources */,
 				485C188C176B6AD6008BAD14 /* selected_tab@2x.png in Resources */,
 				AD1FC60618F99FD300F96A78 /* band_page_play_youtube@2x.png in Resources */,
+				AD68824F19462C140015F409 /* schedule_favourite.png in Resources */,
 				485C188F176B760C008BAD14 /* navigation_bar.png in Resources */,
 				AD14D20F18F97DE2006890E7 /* map_icon@2x.png in Resources */,
 				485C1890176B760C008BAD14 /* navigation_bar@2x.png in Resources */,
@@ -1350,6 +1385,7 @@
 				48DD6A1D177A3A5200FC6948 /* favorite_arrow_starred.png in Resources */,
 				88355E7E19460719003E2F90 /* RR2014Window.xib in Resources */,
 				AD1FC62118F99FEB00F96A78 /* map_icon.png in Resources */,
+				AD68824A19462C140015F409 /* fretboard_strings@2x.png in Resources */,
 				48DD6A1E177A3A5200FC6948 /* favorite_arrow_starred@2x.png in Resources */,
 				ADE7A207194617A00073C4D8 /* bg_pattern_light@2x.png in Resources */,
 				48DD6A21177A513900FC6948 /* background_top.png in Resources */,
