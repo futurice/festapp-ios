@@ -209,6 +209,12 @@
 		AD1FC62118F99FEB00F96A78 /* map_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1FC61618F99FEB00F96A78 /* map_icon.png */; };
 		AD1FC62218F99FEB00F96A78 /* map_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1FC61718F99FEB00F96A78 /* map_icon@2x.png */; };
 		AD1FC62418F9A7DB00F96A78 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1FC62318F9A7DB00F96A78 /* logo@2x.png */; };
+		ADE7A206194617A00073C4D8 /* bg_pattern_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A200194617A00073C4D8 /* bg_pattern_green@2x.png */; };
+		ADE7A207194617A00073C4D8 /* bg_pattern_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A201194617A00073C4D8 /* bg_pattern_light@2x.png */; };
+		ADE7A208194617A00073C4D8 /* default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A202194617A00073C4D8 /* default-568h@2x.png */; };
+		ADE7A209194617A00073C4D8 /* frontpage_header_tree@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A203194617A00073C4D8 /* frontpage_header_tree@2x.png */; };
+		ADE7A20A194617A00073C4D8 /* news_bg_flowers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A204194617A00073C4D8 /* news_bg_flowers@2x.png */; };
+		ADE7A20B194617A00073C4D8 /* water_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE7A205194617A00073C4D8 /* water_line@2x.png */; };
 		CD7852321378AD2500711F11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7852311378AD2500711F11 /* CoreLocation.framework */; };
 		CD7852471378B0A900711F11 /* tab-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7852431378B0A900711F11 /* tab-clock.png */; };
 		CD7852481378B0A900711F11 /* tab-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7852441378B0A900711F11 /* tab-clock@2x.png */; };
@@ -530,6 +536,12 @@
 		AD1FC61618F99FEB00F96A78 /* map_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_icon.png; path = "Resources/ios-images/map_icon.png"; sourceTree = "<group>"; };
 		AD1FC61718F99FEB00F96A78 /* map_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_icon@2x.png"; path = "Resources/ios-images/map_icon@2x.png"; sourceTree = "<group>"; };
 		AD1FC62318F9A7DB00F96A78 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		ADE7A200194617A00073C4D8 /* bg_pattern_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_pattern_green@2x.png"; path = "Resources/Ruisrock2014/bg_pattern_green@2x.png"; sourceTree = "<group>"; };
+		ADE7A201194617A00073C4D8 /* bg_pattern_light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg_pattern_light@2x.png"; path = "Resources/Ruisrock2014/bg_pattern_light@2x.png"; sourceTree = "<group>"; };
+		ADE7A202194617A00073C4D8 /* default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-568h@2x.png"; path = "Resources/Ruisrock2014/default-568h@2x.png"; sourceTree = "<group>"; };
+		ADE7A203194617A00073C4D8 /* frontpage_header_tree@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "frontpage_header_tree@2x.png"; path = "Resources/Ruisrock2014/frontpage_header_tree@2x.png"; sourceTree = "<group>"; };
+		ADE7A204194617A00073C4D8 /* news_bg_flowers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "news_bg_flowers@2x.png"; path = "Resources/Ruisrock2014/news_bg_flowers@2x.png"; sourceTree = "<group>"; };
+		ADE7A205194617A00073C4D8 /* water_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "water_line@2x.png"; path = "Resources/Ruisrock2014/water_line@2x.png"; sourceTree = "<group>"; };
 		CD7852311378AD2500711F11 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CD7852431378B0A900711F11 /* tab-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-clock.png"; path = "Resources/Images/tab-clock.png"; sourceTree = "<group>"; };
 		CD7852441378B0A900711F11 /* tab-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-clock@2x.png"; path = "Resources/Images/tab-clock@2x.png"; sourceTree = "<group>"; };
@@ -924,6 +936,12 @@
 			isa = PBXGroup;
 			children = (
 				88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */,
+				ADE7A200194617A00073C4D8 /* bg_pattern_green@2x.png */,
+				ADE7A201194617A00073C4D8 /* bg_pattern_light@2x.png */,
+				ADE7A202194617A00073C4D8 /* default-568h@2x.png */,
+				ADE7A203194617A00073C4D8 /* frontpage_header_tree@2x.png */,
+				ADE7A204194617A00073C4D8 /* news_bg_flowers@2x.png */,
+				ADE7A205194617A00073C4D8 /* water_line@2x.png */,
 			);
 			name = Ruisrock2014;
 			sourceTree = "<group>";
@@ -1182,6 +1200,7 @@
 			files = (
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* MapView.xib in Resources */,
+				ADE7A209194617A00073C4D8 /* frontpage_header_tree@2x.png in Resources */,
 				AD1FC60B18F99FD300F96A78 /* bands_icon.png in Resources */,
 				2840D7CE1179279E00D7F93C /* TimelineView.xib in Resources */,
 				AD1FC62018F99FEB00F96A78 /* logo@2x.png in Resources */,
@@ -1215,6 +1234,7 @@
 				4D186E0B139329E100CDA3DB /* InfoView.xib in Resources */,
 				4D186E5B1393C2B200CDA3DB /* callout.png in Resources */,
 				4D186E5C1393C2B200CDA3DB /* callout@2x.png in Resources */,
+				ADE7A20B194617A00073C4D8 /* water_line@2x.png in Resources */,
 				4D30E7DE1395A8CA007E9D0B /* WebContentView.xib in Resources */,
 				88BCA3B518DED71900654E64 /* arrival.html in Resources */,
 				88619A3E18F53DCC00AABC23 /* icon-app.png in Resources */,
@@ -1241,7 +1261,9 @@
 				AD1FC60818F99FD300F96A78 /* band_page_star_icon_active@2x.png in Resources */,
 				4DDA0350139C083B0003FFA4 /* callout-left@2x.png in Resources */,
 				4DDA0351139C083B0003FFA4 /* callout-right@2x.png in Resources */,
+				ADE7A208194617A00073C4D8 /* default-568h@2x.png in Resources */,
 				4D1ED386139C36B400BB1D47 /* Riff2.aif in Resources */,
+				ADE7A206194617A00073C4D8 /* bg_pattern_green@2x.png in Resources */,
 				4D1ED38B139CB81500BB1D47 /* Riff1.aif in Resources */,
 				4D1ED393139CE6F700BB1D47 /* callout-right.png in Resources */,
 				4D1ED394139CE6F700BB1D47 /* callout-left.png in Resources */,
@@ -1288,6 +1310,7 @@
 				485C1878176AA1DB008BAD14 /* mark_as_played_bg@2x.png in Resources */,
 				883BD75918DF4C5A00154A9A /* band-placeholder.png in Resources */,
 				485C1879176AA1DB008BAD14 /* menu_item_bg.png in Resources */,
+				ADE7A20A194617A00073C4D8 /* news_bg_flowers@2x.png in Resources */,
 				485C187A176AA1DB008BAD14 /* menu_item_bg@2x.png in Resources */,
 				485C187B176AA1DB008BAD14 /* menu_item_bg_selected.png in Resources */,
 				485C187C176AA1DB008BAD14 /* menu_item_bg_selected@2x.png in Resources */,
@@ -1324,6 +1347,7 @@
 				88355E7E19460719003E2F90 /* RR2014Window.xib in Resources */,
 				AD1FC62118F99FEB00F96A78 /* map_icon.png in Resources */,
 				48DD6A1E177A3A5200FC6948 /* favorite_arrow_starred@2x.png in Resources */,
+				ADE7A207194617A00073C4D8 /* bg_pattern_light@2x.png in Resources */,
 				48DD6A21177A513900FC6948 /* background_top.png in Resources */,
 				48DD6A22177A513900FC6948 /* background_top@2x.png in Resources */,
 				AD1FC61918F99FEB00F96A78 /* info_icon@2x.png in Resources */,
