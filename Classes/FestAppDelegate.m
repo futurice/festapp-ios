@@ -5,7 +5,7 @@
 
 #import "FestAppDelegate.h"
 
-#import "Gig.h"
+#import "Artist.h"
 #import "NSDate+Additions.h"
 #import "UIViewController+Additions.h"
 #import <AudioToolbox/AudioToolbox.h>
@@ -124,19 +124,19 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (IBAction)showFoodInfo:(id)sender
 {
-    UIViewController *controller = [RR14WebContentViewController newWithContent:@"<h1>RUOKAA!!!</h1>"];
+    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:@"<h1>RUOKAA!!!</h1>" title:nil];
     [self.navController pushViewController:controller animated:YES];
 }
 
 - (IBAction)showGeneralInfo:(id)sender
 {
-    UIViewController *controller = [RR14WebContentViewController newWithContent:@"<h1>TIETOJA!!!</h1><h2>PALJON</h2>"];
+    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:@"<h1>TIETOJA!!!</h1><h2>PALJON</h2>" title:nil];
     [self.navController pushViewController:controller animated:YES];
 }
 
-- (void)showNewsItem:(NSString *)newsItemId
+- (void)showNewsItem:(NewsItem *)newsItem
 {
-    UIViewController *controller = [RR14NewsItemViewController newWithNewsItemId:newsItemId];
+    UIViewController *controller = [[RR14NewsItemViewController alloc] initWithNewsItem:newsItem];
     [self.navController pushViewController:controller animated:YES];
 }
 

@@ -3,20 +3,20 @@
 //  FestApp
 //
 
-#import "Gig.h"
+#import "Artist.h"
 #import "NSDate+Additions.h"
 #import <CoreLocation/CoreLocation.h>
 
 #import "AFNetworking.h"
 #import "FestHTTPSessionManager.h"
 
-@interface Gig () {
+@interface Artist () {
     BOOL loadingImage;
 }
 
 @end
 
-@implementation Gig
+@implementation Artist
 
 @synthesize artistId;
 @synthesize artistName;
@@ -42,15 +42,15 @@
 
 NSInteger alphabeticalGigSort(id gig1, id gig2, void *context)
 {
-    NSString *artist1 = [(Gig *) gig1 artistName];
-    NSString *artist2 = [(Gig *) gig2 artistName];
+    NSString *artist1 = [(Artist *) gig1 artistName];
+    NSString *artist2 = [(Artist *) gig2 artistName];
     return [artist1 compare:artist2 options:NSCaseInsensitiveSearch];
 }
 
 NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 {
-    NSDate *begin1 = [(Gig *) gig1 begin];
-    NSDate *begin2 = [(Gig *) gig2 begin];
+    NSDate *begin1 = [(Artist *) gig1 begin];
+    NSDate *begin2 = [(Artist *) gig2 begin];
     return [begin1 compare:begin2];
 }
 
@@ -68,7 +68,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 
         NSDictionary *dict = dicts[i];
 
-		Gig *gig            = [[Gig alloc] init];
+		Artist *gig            = [[Artist alloc] init];
 		gig.artistId        = [NSString cast:dict[@"id"]];
 		gig.artistName      = [NSString cast:dict[@"name"]];
 		gig.venue           = [[NSString cast:dict[@"stage"]] capitalizedString];
@@ -134,7 +134,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             gig.favorite = [defaults boolForKey:favoriteKey];
 
-            for (Gig *existingGig in gigs) {
+            for (Artist *existingGig in gigs) {
 
                 if ([existingGig.artistName isEqualToString:gig.artistName]) {
 
@@ -307,7 +307,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 	return [self.end timeIntervalSinceDate:self.begin];
 }
 
-- (NSComparisonResult)compare:(Gig *)otherGig
+- (NSComparisonResult)compare:(Artist *)otherGig
 {
     return [self.begin compare:otherGig.begin];
 }

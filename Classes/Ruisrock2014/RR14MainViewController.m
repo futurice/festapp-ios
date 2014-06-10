@@ -11,8 +11,10 @@
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
 
-@interface RR14MainViewController ()
+#import "NewsItem.h"
 
+@interface RR14MainViewController ()
+@property (nonatomic, strong) NewsItem *currentNewsItem;
 @end
 
 @implementation RR14MainViewController
@@ -31,11 +33,12 @@
     [super viewDidLoad];
 
     // Subscribe
-    RACSignal *newsSignal = [FestDataManager.sharedFestDataManager signalForResource:FestResourceNews];
+    RACSignal *newsSignal = [FestDataManager.sharedFestDataManager newsSignal];
     [newsSignal subscribeNext:^(NSArray *news) {
         NSAssert(news.count >= 0, @"We assume there is at least one news entry") ;
 
-        self.newsTitleLabel.text = [((NSDictionary *)[news firstObject]) objectForKey:@"title"];
+        self.currentNewsItem = news.firstObject;
+        self.newsTitleLabel.text = self.currentNewsItem.title;
     }];
     // Do any additional setup after loading the view from its nib.
 
@@ -101,7 +104,7 @@
 - (IBAction)showCurrentNewsItem:(id)sender
 {
     NSLog(@"show current news item");
-    [APPDELEGATE showNewsItem:@"News item: foobar"];
+    [APPDELEGATE showNewsItem:self.currentNewsItem];
 }
 
 

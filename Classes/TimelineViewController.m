@@ -4,7 +4,7 @@
 //
 
 #import "TimelineViewController.h"
-#import "Gig.h"
+#import "Artist.h"
 #import "GigViewController.h"
 #import "MapViewController.h"
 #import "FestAppDelegate.h"
@@ -46,7 +46,7 @@
         [venuesArr addObject:[venueData valueForKey:@"name"]];
     }
 
-	for (Gig *gig in theGigs) {
+	for (Artist *gig in theGigs) {
 
 		NSMutableDictionary *gigArraysByVenue = gigsDictByDayThenByVenue[gig.date];
 		if (gigArraysByVenue == nil) {
@@ -287,11 +287,11 @@
     selectedDayIndex = dayChooser.selectedDayIndex;
     self.selectedDay = days[dayChooser.selectedDayIndex];
 
-    Gig *firstGigOfDay = nil;
-    Gig *lastGigOfDay = nil;
+    Artist *firstGigOfDay = nil;
+    Artist *lastGigOfDay = nil;
     NSDictionary *gigsOfDayByVenue = gigsByDayThenByVenue[selectedDay];
     for (NSArray *gigsOfVenue in gigsOfDayByVenue.allValues) {
-        for (Gig *gig in gigsOfVenue) {
+        for (Artist *gig in gigsOfVenue) {
             if (firstGigOfDay == nil || [gig.begin before:firstGigOfDay.begin]) {
                 firstGigOfDay = gig;
             }
@@ -374,12 +374,12 @@
     }];
 }
 
-- (Gig *)nextGigForDate:(NSDate *)date onVenue:(NSString *)venue
+- (Artist *)nextGigForDate:(NSDate *)date onVenue:(NSString *)venue
 {
     for (NSDate *day in days) {
         NSArray *gigsOfDay = [gigsByDayThenByVenue[day] valueForKey:venue];
-        Gig *earliestGigStillToPlay = nil;
-        for (Gig *gig in gigsOfDay) {
+        Artist *earliestGigStillToPlay = nil;
+        for (Artist *gig in gigsOfDay) {
             if ([gig.end after:date] &&
                     (earliestGigStillToPlay == nil || [gig.begin before:earliestGigStillToPlay.begin])) {
                 earliestGigStillToPlay = gig;
@@ -393,7 +393,7 @@
     return nil;
 }
 
-- (void)scrollToGig:(Gig *)gig
+- (void)scrollToGig:(Artist *)gig
 {
     NSInteger gigBeginX = [timelineView xFromDate:gig.begin];
     NSInteger gigEndX = [timelineView xFromDate:gig.end];
@@ -449,7 +449,7 @@
 	return kHourWidth;
 }
 
-- (void)gigSelected:(Gig *)gig
+- (void)gigSelected:(Artist *)gig
 {
     gigViewController.gig = gig;
     gigViewController.shouldFavoriteAllAlternatives = NO;
@@ -457,7 +457,7 @@
     [self.navigationController pushViewController:gigViewController animated:YES];
 }
 
-- (void)gigFavoriteStatusToggled:(Gig *)gig
+- (void)gigFavoriteStatusToggled:(Artist *)gig
 {
 	gig.favorite = !gig.favorite;
 	[timelineView setNeedsDisplay];

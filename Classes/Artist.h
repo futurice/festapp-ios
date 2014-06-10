@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Gig : NSObject {
+@interface Artist : NSObject {
 
     BOOL favorite;
 }

@@ -9,7 +9,7 @@
 #define kStarAreaWidth 32
 #define kMinWidthForArtistName 60
 
-@class Gig;
+@class Artist;
 
 
 @protocol TimelineViewDataSource
@@ -28,8 +28,8 @@
 - (NSInteger)widthForVenueLabel;
 - (NSInteger)heightForTimeScale;
 - (NSInteger)widthForOneHour;
-- (void)gigSelected:(Gig *)gig;
-- (void)gigFavoriteStatusToggled:(Gig *)gig;
+- (void)gigSelected:(Artist *)gig;
+- (void)gigFavoriteStatusToggled:(Artist *)gig;
 
 @end
 

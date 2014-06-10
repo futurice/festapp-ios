@@ -8,7 +8,7 @@
 #import "UIViewController+Additions.h"
 #import "FestAppDelegate.h"
 #import "TimelineViewController.h"
-#import "Gig.h"
+#import "Artist.h"
 #import "NSDate+Additions.h"
 #import "FestDataManager.h"
 

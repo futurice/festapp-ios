@@ -10,5 +10,5 @@
 
 @interface RR14WebContentViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
-+ (RR14WebContentViewController *)newWithContent:(NSString *)content;
+- (id)initWithContent:(NSString *)content title:(NSString *)title;
 @end

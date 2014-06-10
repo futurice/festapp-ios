@@ -6,13 +6,13 @@
 #import <UIKit/UIKit.h>
 #import "WebContentViewController.h"
 
-@class Gig;
+@class Artist;
 
 @interface GigViewController : WebContentViewController {
-    Gig *gig;
+    Artist *gig;
 }
 
-@property (nonatomic, strong) Gig *gig;
+@property (nonatomic, strong) Artist *gig;
 
 @property (nonatomic, weak) IBOutlet UIImageView *artistImageFrameView;
 @property (nonatomic, weak) IBOutlet UIImageView *artistImageView;

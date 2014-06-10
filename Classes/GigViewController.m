@@ -4,7 +4,7 @@
 //
 
 #import "GigViewController.h"
-#import "Gig.h"
+#import "Artist.h"
 #import "UIViewController+Additions.h"
 
 @interface GigViewController ()
@@ -57,7 +57,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)setGig:(Gig *)theGig
+- (void)setGig:(Artist *)theGig
 {
     if (gig != theGig) {
         gig = theGig;
@@ -88,7 +88,7 @@
         [alternativeGigs sortUsingFunction:chronologicalGigSort context:nil];
         NSMutableString *stageTimeLabelText = [NSMutableString string];
         for (unsigned int i = 0; i < [alternativeGigs count]; i++) {
-            Gig *aGig = alternativeGigs[i];
+            Artist *aGig = alternativeGigs[i];
             [stageTimeLabelText appendString:aGig.stageAndTimeIntervalString];
             if (i < [alternativeGigs count]-1) {
                 [stageTimeLabelText appendString:@"\n"];
@@ -117,7 +117,7 @@
     [self sendEventToTracker:[NSString stringWithFormat:@"star/profile %d %@", gig.isFavorite, gig.artistName]];
 
     if (shouldFavoriteAllAlternatives && gig.alternativeGigs != nil) {
-        for (Gig *alternativeGig in gig.alternativeGigs) {
+        for (Artist *alternativeGig in gig.alternativeGigs) {
             alternativeGig.favorite = gig.favorite;
         }
     }

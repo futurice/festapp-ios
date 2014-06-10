@@ -7,7 +7,7 @@
 #import "WebContentViewController.h"
 #import "NavigableContentViewController.h"
 #import "FestAppDelegate.h"
-#import "Gig.h"
+#import "Artist.h"
 #import "UIViewController+Additions.h"
 #import "FestDataManager.h"
 
@@ -32,7 +32,7 @@ NSArray *sortedArtists(NSArray *gigs)
 
     NSMutableArray *uniqueArtistNames = [NSMutableArray arrayWithCapacity:[gigsInAlphabeticalOrder count]];
 
-    for (Gig *gig in gigsInAlphabeticalOrder) {
+    for (Artist *gig in gigsInAlphabeticalOrder) {
         NSString *artistName = gig.artistName;
         if (![uniqueArtistNames containsObject:artistName]) {
 

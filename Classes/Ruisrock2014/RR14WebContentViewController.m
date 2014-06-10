@@ -13,15 +13,19 @@
 
 @interface RR14WebContentViewController ()
 @property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *contentTitle;
 @end
 
 @implementation RR14WebContentViewController
 
-+ (RR14WebContentViewController *)newWithContent:(NSString *)content
+- (id)initWithContent:(NSString *)content title:(NSString *)title
 {
-    RR14WebContentViewController *controller = [[RR14WebContentViewController alloc] initWithNibName:@"RR14WebContentViewController" bundle:nil];
-    [controller setContent:content];
-    return controller;
+    self = [super initWithNibName:@"RR14WebContentViewController" bundle:nil];
+    if (self) {
+        self.content = content;
+        self.contentTitle = title;
+    }
+    return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,7 +57,7 @@
                              "      padding-top: 0px;      "
                              "      padding-left: 0px;      "
                              "      padding-bottom: 10px;   "
-                             "      padding-right: 0px;     "
+                             "      padding-right: 0px;     "   
 
                              "    } "
 
@@ -78,6 +82,9 @@
 
     [html appendString:@"<body> "
      "<div id=\"main\"> "];
+    if (self.contentTitle) {
+        [html appendFormat:@"<h1>%@</h1>", self.contentTitle];
+    }
     [html appendFormat:@"%@ ", self.content];
     [html appendString:@"</div> "];
     [html appendString:@"</body> "];

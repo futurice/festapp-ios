@@ -4,7 +4,7 @@
 //
 
 #import "TimelineView.h"
-#import "Gig.h"
+#import "Artist.h"
 #import "NSDate+Additions.h"
 #import <AudioToolbox/AudioServices.h>
 #import <AVFoundation/AVFoundation.h>
@@ -91,7 +91,7 @@
 		int venueY = [delegate heightForTimeScale] + 1 + (int) (i * (venueHeight + 1));
 		NSArray *gigs = [dataSource gigsForVenueAtIndex:i];
 
-		for (Gig *gig in gigs) {
+		for (Artist *gig in gigs) {
 
 			int gigBeginX = [self xFromDate:gig.begin];
 			int gigEndX = [self xFromDate:gig.end];
@@ -217,7 +217,7 @@
 			CGFloat venueRowHeight = [delegate heightForVenueRow];
 			NSUInteger venueIndex = (NSUInteger) ((touchPoint.y - timeScaleHeight) / venueRowHeight);
 			NSArray *gigs = [dataSource gigsForVenueAtIndex:venueIndex];
-			for (Gig *gig in gigs) {
+			for (Artist *gig in gigs) {
 				CGFloat gigBeginX = [self xFromDate:gig.begin];
 				CGFloat gigEndX = gigBeginX + [self widthFromTimeInterval:gig.duration];
 				if (touchPoint.x >= gigBeginX && touchPoint.x <= gigBeginX + kStarAreaWidth) {

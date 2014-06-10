@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14NewsItemViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UILabel* newsItemLabel;
+#import "RR14WebContentViewController.h"
+#import "NewsItem.h"
 
-// TODO: implement news type and take that as param
-+ (RR14NewsItemViewController *) newWithNewsItemId:(NSString *)newsItemId;
+@interface RR14NewsItemViewController : RR14WebContentViewController
+- (id)initWithNewsItem:(NewsItem *)newsItem;
 @end

@@ -45,7 +45,7 @@
 - (void)setSelectedVenue:(NSString *)venue;
 - (void)selectCurrentDayIfViable;
 
-- (Gig *)nextGigForDate:(NSDate *)date onVenue:(NSString *)venue;
-- (void)scrollToGig:(Gig *)gig;
+- (Artist *)nextGigForDate:(NSDate *)date onVenue:(NSString *)venue;
+- (void)scrollToGig:(Artist *)gig;
 
 @end

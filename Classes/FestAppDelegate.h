@@ -10,7 +10,7 @@
 #import "RR14ArtistsViewController.h"
 #import "RR14MapViewController.h"
 
-#import "TimelineViewController.h"
+#import "NewsItem.h"
 
 @class InfoViewController;
 
@@ -36,7 +36,7 @@
 - (IBAction)showFoodInfo:(id)sender;
 - (IBAction)showGeneralInfo:(id)sender;
 
-- (void)showNewsItem:(NSString *)newsItemId;
+- (void)showNewsItem:(NewsItem *)newsItem;
 - (void)showArtist:(NSString *)artistId;
 
 @end

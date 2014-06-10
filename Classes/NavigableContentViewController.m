@@ -6,7 +6,7 @@
 #import "NavigableContentViewController.h"
 #import "WebContentViewController.h"
 #import "GigViewController.h"
-#import "Gig.h"
+#import "Artist.h"
 #import "UIViewController+Additions.h"
 
 #define kCellButtonTag 1000
@@ -306,10 +306,10 @@
 
     self.navigationItem.title = NSLocalizedString(@"navigation.back", @"");
 
-    if ([contentItem isKindOfClass:Gig.class]) {
+    if ([contentItem isKindOfClass:Artist.class]) {
 
         GigViewController *gigViewer = [[GigViewController alloc] initWithNibName:@"GigView" bundle:nil];
-        gigViewer.gig = (Gig *) contentItem;
+        gigViewer.gig = (Artist *) contentItem;
         gigViewer.shouldFavoriteAllAlternatives = YES;
         [self.navigationController pushViewController:gigViewer animated:YES];
 
