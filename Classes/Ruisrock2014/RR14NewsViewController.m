@@ -1,20 +1,21 @@
 //
-//  RR2014MainViewController.m
+//  RR14NewsViewController.m
 //  FestApp
 //
-//  Created by Oleg Grenrus on 09/06/14.
+//  Created by Oleg Grenrus on 10/06/14.
 //  Copyright (c) 2014 Futurice Oy. All rights reserved.
 //
 
-#import "RR2014MainViewController.h"
+#import "RR14NewsViewController.h"
 
+#import "FestAppDelegate.h"
 #import "FestDataManager.h"
 
-@interface RR2014MainViewController ()
+@interface RR14NewsViewController ()
 
 @end
 
-@implementation RR2014MainViewController
+@implementation RR14NewsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,20 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Subscribe
-    RACSignal *newsSignal = [FestDataManager.sharedFestDataManager signalForResource:FestResourceNews];
-    [newsSignal subscribeNext:^(NSArray *news) {
-        NSAssert(news.count >= 0, @"We assume there is at least one news entry") ;
-
-        self.newsTitleLabel.text = [((NSDictionary *)[news firstObject]) objectForKey:@"title"];
-    }];
     // Do any additional setup after loading the view from its nib.
+
+    self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[self navigationController] setNavigationBarHidden:YES animated:animated];
+    [[self navigationController] setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)didReceiveMemoryWarning

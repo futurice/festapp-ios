@@ -19,6 +19,9 @@
 #import "FestDataManager.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
+#import "RR14ArtistViewController.h"
+#import "RR14NewsItemViewController.h"
+
 @implementation FestAppDelegate
 
 #pragma mark Application lifecycle
@@ -47,8 +50,15 @@ void uncaughtExceptionHandler(NSException *exception)
 
     [defaults synchronize];
 
-    self.infoViewController = (InfoViewController *) [[UIViewController alloc] initWithNibName:@"InfoViewController" bundle:nil];
+    // Navigation bar
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation-bar.png"] forBarMetrics:UIBarMetricsDefault];
 
+    // Custom back bar button item
+    self.backBarButtonItem.target = self;
+    self.backBarButtonItem.action = @selector(backAction);
+
+
+    // Navigation view controller as root
     self.window.rootViewController = self.navController;
 
     [self.window makeKeyAndVisible];
@@ -97,6 +107,45 @@ void uncaughtExceptionHandler(NSException *exception)
         UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         viewController.navigationItem.leftBarButtonItem = backBarButton;
     }
+}
+
+#pragma mark - Navigation Actions
+
+- (void)backAction
+{
+    [self goBack:self];
+}
+
+- (IBAction)goBack:(id)sender
+{
+    [self.navController popViewControllerAnimated:YES];
+}
+
+- (IBAction)showSchedule:(id)sender
+{
+    [self.navController pushViewController:self.scheduleViewController animated:YES];
+}
+
+- (IBAction)showNews:(id)sender
+{
+    [self.navController pushViewController:self.newsViewController animated:YES];
+}
+
+- (IBAction)showArtists:(id)sender
+{
+    [self.navController pushViewController:self.artistsViewController animated:YES];
+}
+
+- (void)showNewsItem:(NSString *)newsItemId
+{
+    UIViewController *controller = [RR14NewsItemViewController newWithNewsItemId:newsItemId];
+    [self.navController pushViewController:controller animated:YES];
+}
+
+- (void)showArtist:(NSString *)artistId
+{
+    UIViewController *controller = [RR14ArtistViewController newWithArtistId:artistId];
+    [self.navController pushViewController:controller animated:YES];
 }
 
 @end

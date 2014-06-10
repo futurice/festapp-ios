@@ -37,7 +37,7 @@
 	<key>NSLocationUsageDescription</key>
 	<string>Sijaintitietoa käytetään oman sijaintisi näyttämiseen festarikartalla. Paikannus on päällä vain karttaa katsoessasi.</string>
 	<key>NSMainNibFile</key>
-	<string>RR2014Window</string>
+	<string>RR14Window</string>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
 	<key>UIPrerenderedIcon</key>

@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR2014MainViewController : UIViewController
+@interface RR14MainViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UILabel *newsTitleLabel;
+
+- (IBAction)showSchedule:(id)sender;
+- (IBAction)showNews:(id)sender;
+- (IBAction)showCurrentNewsItem:(id)sender;
+- (IBAction)showCurrentArtist:(id)sender;
 
 @end

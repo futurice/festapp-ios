@@ -69,6 +69,9 @@ typedef enum FestResourceEnum {
 #define kColorRed         [UIColor colorWithRed:0/255.0f green: 0/255.0f blue: 0/255.0f alpha:1] // black is a new red
 #define kColorYellowLight [UIColor colorWithRed:221/255.0f green:221/255.0f blue:221/255.0f alpha:1] // gray is a new yellow
 
+// Delegate
+#define APPDELEGATE ((FestAppDelegate *)[[UIApplication sharedApplication] delegate])
+
 // To detect iOS 7
 
 #define iOS7 ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending)
