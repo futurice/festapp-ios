@@ -30,6 +30,7 @@
     if (self) {
         // Custom initialization
     }
+
     return self;
 }
 
@@ -40,9 +41,8 @@
     NSMutableString *html = [@"<html> "
                              "<head> "
                              "  <style> "
+                             "* { color: #00401e; font-family: HelveticaNeue-Light, HelveticaNeue, Helvetica; }"
                              "    div#main { "
-
-                             "      font-family: HelveticaNeue-Light,HelveticaNeue, Helvetica; "
                              "      font-size: 15px;        "
 
                              "      margin-top: 10px;     "
@@ -50,21 +50,11 @@
                              "      margin-bottom: 10px;  "
                              "      margin-right: 10px;   "
 
-                             "      padding-top: 1px;      "
+                             "      padding-top: 0px;      "
                              "      padding-left: 0px;      "
                              "      padding-bottom: 10px;   "
                              "      padding-right: 0px;     "
 
-                             //                             "      -webkit-box-shadow: 0px 2px 5px 1px #222; "
-
-                             "    } "
-
-                             "    h1, h2, h3 { "
-                             "      font-family: HelveticaNeue-Light, HelveticaNeue, Helvetica; "
-                             "    } "
-
-                             "    b, strong { "
-                             "      font-family: HelveticaNeue-Light, HelveticaNeue, Helvetica; "
                              "    } "
 
                              "    h1.title { "
@@ -72,11 +62,10 @@
                              "      font-weight: 200; "
                              "      text-align: left; "
                              "      margin-bottom: 20px; "
-                             "      color: #000; /* previous known as red */"
                              "    } "
 
                              "    h2.subtitle { "
-                             "      font-family: HelveticaNeue-Light,HelveticaNeue, Helvetica; "
+                             "       "
                              "      color: #555; "
                              "      font-size: 13px; "
                              "      font-weight: normal; "
@@ -97,6 +86,12 @@
     // NSLog(@"%@ loading html: %@", webView, html);
     [self.webView loadHTMLString:html baseURL:[NSURL URLWithString:@"http://ruisrock.fi"]];
 
+    // swipe right to go back
+    UISwipeGestureRecognizer *swipeGecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack)];
+    swipeGecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeGecognizer];
+
+    // back button
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
 }
 
@@ -110,6 +105,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - actions
+
+- (void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
