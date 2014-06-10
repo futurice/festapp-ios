@@ -18,20 +18,6 @@
 
 @implementation Artist
 
-@synthesize artistId;
-@synthesize artistName;
-@synthesize artistNameForTimelineDisplay;
-@synthesize country;
-@synthesize date;
-@synthesize begin;
-@synthesize end;
-@synthesize venue;
-@synthesize descriptionHTML;
-@synthesize imageURL;
-@synthesize alternativeGigs;
-@synthesize spotifyUrl;
-@synthesize youtubeUrl;
-
 @dynamic image;
 @dynamic isLoadingArtistImage;
 @dynamic hasLoadedArtistImage;
@@ -58,9 +44,6 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 {
 	NSMutableArray *gigs = [NSMutableArray arrayWithCapacity:[dicts count]];
 
-    NSDictionary *delimitedArtists = [NSDictionary dictionaryWithContentsOfFile:
-                                      [[NSBundle mainBundle] pathForResource:@"ArtistsDelimited" ofType:@"plist"]];
-
     NSUInteger gigCount = [dicts count];
     NSLog(@"parsing %d gigs", gigCount);
 
@@ -70,10 +53,11 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 
 		Artist *gig            = [[Artist alloc] init];
 		gig.artistId        = [NSString cast:dict[@"id"]];
-		gig.artistName      = [NSString cast:dict[@"name"]];
-		gig.venue           = [[NSString cast:dict[@"stage"]] capitalizedString];
-        gig.descriptionHTML = [NSString cast:dict[@"content"]];
-        
+		gig.artistName      = [NSString cast:dict[@"nimi"]];
+		gig.venue           = [[NSString cast:dict[@"lava"]] capitalizedString];
+        gig.description     = [NSString cast:dict[@"kohokohtia"]];
+        gig.day             = [[NSString cast:dict[@"paiva"]] capitalizedString];
+
         NSString *spotifyUrlStr = [NSString cast:dict[@"spotify"]];
         if([spotifyUrlStr length] != 0) {
             gig.spotifyUrl = [NSURL URLWithString:spotifyUrlStr];
@@ -84,7 +68,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
             gig.youtubeUrl = [NSURL URLWithString:youtubeUrlStr];
         }
 
-        NSString *imagePath = [NSString cast:dict[@"picture"]];
+        NSString *imagePath = [NSString cast:dict[@"kuva"]];
         if (imagePath) {
             gig.imageURL = [NSURL URLWithString:[NSString stringWithFormat:kResourceImageURLFormat, imagePath]];
         }
@@ -102,14 +86,8 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
             }
         }
 
-        gig.artistNameForTimelineDisplay = [[delimitedArtists valueForKey:gig.artistName] stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
-
-        if (gig.artistNameForTimelineDisplay == nil) {
-            gig.artistNameForTimelineDisplay = [gig.artistName stringByReplacingOccurrencesOfString:@"&" withString:@"&\n"];
-        }
-
-        NSTimeInterval begin = [dict[@"time_start"] doubleValue];
-        NSTimeInterval end   = [dict[@"time_stop"] doubleValue];
+        NSTimeInterval begin = [dict[@"aika"] doubleValue];
+        NSTimeInterval end   = [dict[@"aika_stop"] doubleValue];
 
         if (begin > 0 && end > 0 && gig.venue != nil && ![gig.venue isEqual:[NSNull null]]) {
 
@@ -166,19 +144,19 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
     favorite = isFavorite;
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *favoriteKey = [NSString stringWithFormat:@"isFavorite_%@", artistId];
+    NSString *favoriteKey = [NSString stringWithFormat:@"isFavorite_%@", self.artistId];
 
     if (favorite != [defaults boolForKey:favoriteKey]) {
 
         if (favorite) {
 
-            if ([begin after:[NSDate date]]) {
+            if ([self.begin after:[NSDate date]]) {
 
-                NSString *alertText = [NSString stringWithFormat:@"%@\n%@-%@ (%@)", artistName, [begin hourAndMinuteString], [end hourAndMinuteString], venue];
+                NSString *alertText = [NSString stringWithFormat:@"%@\n%@-%@ (%@)", self.artistName, [self.begin hourAndMinuteString], [self.end hourAndMinuteString], self.venue];
 
                 UILocalNotification *localNotif = [[UILocalNotification alloc] init];
                 if (localNotif == nil) return;
-                localNotif.fireDate = [begin dateByAddingTimeInterval:-kAlertIntervalInMinutes*kOneMinute];
+                localNotif.fireDate = [self.begin dateByAddingTimeInterval:-kAlertIntervalInMinutes*kOneMinute];
                 localNotif.alertBody = alertText;
                 localNotif.soundName = @"Riff2.aif";
                 [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
@@ -190,7 +168,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 
             UILocalNotification *notificationToCancel = nil;
             for (UILocalNotification *aNotif in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
-                if([aNotif.alertBody rangeOfString:artistName].location == 0) {
+                if([aNotif.alertBody rangeOfString:self.artistName].location == 0) {
                     notificationToCancel = aNotif;
                     break;
                 }
@@ -216,7 +194,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
     NSString *path;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	path = [paths[0] stringByAppendingPathComponent:@"ArtistImages"];
-    NSString *imageName = [NSString stringWithFormat:@"artistimg_%@.jpg", artistId];
+    NSString *imageName = [NSString stringWithFormat:@"artistimg_%@.jpg", self.artistId];
     path = [path stringByAppendingPathComponent:imageName];
 
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
@@ -238,7 +216,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 		}
 	}
 
-    NSString *imageName = [NSString stringWithFormat:@"artistimg_%@.jpg", artistId];
+    NSString *imageName = [NSString stringWithFormat:@"artistimg_%@.jpg", self.artistId];
     path = [path stringByAppendingPathComponent:imageName];
 
     if (![fileManager fileExistsAtPath:path] && !loadingImage) {
@@ -289,17 +267,17 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 
 - (NSString *)timeIntervalString
 {
-    if ([begin timeIntervalSinceNow] > 18*kOneHour) {
-        return [NSString stringWithFormat:@"%@ %@–%@", begin.weekdayName, begin.hourAndMinuteString, end.hourAndMinuteString];
+    if ([self.begin timeIntervalSinceNow] > 18*kOneHour) {
+        return [NSString stringWithFormat:@"%@ %@–%@", self.begin.weekdayName, self.begin.hourAndMinuteString, self.end.hourAndMinuteString];
     } else {
         // no need to display weekday name as a part of a current-day gig:
-        return [NSString stringWithFormat:@"%@–%@", begin.hourAndMinuteString, end.hourAndMinuteString];
+        return [NSString stringWithFormat:@"%@–%@", self.begin.hourAndMinuteString, self.end.hourAndMinuteString];
     }
 }
 
 - (NSString *)stageAndTimeIntervalString
 {
-    return [NSString stringWithFormat:@"%@ %@–%@ %@", begin.weekdayName, begin.hourAndMinuteString, end.hourAndMinuteString, venue];
+    return [NSString stringWithFormat:@"%@ %@–%@ %@", self.begin.weekdayName, self.begin.hourAndMinuteString, self.end.hourAndMinuteString, self.venue];
 }
 
 - (NSTimeInterval)duration

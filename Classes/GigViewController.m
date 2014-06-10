@@ -63,7 +63,7 @@
         gig = theGig;
     }
 
-    [super setWebTitle:gig.artistName subtitle:gig.stageAndTimeIntervalString content:gig.descriptionHTML];
+    [super setWebTitle:gig.artistName subtitle:gig.stageAndTimeIntervalString content:gig.description];
 }
 
 - (void)viewWillAppear:(BOOL)animated

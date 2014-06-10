@@ -14,5 +14,6 @@
 - (BOOL)reloadResource:(FestResource)resourceId forced:(BOOL)forced  __attribute__((deprecated));
 - (RACSignal *)signalForResource:(FestResource)resourceId __attribute__((deprecated));
 
+@property (nonatomic, readonly) RACSignal *artistsSignal;
 @property (nonatomic, readonly) RACSignal *newsSignal;
 @end

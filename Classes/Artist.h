@@ -12,17 +12,18 @@
 
 @property (nonatomic, strong) NSString *artistId;
 @property (nonatomic, strong) NSString *artistName;
-@property (nonatomic, strong) NSString *artistNameForTimelineDisplay;
 @property (nonatomic, strong) NSString *country;
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSDate *begin;
 @property (nonatomic, strong) NSDate *end;
 @property (nonatomic, strong) NSString *venue;
-@property (nonatomic, strong) NSString *descriptionHTML;
+@property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSURL *imageURL;
 @property (nonatomic, strong) NSMutableArray *alternativeGigs;
 @property (nonatomic, strong) NSURL *spotifyUrl;
 @property (nonatomic, strong) NSURL *youtubeUrl;
+
+@property (nonatomic, strong) NSString *day;
 
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) BOOL isLoadingArtistImage;

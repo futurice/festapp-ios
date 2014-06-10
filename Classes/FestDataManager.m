@@ -13,11 +13,13 @@
 #import "NewsItem.h"
 
 @interface FestDataManager()
+@property (nonatomic, strong) RACSubject *artistsSignal;
 @property (nonatomic, strong) RACSubject *newsSignal;
 
 - (id)preloadResource:(NSString *)name selector:(SEL)selector;
 - (BOOL)reloadResource:(NSString *)name path:(NSString *)path selector:(SEL)selector subject:(RACSubject *)subject force:(BOOL)force;
 
+- (id)transformArtists:(id)artistsJSONValue;
 - (id)transformNews:(id)newsJSONValue;
 
 - (NSString *)pathToResourceByName:(NSString *)name;
@@ -49,6 +51,13 @@
     if (self) {
         // We could use RACBehaviourSubject here, but until loaded we don't have first value!
 
+        // Artists
+        id artistsValue = [self preloadResource:@"artistit" selector:@selector(transformArtists:)];
+        RACSubject *artistsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:artistsValue];
+        [self reloadResource:@"artistit" path:RR_ARTISTS_JSON_URL selector:@selector(transformArtists:) subject:artistsSubject force:NO];
+        self.newsSignal = artistsSubject;
+
+        // News
         id newsValue = [self preloadResource:@"uutiset" selector:@selector(transformNews:)];
         RACSubject *newsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:newsValue];
         [self reloadResource:@"uutiset" path:RR_NEWS_JSON_URL selector:@selector(transformNews:) subject:newsSubject force:NO];
@@ -89,7 +98,8 @@
         NSData *content = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&error];
 
         if (!error) {
-            if (![content writeToFile:path options:NSDataWritingAtomic error:&error]) {
+            NSString *filePath = [self pathToResourceByName:name];
+            if (![content writeToFile:filePath options:NSDataWritingAtomic error:&error]) {
                 NSLog(@"Error writing updated %@: %@", name, error);
             }
         } else {
@@ -131,9 +141,9 @@
 
 #pragma mark - Resource transformers
 
-- (id)transformGigs:(id)gigsJSONValue
+- (id)transformArtists:(id)artistsJSONValue
 {
-    return [Artist gigsFromArrayOfDicts:gigsJSONValue];
+    return [Artist gigsFromArrayOfDicts:artistsJSONValue];
 }
 
 - (id)transformNews:(id)newsJSONValue

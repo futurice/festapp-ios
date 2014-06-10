@@ -141,7 +141,7 @@
 			}
 
             CGFloat textHeight = 16; // [gig.artistNameForTimelineDisplay sizeWithFont:artistLabelFont].height - 2;
-            NSArray *artistTokens = [gig.artistNameForTimelineDisplay componentsSeparatedByString:@"\n"];
+            NSArray *artistTokens = [gig.artistName componentsSeparatedByString:@"\n"];
             NSUInteger tokenCount = [artistTokens count];
 
             CGContextSetShouldAntialias(c, 1);
