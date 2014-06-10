@@ -8,9 +8,8 @@
 #import "RR14ScheduleViewController.h"
 #import "RR14NewsViewController.h"
 #import "RR14ArtistsViewController.h"
+#import "RR14MapViewController.h"
 
-#import "InfoViewController.h"
-#import "MapViewController.h"
 #import "TimelineViewController.h"
 
 @class InfoViewController;
@@ -26,19 +25,18 @@
 @property (nonatomic, strong) IBOutlet RR14ScheduleViewController *scheduleViewController;
 @property (nonatomic, strong) IBOutlet RR14NewsViewController *newsViewController;
 @property (nonatomic, strong) IBOutlet RR14ArtistsViewController *artistsViewController;
+@property (nonatomic, strong) IBOutlet RR14MapViewController *mapViewController;
 
 - (IBAction)goBack:(id)sender;
 
 - (IBAction)showSchedule:(id)sender;
 - (IBAction)showNews:(id)sender;
 - (IBAction)showArtists:(id)sender;
+- (IBAction)showMap:(id)sender;
+- (IBAction)showFoodInfo:(id)sender;
+- (IBAction)showGeneralInfo:(id)sender;
 
 - (void)showNewsItem:(NSString *)newsItemId;
 - (void)showArtist:(NSString *)artistId;
-
-// TODO: remove me
-@property (nonatomic, strong) IBOutlet InfoViewController *infoViewController;
-@property (nonatomic, strong) IBOutlet MapViewController *mapViewController;
-@property (nonatomic, strong) IBOutlet TimelineViewController *timelineViewController;
 
 @end

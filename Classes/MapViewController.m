@@ -326,6 +326,7 @@
 
 - (IBAction)calloutDisclosureButtonTapped
 {
+    /*
     TimelineViewController *timelineViewController = ((FestAppDelegate *) [[UIApplication sharedApplication] delegate]).timelineViewController;
     [self.tabBarController performSelector:@selector(setSelectedViewController:) withObject:timelineViewController.navigationController afterDelay:0.1];
 
@@ -335,6 +336,7 @@
     [timelineViewController setSelectedDay:[nextGig.begin sameDateWithMidnightTimestamp]];
     [timelineViewController setSelectedVenue:venueName];
     [timelineViewController performSelector:@selector(scrollToGig:) withObject:nextGig afterDelay:0.3];
+     */
 }
 
 - (void)updateUserLocationDisplayAnimated:(BOOL)animated
@@ -383,7 +385,7 @@
 - (void)selectStageView:(UIView *)stageView withHilightCurtain:(BOOL)withHilightCurtain
 {
     if (stageView != nil) {
-
+/*
         if (withHilightCurtain && stageHilightCurtain.hidden) {
             [self beginFadingAnimationWithDuration:0.4 withView:stageHilightCurtain];
             stageHilightCurtain.hidden = NO;
@@ -430,7 +432,7 @@
         CGPoint centerPointInScale = stageView.center;
         // NSLog(@"focusing on point: %f %f", centerPointInScale.x, centerPointInScale.y);
         [self focusOnPoint:centerPointInScale animated:YES ignorePointsOutsideMap:NO];
-
+*/
     } else {
 
         if (!stageHilightCurtain.hidden) {

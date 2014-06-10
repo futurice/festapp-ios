@@ -20,16 +20,36 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jkY-7v-BXG" userLabel="View - Artist container">
-                    <rect key="frame" x="0.0" y="109" width="320" height="150"/>
+                    <rect key="frame" x="0.0" y="108" width="320" height="158"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="lilyallen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-Hx-XEM">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lilyallen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-Hx-XEM">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYc-5T-SyZ">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <view alpha="0.49999999999999961" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-AI-kvX">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seuraavaksi: Lily Allen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMi-vI-OdU">
+                            <rect key="frame" x="20" y="4" width="280" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.96470588239999999" green="0.97254901959999995" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rantalava (15 min)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-hl-Gy2">
+                            <rect key="frame" x="20" y="22" width="280" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYc-5T-SyZ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -38,7 +58,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5W-j6-fMq">
-                            <rect key="frame" x="0.0" y="120" width="125" height="30"/>
+                            <rect key="frame" x="0.0" y="128" width="125" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.65490196078431373" green="0.77647058823529413" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -55,7 +75,7 @@
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovj-lG-VTF" userLabel="View - News container">
-                    <rect key="frame" x="0.0" y="261" width="320" height="100"/>
+                    <rect key="frame" x="0.0" y="266" width="320" height="84"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="news_bg_flowers.png" translatesAutoresizingMaskIntoConstraints="NO" id="n7K-3b-Rvd">
@@ -81,7 +101,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqq-lh-a6S">
-                            <rect key="frame" x="0.0" y="62" width="100" height="30"/>
+                            <rect key="frame" x="0.0" y="54" width="100" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -97,40 +117,85 @@
                     <color key="backgroundColor" red="0.96470588235294119" green="0.97254901960784312" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frontpage_header_tree.png" translatesAutoresizingMaskIntoConstraints="NO" id="in0-Qx-h3x">
-                    <rect key="frame" x="0.0" y="1" width="44" height="108"/>
+                    <rect key="frame" x="0.0" y="0.0" width="44" height="108"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_pattern_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="3fe-nN-Q68">
-                    <rect key="frame" x="0.0" y="353" width="320" height="215"/>
+                    <rect key="frame" x="0.0" y="350" width="320" height="215"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="water_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-tk-oLV">
-                    <rect key="frame" x="0.0" y="351" width="320" height="8"/>
+                    <rect key="frame" x="0.0" y="347" width="320" height="8"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frontpage_bottom_deco.png" translatesAutoresizingMaskIntoConstraints="NO" id="5IV-Ti-a9b">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frontpage_bottom_deco.png" translatesAutoresizingMaskIntoConstraints="NO" id="5IV-Ti-a9b">
                     <rect key="frame" x="0.0" y="476" width="320" height="92"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="92" id="zhf-2v-Dvd"/>
-                    </constraints>
                 </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="frontpage-menu-ribbon.png" translatesAutoresizingMaskIntoConstraints="NO" id="k0G-9M-fEM">
+                    <rect key="frame" x="0.0" y="367" width="310" height="94"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlO-yA-2Fp">
+                    <rect key="frame" x="15" y="374" width="135" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="BÄNDIT">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showArtists:" destination="-1" eventType="touchUpInside" id="TQG-cI-Wam"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Don-9B-aI1">
+                    <rect key="frame" x="158" y="367" width="135" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="KARTTA">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showMap:" destination="-1" eventType="touchUpInside" id="hpq-nx-eCe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbk-xm-gUE">
+                    <rect key="frame" x="0.0" y="431" width="135" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="RUOKA">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showFoodInfo:" destination="-1" eventType="touchUpInside" id="9Ig-QW-ssw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cgb-uP-m3V">
+                    <rect key="frame" x="138" y="423" width="118" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="INFO">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showGeneralInfo:" destination="-1" eventType="touchUpInside" id="pk9-GZ-g7v"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.98431372549019602" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstItem="5IV-Ti-a9b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WNC-Hb-7MF"/>
-                <constraint firstAttribute="bottom" secondItem="5IV-Ti-a9b" secondAttribute="bottom" id="YO8-tV-X8z"/>
-                <constraint firstAttribute="trailing" secondItem="5IV-Ti-a9b" secondAttribute="trailing" id="wG2-jI-GQr"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
         <image name="bg_pattern_green.png" width="320" height="568"/>
+        <image name="frontpage-menu-ribbon.png" width="310" height="94"/>
         <image name="frontpage_bottom_deco.png" width="320" height="92"/>
         <image name="frontpage_header_tree.png" width="49" height="120"/>
-        <image name="lilyallen.jpg" width="640" height="300"/>
+        <image name="lilyallen.jpg" width="320" height="200"/>
         <image name="news_bg_flowers.png" width="57" height="92"/>
         <image name="ruisrock_logo_w_date.png" width="232" height="64"/>
         <image name="water_line.png" width="320" height="8"/>

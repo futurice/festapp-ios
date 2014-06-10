@@ -4,13 +4,7 @@
 //
 
 #import "FestAppDelegate.h"
-#import "InfoViewController.h"
-#import "MapViewController.h"
-#import "TimelineViewController.h"
-#import "NavigableContentViewController.h"
-#import "NewsViewController.h"
-#import "ExternalWebContentViewController.h"
-#import "CustomNavigationBar.h"
+
 #import "Gig.h"
 #import "NSDate+Additions.h"
 #import "UIViewController+Additions.h"
@@ -21,6 +15,11 @@
 
 #import "RR14ArtistViewController.h"
 #import "RR14NewsItemViewController.h"
+#import "RR14WebContentViewController.h"
+
+@interface FestAppDelegate ()
+
+@end
 
 @implementation FestAppDelegate
 
@@ -91,24 +90,6 @@ void uncaughtExceptionHandler(NSException *exception)
     }
 }
 
-#pragma mark - UINavigationControllerDelegate methods
-
-- (void)navigationController:(UINavigationController *)navigationController
-      willShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated
-{
-    [navigationController.navigationBar.topItem.titleView setHidden:YES];
-
-    if (navigationController.viewControllers.count > 1) {
-        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backButton.frame = CGRectMake(0, 0, 28, 44);
-        [backButton setImage:[UIImage imageNamed:@"back_arrow"] forState:UIControlStateNormal];
-        [backButton addTarget:viewController action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-        viewController.navigationItem.leftBarButtonItem = backBarButton;
-    }
-}
-
 #pragma mark - Navigation Actions
 
 - (void)backAction
@@ -134,6 +115,23 @@ void uncaughtExceptionHandler(NSException *exception)
 - (IBAction)showArtists:(id)sender
 {
     [self.navController pushViewController:self.artistsViewController animated:YES];
+}
+
+- (IBAction)showMap:(id)sender
+{
+    [self.navController pushViewController:self.mapViewController animated:YES];
+}
+
+- (IBAction)showFoodInfo:(id)sender
+{
+    UIViewController *controller = [RR14WebContentViewController newWithContent:@"<h1>RUOKAA!!!</h1>"];
+    [self.navController pushViewController:controller animated:YES];
+}
+
+- (IBAction)showGeneralInfo:(id)sender
+{
+    UIViewController *controller = [RR14WebContentViewController newWithContent:@"<h1>TIETOJA!!!</h1><h2>PALJON</h2>"];
+    [self.navController pushViewController:controller animated:YES];
 }
 
 - (void)showNewsItem:(NSString *)newsItemId

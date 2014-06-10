@@ -68,6 +68,30 @@
     [APPDELEGATE showNews:sender];
 }
 
+- (IBAction)showArtists:(id)sender
+{
+    NSLog("@show artists");
+    [APPDELEGATE showArtists:sender];
+}
+
+- (IBAction)showMap:(id)sender
+{
+    NSLog("@show map");
+    [APPDELEGATE showMap:sender];
+}
+
+- (IBAction)showFoodInfo:(id)sender
+{
+    NSLog(@"show food info");
+    [APPDELEGATE showFoodInfo:sender];
+}
+
+- (IBAction)showGeneralInfo:(id)sender
+{
+    NSLog("@show general info");
+    [APPDELEGATE showGeneralInfo:sender];
+}
+
 - (IBAction)showCurrentArtist:(id)sender
 {
     NSLog(@"show current artist");
@@ -79,5 +103,7 @@
     NSLog(@"show current news item");
     [APPDELEGATE showNewsItem:@"News item: foobar"];
 }
+
+
 
 @end

@@ -14,6 +14,10 @@
 
 - (IBAction)showSchedule:(id)sender;
 - (IBAction)showNews:(id)sender;
+- (IBAction)showArtists:(id)sender;
+- (IBAction)showMap:(id)sender;
+- (IBAction)showFoodInfo:(id)sender;
+- (IBAction)showGeneralInfo:(id)sender;
 - (IBAction)showCurrentNewsItem:(id)sender;
 - (IBAction)showCurrentArtist:(id)sender;
 

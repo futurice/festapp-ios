@@ -32,6 +32,13 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </viewController>
+        <viewController id="wtX-07-iwD" customClass="RR14MapViewController">
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </viewController>
         <viewController id="Tfo-d7-Ldt" customClass="RR14ScheduleViewController">
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -43,6 +50,7 @@
             <connections>
                 <outlet property="artistsViewController" destination="Nzh-j7-12v" id="Lnw-d7-ime"/>
                 <outlet property="backBarButtonItem" destination="hAs-hv-Enl" id="Vki-6Q-CXn"/>
+                <outlet property="mapViewController" destination="wtX-07-iwD" id="uiQ-r3-QW2"/>
                 <outlet property="navController" destination="BLL-2i-fiZ" id="eoI-8c-9z9"/>
                 <outlet property="newsViewController" destination="p8D-nx-hLr" id="mKQ-fN-sIv"/>
                 <outlet property="scheduleViewController" destination="Tfo-d7-Ldt" id="AOg-Oj-x1Q"/>
