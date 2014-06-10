@@ -121,7 +121,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_pattern_green.png" translatesAutoresizingMaskIntoConstraints="NO" id="3fe-nN-Q68">
-                    <rect key="frame" x="0.0" y="350" width="320" height="215"/>
+                    <rect key="frame" x="0.0" y="350" width="320" height="218"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="water_line.png" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-tk-oLV">
