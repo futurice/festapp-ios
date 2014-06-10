@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Artist.h"
+
 @interface RR14ArtistViewController : UIViewController
 @property (nonatomic, strong) IBOutlet UILabel* artistLabel;
 
-// TODO: implement artist type and take that
-+ (RR14ArtistViewController *) newWithArtistId:(NSString *)artistId;
++ (RR14ArtistViewController *) newWithArtist:(NSString *)artist;
 @end

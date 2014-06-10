@@ -15,6 +15,7 @@
 
 @interface RR14MainViewController ()
 @property (nonatomic, strong) NewsItem *currentNewsItem;
+@property (nonatomic, strong) Artist *currentArtist;
 @end
 
 @implementation RR14MainViewController
@@ -33,12 +34,19 @@
     [super viewDidLoad];
 
     // Subscribe
-    RACSignal *newsSignal = [FestDataManager.sharedFestDataManager newsSignal];
+    RACSignal *newsSignal = FestDataManager.sharedFestDataManager.newsSignal;
     [newsSignal subscribeNext:^(NSArray *news) {
         NSAssert(news.count >= 0, @"We assume there is at least one news entry") ;
 
         self.currentNewsItem = news.firstObject;
         self.newsTitleLabel.text = self.currentNewsItem.title;
+    }];
+
+    RACSignal *artistSignal = FestDataManager.sharedFestDataManager.artistsSignal;
+    [artistSignal subscribeNext:^(NSArray *artists) {
+        NSAssert(artists.count >= 0, @"We assume there is at least one artist");
+
+        self.currentArtist = artists.firstObject;
     }];
     // Do any additional setup after loading the view from its nib.
 
@@ -98,7 +106,7 @@
 - (IBAction)showCurrentArtist:(id)sender
 {
     NSLog(@"show current artist");
-    [APPDELEGATE showArtist:@"Lily Allen"];
+    [APPDELEGATE showArtist:self.currentArtist];
 }
 
 - (IBAction)showCurrentNewsItem:(id)sender

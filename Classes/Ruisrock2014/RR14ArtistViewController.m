@@ -12,18 +12,18 @@
 #import "FestDataManager.h"
 
 @interface RR14ArtistViewController ()
-@property (nonatomic, strong) NSString *artistId;
+@property (nonatomic, strong) Artist *artist;
 @end
 
 @implementation RR14ArtistViewController
 
-+ (RR14ArtistViewController *)newWithArtistId:(NSString *)artistId
++ (RR14ArtistViewController *)newWithArtist:(Artist *)artist
 {
     RR14ArtistViewController *controller = [[RR14ArtistViewController alloc] initWithNibName:@"RR14ArtistViewController" bundle:nil];
 
     // TODO: implement me
 
-    [controller setArtistId:artistId];
+    [controller setArtist:artist];
 
     return controller;
 }
@@ -44,7 +44,7 @@
 
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
 
-    [[self artistLabel] setText:[self artistId]];
+    self.artistLabel.text = self.artist.artistName;
 }
 
 - (void)viewWillAppear:(BOOL)animated

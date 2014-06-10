@@ -55,7 +55,7 @@
         id artistsValue = [self preloadResource:@"artistit" selector:@selector(transformArtists:)];
         RACSubject *artistsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:artistsValue];
         [self reloadResource:@"artistit" path:RR_ARTISTS_JSON_URL selector:@selector(transformArtists:) subject:artistsSubject force:NO];
-        self.newsSignal = artistsSubject;
+        self.artistsSignal = artistsSubject;
 
         // News
         id newsValue = [self preloadResource:@"uutiset" selector:@selector(transformNews:)];

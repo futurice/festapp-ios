@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14ArtistsViewController : UIViewController
-
+@interface RR14ArtistsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end

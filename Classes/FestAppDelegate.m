@@ -140,9 +140,9 @@ void uncaughtExceptionHandler(NSException *exception)
     [self.navController pushViewController:controller animated:YES];
 }
 
-- (void)showArtist:(NSString *)artistId
+- (void)showArtist:(Artist *)artist
 {
-    UIViewController *controller = [RR14ArtistViewController newWithArtistId:artistId];
+    UIViewController *controller = [RR14ArtistViewController newWithArtist:artist];
     [self.navController pushViewController:controller animated:YES];
 }
 
