@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="108" width="320" height="158"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lilyallen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-Hx-XEM">
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="lilyallen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-Hx-XEM">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </imageView>
