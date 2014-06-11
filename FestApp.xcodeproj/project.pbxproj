@@ -87,6 +87,9 @@
 		88B431A619473FC200589A83 /* info in Resources */ = {isa = PBXBuildFile; fileRef = 88B431A219473FC200589A83 /* info */; };
 		88B431A719473FC200589A83 /* ohjelma in Resources */ = {isa = PBXBuildFile; fileRef = 88B431A319473FC200589A83 /* ohjelma */; };
 		88B431A819473FC200589A83 /* uutiset in Resources */ = {isa = PBXBuildFile; fileRef = 88B431A419473FC200589A83 /* uutiset */; };
+		88B431BE1948347600589A83 /* ruisrock_iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B431B31948347600589A83 /* ruisrock_iTunesArtwork.png */; };
+		88B431BF1948347600589A83 /* ruisrock_iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B431B41948347600589A83 /* ruisrock_iTunesArtwork@2x.png */; };
+		88B431C11948381000589A83 /* ruisrock-icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B431C01948381000589A83 /* ruisrock-icon-120.png */; };
 		88BCA3CE18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA3BE18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.m */; };
 		88BCA3CF18DEEFC800654E64 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA3C018DEEFC800654E64 /* UIActivityIndicatorView+AFNetworking.m */; };
 		88BCA3D018DEEFC800654E64 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA3C218DEEFC800654E64 /* UIAlertView+AFNetworking.m */; };
@@ -306,6 +309,9 @@
 		88B431A219473FC200589A83 /* info */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = info; path = Resources/Content/info; sourceTree = "<group>"; };
 		88B431A319473FC200589A83 /* ohjelma */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ohjelma; path = Resources/Content/ohjelma; sourceTree = "<group>"; };
 		88B431A419473FC200589A83 /* uutiset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = uutiset; path = Resources/Content/uutiset; sourceTree = "<group>"; };
+		88B431B31948347600589A83 /* ruisrock_iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ruisrock_iTunesArtwork.png; sourceTree = "<group>"; };
+		88B431B41948347600589A83 /* ruisrock_iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruisrock_iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		88B431C01948381000589A83 /* ruisrock-icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruisrock-icon-120.png"; sourceTree = "<group>"; };
 		88BCA3BD18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		88BCA3BE18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		88BCA3BF18DEEFC800654E64 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -465,6 +471,7 @@
 				ADE7A21619461EA80073C4D8 /* Images.xcassets */,
 				88355E8419460B94003E2F90 /* Ruisrock2014 */,
 				882045431946C059006D8DB8 /* Ruisrock2014 Artists */,
+				88B431A91948347600589A83 /* Ruisrock2014Icons */,
 				48AD03B3158A52F700546602 /* Localizable.strings */,
 				8D1107310486CEB800E47090 /* FestApp-Info.plist */,
 				4D1ED38A139CB81500BB1D47 /* Riff1.aif */,
@@ -659,6 +666,17 @@
 				8894AE2318DDE68F00991593 /* libReactiveCocoa-Mac.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		88B431A91948347600589A83 /* Ruisrock2014Icons */ = {
+			isa = PBXGroup;
+			children = (
+				88B431C01948381000589A83 /* ruisrock-icon-120.png */,
+				88B431B31948347600589A83 /* ruisrock_iTunesArtwork.png */,
+				88B431B41948347600589A83 /* ruisrock_iTunesArtwork@2x.png */,
+			);
+			name = Ruisrock2014Icons;
+			path = Resources/Ruisrock2014Icons;
 			sourceTree = "<group>";
 		};
 		88BCA3BC18DEEFC800654E64 /* UIKit+AFNetworking */ = {
@@ -900,6 +918,7 @@
 				282CCBFE0DB6C98000C4EA27 /* MapView.xib in Resources */,
 				ADE7A209194617A00073C4D8 /* frontpage_header_tree@2x.png in Resources */,
 				88B4319D19471C2B00589A83 /* RR14MapViewController.xib in Resources */,
+				88B431BF1948347600589A83 /* ruisrock_iTunesArtwork@2x.png in Resources */,
 				2840D7CE1179279E00D7F93C /* TimelineView.xib in Resources */,
 				882045501946C072006D8DB8 /* phoenix.jpg in Resources */,
 				AD68824B19462C140015F409 /* frontpage_bottom_deco@2x.png in Resources */,
@@ -912,6 +931,7 @@
 				ADE7A20B194617A00073C4D8 /* water_line@2x.png in Resources */,
 				4D30E7DE1395A8CA007E9D0B /* WebContentView.xib in Resources */,
 				88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */,
+				88B431BE1948347600589A83 /* ruisrock_iTunesArtwork.png in Resources */,
 				4D30E81E1396802F007E9D0B /* NavigableContentView.xib in Resources */,
 				8820454C1946C072006D8DB8 /* bastille.jpg in Resources */,
 				88B431921947185200589A83 /* RR14WebContentViewController.xib in Resources */,
@@ -935,6 +955,7 @@
 				8863330218F15BB00091E0A9 /* map.png in Resources */,
 				88355E83194609E7003E2F90 /* RR14MainViewController.xib in Resources */,
 				AD68824C19462C140015F409 /* ruisrock_logo_header@2x.png in Resources */,
+				88B431C11948381000589A83 /* ruisrock-icon-120.png in Resources */,
 				ADE7A20A194617A00073C4D8 /* news_bg_flowers@2x.png in Resources */,
 				AD68824E19462C140015F409 /* schedule_favourite_selected@2x.png in Resources */,
 				AD68824F19462C140015F409 /* schedule_favourite.png in Resources */,

@@ -16,6 +16,7 @@
 @end
 
 #define kCellButtonTag 1000
+#define kCellHeight 59
 
 @implementation RR14ArtistsViewController
 
@@ -39,7 +40,12 @@
         [self.tableView reloadData];
     }];
 
+    // back button
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
+
+    // table background
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_pattern_light.png"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -83,10 +89,11 @@
         cell.backgroundColor = [UIColor clearColor];
 
         UIButton *cellButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        cellButton.frame = CGRectMake(0, 0, 320, 75);
+        cellButton.frame = CGRectMake(0, 0, 320, kCellHeight);
         cellButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        cellButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:24];
+        cellButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
         cellButton.titleLabel.numberOfLines = 2;
+        cellButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         cellButton.titleEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 30);
         [cellButton setTitleColor:kColorYellowLight forState:UIControlStateNormal];
         [cellButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -96,18 +103,15 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
+    cell.backgroundColor = (idx % 2 == 0) ? RR_COLOR_LIGHTGREEN : RR_COLOR_GREEN;
+
     Artist *artist = self.artists[idx];
 
     UIButton *cellButton = [UIButton cast:[cell viewWithTag:kCellButtonTag]];
-    NSString *title = [artist.artistName uppercaseString];
+    NSString *title = artist.artistName;
 
     [cellButton setTitle:title forState:UIControlStateNormal];
 
-    cellButton.width = [title
-                        boundingRectWithSize:CGSizeMake(240, cellButton.height)
-                        options:NSStringDrawingUsesDeviceMetrics
-                        attributes:@{NSFontAttributeName:cellButton.titleLabel.font}
-                        context:nil].size.width + 50;
     return cell;
 }
 
@@ -130,17 +134,17 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 75 + 6;
+    return kCellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 15;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 30;
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

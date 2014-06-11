@@ -72,6 +72,12 @@ typedef enum FestResourceEnum {
 #define kColorRed         [UIColor colorWithRed:0/255.0f green: 0/255.0f blue: 0/255.0f alpha:1] // black is a new red
 #define kColorYellowLight [UIColor colorWithRed:221/255.0f green:221/255.0f blue:221/255.0f alpha:1] // gray is a new yellow
 
+#define RGB_COLOR(r,g,b)  [UIColor colorWithRed:r/255.0f green: g/255.0f blue: b/255.0f alpha:1]
+
+#define RR_COLOR_LIGHTGREEN  RGB_COLOR(167, 198, 56)
+#define RR_COLOR_GREEN       RGB_COLOR(97, 151, 68)
+#define RR_COLOR_DARKGREEN   RGB_COLOR(1, 64, 30)
+
 // Delegate
 #define APPDELEGATE ((FestAppDelegate *)[[UIApplication sharedApplication] delegate])
 
