@@ -138,7 +138,7 @@
 
 - (void)artistImageLoaded:(NSNotification *)notification
 {
-    
+
 }
 
 - (void)artistImageFailedToLoad:(NSNotification *)notification

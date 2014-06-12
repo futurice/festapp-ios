@@ -24,7 +24,7 @@
 
     // TODO: implement me
 
-    [controller setArtist:artist];
+    controller.artist = artist;
 
     return controller;
 }
@@ -47,7 +47,19 @@
 
     self.artistLabel.text = self.artist.artistName;
     self.stageLabel.text = self.artist.stageAndTimeIntervalString;
-    self.quoteLabel.text = @"FOOBAR";
+    self.quoteLabel.text = self.artist.quote;
+
+    if (self.artist.members.length == 0) {
+        self.membersTitleLabel.text = self.membersLabel.text = @"";
+    } else {
+        self.membersLabel.text = self.artist.members;
+    }
+
+    if (self.artist.founded.length == 0) {
+        self.foundedTitleLabel.text = self.foundedLabel.text = @"";
+    } else {
+        self.foundedLabel.text = self.artist.founded;
+    }
 
     // Load image
     FestImageManager *imageManager = [FestImageManager sharedFestImageManager];
@@ -58,6 +70,18 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    CGRect quoteLabelSize =
+    [self.artist.quote boundingRectWithSize:CGSizeMake(self.quoteLabel.frame.size.width, MAXFLOAT)
+                                    options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: self.quoteLabel.font
+                                                                                               }
+                                    context:nil];
+
+    self.quoteLabel.frame = CGRectMake(self.quoteLabel.frame.origin.x,
+                                       self.quoteLabel.frame.origin.y,
+                                       quoteLabelSize.size.width,
+                                       quoteLabelSize.size.height + 200);
+
+
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
 }
 

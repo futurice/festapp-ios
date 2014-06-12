@@ -23,6 +23,9 @@
 @property (nonatomic, strong) NSMutableArray *alternativeGigs;
 @property (nonatomic, strong) NSURL *spotifyUrl;
 @property (nonatomic, strong) NSURL *youtubeUrl;
+@property (nonatomic, strong) NSString *quote;
+@property (nonatomic, strong) NSString *founded;
+@property (nonatomic, strong) NSString *members;
 
 @property (nonatomic, strong) NSString *day;
 

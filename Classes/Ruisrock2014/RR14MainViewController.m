@@ -14,6 +14,8 @@
 
 #import "NewsItem.h"
 
+#define kUpdateInterval 30
+
 @interface RR14MainViewController ()
 @property (nonatomic, strong) NewsItem *currentNewsItem;
 @property (nonatomic, strong) Artist *currentArtist;
@@ -44,19 +46,22 @@
     }];
 
     // Artist
-    RACSignal *intervalSignal = [RACSignal interval:20 onScheduler:[RACScheduler mainThreadScheduler]];;
-    RACBehaviorSubject *intervalSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:[NSDate date]];
-    [intervalSignal subscribeNext:^(id x) {
-        [intervalSubject sendNext:x];
-    }];
+
+    // Poor man random signal updated at the interval
+    RACSignal *intervalSignal =
+    [[[[RACSignal interval:kUpdateInterval onScheduler:[RACScheduler mainThreadScheduler]] startWith:nil]
+     scanWithStart:@1
+     reduce:^id(NSNumber *running, id unused) {
+            return @((1103515245 * running.unsignedIntegerValue + 12345) % 0x100000000);
+     }] replayLast];
 
     RACSignal *artistsSignal = FestDataManager.sharedFestDataManager.artistsSignal;
     RACSignal *currentArtistSignal =
-    [RACSignal combineLatest:@[intervalSubject, artistsSignal]
-                    reduce:^id(NSDate *date, NSArray *artists) {
-                        NSUInteger idx = (NSUInteger)([date timeIntervalSinceReferenceDate] * 1000) % MAX(artists.count, 1);
-                        return artists[idx];
-                    }];
+    [RACSignal combineLatest:@[intervalSignal, artistsSignal]
+                      reduce:^id(NSNumber *number, NSArray *artists) {
+                          NSUInteger idx = number.unsignedIntegerValue % MAX(artists.count, 1);
+                          return artists[idx];
+                      }];
 
     [currentArtistSignal subscribeNext:^(Artist *artist) {
         self.currentArtist = artist;

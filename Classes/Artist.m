@@ -52,6 +52,9 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 		gig.venue           = [[NSString cast:dict[@"lava"]] capitalizedString];
         gig.description     = [NSString cast:dict[@"kohokohtia"]];
         gig.day             = [[NSString cast:dict[@"paiva"]] capitalizedString];
+        gig.quote           = dict[@"quote"];
+        gig.founded         = dict[@"perustettu"];
+        gig.members         = [dict[@"jasenet"] stringByReplacingOccurrencesOfString:@"|" withString:@", "];
 
         NSString *spotifyUrlStr = [NSString cast:dict[@"spotify"]];
         if([spotifyUrlStr length] != 0) {
