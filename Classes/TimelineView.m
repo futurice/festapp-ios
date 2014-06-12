@@ -60,8 +60,8 @@
 	CGContextSetFillColorWithColor(c, kColorRed.CGColor);
 	CGContextSetLineWidth(c, 1);
 
-    UIImage *fretImage = [UIImage imageNamed:@"timeline-fret.png"];
-    CGSize fretSize = CGSizeMake(16, 278);
+    UIImage *fretImage = [UIImage imageNamed:@"fret.png"];
+    CGSize fretSize = CGSizeMake(17, 276); // 34, 552 - 17, 276
 
 	for (int i = 1; i <= hourCount; i++) {
 
