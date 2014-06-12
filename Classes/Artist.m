@@ -10,17 +10,12 @@
 #import "AFNetworking.h"
 #import "FestHTTPSessionManager.h"
 
-@interface Artist () {
-    BOOL loadingImage;
-}
+@interface Artist ()
 
 @end
 
 @implementation Artist
 
-@dynamic image;
-@dynamic isLoadingArtistImage;
-@dynamic hasLoadedArtistImage;
 @dynamic timeIntervalString;
 @dynamic stageAndTimeIntervalString;
 @dynamic duration;
@@ -182,87 +177,6 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 
         [defaults setBool:favorite forKey:favoriteKey];
         [defaults synchronize];
-    }
-}
-
-- (BOOL)isLoadingArtistImage
-{
-    return loadingImage;
-}
-
-- (BOOL)hasLoadedArtistImage
-{
-    NSString *path;
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	path = [paths[0] stringByAppendingPathComponent:@"ArtistImages"];
-    NSString *imageName = [NSString stringWithFormat:@"artistimg_%@.jpg", self.artistId];
-    path = [path stringByAppendingPathComponent:imageName];
-
-    return [[NSFileManager defaultManager] fileExistsAtPath:path];
-}
-
-- (UIImage *)image
-{
-    NSString *path;
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	path = [paths[0] stringByAppendingPathComponent:@"ArtistImages"];
-	NSError *fileError;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-	if (![fileManager fileExistsAtPath:path]) {
-		if (![fileManager createDirectoryAtPath:path
-                    withIntermediateDirectories:NO
-                                     attributes:nil
-                                          error:&fileError]) {
-			NSLog(@"Create directory error: %@", fileError);
-		}
-	}
-
-    NSString *imageName = [NSString stringWithFormat:@"artistimg_%@.jpg", self.artistId];
-    path = [path stringByAppendingPathComponent:imageName];
-
-    if (![fileManager fileExistsAtPath:path] && !loadingImage) {
-        CLLocationDistance distance = [[NSUserDefaults standardUserDefaults] doubleForKey:kDistanceFromFestKey];
-        BOOL isWifi = [[AFNetworkReachabilityManager sharedManager] isReachableViaWiFi];
-        if (distance > 0 && distance < 1000 && isWifi) {
-            // Okay, we're in the area, let's not load the images now.
-            return nil;
-        }
-
-        NSLog(@"loading %@", self.imageURL);
-
-        FestHTTPSessionManager *httpManager = [FestHTTPSessionManager sharedFestHTTPSessionManager];
-
-        NSURLRequest *request = [NSURLRequest requestWithURL:self.imageURL];
-
-        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        requestOperation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
-        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Loaded image: %@", self.imageURL);
-
-            loadingImage = NO;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForLoadedArtistImage object:self];
-
-            NSURL *URL = [NSURL fileURLWithPath:path];
-            NSError *error = nil;
-            [URL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
-            if (error) {
-                NSLog(@"error excluding from backup: %@", error);
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Image error: %@", error);
-            loadingImage = NO;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationForFailedLoadingArtistImage object:self];
-        }];
-
-        [httpManager.operationQueue addOperation:requestOperation];
-
-        NSLog(@"loading %@ to %@", self.imageURL, path);
-
-        return nil;
-
-    } else {
-
-        return [UIImage imageWithContentsOfFile:path];
     }
 }
 

@@ -26,10 +26,6 @@
 
 @property (nonatomic, strong) NSString *day;
 
-@property (nonatomic, readonly) UIImage *image;
-@property (nonatomic, readonly) BOOL isLoadingArtistImage;
-@property (nonatomic, readonly) BOOL hasLoadedArtistImage;
-
 @property (nonatomic, readonly) NSString *timeIntervalString;
 @property (nonatomic, readonly) NSString *stageAndTimeIntervalString;
 @property (nonatomic, readonly) NSTimeInterval duration;

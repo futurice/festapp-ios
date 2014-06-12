@@ -72,15 +72,7 @@
 
     self.title = gig.artistName;
 
-    if (gig.image != nil) {
-        artistImageView.image = gig.image;
-        [imageLoadingSpinner stopAnimating];
-    } else {
-        artistImageView.image = [UIImage imageNamed:@"band-placeholder.png"];
-        if (gig.isLoadingArtistImage) {
-            [imageLoadingSpinner startAnimating];
-        }
-    }
+    artistImageView.image = [UIImage imageNamed:@"band-placeholder.png"];
 
     if (gig.alternativeGigs != nil) {
         NSMutableArray *alternativeGigs = [NSMutableArray arrayWithArray:gig.alternativeGigs];
@@ -146,10 +138,7 @@
 
 - (void)artistImageLoaded:(NSNotification *)notification
 {
-    if ([gig isEqual:notification.object]) {
-        artistImageView.image = gig.image;
-        [imageLoadingSpinner stopAnimating];
-    }
+    
 }
 
 - (void)artistImageFailedToLoad:(NSNotification *)notification
