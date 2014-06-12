@@ -140,13 +140,4 @@
 
 #pragma clang diagnostic pop
 
-#pragma mark - HACK
-
-- (void)cellButtonPressed:(UIButton *)sender
-{
-    CGPoint point = [self.tableView convertPoint:CGPointZero fromView:sender];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
-    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
-}
-
 @end
