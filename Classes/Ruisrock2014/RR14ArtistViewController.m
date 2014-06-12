@@ -73,18 +73,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    CGRect quoteLabelSize =
-    [self.artist.quote boundingRectWithSize:CGSizeMake(self.quoteLabel.frame.size.width, MAXFLOAT)
-                                    options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: self.quoteLabel.font
-                                                                                               }
-                                    context:nil];
-
-    self.quoteLabel.frame = CGRectMake(self.quoteLabel.frame.origin.x,
-                                       self.quoteLabel.frame.origin.y,
-                                       quoteLabelSize.size.width,
-                                       quoteLabelSize.size.height + 200);
-
-
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
 }
 
