@@ -61,6 +61,9 @@
         self.foundedLabel.text = self.artist.founded;
     }
 
+    // Favourite
+    [self.favouriteButton setImage:[UIImage imageNamed:@"schedule_favourite_selected.png"] forState:UIControlStateSelected];
+
     // Load image
     FestImageManager *imageManager = [FestImageManager sharedFestImageManager];
     [[imageManager imageSignalFor:self.artist.imagePath] subscribeNext:^(UIImage *image) {
@@ -89,6 +92,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+
+- (IBAction)toggleFavourite:(id)sender
+{
+    self.favouriteButton.selected = !self.favouriteButton.selected;
 }
 
 @end

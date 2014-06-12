@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RR14ArtistViewController">
             <connections>
                 <outlet property="artistLabel" destination="rs5-oC-si9" id="CtF-tq-dEf"/>
+                <outlet property="favouriteButton" destination="9Xb-9r-cb4" id="OsE-SX-qeO"/>
                 <outlet property="foundedLabel" destination="0gb-Xm-fX4" id="maj-lV-Bvr"/>
                 <outlet property="foundedTitleLabel" destination="OHU-sJ-0Gh" id="Eks-G5-I4v"/>
                 <outlet property="imageView" destination="MEP-b4-8Cf" id="gFq-YY-VL9"/>
@@ -46,6 +47,9 @@
                         <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="toggleFavourite:" destination="-1" eventType="touchUpInside" id="hCm-t2-9Rk"/>
+                    </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpA-rJ-cRh">
                     <rect key="frame" x="0.0" y="205" width="320" height="299"/>
@@ -129,25 +133,17 @@
             <constraints>
                 <constraint firstItem="9Xb-9r-cb4" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" constant="8" id="9y0-Jr-dal"/>
                 <constraint firstItem="MEP-b4-8Cf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C6x-HM-rqA"/>
-                <constraint firstItem="NpA-rJ-cRh" firstAttribute="top" secondItem="9Xb-9r-cb4" secondAttribute="bottom" constant="8" id="EEb-2g-PBO"/>
                 <constraint firstItem="9Xb-9r-cb4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="144" id="Gej-Rb-whD"/>
-                <constraint firstItem="NpA-rJ-cRh" firstAttribute="top" secondItem="9Xb-9r-cb4" secondAttribute="bottom" constant="8" id="MYB-VB-ppn"/>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="144" id="NA6-OG-DRR"/>
                 <constraint firstAttribute="trailing" secondItem="MEP-b4-8Cf" secondAttribute="trailing" id="UFv-Iu-qaQ"/>
                 <constraint firstAttribute="trailing" secondItem="NpA-rJ-cRh" secondAttribute="trailing" id="VQk-4z-p6q"/>
                 <constraint firstItem="NpA-rJ-cRh" firstAttribute="top" secondItem="9Xb-9r-cb4" secondAttribute="bottom" constant="8" id="W1h-FR-UdV"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Xb-9r-cb4" secondAttribute="trailing" constant="14" id="YE6-vV-IZa"/>
+                <constraint firstAttribute="trailing" secondItem="9Xb-9r-cb4" secondAttribute="trailing" constant="14" id="YE6-vV-IZa"/>
                 <constraint firstItem="MEP-b4-8Cf" firstAttribute="top" secondItem="A56-ot-hu0" secondAttribute="top" id="dsi-Mb-v3q"/>
-                <constraint firstAttribute="trailing" secondItem="9Xb-9r-cb4" secondAttribute="trailing" constant="14" id="fQc-zn-Rex"/>
                 <constraint firstAttribute="bottom" secondItem="NpA-rJ-cRh" secondAttribute="bottom" id="gEP-18-WrX"/>
                 <constraint firstItem="MEP-b4-8Cf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nfF-GO-Wlz"/>
                 <constraint firstItem="NpA-rJ-cRh" firstAttribute="bottom" secondItem="A56-ot-hu0" secondAttribute="bottom" id="oVk-gR-FZY"/>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" constant="8" id="sOv-1B-biw"/>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="leading" relation="lessThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="144" id="tRb-5u-IIa"/>
                 <constraint firstItem="MEP-b4-8Cf" firstAttribute="leading" secondItem="A56-ot-hu0" secondAttribute="leading" id="vbI-Xx-OgM"/>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" constant="8" id="vkL-Nk-3Bo"/>
                 <constraint firstItem="NpA-rJ-cRh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wG6-QY-XFU"/>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" constant="8" id="yM8-wt-WkQ"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

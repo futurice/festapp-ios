@@ -13,6 +13,8 @@
 @interface RR14ArtistViewController : UIViewController
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 
+@property (nonatomic, strong) IBOutlet UIButton *favouriteButton;
+
 @property (nonatomic, strong) IBOutlet UILabel *artistLabel;
 @property (nonatomic, strong) IBOutlet UILabel *stageLabel;
 @property (nonatomic, strong) IBOutlet UILabel *quoteLabel;
@@ -24,4 +26,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *foundedLabel;
 
 + (RR14ArtistViewController *) newWithArtist:(NSString *)artist;
+
+- (IBAction)toggleFavourite:(id)sender;
 @end
