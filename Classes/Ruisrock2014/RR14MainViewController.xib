@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RR14MainViewController">
             <connections>
+                <outlet property="artistImageView" destination="AEE-Hx-XEM" id="3Zh-RX-b54"/>
+                <outlet property="artistLabel" destination="IMi-vI-OdU" id="B5V-PH-oPe"/>
+                <outlet property="artistSublabel" destination="nrP-hl-Gy2" id="bmr-Dg-4aR"/>
                 <outlet property="newsTitleLabel" destination="Ctb-pE-Ofq" id="ULa-tL-2B8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

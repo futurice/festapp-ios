@@ -91,6 +91,8 @@
 		88B431BF1948347600589A83 /* ruisrock_iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B431B41948347600589A83 /* ruisrock_iTunesArtwork@2x.png */; };
 		88B431C7194963DB00589A83 /* ruisrock_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B431C3194963DB00589A83 /* ruisrock_Icon@2x.png */; };
 		88B431C9194963DB00589A83 /* ruisrock-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B431C5194963DB00589A83 /* ruisrock-80.png */; };
+		88B431CC19496FBE00589A83 /* FestImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B431CB19496FBE00589A83 /* FestImageManager.m */; };
+		88B431CF194974C600589A83 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B431CE194974C600589A83 /* NSString+MD5.m */; };
 		88BCA3CE18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA3BE18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.m */; };
 		88BCA3CF18DEEFC800654E64 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA3C018DEEFC800654E64 /* UIActivityIndicatorView+AFNetworking.m */; };
 		88BCA3D018DEEFC800654E64 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BCA3C218DEEFC800654E64 /* UIAlertView+AFNetworking.m */; };
@@ -314,6 +316,10 @@
 		88B431B41948347600589A83 /* ruisrock_iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruisrock_iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		88B431C3194963DB00589A83 /* ruisrock_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruisrock_Icon@2x.png"; sourceTree = "<group>"; };
 		88B431C5194963DB00589A83 /* ruisrock-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ruisrock-80.png"; sourceTree = "<group>"; };
+		88B431CA19496FBE00589A83 /* FestImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestImageManager.h; sourceTree = "<group>"; };
+		88B431CB19496FBE00589A83 /* FestImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestImageManager.m; sourceTree = "<group>"; };
+		88B431CD194974C600589A83 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		88B431CE194974C600589A83 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		88BCA3BD18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		88BCA3BE18DEEFC800654E64 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		88BCA3BF18DEEFC800654E64 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -423,6 +429,8 @@
 				4D2FA5F2139BE6E500F03209 /* FestApp.h */,
 				8894AE2F18DDF00000991593 /* FestDataManager.h */,
 				8894AE3018DDF00000991593 /* FestDataManager.m */,
+				88B431CA19496FBE00589A83 /* FestImageManager.h */,
+				88B431CB19496FBE00589A83 /* FestImageManager.m */,
 				1D3623240D0F684500981E51 /* FestAppDelegate.h */,
 				1D3623250D0F684500981E51 /* FestAppDelegate.m */,
 				88EE0F4218DDC06300592E51 /* FestHTTPSessionManager.h */,
@@ -754,6 +762,8 @@
 				48AD03AC158A493F00546602 /* UIView+XYWidthHeight.m */,
 				4D186E661393CC5100CDA3DB /* UIViewController+Additions.h */,
 				4D186E671393CC5100CDA3DB /* UIViewController+Additions.m */,
+				88B431CD194974C600589A83 /* NSString+MD5.h */,
+				88B431CE194974C600589A83 /* NSString+MD5.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1004,6 +1014,8 @@
 				88BCA3D518DEEFC800654E64 /* UIWebView+AFNetworking.m in Sources */,
 				8894AE3118DDF00000991593 /* FestDataManager.m in Sources */,
 				CD7852AC1378BD6C00711F11 /* NSDate+Additions.m in Sources */,
+				88B431CF194974C600589A83 /* NSString+MD5.m in Sources */,
+				88B431CC19496FBE00589A83 /* FestImageManager.m in Sources */,
 				CD7853E7137AA39F00711F11 /* TimelineView.m in Sources */,
 				88B4319C19471C2B00589A83 /* RR14MapViewController.m in Sources */,
 				88355E82194609E7003E2F90 /* RR14MainViewController.m in Sources */,

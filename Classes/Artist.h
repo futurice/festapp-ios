@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *venue;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, strong) NSString *imagePath;
 @property (nonatomic, strong) NSMutableArray *alternativeGigs;
 @property (nonatomic, strong) NSURL *spotifyUrl;
 @property (nonatomic, strong) NSURL *youtubeUrl;

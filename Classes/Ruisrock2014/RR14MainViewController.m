@@ -10,6 +10,7 @@
 
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
+#import "FestImageManager.h"
 
 #import "NewsItem.h"
 
@@ -33,7 +34,7 @@
 {
     [super viewDidLoad];
 
-    // Subscribe
+    // News
     RACSignal *newsSignal = FestDataManager.sharedFestDataManager.newsSignal;
     [newsSignal subscribeNext:^(NSArray *news) {
         NSAssert(news.count >= 0, @"We assume there is at least one news entry") ;
@@ -42,13 +43,35 @@
         self.newsTitleLabel.text = self.currentNewsItem.title;
     }];
 
-    RACSignal *artistSignal = FestDataManager.sharedFestDataManager.artistsSignal;
-    [artistSignal subscribeNext:^(NSArray *artists) {
-        NSAssert(artists.count >= 0, @"We assume there is at least one artist");
-
-        self.currentArtist = artists.firstObject;
+    // Artist
+    RACSignal *intervalSignal = [RACSignal interval:20 onScheduler:[RACScheduler mainThreadScheduler]];;
+    RACBehaviorSubject *intervalSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:[NSDate date]];
+    [intervalSignal subscribeNext:^(id x) {
+        [intervalSubject sendNext:x];
     }];
-    // Do any additional setup after loading the view from its nib.
+
+    RACSignal *artistsSignal = FestDataManager.sharedFestDataManager.artistsSignal;
+    RACSignal *currentArtistSignal =
+    [RACSignal combineLatest:@[intervalSubject, artistsSignal]
+                    reduce:^id(NSDate *date, NSArray *artists) {
+                        NSUInteger idx = (NSUInteger)([date timeIntervalSinceReferenceDate] * 1000) % MAX(artists.count, 1);
+                        return artists[idx];
+                    }];
+
+    [currentArtistSignal subscribeNext:^(Artist *artist) {
+        self.currentArtist = artist;
+
+        self.artistLabel.text = artist.artistName;
+        self.artistSublabel.text = artist.stageAndTimeIntervalString;
+    }];
+
+    RACSignal *imageSignal = [[currentArtistSignal map:^id(Artist *artist) {
+        return [[FestImageManager sharedFestImageManager] imageSignalFor:artist.imagePath];
+    }] switchToLatest];
+
+    [imageSignal subscribeNext:^(UIImage *image) {
+        self.artistImageView.image = image;
+    }];
 
     // No back text
     self.navigationItem.backBarButtonItem.title = @"foo";

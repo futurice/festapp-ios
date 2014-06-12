@@ -10,6 +10,7 @@
 
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
+#import "FestImageManager.h"
 
 @interface RR14ArtistViewController ()
 @property (nonatomic, strong) Artist *artist;
@@ -45,6 +46,14 @@
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
 
     self.artistLabel.text = self.artist.artistName;
+    self.stageLabel.text = self.artist.stageAndTimeIntervalString;
+    self.quoteLabel.text = @"FOOBAR";
+
+    // Load image
+    FestImageManager *imageManager = [FestImageManager sharedFestImageManager];
+    [[imageManager imageSignalFor:self.artist.imagePath] subscribeNext:^(UIImage *image) {
+        self.imageView.image = image;
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated

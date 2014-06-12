@@ -70,6 +70,7 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
 
         NSString *imagePath = [NSString cast:dict[@"kuva"]];
         if (imagePath) {
+            gig.imagePath = imagePath;
             gig.imageURL = [NSURL URLWithString:[NSString stringWithFormat:kResourceImageURLFormat, imagePath]];
         }
 

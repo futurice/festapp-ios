@@ -6,6 +6,8 @@
 #define RR_NEWS_JSON_URL           @"/api/uutiset"
 #define RR_ARTISTS_JSON_URL        @"/api/artistit"
 
+#define RR_IMAGE_BASE_URL          @"http://ruisrock.fi/admin/"
+
 #define kResourceImageURLFormat    @"http://ruisrock.fi/admin/%@"
 
 #define kResourceTypeSuffix        @"json"

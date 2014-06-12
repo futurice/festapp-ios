@@ -10,6 +10,10 @@
 
 @interface RR14MainViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIImageView *artistImageView;
+@property (nonatomic, strong) IBOutlet UILabel *artistLabel;
+@property (nonatomic, strong) IBOutlet UILabel *artistSublabel;
+
 @property (nonatomic, strong) IBOutlet UILabel *newsTitleLabel;
 
 - (IBAction)showSchedule:(id)sender;
