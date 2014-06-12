@@ -78,6 +78,8 @@
 		8863330218F15BB00091E0A9 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 8863330018F15BB00091E0A9 /* map.png */; };
 		8894AE3118DDF00000991593 /* FestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894AE3018DDF00000991593 /* FestDataManager.m */; };
 		8894AE4018DDF7C000991593 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8894AE1918DDE68F00991593 /* libReactiveCocoa-iOS.a */; };
+		88989F611949C0470016BD15 /* RR14ArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F601949C0470016BD15 /* RR14ArtistCell.xib */; };
+		88989F641949C0EF0016BD15 /* RR14ArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F631949C0EF0016BD15 /* RR14ArtistCell.m */; };
 		88B431911947185200589A83 /* RR14WebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4318F1947185100589A83 /* RR14WebContentViewController.m */; };
 		88B431921947185200589A83 /* RR14WebContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B431901947185100589A83 /* RR14WebContentViewController.xib */; };
 		88B4319C19471C2B00589A83 /* RR14MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4319A19471C2B00589A83 /* RR14MapViewController.m */; };
@@ -300,6 +302,9 @@
 		8894AE0A18DDE68E00991593 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		8894AE2F18DDF00000991593 /* FestDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestDataManager.h; sourceTree = "<group>"; };
 		8894AE3018DDF00000991593 /* FestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestDataManager.m; sourceTree = "<group>"; };
+		88989F601949C0470016BD15 /* RR14ArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14ArtistCell.xib; path = Ruisrock2014/RR14ArtistCell.xib; sourceTree = "<group>"; };
+		88989F621949C0EF0016BD15 /* RR14ArtistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14ArtistCell.h; path = Ruisrock2014/RR14ArtistCell.h; sourceTree = "<group>"; };
+		88989F631949C0EF0016BD15 /* RR14ArtistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14ArtistCell.m; path = Ruisrock2014/RR14ArtistCell.m; sourceTree = "<group>"; };
 		88B4318E1947185100589A83 /* RR14WebContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14WebContentViewController.h; path = Ruisrock2014/RR14WebContentViewController.h; sourceTree = "<group>"; };
 		88B4318F1947185100589A83 /* RR14WebContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14WebContentViewController.m; path = Ruisrock2014/RR14WebContentViewController.m; sourceTree = "<group>"; };
 		88B431901947185100589A83 /* RR14WebContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14WebContentViewController.xib; path = Ruisrock2014/RR14WebContentViewController.xib; sourceTree = "<group>"; };
@@ -425,6 +430,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				88989F591949BE440016BD15 /* Views */,
 				88355E6D194600EF003E2F90 /* Ruisrock2014 */,
 				4D2FA5F2139BE6E500F03209 /* FestApp.h */,
 				8894AE2F18DDF00000991593 /* FestDataManager.h */,
@@ -520,15 +526,12 @@
 				4DDA034A139C05590003FFA4 /* CalloutView.m */,
 				489769BE158A5F970075DD04 /* CustomNavigationBar.h */,
 				489769BF158A5F970075DD04 /* CustomNavigationBar.m */,
-				4D587153138C854500B0A0BC /* DayChooser.h */,
-				4D587154138C854500B0A0BC /* DayChooser.m */,
 				4D30E84C13981816007E9D0B /* ExternalWebContentView.xib */,
 				4D587150138C809000B0A0BC /* GigView.xib */,
 				4D186E09139329E100CDA3DB /* InfoView.xib */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				282CCBFD0DB6C98000C4EA27 /* MapView.xib */,
 				4D30E81C1396802D007E9D0B /* NavigableContentView.xib */,
-				2840D7CD1179279E00D7F93C /* TimelineView.xib */,
 				4D30E7DC1395A8CA007E9D0B /* WebContentView.xib */,
 			);
 			name = Views;
@@ -551,8 +554,6 @@
 				4D30E83A1396A911007E9D0B /* NewsViewController.m */,
 				28216C950DB411BC00E5133A /* TimelineViewController.h */,
 				28216C960DB411BC00E5133A /* TimelineViewController.m */,
-				CD7853E5137AA39F00711F11 /* TimelineView.h */,
-				CD7853E6137AA39F00711F11 /* TimelineView.m */,
 				4D30E7DA1395A8CA007E9D0B /* WebContentViewController.h */,
 				4D30E7DB1395A8CA007E9D0B /* WebContentViewController.m */,
 			);
@@ -676,6 +677,21 @@
 				8894AE2318DDE68F00991593 /* libReactiveCocoa-Mac.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		88989F591949BE440016BD15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D587153138C854500B0A0BC /* DayChooser.h */,
+				4D587154138C854500B0A0BC /* DayChooser.m */,
+				88989F621949C0EF0016BD15 /* RR14ArtistCell.h */,
+				88989F631949C0EF0016BD15 /* RR14ArtistCell.m */,
+				88989F601949C0470016BD15 /* RR14ArtistCell.xib */,
+				CD7853E5137AA39F00711F11 /* TimelineView.h */,
+				CD7853E6137AA39F00711F11 /* TimelineView.m */,
+				2840D7CD1179279E00D7F93C /* TimelineView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		88B431A91948347600589A83 /* Ruisrock2014Icons */ = {
@@ -927,6 +943,7 @@
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				ADE7A21719461EA80073C4D8 /* Images.xcassets in Resources */,
 				88B431A819473FC200589A83 /* uutiset in Resources */,
+				88989F611949C0470016BD15 /* RR14ArtistCell.xib in Resources */,
 				882045811946EB6F006D8DB8 /* RR14ArtistsViewController.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* MapView.xib in Resources */,
 				88B431C9194963DB00589A83 /* ruisrock-80.png in Resources */,
@@ -1022,6 +1039,7 @@
 				4D587151138C809000B0A0BC /* GigViewController.m in Sources */,
 				4D587155138C854500B0A0BC /* DayChooser.m in Sources */,
 				4D186E0A139329E100CDA3DB /* InfoViewController.m in Sources */,
+				88989F641949C0EF0016BD15 /* RR14ArtistCell.m in Sources */,
 				88C1839118DDCAAA0014495D /* AFHTTPRequestOperation.m in Sources */,
 				4D186E681393CC5200CDA3DB /* UIViewController+Additions.m in Sources */,
 				88C1839418DDCAAA0014495D /* AFNetworkReachabilityManager.m in Sources */,

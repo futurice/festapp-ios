@@ -11,6 +11,7 @@
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
 #import "FestImageManager.h"
+#import "RR14ArtistCell.h"
 
 @interface RR14ArtistsViewController ()
 @property (nonatomic, strong) NSArray *artists;
@@ -81,44 +82,20 @@
     NSUInteger idx = indexPath.row;
 
     static NSString *CellIdentifier = @"ArtistCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    RR14ArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
-
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"RR14ArtistCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        /*
         cell.backgroundView = nil;
-        cell.backgroundColor = [UIColor clearColor];
-
-        // TODO: implement our own view.
-        UIButton *cellButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        cellButton.frame = CGRectMake(0, 0, 320, kCellHeight);
-        cellButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        cellButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
-        cellButton.titleLabel.numberOfLines = 2;
-        cellButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        cellButton.imageEdgeInsets = UIEdgeInsetsMake(0, 200, 0, 0);
-        cellButton.titleEdgeInsets = UIEdgeInsetsMake(0, -460, 0, 100);
-        [cellButton setTitleColor:kColorYellowLight forState:UIControlStateNormal];
-        [cellButton addTarget:self action:@selector(cellButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        cellButton.tag = kCellButtonTag;
-        [cell addSubview:cellButton];
-
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        */
     }
 
     cell.backgroundColor = (idx % 2 == 0) ? RR_COLOR_LIGHTGREEN : RR_COLOR_GREEN;
 
-    Artist *artist = self.artists[idx];
-
-    UIButton *cellButton = [UIButton cast:[cell viewWithTag:kCellButtonTag]];
-
-   [[[FestImageManager sharedFestImageManager] imageSignalFor:artist.imagePath] subscribeNext:^(UIImage *image) {
-       [cellButton setImage:image forState:UIControlStateNormal];
-   }];
-
-    NSString *title = artist.artistName;
-
-    [cellButton setTitle:title forState:UIControlStateNormal];
+    cell.artist = self.artists[idx];
 
     return cell;
 }
