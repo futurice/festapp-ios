@@ -5,7 +5,6 @@
 
 #import "NavigableContentViewController.h"
 #import "WebContentViewController.h"
-#import "GigViewController.h"
 #import "Artist.h"
 #import "UIViewController+Additions.h"
 
@@ -307,11 +306,6 @@
     self.navigationItem.title = NSLocalizedString(@"navigation.back", @"");
 
     if ([contentItem isKindOfClass:Artist.class]) {
-
-        GigViewController *gigViewer = [[GigViewController alloc] initWithNibName:@"GigView" bundle:nil];
-        gigViewer.gig = (Artist *) contentItem;
-        gigViewer.shouldFavoriteAllAlternatives = YES;
-        [self.navigationController pushViewController:gigViewer animated:YES];
 
     } else if ([contentItem isKindOfClass:NSString.class]) {
 

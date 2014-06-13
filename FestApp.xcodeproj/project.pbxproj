@@ -11,12 +11,9 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		28216C970DB411BC00E5133A /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28216C960DB411BC00E5133A /* TimelineViewController.m */; };
 		282CCBFE0DB6C98000C4EA27 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282CCBFD0DB6C98000C4EA27 /* MapView.xib */; };
 		2840D7CE1179279E00D7F93C /* TimelineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2840D7CD1179279E00D7F93C /* TimelineView.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
-		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
-		489769C0158A5F970075DD04 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 489769BF158A5F970075DD04 /* CustomNavigationBar.m */; };
 		48AD03AD158A493F00546602 /* UIView+XYWidthHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 48AD03AC158A493F00546602 /* UIView+XYWidthHeight.m */; };
 		48AD03B1158A52F700546602 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48AD03B3158A52F700546602 /* Localizable.strings */; };
 		48EE8C3F158B719E00C5345E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EE8C3E158B719D00C5345E /* CFNetwork.framework */; };
@@ -24,8 +21,6 @@
 		48EE8C43158B725000C5345E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EE8C42158B724F00C5345E /* libz.dylib */; };
 		48EE8C45158B725B00C5345E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EE8C44158B725A00C5345E /* MobileCoreServices.framework */; };
 		48FFC5271784D065003F532F /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 48FFC5261784D065003F532F /* NSString+Additions.m */; };
-		4D186E0A139329E100CDA3DB /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D186E08139329E100CDA3DB /* InfoViewController.m */; };
-		4D186E0B139329E100CDA3DB /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D186E09139329E100CDA3DB /* InfoView.xib */; };
 		4D186E681393CC5200CDA3DB /* UIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D186E671393CC5100CDA3DB /* UIViewController+Additions.m */; };
 		4D186E6A1393CCA900CDA3DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D186E691393CCA800CDA3DB /* QuartzCore.framework */; };
 		4D1ED386139C36B400BB1D47 /* Riff2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 4D1ED385139C36B400BB1D47 /* Riff2.aif */; };
@@ -41,8 +36,6 @@
 		4D30E84A13980F1B007E9D0B /* ExternalWebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D30E84813980F14007E9D0B /* ExternalWebContentViewController.m */; };
 		4D30E84D13981818007E9D0B /* ExternalWebContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D30E84C13981816007E9D0B /* ExternalWebContentView.xib */; };
 		4D587128138C13A700B0A0BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D587127138C13A700B0A0BC /* MapKit.framework */; };
-		4D587151138C809000B0A0BC /* GigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D58714F138C808F00B0A0BC /* GigViewController.m */; };
-		4D587152138C809000B0A0BC /* GigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D587150138C809000B0A0BC /* GigView.xib */; };
 		4D587155138C854500B0A0BC /* DayChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D587154138C854500B0A0BC /* DayChooser.m */; };
 		4DDA034B139C05590003FFA4 /* CalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA034A139C05590003FFA4 /* CalloutView.m */; };
 		7449289218F8595C00924012 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7449289118F8595C00924012 /* XCTest.framework */; };
@@ -213,17 +206,12 @@
 		1D3623250D0F684500981E51 /* FestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FestAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1D6058910D05DD3D006BFB54 /* FestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28216C950DB411BC00E5133A /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
-		28216C960DB411BC00E5133A /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		282CCBFD0DB6C98000C4EA27 /* MapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapView.xib; path = ../Resources/MapView.xib; sourceTree = "<group>"; };
 		2840D7CD1179279E00D7F93C /* TimelineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimelineView.xib; path = ../Resources/TimelineView.xib; sourceTree = "<group>"; };
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AB4B0D9B1048005BE974 /* FestApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestApp_Prefix.pch; sourceTree = "<group>"; };
-		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../Resources/MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		489769AC158A56C40075DD04 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; lineEnding = 0; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
-		489769BE158A5F970075DD04 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
-		489769BF158A5F970075DD04 /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
 		48AD03AB158A493F00546602 /* UIView+XYWidthHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XYWidthHeight.h"; sourceTree = "<group>"; };
 		48AD03AC158A493F00546602 /* UIView+XYWidthHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XYWidthHeight.m"; sourceTree = "<group>"; };
 		48AD03B2158A52F700546602 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -233,9 +221,6 @@
 		48EE8C44158B725A00C5345E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		48FFC5251784D065003F532F /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
 		48FFC5261784D065003F532F /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
-		4D186E07139329E100CDA3DB /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		4D186E08139329E100CDA3DB /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = InfoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		4D186E09139329E100CDA3DB /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InfoView.xib; path = ../Resources/InfoView.xib; sourceTree = "<group>"; };
 		4D186E661393CC5100CDA3DB /* UIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Additions.h"; sourceTree = "<group>"; };
 		4D186E671393CC5100CDA3DB /* UIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Additions.m"; sourceTree = "<group>"; };
 		4D186E691393CCA800CDA3DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -257,9 +242,6 @@
 		4D30E84813980F14007E9D0B /* ExternalWebContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebContentViewController.m; sourceTree = "<group>"; };
 		4D30E84C13981816007E9D0B /* ExternalWebContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExternalWebContentView.xib; path = ../Resources/ExternalWebContentView.xib; sourceTree = "<group>"; };
 		4D587127138C13A700B0A0BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		4D58714E138C808F00B0A0BC /* GigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GigViewController.h; sourceTree = "<group>"; };
-		4D58714F138C808F00B0A0BC /* GigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GigViewController.m; sourceTree = "<group>"; };
-		4D587150138C809000B0A0BC /* GigView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GigView.xib; path = ../Resources/GigView.xib; sourceTree = "<group>"; };
 		4D587153138C854500B0A0BC /* DayChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayChooser.h; sourceTree = "<group>"; };
 		4D587154138C854500B0A0BC /* DayChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayChooser.m; sourceTree = "<group>"; };
 		4DDA0349139C05580003FFA4 /* CalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CalloutView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -533,12 +515,7 @@
 			children = (
 				4DDA0349139C05580003FFA4 /* CalloutView.h */,
 				4DDA034A139C05590003FFA4 /* CalloutView.m */,
-				489769BE158A5F970075DD04 /* CustomNavigationBar.h */,
-				489769BF158A5F970075DD04 /* CustomNavigationBar.m */,
 				4D30E84C13981816007E9D0B /* ExternalWebContentView.xib */,
-				4D587150138C809000B0A0BC /* GigView.xib */,
-				4D186E09139329E100CDA3DB /* InfoView.xib */,
-				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				282CCBFD0DB6C98000C4EA27 /* MapView.xib */,
 				4D30E81C1396802D007E9D0B /* NavigableContentView.xib */,
 				4D30E7DC1395A8CA007E9D0B /* WebContentView.xib */,
@@ -551,18 +528,12 @@
 			children = (
 				4D30E84713980F12007E9D0B /* ExternalWebContentViewController.h */,
 				4D30E84813980F14007E9D0B /* ExternalWebContentViewController.m */,
-				4D58714E138C808F00B0A0BC /* GigViewController.h */,
-				4D58714F138C808F00B0A0BC /* GigViewController.m */,
-				4D186E07139329E100CDA3DB /* InfoViewController.h */,
-				4D186E08139329E100CDA3DB /* InfoViewController.m */,
 				CD7852511378B36E00711F11 /* MapViewController.h */,
 				CD7852521378B36E00711F11 /* MapViewController.m */,
 				4D30E81A1396802B007E9D0B /* NavigableContentViewController.h */,
 				4D30E81B1396802C007E9D0B /* NavigableContentViewController.m */,
 				4D30E8391396A910007E9D0B /* NewsViewController.h */,
 				4D30E83A1396A911007E9D0B /* NewsViewController.m */,
-				28216C950DB411BC00E5133A /* TimelineViewController.h */,
-				28216C960DB411BC00E5133A /* TimelineViewController.m */,
 				4D30E7DA1395A8CA007E9D0B /* WebContentViewController.h */,
 				4D30E7DB1395A8CA007E9D0B /* WebContentViewController.m */,
 			);
@@ -951,7 +922,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				ADE7A21719461EA80073C4D8 /* Images.xcassets in Resources */,
 				88B431A819473FC200589A83 /* uutiset in Resources */,
 				88989F611949C0470016BD15 /* RR14ArtistCell.xib in Resources */,
@@ -966,9 +936,7 @@
 				AD68824B19462C140015F409 /* frontpage_bottom_deco@2x.png in Resources */,
 				AD68824919462C140015F409 /* fretboard_bg@2x.png in Resources */,
 				882045661946D735006D8DB8 /* RR14ScheduleViewController.xib in Resources */,
-				4D587152138C809000B0A0BC /* GigView.xib in Resources */,
 				AD14D21918F97F47006890E7 /* (null) in Resources */,
-				4D186E0B139329E100CDA3DB /* InfoView.xib in Resources */,
 				8820454E1946C072006D8DB8 /* lilyallen.jpg in Resources */,
 				88B431C7194963DB00589A83 /* ruisrock_Icon@2x.png in Resources */,
 				ADE7A20B194617A00073C4D8 /* water_line@2x.png in Resources */,
@@ -1033,7 +1001,6 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* FestAppDelegate.m in Sources */,
-				28216C970DB411BC00E5133A /* TimelineViewController.m in Sources */,
 				88BCA3CF18DEEFC800654E64 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CD7852501378B2D900711F11 /* Artist.m in Sources */,
 				88C1839618DDCAAA0014495D /* AFURLConnectionOperation.m in Sources */,
@@ -1049,10 +1016,8 @@
 				CD7853E7137AA39F00711F11 /* TimelineView.m in Sources */,
 				88B4319C19471C2B00589A83 /* RR14MapViewController.m in Sources */,
 				88355E82194609E7003E2F90 /* RR14MainViewController.m in Sources */,
-				4D587151138C809000B0A0BC /* GigViewController.m in Sources */,
 				88989F67194AE5A10016BD15 /* FestFavouritesManager.m in Sources */,
 				4D587155138C854500B0A0BC /* DayChooser.m in Sources */,
-				4D186E0A139329E100CDA3DB /* InfoViewController.m in Sources */,
 				88989F641949C0EF0016BD15 /* RR14ArtistCell.m in Sources */,
 				88C1839118DDCAAA0014495D /* AFHTTPRequestOperation.m in Sources */,
 				4D186E681393CC5200CDA3DB /* UIViewController+Additions.m in Sources */,
@@ -1077,7 +1042,6 @@
 				88BCA3D318DEEFC800654E64 /* UIProgressView+AFNetworking.m in Sources */,
 				8820457B1946EAFE006D8DB8 /* RR14ArtistViewController.m in Sources */,
 				48AD03AD158A493F00546602 /* UIView+XYWidthHeight.m in Sources */,
-				489769C0158A5F970075DD04 /* CustomNavigationBar.m in Sources */,
 				882045801946EB6F006D8DB8 /* RR14ArtistsViewController.m in Sources */,
 				88C1839518DDCAAA0014495D /* AFSecurityPolicy.m in Sources */,
 				88EE0F4418DDC06300592E51 /* FestHTTPSessionManager.m in Sources */,
