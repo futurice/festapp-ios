@@ -41,7 +41,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    int favoriteInstructionShownCount = [defaults integerForKey:kFavoritingInstructionShownCounterKey];
+    NSInteger favoriteInstructionShownCount = [defaults integerForKey:kFavoritingInstructionShownCounterKey];
     if (favoriteInstructionShownCount < 3) {
         [defaults setBool:NO forKey:kFavoritingInstructionAlreadyShownKey];
         [defaults setInteger:(favoriteInstructionShownCount+1) forKey:kFavoritingInstructionShownCounterKey];

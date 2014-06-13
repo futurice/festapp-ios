@@ -25,7 +25,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *foundedTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *foundedLabel;
 
-+ (RR14ArtistViewController *) newWithArtist:(NSString *)artist;
++ (RR14ArtistViewController *) newWithArtist:(Artist *)artist;
 
 - (IBAction)toggleFavourite:(id)sender;
 @end
