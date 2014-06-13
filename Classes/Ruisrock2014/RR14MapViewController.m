@@ -29,8 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 
+    // back button
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
 }
 
@@ -39,10 +39,29 @@
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    // minZoom
+    CGFloat minZoomScale = MAX(self.scrollView.frame.size.height / self.mapView.frame.size.height,
+                               self.scrollView.frame.size.width / self.mapView.frame.size.width);
+
+    self.scrollView.minimumZoomScale = minZoomScale;
+
+    [self.scrollView setZoomScale:minZoomScale animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(self.mapView.frame.size.width / 4, 0) animated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark UIScrollViewDelegate   
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.mapView;
 }
 
 @end

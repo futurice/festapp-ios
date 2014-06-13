@@ -44,14 +44,6 @@
 		7449289A18F8595D00924012 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7449289818F8595D00924012 /* InfoPlist.strings */; };
 		7449289C18F8595D00924012 /* FestApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449289B18F8595D00924012 /* FestApp_Tests.m */; };
 		882045421946B15A006D8DB8 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 882045411946B15A006D8DB8 /* default@2x.png */; };
-		8820454C1946C072006D8DB8 /* bastille.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 882045441946C072006D8DB8 /* bastille.jpg */; };
-		8820454D1946C072006D8DB8 /* davidguetta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 882045451946C072006D8DB8 /* davidguetta.jpg */; };
-		8820454E1946C072006D8DB8 /* lilyallen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 882045461946C072006D8DB8 /* lilyallen.jpg */; };
-		8820454F1946C072006D8DB8 /* offspring.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 882045471946C072006D8DB8 /* offspring.jpg */; };
-		882045501946C072006D8DB8 /* phoenix.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 882045481946C072006D8DB8 /* phoenix.jpg */; };
-		882045511946C072006D8DB8 /* studiokillers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 882045491946C072006D8DB8 /* studiokillers.jpg */; };
-		882045521946C072006D8DB8 /* suede.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8820454A1946C072006D8DB8 /* suede.jpg */; };
-		882045531946C072006D8DB8 /* wizkhalifa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8820454B1946C072006D8DB8 /* wizkhalifa.jpg */; };
 		882045651946D735006D8DB8 /* RR14ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 882045631946D735006D8DB8 /* RR14ScheduleViewController.m */; };
 		882045661946D735006D8DB8 /* RR14ScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882045641946D735006D8DB8 /* RR14ScheduleViewController.xib */; };
 		882045681946DADD006D8DB8 /* navigation-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 882045671946DADD006D8DB8 /* navigation-bar@2x.png */; };
@@ -68,7 +60,6 @@
 		88355E82194609E7003E2F90 /* RR14MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88355E80194609E7003E2F90 /* RR14MainViewController.m */; };
 		88355E83194609E7003E2F90 /* RR14MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88355E81194609E7003E2F90 /* RR14MainViewController.xib */; };
 		88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */; };
-		8863330218F15BB00091E0A9 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 8863330018F15BB00091E0A9 /* map.png */; };
 		8894AE3118DDF00000991593 /* FestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894AE3018DDF00000991593 /* FestDataManager.m */; };
 		8894AE4018DDF7C000991593 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8894AE1918DDE68F00991593 /* libReactiveCocoa-iOS.a */; };
 		88989F611949C0470016BD15 /* RR14ArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F601949C0470016BD15 /* RR14ArtistCell.xib */; };
@@ -76,6 +67,7 @@
 		88989F67194AE5A10016BD15 /* FestFavouritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F66194AE5A10016BD15 /* FestFavouritesManager.m */; };
 		88989F6A194B57320016BD15 /* daychooser-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F68194B57320016BD15 /* daychooser-selected@2x.png */; };
 		88989F6B194B57320016BD15 /* daychooser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F69194B57320016BD15 /* daychooser@2x.png */; };
+		88989F6D194B8E3D0016BD15 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F6C194B8E3D0016BD15 /* map.png */; };
 		88B431911947185200589A83 /* RR14WebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4318F1947185100589A83 /* RR14WebContentViewController.m */; };
 		88B431921947185200589A83 /* RR14WebContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B431901947185100589A83 /* RR14WebContentViewController.xib */; };
 		88B4319C19471C2B00589A83 /* RR14MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4319A19471C2B00589A83 /* RR14MapViewController.m */; };
@@ -253,14 +245,6 @@
 		7449289B18F8595D00924012 /* FestApp_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FestApp_Tests.m; sourceTree = "<group>"; };
 		7449289D18F8595D00924012 /* FestApp Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp Tests-Prefix.pch"; sourceTree = "<group>"; };
 		882045411946B15A006D8DB8 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default@2x.png"; path = "Resources/Ruisrock2014/default@2x.png"; sourceTree = "<group>"; };
-		882045441946C072006D8DB8 /* bastille.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bastille.jpg; path = Resources/Ruisrock2014Artists/bastille.jpg; sourceTree = "<group>"; };
-		882045451946C072006D8DB8 /* davidguetta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = davidguetta.jpg; path = Resources/Ruisrock2014Artists/davidguetta.jpg; sourceTree = "<group>"; };
-		882045461946C072006D8DB8 /* lilyallen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lilyallen.jpg; path = Resources/Ruisrock2014Artists/lilyallen.jpg; sourceTree = "<group>"; };
-		882045471946C072006D8DB8 /* offspring.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = offspring.jpg; path = Resources/Ruisrock2014Artists/offspring.jpg; sourceTree = "<group>"; };
-		882045481946C072006D8DB8 /* phoenix.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = phoenix.jpg; path = Resources/Ruisrock2014Artists/phoenix.jpg; sourceTree = "<group>"; };
-		882045491946C072006D8DB8 /* studiokillers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = studiokillers.jpg; path = Resources/Ruisrock2014Artists/studiokillers.jpg; sourceTree = "<group>"; };
-		8820454A1946C072006D8DB8 /* suede.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = suede.jpg; path = Resources/Ruisrock2014Artists/suede.jpg; sourceTree = "<group>"; };
-		8820454B1946C072006D8DB8 /* wizkhalifa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wizkhalifa.jpg; path = Resources/Ruisrock2014Artists/wizkhalifa.jpg; sourceTree = "<group>"; };
 		882045621946D735006D8DB8 /* RR14ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14ScheduleViewController.h; path = Ruisrock2014/RR14ScheduleViewController.h; sourceTree = "<group>"; };
 		882045631946D735006D8DB8 /* RR14ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14ScheduleViewController.m; path = Ruisrock2014/RR14ScheduleViewController.m; sourceTree = "<group>"; };
 		882045641946D735006D8DB8 /* RR14ScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14ScheduleViewController.xib; path = Ruisrock2014/RR14ScheduleViewController.xib; sourceTree = "<group>"; };
@@ -283,7 +267,6 @@
 		88355E80194609E7003E2F90 /* RR14MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14MainViewController.m; path = Ruisrock2014/RR14MainViewController.m; sourceTree = "<group>"; };
 		88355E81194609E7003E2F90 /* RR14MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14MainViewController.xib; path = Ruisrock2014/RR14MainViewController.xib; sourceTree = "<group>"; };
 		88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ruisrock_logo_w_date@2x.png"; path = "Resources/Ruisrock2014/ruisrock_logo_w_date@2x.png"; sourceTree = "<group>"; };
-		8863330018F15BB00091E0A9 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Resources/Content/map.png; sourceTree = "<group>"; };
 		8894AE0A18DDE68E00991593 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		8894AE2F18DDF00000991593 /* FestDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestDataManager.h; sourceTree = "<group>"; };
 		8894AE3018DDF00000991593 /* FestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestDataManager.m; sourceTree = "<group>"; };
@@ -294,6 +277,7 @@
 		88989F66194AE5A10016BD15 /* FestFavouritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestFavouritesManager.m; sourceTree = "<group>"; };
 		88989F68194B57320016BD15 /* daychooser-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "daychooser-selected@2x.png"; path = "Resources/Ruisrock2014/daychooser-selected@2x.png"; sourceTree = "<group>"; };
 		88989F69194B57320016BD15 /* daychooser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "daychooser@2x.png"; path = "Resources/Ruisrock2014/daychooser@2x.png"; sourceTree = "<group>"; };
+		88989F6C194B8E3D0016BD15 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Resources/Ruisrock2014/map.png; sourceTree = "<group>"; };
 		88B4318E1947185100589A83 /* RR14WebContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14WebContentViewController.h; path = Ruisrock2014/RR14WebContentViewController.h; sourceTree = "<group>"; };
 		88B4318F1947185100589A83 /* RR14WebContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14WebContentViewController.m; path = Ruisrock2014/RR14WebContentViewController.m; sourceTree = "<group>"; };
 		88B431901947185100589A83 /* RR14WebContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14WebContentViewController.xib; path = Ruisrock2014/RR14WebContentViewController.xib; sourceTree = "<group>"; };
@@ -477,7 +461,6 @@
 			children = (
 				ADE7A21619461EA80073C4D8 /* Images.xcassets */,
 				88355E8419460B94003E2F90 /* Ruisrock2014 */,
-				882045431946C059006D8DB8 /* Ruisrock2014 Artists */,
 				88B431A91948347600589A83 /* Ruisrock2014Icons */,
 				48AD03B3158A52F700546602 /* Localizable.strings */,
 				8D1107310486CEB800E47090 /* FestApp-Info.plist */,
@@ -547,7 +530,6 @@
 				88B431A219473FC200589A83 /* info */,
 				88B431A319473FC200589A83 /* ohjelma */,
 				88B431A419473FC200589A83 /* uutiset */,
-				8863330018F15BB00091E0A9 /* map.png */,
 				4D2FA5F0139ACC5C00F03209 /* Stages.plist */,
 			);
 			name = Content;
@@ -570,21 +552,6 @@
 				7449289D18F8595D00924012 /* FestApp Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		882045431946C059006D8DB8 /* Ruisrock2014 Artists */ = {
-			isa = PBXGroup;
-			children = (
-				882045441946C072006D8DB8 /* bastille.jpg */,
-				882045451946C072006D8DB8 /* davidguetta.jpg */,
-				882045461946C072006D8DB8 /* lilyallen.jpg */,
-				882045471946C072006D8DB8 /* offspring.jpg */,
-				882045481946C072006D8DB8 /* phoenix.jpg */,
-				882045491946C072006D8DB8 /* studiokillers.jpg */,
-				8820454A1946C072006D8DB8 /* suede.jpg */,
-				8820454B1946C072006D8DB8 /* wizkhalifa.jpg */,
-			);
-			name = "Ruisrock2014 Artists";
 			sourceTree = "<group>";
 		};
 		88355E6D194600EF003E2F90 /* Ruisrock2014 */ = {
@@ -621,6 +588,7 @@
 		88355E8419460B94003E2F90 /* Ruisrock2014 */ = {
 			isa = PBXGroup;
 			children = (
+				88989F6C194B8E3D0016BD15 /* map.png */,
 				88989F68194B57320016BD15 /* daychooser-selected@2x.png */,
 				88989F69194B57320016BD15 /* daychooser@2x.png */,
 				88204584194711C8006D8DB8 /* frontpage-menu-ribbon@2x.png */,
@@ -932,24 +900,20 @@
 				88B4319D19471C2B00589A83 /* RR14MapViewController.xib in Resources */,
 				88B431BF1948347600589A83 /* ruisrock_iTunesArtwork@2x.png in Resources */,
 				2840D7CE1179279E00D7F93C /* TimelineView.xib in Resources */,
-				882045501946C072006D8DB8 /* phoenix.jpg in Resources */,
 				AD68824B19462C140015F409 /* frontpage_bottom_deco@2x.png in Resources */,
 				AD68824919462C140015F409 /* fretboard_bg@2x.png in Resources */,
 				882045661946D735006D8DB8 /* RR14ScheduleViewController.xib in Resources */,
 				AD14D21918F97F47006890E7 /* (null) in Resources */,
-				8820454E1946C072006D8DB8 /* lilyallen.jpg in Resources */,
 				88B431C7194963DB00589A83 /* ruisrock_Icon@2x.png in Resources */,
 				ADE7A20B194617A00073C4D8 /* water_line@2x.png in Resources */,
 				4D30E7DE1395A8CA007E9D0B /* WebContentView.xib in Resources */,
 				88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */,
 				88B431BE1948347600589A83 /* ruisrock_iTunesArtwork.png in Resources */,
 				4D30E81E1396802F007E9D0B /* NavigableContentView.xib in Resources */,
-				8820454C1946C072006D8DB8 /* bastille.jpg in Resources */,
 				88B431921947185200589A83 /* RR14WebContentViewController.xib in Resources */,
 				4D30E84D13981818007E9D0B /* ExternalWebContentView.xib in Resources */,
 				4D2FA5F1139ACC5C00F03209 /* Stages.plist in Resources */,
 				88989F6A194B57320016BD15 /* daychooser-selected@2x.png in Resources */,
-				882045521946C072006D8DB8 /* suede.jpg in Resources */,
 				AD68825019462C140015F409 /* schedule_favourite@2x.png in Resources */,
 				ADE7A208194617A00073C4D8 /* default-568h@2x.png in Resources */,
 				88B431A719473FC200589A83 /* ohjelma in Resources */,
@@ -959,12 +923,11 @@
 				4D1ED38B139CB81500BB1D47 /* Riff1.aif in Resources */,
 				48AD03B1158A52F700546602 /* Localizable.strings in Resources */,
 				AD68824819462C140015F409 /* fret@2x.png in Resources */,
-				882045511946C072006D8DB8 /* studiokillers.jpg in Resources */,
 				AD68824D19462C140015F409 /* schedule_bottom_deco@2x.png in Resources */,
 				88B431A519473FC200589A83 /* artistit in Resources */,
+				88989F6D194B8E3D0016BD15 /* map.png in Resources */,
 				8820456A1946DB6D006D8DB8 /* back_arrow@2x.png in Resources */,
 				882045681946DADD006D8DB8 /* navigation-bar@2x.png in Resources */,
-				8863330218F15BB00091E0A9 /* map.png in Resources */,
 				88355E83194609E7003E2F90 /* RR14MainViewController.xib in Resources */,
 				AD68824C19462C140015F409 /* ruisrock_logo_header@2x.png in Resources */,
 				ADE7A20A194617A00073C4D8 /* news_bg_flowers@2x.png in Resources */,
@@ -973,10 +936,7 @@
 				88355E7E19460719003E2F90 /* RR14Window.xib in Resources */,
 				AD68824A19462C140015F409 /* fretboard_strings@2x.png in Resources */,
 				88B431A619473FC200589A83 /* info in Resources */,
-				8820454F1946C072006D8DB8 /* offspring.jpg in Resources */,
-				882045531946C072006D8DB8 /* wizkhalifa.jpg in Resources */,
 				882045421946B15A006D8DB8 /* default@2x.png in Resources */,
-				8820454D1946C072006D8DB8 /* davidguetta.jpg in Resources */,
 				ADE7A207194617A00073C4D8 /* bg_pattern_light@2x.png in Resources */,
 				8820456F1946EA39006D8DB8 /* RR14NewsViewController.xib in Resources */,
 				8820457C1946EAFE006D8DB8 /* RR14ArtistViewController.xib in Resources */,

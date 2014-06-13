@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RR14MapViewController">
             <connections>
+                <outlet property="mapView" destination="xpv-xK-ajA" id="JrI-8m-X3H"/>
+                <outlet property="scrollView" destination="veI-nH-9Oz" id="4eS-s0-azR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,15 +16,44 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qj8-Qg-vu8">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="bg_pattern_light.png" translatesAutoresizingMaskIntoConstraints="NO" id="F9p-Vg-hmx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veI-nH-9Oz">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </mapView>
+                    <subviews>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="map.png" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-xK-ajA">
+                            <rect key="frame" x="0.0" y="0.0" width="1200" height="849"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xpv-xK-ajA" secondAttribute="bottom" id="9WN-Nc-8fE"/>
+                        <constraint firstAttribute="trailing" secondItem="xpv-xK-ajA" secondAttribute="trailing" id="Gv5-9N-t0X"/>
+                        <constraint firstItem="xpv-xK-ajA" firstAttribute="leading" secondItem="veI-nH-9Oz" secondAttribute="leading" id="dyJ-z5-eBa"/>
+                        <constraint firstItem="xpv-xK-ajA" firstAttribute="top" secondItem="veI-nH-9Oz" secondAttribute="top" id="vg9-Re-gqB"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="fvq-1J-7lF"/>
+                    </connections>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="veI-nH-9Oz" secondAttribute="trailing" id="1lm-Cm-jBu"/>
+                <constraint firstItem="veI-nH-9Oz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FHH-JW-zKe"/>
+                <constraint firstAttribute="bottom" secondItem="veI-nH-9Oz" secondAttribute="bottom" id="aZs-A3-PWi"/>
+                <constraint firstItem="veI-nH-9Oz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kct-1K-z4b"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="bg_pattern_light.png" width="320" height="568"/>
+        <image name="map.png" width="1200" height="849"/>
+    </resources>
 </document>

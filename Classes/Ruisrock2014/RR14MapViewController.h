@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14MapViewController : UIViewController
-
+@interface RR14MapViewController : UIViewController <UIScrollViewDelegate>
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIImageView *mapView;
 @end
