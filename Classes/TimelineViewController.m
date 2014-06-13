@@ -115,7 +115,8 @@
         self.dayChooser = nil;
     }
 
-    self.dayChooser = [[DayChooser alloc] initWithDayNames:dayNames];
+    self.dayChooser = [[DayChooser alloc] init];
+    self.dayChooser.dayNames = dayNames;
     dayChooser.frame = CGRectMake(0, 12, 320, dayChooser.height);
     dayChooser.delegate = self;
     [self.view addSubview:dayChooser];

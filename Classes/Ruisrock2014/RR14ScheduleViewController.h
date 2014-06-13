@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14ScheduleViewController : UIViewController
+#import "TimelineView.h"
+#import "DayChooser.h"
+
+@interface RR14ScheduleViewController : UIViewController <TimelineViewDataSource, TimelineViewDelegate, DayChooserDelegate, UIScrollViewDelegate>
+
+@property (nonatomic, strong) IBOutlet DayChooser *dayChooser;
 
 @end

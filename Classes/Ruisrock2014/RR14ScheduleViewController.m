@@ -31,6 +31,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    self.dayChooser.delegate = self;
+    self.dayChooser.dayNames = @[@"Perjantai", @"Lauantai", @"Sunnuntai"];
+
+    // back button
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
 }
 
@@ -43,6 +47,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark DayChooserDelegate
+
+- (void)dayChooser:(DayChooser *)dayChooser selectedDayWithIndex:(NSUInteger)dayIndex
+{
+
 }
 
 @end
