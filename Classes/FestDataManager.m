@@ -11,16 +11,19 @@
 
 #import "Artist.h"
 #import "NewsItem.h"
+#import "InfoItem.h"
 
 @interface FestDataManager()
 @property (nonatomic, strong) RACSubject *artistsSignal;
 @property (nonatomic, strong) RACSubject *newsSignal;
+@property (nonatomic, strong) RACSubject *infoSignal;
 
 - (id)preloadResource:(NSString *)name selector:(SEL)selector;
 - (BOOL)reloadResource:(NSString *)name path:(NSString *)path selector:(SEL)selector subject:(RACSubject *)subject force:(BOOL)force;
 
 - (id)transformArtists:(id)artistsJSONValue;
 - (id)transformNews:(id)newsJSONValue;
+- (id)transformInfo:(id)infoJSONValue;
 
 - (NSString *)pathToResourceByName:(NSString *)name;
 - (NSString *)contentByResourceName:(NSString *)name;
@@ -62,6 +65,12 @@
         RACSubject *newsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:newsValue];
         [self reloadResource:@"uutiset" path:RR_NEWS_JSON_URL selector:@selector(transformNews:) subject:newsSubject force:NO];
         self.newsSignal = newsSubject;
+
+        // Info
+        id infoValue = [self preloadResource:@"info" selector:@selector(transformInfo:)];
+        RACSubject *infoSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:infoValue];
+        [self reloadResource:@"info" path:RR_INFO_JSON_URL selector:@selector(transformInfo:) subject:infoSubject force:NO];
+        self.infoSignal = infoSubject;
     }
     return self;
 }
@@ -170,30 +179,30 @@
     return news;
 }
 
-- (id)transformFaq:(id)faqJSONValue
+- (id)transformInfo:(id)infoJSONValue
 {
-    NSArray *faqJSONArray = faqJSONValue;
-    return [faqJSONArray lastObject];
-}
+    NSArray *infoArray = infoJSONValue;
+    NSMutableArray *info = [NSMutableArray arrayWithCapacity:infoArray.count];
+    NSUInteger len = [infoArray count];
 
-- (id)transformProgram:(id)programJSONValue
-{
-    return programJSONValue[0];
-}
+    for (NSUInteger idx = 0; idx < len; idx++) {
+        NSDictionary *obj = [infoArray objectAtIndex:idx];
 
-- (id)transformGeneral:(id)generalJSONValue
-{
-    return generalJSONValue;
-}
+        if (![@"kyllä" isEqualToString:obj[@"julkaistu"]]) {
+            continue;
+        }
 
-- (id)transformServices:(id)servicesJSONValue
-{
-    return servicesJSONValue;
-}
+        InfoItem *item = [[InfoItem alloc] initFromJSON:obj];
+        if (item) {
+            [info addObject:item];
+        }
+    }
 
-- (id)transformStages:(id)stagesJSONValue
-{
-    return stagesJSONValue;
+    [info sortUsingComparator:^NSComparisonResult(InfoItem *a, InfoItem *b) {
+        return [a.title compare:b.title];
+    }];
+
+    return info;
 }
 
 #pragma mark - Resource storing

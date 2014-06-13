@@ -5,6 +5,7 @@
 #define kResourceBaseURL           @"http://www.ruisrock.fi/"
 #define RR_NEWS_JSON_URL           @"/api/uutiset"
 #define RR_ARTISTS_JSON_URL        @"/api/artistit"
+#define RR_INFO_JSON_URL           @"/api/info"
 
 #define RR_IMAGE_BASE_URL          @"http://ruisrock.fi/admin/"
 

@@ -130,13 +130,18 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (IBAction)showGeneralInfo:(id)sender
 {
-    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:@"<h1>TIETOJA!!!</h1><h2>PALJON</h2>" title:nil];
-    [self.navController pushViewController:controller animated:YES];
+    [self.navController pushViewController:self.infoViewController animated:YES];
 }
 
 - (void)showNewsItem:(NewsItem *)newsItem
 {
     UIViewController *controller = [[RR14NewsItemViewController alloc] initWithNewsItem:newsItem];
+    [self.navController pushViewController:controller animated:YES];
+}
+
+- (void)showInfoItem:(InfoItem *)infoItem
+{
+    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:infoItem.content title:infoItem.title];
     [self.navController pushViewController:controller animated:YES];
 }
 

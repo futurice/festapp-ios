@@ -16,4 +16,5 @@
 
 @property (nonatomic, readonly) RACSignal *artistsSignal;
 @property (nonatomic, readonly) RACSignal *newsSignal;
+@property (nonatomic, readonly) RACSignal *infoSignal;
 @end
