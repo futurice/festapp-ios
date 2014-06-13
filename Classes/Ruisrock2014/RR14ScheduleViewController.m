@@ -10,6 +10,7 @@
 
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
+#import "FestFavouritesManager.h"
 
 @interface RR14ScheduleViewController ()
 
@@ -34,6 +35,19 @@
     self.dayChooser.delegate = self;
     self.dayChooser.dayNames = @[@"Perjantai", @"Lauantai", @"Sunnuntai"];
 
+    self.timeLineView.delegate = self;
+
+    // artists
+    RACSignal *artistsSignal = FestDataManager.sharedFestDataManager.artistsSignal;
+    [artistsSignal subscribeNext:^(id x) {
+        self.timeLineView.artists = x;
+    }];
+
+    RACSignal *favouritesSignal = FestFavouritesManager.sharedFavouritesManager.favouritesSignal;
+    [favouritesSignal subscribeNext:^(id x) {
+        self.timeLineView.favouritedArtists = x;
+    }];
+
     // back button
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
 }
@@ -52,6 +66,25 @@
 #pragma mark DayChooserDelegate
 
 - (void)dayChooser:(DayChooser *)dayChooser selectedDayWithIndex:(NSUInteger)dayIndex
+{
+    NSString *currentDay = @"Perjantai";
+    switch (dayIndex) {
+        case 0: currentDay = @"Perjantai"; break;
+        case 1: currentDay = @"Lauantai"; break;
+        case 2: currentDay = @"Sunnuntai"; break;
+    }
+
+    self.timeLineView.currentDay = currentDay;
+}
+
+#pragma mark TimelineViewDelegate
+
+- (void)timeLineView:(TimelineView *)timeLineView artistSelected:(Artist *)artist
+{
+    [APPDELEGATE showArtist:artist];
+}
+
+- (void)timeLineView:(TimelineView *)timeLineView artistFavourited:(Artist *)artist favourite:(BOOL)favourite
 {
 
 }

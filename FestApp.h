@@ -76,6 +76,7 @@ typedef enum FestResourceEnum {
 
 #define RGB_COLOR(r,g,b)  [UIColor colorWithRed:r/255.0f green: g/255.0f blue: b/255.0f alpha:1]
 
+#define RR_COLOR_YELLOW      RGB_COLOR(228, 222, 121)
 #define RR_COLOR_LIGHTGREEN  RGB_COLOR(167, 198, 56)
 #define RR_COLOR_GREEN       RGB_COLOR(97, 151, 68)
 #define RR_COLOR_DARKGREEN   RGB_COLOR(1, 64, 30)

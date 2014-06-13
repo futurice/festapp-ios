@@ -13,7 +13,7 @@
 @class GigViewController;
 @class DayChooser;
 
-@interface TimelineViewController : UIViewController <TimelineViewDataSource, TimelineViewDelegate, DayChooserDelegate, UIScrollViewDelegate> {
+@interface TimelineViewController : UIViewController <TimelineViewDelegate, DayChooserDelegate, UIScrollViewDelegate> {
 
     NSArray *gigs;
 

@@ -9,240 +9,272 @@
 #import <AudioToolbox/AudioServices.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface TimelineView () <AVAudioPlayerDelegate>
+#pragma mark - ArtistButton
 
-@property (strong) AVAudioPlayer *currentPlayer;
+@interface ArtistButton : UIButton
+@property (nonatomic, readonly) Artist *artist;
+- (id)initWithFrame:(CGRect)frame artist:(Artist *)artist;
+@end
 
-- (NSInteger)widthFromTimeInterval:(NSTimeInterval)timeInterval;
-- (void)playGroovyGuitarSound:(int)soundNumber volume:(float)volume;
-- (AVAudioPlayer *)playerForSoundPath:(NSString *)path;
+@implementation ArtistButton
 
+- (id)initWithFrame:(CGRect)frame artist:(Artist *)artist
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _artist = artist;
+
+        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        self.contentEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 5);
+        [self setTitle:artist.artistName forState:UIControlStateNormal];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
+
+        self.backgroundColor = RR_COLOR_DARKGREEN;
+        [self setTitleColor:RR_COLOR_YELLOW forState:UIControlStateSelected];
+        [self setTitleColor:RR_COLOR_LIGHTGREEN forState:UIControlStateNormal];
+
+        [self setImage:[UIImage imageNamed:@"schedule_favourite.png"] forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:@"schedule_favourite_selected.png"] forState:UIControlStateSelected];
+
+        self.titleLabel.adjustsFontSizeToFitWidth = TRUE;
+        self.titleLabel.minimumScaleFactor = 8/14.0f;
+    }
+    return self;
+}
 @end
 
 
-@implementation TimelineView
+#pragma mark - TimeLineView
 
-@synthesize dataSource;
-@synthesize delegate;
+@interface TimelineView () <AVAudioPlayerDelegate>
+@property (strong) AVAudioPlayer *currentPlayer;
+
+@property (nonatomic, strong) NSArray *venues;
+@property (nonatomic, strong) NSArray *currentArtists;
+
+@property (nonatomic, strong) NSDate *begin;
+@property (nonatomic, strong) NSDate *end;
+@end
+
+#define kHourWidth 200
+#define kRowHeight 49
+#define kTopPadding 45
+#define kLeftPadding 80
+#define kRowPadding 5
+
+CGFloat timeWidthFrom(NSDate *from, NSDate *to);
+
+CGFloat timeWidthFrom(NSDate *from, NSDate *to)
+{
+    NSTimeInterval interval = [to timeIntervalSinceReferenceDate] - [from timeIntervalSinceReferenceDate];
+    return (CGFloat) interval / 3600 * kHourWidth;
+}
+
+@implementation TimelineView
 
 @synthesize currentPlayer;
 
 - (void)awakeFromNib
 {
+    self.backgroundColor = [UIColor clearColor];
     [self performSelectorInBackground:@selector(preloadGroovyGuitarSounds) withObject:nil];
 }
 
-- (void)reloadData
+#pragma mark - DataSetters
+- (void)setArtists:(NSArray *)artists
 {
-    // NSLog(@"%@", self);
-	[self setNeedsDisplay];
+    _artists = artists;
+    NSUInteger count = artists.count;
+
+    // Venues
+    NSMutableArray *venues = [NSMutableArray arrayWithCapacity:6];
+    for (NSUInteger idx = 0; idx < count; idx++) {
+        Artist *artist = artists[idx];
+        if (![venues containsObject:artist.venue]) {
+            [venues addObject:artist.venue];
+        }
+    }
+
+    self.venues = venues;
+
+    [self updateCurrentArtists];
+    [self recreate];
+    [self invalidateIntrinsicContentSize];
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)setFavouritedArtists:(NSArray *)favouritedArtists
 {
-	CGContextRef c = UIGraphicsGetCurrentContext();
+    _favouritedArtists = favouritedArtists;
 
-    CGContextClearRect(c, rect);
+    for (UIView *view in self.subviews) {
+        if ([view isKindOfClass:[ArtistButton class]]) {
+            ArtistButton *button = (ArtistButton *)view;
 
-    UIFont *timeLabelFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
-	UIFont *artistLabelFont = [UIFont fontWithName:@"HelveticaNeue" size:13];
+            BOOL favourited = NO;
+            for (NSString *favouriteArtistId in self.favouritedArtists) {
+                if ([favouriteArtistId isEqualToString:button.artist.artistId]) {
+                    favourited = YES;
+                    break;
+                }
+            }
 
-	CGFloat venueHeight = [delegate heightForVenueRow];
-	CGFloat timeScaleHeight = [delegate heightForTimeScale];
+            button.selected = favourited;
+            self.alpha = favourited ? 1.0f : 0.9f;
+        }
+    }
+}
 
-	NSDate *earliestHour = [dataSource earliestHour];
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"HH:00"];
+- (void)setCurrentDay:(NSString *)currentDay
+{
+    _currentDay = currentDay;
+    [self updateCurrentArtists];
+    [self recreate];
+    [self invalidateIntrinsicContentSize];
+}
 
-	int hourCount = (int) [[dataSource latestHour] timeIntervalSinceDate:earliestHour]/kOneHour;
+#pragma mark - Internals
+- (void)updateCurrentArtists
+{
+    NSMutableArray *currentArtists = [NSMutableArray arrayWithCapacity:self.artists.count / 2];
+    NSUInteger count = _artists.count;
+    for (NSUInteger idx = 0; idx < count; idx++) {
+        Artist *artist = self.artists[idx];
+        if ([artist.day isEqualToString:self.currentDay]) {
+            [currentArtists addObject:artist];
+        }
+    }
+    self.currentArtists = currentArtists;
+}
 
-	CGContextSetStrokeColorWithColor(c, [[UIColor lightGrayColor] CGColor]);
-	CGContextSetFillColorWithColor(c, kColorRed.CGColor);
-	CGContextSetLineWidth(c, 1);
+- (void)recreate
+{
+    for (UIView *view in self.subviews) {
+        [view removeFromSuperview];
+    }
 
+    NSUInteger count = self.currentArtists.count;
+    if (count == 0) {
+        return;
+    }
+
+    // venue labels
+    NSUInteger venueCount = self.venues.count;
+
+    for (NSUInteger venueIdx = 0; venueIdx < venueCount; venueIdx++) {
+        NSString *venue = self.venues[venueIdx];
+
+        CGRect frame = CGRectMake(10, kTopPadding + 10 + kRowHeight * venueIdx, kLeftPadding - 20, kRowHeight - 20);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+
+        label.text = venue;
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        label.textAlignment = NSTextAlignmentCenter;
+
+        label.font = [UIFont systemFontOfSize:12];
+
+        [self addSubview:label];
+    }
+
+    // timespan
+    NSDate *begin = [NSDate distantFuture];
+    NSDate *end = [NSDate distantPast];
+
+    for (Artist *artist in self.currentArtists) {
+        if ([artist.begin compare:begin] == NSOrderedAscending ) {
+            begin = artist.begin;
+        }
+
+        if ([artist.end compare:end] == NSOrderedDescending) {
+            end = artist.end;
+        }
+    }
+
+    self.begin = begin;
+    self.end = end;
+
+    // Frets
+    NSUInteger interval = (NSUInteger) [self.begin timeIntervalSinceReferenceDate] % 3600;
+    if (interval < 60) {
+        interval = -interval;
+    } else {
+        interval = 3600 - interval;
+    }
+
+    NSDate *fretDate = [NSDate dateWithTimeInterval:interval sinceDate:self.begin];
     UIImage *fretImage = [UIImage imageNamed:@"fret.png"];
-    CGSize fretSize = CGSizeMake(17, 276); // 34, 552 - 17, 276
 
-	for (int i = 1; i <= hourCount; i++) {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
 
-		NSDate *hourDate = [earliestHour dateByAddingTimeInterval:i*kOneHour];
-		NSString *hourString = [dateFormatter stringFromDate:hourDate];
-		CGSize hourStringSize = [hourString sizeWithAttributes:@{NSFontAttributeName:timeLabelFont}];
-		NSInteger hourX = [self xFromDate:hourDate];
+    while ([fretDate compare:self.end] == NSOrderedAscending) {
+        // fret
+        CGRect frame = CGRectMake(kLeftPadding + timeWidthFrom(self.begin, fretDate) - 10, 30, 17, 276);
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+        imageView.image = fretImage;
 
-		CGContextSetShouldAntialias(c, 1);
-		[hourString drawAtPoint:CGPointMake(hourX - (int) (hourStringSize.width / 2),
-                                            (int) (hourStringSize.height / 2) - 5)
-                       withAttributes:@{NSFontAttributeName:timeLabelFont}];
-		CGContextSetShouldAntialias(c, 0);
+        [self addSubview:imageView];
 
-        CGRect fretRect = CGRectMake(hourX - fretSize.width / 2, timeScaleHeight - 14, fretSize.width, fretSize.height);
-        CGContextDrawImage(c, fretRect, fretImage.CGImage);
-	}
+        // time label
+        CGRect timeFrame = CGRectMake(kLeftPadding + timeWidthFrom(self.begin, fretDate) - 28, 0, 60, 30);
+        UILabel *timeLabel = [[UILabel alloc] initWithFrame:timeFrame];
 
-	NSUInteger venueCount = [dataSource numberOfVenues];
+        timeLabel.textColor = RR_COLOR_DARKGREEN;
+        timeLabel.text = [dateFormatter stringFromDate:fretDate];
+        timeLabel.textAlignment = NSTextAlignmentCenter;
+        timeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
 
-    UIImage *starredImage = [UIImage imageNamed:@"timeline-starred.png"];
-    UIImage *unstarredImage = [UIImage imageNamed:@"timeline-unstarred.png"];
-    CGSize starSize = CGSizeMake(40, 40);
+        [self addSubview:timeLabel];
 
-	for (NSUInteger i = 0; i < venueCount; i++) {
+        // next
+        fretDate = [NSDate dateWithTimeInterval:3600 sinceDate:fretDate];
+    }
 
-		int venueY = [delegate heightForTimeScale] + 1 + (int) (i * (venueHeight + 1));
-		NSArray *gigs = [dataSource gigsForVenueAtIndex:i];
+    // buttons
+    for (Artist *artist in self.currentArtists) {
+        NSUInteger venueIdx = 0;
+        for (; venueIdx < venueCount; venueIdx++) {
+            if ([artist.venue isEqualToString:self.venues[venueIdx]]) {
+                break;
+            }
+        }
+        BOOL favourited = NO;
+        for (NSString *favouriteArtistId in self.favouritedArtists) {
+            if ([favouriteArtistId isEqualToString:artist.artistId]) {
+                favourited = YES;
+                break;
+            }
+        }
 
-		for (Artist *gig in gigs) {
+        CGFloat x = kLeftPadding + timeWidthFrom(self.begin, artist.begin);
+        CGFloat w = MAX(timeWidthFrom(artist.begin, artist.end), kHourWidth);
+        CGRect frame = CGRectMake(x, kTopPadding + kRowPadding + kRowHeight * venueIdx, w, kRowHeight - kRowPadding * 2);
 
-			int gigBeginX = [self xFromDate:gig.begin];
-			int gigEndX = [self xFromDate:gig.end];
-			int gigWidth = gigEndX - gigBeginX;
-			CGRect gigRect = CGRectMake(gigBeginX, venueY + 6, gigWidth, venueHeight - 10);
-            CGRect starRect = CGRectMake(gigBeginX + 2, (int) (venueY + (venueHeight - starSize.height) / 2) + 1, starSize.width, starSize.height);
+        ArtistButton *button = [[ArtistButton alloc] initWithFrame:frame artist:artist];
 
-			if (YES /* gig.favorite */) {
+        button.selected = favourited;
+        self.alpha = favourited ? 1.0f : 0.9f;
 
-				CGContextSetFillColorWithColor(c, [UIColor colorWithRed:1.0f green:0.9f blue:0.7f alpha:0.4f].CGColor);
-                CGContextFillRect(c, gigRect);
+        [button addTarget:self action:@selector(artistButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
-                if (gigWidth <= starSize.width + kMinWidthForArtistName) {
-                    starRect.origin.x -= 3;
-                }
-                [starredImage drawInRect:starRect];
-
-                CGContextSetFillColorWithColor(c, [UIColor whiteColor].CGColor);
-
-                CGRect upperBorderRect = CGRectMake(gigBeginX, gigRect.origin.y - 1, gigWidth, 4);
-                CGContextFillRect(c, upperBorderRect);
-
-                CGRect lowerBorderRect = CGRectMake(gigBeginX, gigRect.origin.y+gigRect.size.height - 4, gigWidth, 4);
-                CGContextFillRect(c, lowerBorderRect);
-
-			} else {
-
-				CGContextSetFillColorWithColor(c, [[[UIColor blackColor] colorWithAlphaComponent:0.4f] CGColor]);
-                CGContextFillRect(c, gigRect);
-
-                CGContextSetStrokeColorWithColor(c, [[UIColor colorWithWhite:1 alpha:0.7f] CGColor]);
-                CGContextBeginPath(c);
-                CGContextMoveToPoint(c, gigRect.origin.x, gigRect.origin.y);
-                CGContextAddLineToPoint(c, gigRect.origin.x, gigRect.origin.y + gigRect.size.height);
-                CGContextStrokePath(c);
-                CGContextBeginPath(c);
-                CGContextMoveToPoint(c, gigRect.origin.x + gigRect.size.width, gigRect.origin.y);
-                CGContextAddLineToPoint(c, gigRect.origin.x + gigRect.size.width, gigRect.origin.y + gigRect.size.height);
-                CGContextStrokePath(c);
-
-                if (gigWidth <= starSize.width + kMinWidthForArtistName) {
-                    starRect.origin.x -= 3;
-                }
-                [unstarredImage drawInRect:starRect];
-
-                CGContextSetFillColorWithColor(c, [[UIColor whiteColor] CGColor]);
-			}
-
-            CGFloat textHeight = 16; // [gig.artistNameForTimelineDisplay sizeWithFont:artistLabelFont].height - 2;
-            NSArray *artistTokens = [gig.artistName componentsSeparatedByString:@"\n"];
-            NSUInteger tokenCount = [artistTokens count];
-
-            CGContextSetShouldAntialias(c, 1);
-
-			for (NSUInteger j = 0; j < tokenCount; j++) {
-				NSString *token = artistTokens[j];
-				CGFloat textWidth = [token sizeWithAttributes:@{NSFontAttributeName:artistLabelFont}].width;
-				CGFloat xOffset = -textWidth / 2 + 12;
-				CGFloat yOffset = -(textHeight * tokenCount) / 2 + (textHeight - 1) * j;
-				CGContextSetShouldAntialias(c, 1);
-				[token drawAtPoint:CGPointMake(gigBeginX + gigWidth / 2 + xOffset, venueY + venueHeight / 2 + yOffset) withAttributes:@{NSFontAttributeName:artistLabelFont}];
-				CGContextSetShouldAntialias(c, 0);
-			}
-		}
-	}
-
-    NSDate *currentTime = [NSDate date];
-    // just for testing: currentTime = [earliestHour dateByAddingTimeInterval:2.4*kOneHour];
-
-    if ([currentTime after:earliestHour] && [currentTime before:[dataSource latestHour]]) {
-
-        NSInteger currentTimeX = [self xFromDate:currentTime];
-
-        CGContextSetStrokeColorWithColor(c, [[[UIColor redColor] colorWithAlphaComponent:0.9f] CGColor]);
-        CGContextBeginPath(c);
-        CGContextMoveToPoint(c, currentTimeX, 28);
-        CGContextAddLineToPoint(c, currentTimeX, self.height - 10);
-        CGContextStrokePath(c);
-
-        CGContextSetShouldAntialias(c, 1);
-
-        CGContextSetFillColorWithColor(c, [[[UIColor redColor] colorWithAlphaComponent:0.9f] CGColor]);
-        CGContextBeginPath(c);
-        CGContextMoveToPoint(c, currentTimeX, 29);
-        CGContextAddLineToPoint(c, currentTimeX - 6, 16);
-        CGContextAddLineToPoint(c, currentTimeX + 6, 16);
-        CGContextClosePath(c);
-        CGContextFillPath(c);
+        [self addSubview:button];
     }
 }
 
-- (NSInteger)xFromDate:(NSDate *)date
+#pragma mark - Actions
+- (void)artistButtonPressed:(ArtistButton *)sender
 {
-	NSTimeInterval dateDiff = [date timeIntervalSinceDate:[dataSource earliestHour]];
-	return [self widthFromTimeInterval:dateDiff]-90;
+    [self.delegate timeLineView:self artistSelected:sender.artist];
 }
 
-- (NSInteger)widthFromTimeInterval:(NSTimeInterval)timeInterval
+
+#pragma mark - AutoLayout
+- (CGSize)intrinsicContentSize
 {
-	return (NSInteger) ([delegate widthForOneHour] * (timeInterval/kOneHour));
+    return CGSizeMake(timeWidthFrom(self.begin, self.end) + kLeftPadding, 100);
 }
 
-#pragma mark UIResponder methods
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    pointOfBeginTouch = [[touches anyObject] locationInView:self];
-    [self.nextResponder touchesBegan:touches withEvent:event];
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.nextResponder touchesMoved:touches withEvent:event];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	if ([touches count] == 1) {
-		UITouch *touch = [touches anyObject];
-		CGPoint touchPoint = [touch locationInView:self];
-		CGFloat timeScaleHeight = [delegate heightForTimeScale];
-		if (touchPoint.y > timeScaleHeight) {
-			CGFloat venueRowHeight = [delegate heightForVenueRow];
-			NSUInteger venueIndex = (NSUInteger) ((touchPoint.y - timeScaleHeight) / venueRowHeight);
-			NSArray *gigs = [dataSource gigsForVenueAtIndex:venueIndex];
-			for (Artist *gig in gigs) {
-				CGFloat gigBeginX = [self xFromDate:gig.begin];
-				CGFloat gigEndX = gigBeginX + [self widthFromTimeInterval:gig.duration];
-				if (touchPoint.x >= gigBeginX && touchPoint.x <= gigBeginX + kStarAreaWidth) {
-					[delegate gigFavoriteStatusToggled:gig];
-					return;
-				} else if (touchPoint.x >= gigBeginX && touchPoint.x <= gigEndX) {
-                    [delegate gigSelected:gig];
-                    return;
-                }
-			}
-		}
-	}
-
-    CGPoint touchPoint = [[touches anyObject] locationInView:self];
-    float xDiff = (touchPoint.x - pointOfBeginTouch.x);
-    float yDiff = (touchPoint.y - pointOfBeginTouch.y);
-    if (fabs(yDiff) > fabs(xDiff) && fabs(yDiff) > [delegate heightForVenueRow] / 2) {
-        [self playGroovyGuitarSound:((yDiff > 0) ? 1 : 2) volume:1.0];
-        pointOfBeginTouch = touchPoint;
-    }
-
-	[self.nextResponder touchesEnded:touches withEvent:event];
-}
-
-#pragma mark -
+#pragma mark - Audio
 
 - (void)preloadGroovyGuitarSounds
 {
@@ -255,6 +287,7 @@
 
 - (void)playGroovyGuitarSound:(int)soundNumber volume:(float)volume
 {
+    return;
     NSString *soundName = (soundNumber%2) ? @"Riff1" : @"Riff2";
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"aif"];
 
@@ -267,6 +300,7 @@
     }
 }
 
+#pragma mark - AVAudioPlayerDelegate
 - (AVAudioPlayer *)playerForSoundPath:(NSString *)path
 {
     NSURL *soundURL = [NSURL fileURLWithPath:path];

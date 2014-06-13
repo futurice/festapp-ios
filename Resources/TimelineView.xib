@@ -56,7 +56,7 @@
         </viewController>
     </objects>
     <resources>
-        <image name="fretboard_bg.png" width="320" height="298"/>
-        <image name="fretboard_strings.png" width="320" height="298"/>
+        <image name="fretboard_bg.png" width="320" height="289"/>
+        <image name="fretboard_strings.png" width="320" height="289"/>
     </resources>
 </document>

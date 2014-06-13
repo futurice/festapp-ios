@@ -125,7 +125,6 @@
 
     firstViewingSinceStartup = YES;
 
-	timelineView.dataSource = self;
 	timelineView.delegate = self;
 
     timelineScrollView.delegate = self;
@@ -202,7 +201,7 @@
     NSDate *currentDate = [NSDate date];
     NSDate *currentDay = [currentDate sameDateWithMidnightTimestamp];
     if ([currentDay isEqualToDate:selectedDay] && !firstViewingSinceStartup) {
-        NSInteger currentDateX = [timelineView xFromDate:currentDate];
+        NSInteger currentDateX =  0; //[timelineView xFromDate:currentDate];
         if (currentDateX > 0 && currentDateX < timelineView.width) {
             [timelineScrollView setContentOffset:CGPointMake(currentDateX-kVenueSlateWidth-40, 0) animated:YES];
         }
@@ -356,7 +355,7 @@
     timelineView.frame = CGRectMake(direction*timeSpanWidth, 0, timeSpanWidth, timelineScrollView.height);
 	timelineScrollView.contentSize = CGSizeMake(timelineView.width, 323);
 
-	[timelineView reloadData];
+	// [timelineView reloadData];
 }
 
 - (void)bringUpdatedTimelineIntoView
@@ -364,9 +363,9 @@
     [self updateTimeline];
 
     if ([selectedDay isEqualToDate:[[NSDate date] sameDateWithMidnightTimestamp]]) {
-        timelineScrollView.contentOffset = CGPointMake([timelineView xFromDate:[NSDate date]]-kVenueSlateWidth-40, 0);
+       //  timelineScrollView.contentOffset = CGPointMake([timelineView xFromDate:[NSDate date]]-kVenueSlateWidth-40, 0);
     } else {
-        timelineScrollView.contentOffset = CGPointMake([timelineView xFromDate:earliestHour], 0);
+    //    timelineScrollView.contentOffset = CGPointMake([timelineView xFromDate:earliestHour], 0);
     }
 
     NSTimeInterval duration = (timelineView.x < 0) ? 0.7 : 0.4;
@@ -396,9 +395,9 @@
 
 - (void)scrollToGig:(Artist *)gig
 {
-    NSInteger gigBeginX = [timelineView xFromDate:gig.begin];
-    NSInteger gigEndX = [timelineView xFromDate:gig.end];
-    NSInteger scrollX = (gigBeginX+gigEndX)/2 - 180;
+ //   NSInteger gigBeginX = [timelineView xFromDate:gig.begin];
+    NSInteger gigEndX = 0; // [timelineView xFromDate:gig.end];
+    NSInteger scrollX = 0; // (gigBeginX+gigEndX)/2 - 180;
     [timelineScrollView setContentOffset:CGPointMake(scrollX, 0) animated:YES];
 }
 

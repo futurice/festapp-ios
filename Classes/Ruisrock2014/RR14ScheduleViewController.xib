@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RR14ScheduleViewController">
             <connections>
                 <outlet property="dayChooser" destination="Beo-zt-EzU" id="hGu-RK-bHs"/>
+                <outlet property="timeLineView" destination="cFC-R6-OQf" id="cGg-Oo-fuU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,6 +25,35 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="schedule_bottom_deco.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTU-Sj-zYo">
+                    <rect key="frame" x="0.0" y="358" width="320" height="146"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fretboard_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="odT-eg-r0K">
+                    <rect key="frame" x="0.0" y="80" width="320" height="289"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZU-Uj-jQk">
+                    <rect key="frame" x="0.0" y="50" width="320" height="306"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFC-R6-OQf" customClass="TimelineView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="306"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="cFC-R6-OQf" firstAttribute="top" secondItem="QZU-Uj-jQk" secondAttribute="top" id="RTD-5a-ICQ"/>
+                        <constraint firstAttribute="trailing" secondItem="cFC-R6-OQf" secondAttribute="trailing" id="iH9-g0-lO8"/>
+                        <constraint firstItem="cFC-R6-OQf" firstAttribute="leading" secondItem="QZU-Uj-jQk" secondAttribute="leading" id="rpO-Hc-iyz"/>
+                        <constraint firstAttribute="bottom" secondItem="cFC-R6-OQf" secondAttribute="bottom" id="zT9-fH-QxI"/>
+                    </constraints>
+                </scrollView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fretboard_strings.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Wb-2J-l0R">
+                    <rect key="frame" x="0.0" y="80" width="320" height="289"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -33,5 +63,8 @@
     </objects>
     <resources>
         <image name="bg_pattern_light.png" width="320" height="568"/>
+        <image name="fretboard_bg.png" width="320" height="289"/>
+        <image name="fretboard_strings.png" width="320" height="289"/>
+        <image name="schedule_bottom_deco.png" width="320" height="146"/>
     </resources>
 </document>

@@ -153,4 +153,9 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
     return [self.begin compare:otherGig.begin];
 }
 
+- (NSString *)debugDescription
+{
+    return self.artistName;
+}
+
 @end
