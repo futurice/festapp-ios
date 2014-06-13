@@ -38,7 +38,15 @@
     // Subscribe
     RACSignal *artistsSignal = [FestDataManager.sharedFestDataManager artistsSignal];
     [artistsSignal subscribeNext:^(NSArray *artists) {
-        self.artists = artists;
+        NSArray *sortedArtists = [artists sortedArrayUsingComparator:^NSComparisonResult(Artist* a, Artist *b) {
+            return [a.artistName compare:b.artistName];
+        }];
+
+        NSArray *foreignArtists = [sortedArtists filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Artist *artist, NSDictionary *bindings) {
+            return artist.country != nil;
+        }]];
+
+        self.artists = [foreignArtists arrayByAddingObjectsFromArray:sortedArtists] ;
         [self.tableView reloadData];
     }];
 
