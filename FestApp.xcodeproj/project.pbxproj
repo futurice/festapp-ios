@@ -80,6 +80,7 @@
 		8894AE4018DDF7C000991593 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8894AE1918DDE68F00991593 /* libReactiveCocoa-iOS.a */; };
 		88989F611949C0470016BD15 /* RR14ArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F601949C0470016BD15 /* RR14ArtistCell.xib */; };
 		88989F641949C0EF0016BD15 /* RR14ArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F631949C0EF0016BD15 /* RR14ArtistCell.m */; };
+		88989F67194AE5A10016BD15 /* FestFavouritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F66194AE5A10016BD15 /* FestFavouritesManager.m */; };
 		88B431911947185200589A83 /* RR14WebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4318F1947185100589A83 /* RR14WebContentViewController.m */; };
 		88B431921947185200589A83 /* RR14WebContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B431901947185100589A83 /* RR14WebContentViewController.xib */; };
 		88B4319C19471C2B00589A83 /* RR14MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4319A19471C2B00589A83 /* RR14MapViewController.m */; };
@@ -305,6 +306,8 @@
 		88989F601949C0470016BD15 /* RR14ArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14ArtistCell.xib; path = Ruisrock2014/RR14ArtistCell.xib; sourceTree = "<group>"; };
 		88989F621949C0EF0016BD15 /* RR14ArtistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14ArtistCell.h; path = Ruisrock2014/RR14ArtistCell.h; sourceTree = "<group>"; };
 		88989F631949C0EF0016BD15 /* RR14ArtistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14ArtistCell.m; path = Ruisrock2014/RR14ArtistCell.m; sourceTree = "<group>"; };
+		88989F65194AE5A10016BD15 /* FestFavouritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestFavouritesManager.h; sourceTree = "<group>"; };
+		88989F66194AE5A10016BD15 /* FestFavouritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestFavouritesManager.m; sourceTree = "<group>"; };
 		88B4318E1947185100589A83 /* RR14WebContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14WebContentViewController.h; path = Ruisrock2014/RR14WebContentViewController.h; sourceTree = "<group>"; };
 		88B4318F1947185100589A83 /* RR14WebContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14WebContentViewController.m; path = Ruisrock2014/RR14WebContentViewController.m; sourceTree = "<group>"; };
 		88B431901947185100589A83 /* RR14WebContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14WebContentViewController.xib; path = Ruisrock2014/RR14WebContentViewController.xib; sourceTree = "<group>"; };
@@ -430,20 +433,22 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				88989F591949BE440016BD15 /* Views */,
-				88355E6D194600EF003E2F90 /* Ruisrock2014 */,
+				CD78524D1378B2CF00711F11 /* Data */,
 				4D2FA5F2139BE6E500F03209 /* FestApp.h */,
-				8894AE2F18DDF00000991593 /* FestDataManager.h */,
-				8894AE3018DDF00000991593 /* FestDataManager.m */,
-				88B431CA19496FBE00589A83 /* FestImageManager.h */,
-				88B431CB19496FBE00589A83 /* FestImageManager.m */,
 				1D3623240D0F684500981E51 /* FestAppDelegate.h */,
 				1D3623250D0F684500981E51 /* FestAppDelegate.m */,
+				8894AE2F18DDF00000991593 /* FestDataManager.h */,
+				8894AE3018DDF00000991593 /* FestDataManager.m */,
+				88989F65194AE5A10016BD15 /* FestFavouritesManager.h */,
+				88989F66194AE5A10016BD15 /* FestFavouritesManager.m */,
 				88EE0F4218DDC06300592E51 /* FestHTTPSessionManager.h */,
 				88EE0F4318DDC06300592E51 /* FestHTTPSessionManager.m */,
-				CD78524D1378B2CF00711F11 /* Data */,
+				88B431CA19496FBE00589A83 /* FestImageManager.h */,
+				88B431CB19496FBE00589A83 /* FestImageManager.m */,
+				88355E6D194600EF003E2F90 /* Ruisrock2014 */,
 				CD7852A11378BD3200711F11 /* UI */,
 				CD7852A01378BD1B00711F11 /* Util */,
+				88989F591949BE440016BD15 /* Views */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1037,6 +1042,7 @@
 				88B4319C19471C2B00589A83 /* RR14MapViewController.m in Sources */,
 				88355E82194609E7003E2F90 /* RR14MainViewController.m in Sources */,
 				4D587151138C809000B0A0BC /* GigViewController.m in Sources */,
+				88989F67194AE5A10016BD15 /* FestFavouritesManager.m in Sources */,
 				4D587155138C854500B0A0BC /* DayChooser.m in Sources */,
 				4D186E0A139329E100CDA3DB /* InfoViewController.m in Sources */,
 				88989F641949C0EF0016BD15 /* RR14ArtistCell.m in Sources */,

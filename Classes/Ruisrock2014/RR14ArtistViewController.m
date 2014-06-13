@@ -11,6 +11,7 @@
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
 #import "FestImageManager.h"
+#import "FestFavouritesManager.h"
 
 @interface RR14ArtistViewController ()
 @property (nonatomic, strong) Artist *artist;
@@ -64,6 +65,11 @@
     // Favourite
     [self.favouriteButton setImage:[UIImage imageNamed:@"schedule_favourite_selected.png"] forState:UIControlStateSelected];
 
+    FestFavouritesManager *favouriteManager = [FestFavouritesManager sharedFavouritesManager];
+    [favouriteManager.favouritesSignal subscribeNext:^(NSArray *favourites) {
+        self.favouriteButton.selected = [favourites containsObject:self.artist.artistId];
+    }];
+
     // Load image
     FestImageManager *imageManager = [FestImageManager sharedFestImageManager];
     [[imageManager imageSignalFor:self.artist.imagePath] subscribeNext:^(UIImage *image) {
@@ -86,7 +92,8 @@
 
 - (IBAction)toggleFavourite:(id)sender
 {
-    self.favouriteButton.selected = !self.favouriteButton.selected;
+    FestFavouritesManager *favouriteManager = [FestFavouritesManager sharedFavouritesManager];
+    [favouriteManager toggleFavourite:self.artist.artistId favourite:!self.favouriteButton.selected];
 }
 
 @end
