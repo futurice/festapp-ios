@@ -41,6 +41,11 @@
 
 - (void)toggleFavourite:(NSString *)artistId favourite:(BOOL)favourite
 {
+    if (!artistId) {
+        NSLog(@"error, toggling favourites without artistId");
+        return;
+    }
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *favourites = [defaults arrayForKey:kFestFavouriteKey];
     RACSubject *favouritesSubject = (RACSubject *)self.favouritesSignal;
@@ -62,7 +67,7 @@
         }
     }
 
-    [defaults setObject:favourites forKey:kFestFavouriteKey];
+    [defaults setObject:mutableFavourites forKey:kFestFavouriteKey];
     [defaults synchronize];
 
     [favouritesSubject sendNext:mutableFavourites];

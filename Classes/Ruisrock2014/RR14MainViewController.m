@@ -11,6 +11,7 @@
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
 #import "FestImageManager.h"
+#import "FestFavouritesManager.h"
 
 #import "NewsItem.h"
 
@@ -50,17 +51,32 @@
     // Poor man random signal updated at the interval
     RACSignal *intervalSignal =
     [[[[RACSignal interval:kUpdateInterval onScheduler:[RACScheduler mainThreadScheduler]] startWith:nil]
-     scanWithStart:@1
+     scanWithStart:@(arc4random())
      reduce:^id(NSNumber *running, id unused) {
             return @((1103515245 * running.unsignedIntegerValue + 12345) % 0x100000000);
      }] replayLast];
 
     RACSignal *artistsSignal = FestDataManager.sharedFestDataManager.artistsSignal;
+    RACSignal *favouritesSignal = FestFavouritesManager.sharedFavouritesManager.favouritesSignal;
+
     RACSignal *currentArtistSignal =
-    [RACSignal combineLatest:@[intervalSignal, artistsSignal]
-                      reduce:^id(NSNumber *number, NSArray *artists) {
-                          NSUInteger idx = number.unsignedIntegerValue % MAX(artists.count, 1);
-                          return artists[idx];
+    [RACSignal combineLatest:@[intervalSignal, artistsSignal, favouritesSignal]
+                      reduce:^id(NSNumber *number, NSArray *artists, NSArray *favourites) {
+                          // if there is favourites, pick one from that list
+                          if (favourites.count != 0) {
+                              NSString *artistId = favourites[number.unsignedIntegerValue % favourites.count];
+                              NSUInteger artistIdx = [artists indexOfObjectPassingTest:^BOOL(Artist* art, NSUInteger idx, BOOL *stop) {
+                                  return [art.artistId isEqualToString:artistId];
+                              }];
+
+                              if (artistIdx != NSNotFound) {
+                                  return artists[artistIdx];
+                              }
+                          }
+
+                          // fallback, return random artist
+                          NSUInteger randomIdx = number.unsignedIntegerValue % MAX(artists.count, 1);
+                          return artists[randomIdx];
                       }];
 
     [currentArtistSignal subscribeNext:^(Artist *artist) {
