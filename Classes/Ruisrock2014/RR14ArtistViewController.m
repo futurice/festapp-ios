@@ -93,7 +93,7 @@
 - (IBAction)toggleFavourite:(id)sender
 {
     FestFavouritesManager *favouriteManager = [FestFavouritesManager sharedFavouritesManager];
-    [favouriteManager toggleFavourite:self.artist.artistId favourite:!self.favouriteButton.selected];
+    [favouriteManager toggleFavourite:self.artist favourite:!self.favouriteButton.selected];
 }
 
 @end

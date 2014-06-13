@@ -5,10 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Artist : NSObject {
-
-    BOOL favorite;
-}
+@interface Artist : NSObject
 
 @property (nonatomic, strong) NSString *artistId;
 @property (nonatomic, strong) NSString *artistName;
@@ -32,7 +29,6 @@
 @property (nonatomic, readonly) NSString *timeIntervalString;
 @property (nonatomic, readonly) NSString *stageAndTimeIntervalString;
 @property (nonatomic, readonly) NSTimeInterval duration;
-@property (nonatomic, assign, getter=isFavorite) BOOL favorite;
 
 + (NSArray *)gigsFromArrayOfDicts:(NSArray *)dicts;
 

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Artist.h"
+
 @interface FestFavouritesManager : NSObject
 // NSArray of artistIds
 @property (nonatomic, readonly) RACSignal *favouritesSignal;
 
 + (FestFavouritesManager *)sharedFavouritesManager;
 
-- (void)toggleFavourite:(NSString*)artistId favourite:(BOOL)favourite;
+- (void)toggleFavourite:(Artist*)artist favourite:(BOOL)favourite;
 @end

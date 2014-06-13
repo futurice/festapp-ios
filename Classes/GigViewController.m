@@ -104,16 +104,6 @@
 
 - (IBAction)favoriteButtonPressed:(UIButton *)button
 {
-    gig.favorite = !gig.isFavorite;
-
-    [self sendEventToTracker:[NSString stringWithFormat:@"star/profile %d %@", gig.isFavorite, gig.artistName]];
-
-    if (shouldFavoriteAllAlternatives && gig.alternativeGigs != nil) {
-        for (Artist *alternativeGig in gig.alternativeGigs) {
-            alternativeGig.favorite = gig.favorite;
-        }
-    }
-
     [self updateFavoriteButton];
 }
 
@@ -127,13 +117,7 @@
 
 - (void)updateFavoriteButton
 {
-    if (gig.isFavorite) {
-        [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_arrow_starred"] forState:UIControlStateNormal];
-        [favoriteButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(@"gig.favorite.label", @"")] forState:UIControlStateNormal];
-    } else {
-        [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_arrow_unstarred"] forState:UIControlStateNormal];
-        [favoriteButton setTitle:[NSString stringWithFormat:@" %@", NSLocalizedString(@"gig.nonfavorite.label", @"")] forState:UIControlStateNormal];
-    }
+
 }
 
 - (void)artistImageLoaded:(NSNotification *)notification

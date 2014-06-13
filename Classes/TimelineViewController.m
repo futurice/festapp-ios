@@ -459,10 +459,10 @@
 
 - (void)gigFavoriteStatusToggled:(Artist *)gig
 {
-	gig.favorite = !gig.favorite;
+	// gig.favorite = !gig.favorite;
 	[timelineView setNeedsDisplay];
 
-    [self sendEventToTracker:[NSString stringWithFormat:@"star/timeline %d %@", gig.isFavorite, gig.artistName]];
+    // [self sendEventToTracker:[NSString stringWithFormat:@"star/timeline %d %@", gig.isFavorite, gig.artistName]];
 }
 
 #pragma mark - DayChooserDelegate

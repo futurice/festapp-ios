@@ -19,7 +19,6 @@
 @dynamic timeIntervalString;
 @dynamic stageAndTimeIntervalString;
 @dynamic duration;
-@dynamic favorite;
 
 NSInteger alphabeticalGigSort(id gig1, id gig2, void *context)
 {
@@ -107,10 +106,6 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
             gig.date = [gig.begin dateByAddingTimeInterval:timeInterval];
             // NSLog(@"%f %@", timeInterval, gig.artistName);
 
-            NSString *favoriteKey = [NSString stringWithFormat:@"isFavorite_%@", gig.artistId];
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            gig.favorite = [defaults boolForKey:favoriteKey];
-
             for (Artist *existingGig in gigs) {
 
                 if ([existingGig.artistName isEqualToString:gig.artistName]) {
@@ -131,56 +126,6 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
         }
 	}
 	return gigs;
-}
-
-- (BOOL)isFavorite
-{
-    return favorite;
-}
-
-- (void)setFavorite:(BOOL)isFavorite
-{
-    favorite = isFavorite;
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *favoriteKey = [NSString stringWithFormat:@"isFavorite_%@", self.artistId];
-
-    if (favorite != [defaults boolForKey:favoriteKey]) {
-
-        if (favorite) {
-
-            if ([self.begin after:[NSDate date]]) {
-
-                NSString *alertText = [NSString stringWithFormat:@"%@\n%@-%@ (%@)", self.artistName, [self.begin hourAndMinuteString], [self.end hourAndMinuteString], self.venue];
-
-                UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-                if (localNotif == nil) return;
-                localNotif.fireDate = [self.begin dateByAddingTimeInterval:-kAlertIntervalInMinutes*kOneMinute];
-                localNotif.alertBody = alertText;
-                localNotif.soundName = @"Riff2.aif";
-                [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-
-                NSLog(@"added alert: %@", alertText);
-            }
-
-        } else {
-
-            UILocalNotification *notificationToCancel = nil;
-            for (UILocalNotification *aNotif in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
-                if([aNotif.alertBody rangeOfString:self.artistName].location == 0) {
-                    notificationToCancel = aNotif;
-                    break;
-                }
-            }
-            if (notificationToCancel != nil) {
-                NSLog(@"removed alert: %@", notificationToCancel.alertBody);
-                [[UIApplication sharedApplication] cancelLocalNotification:notificationToCancel];
-            }
-        }
-
-        [defaults setBool:favorite forKey:favoriteKey];
-        [defaults synchronize];
-    }
 }
 
 - (NSString *)timeIntervalString

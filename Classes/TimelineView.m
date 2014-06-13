@@ -99,7 +99,7 @@
 			CGRect gigRect = CGRectMake(gigBeginX, venueY + 6, gigWidth, venueHeight - 10);
             CGRect starRect = CGRectMake(gigBeginX + 2, (int) (venueY + (venueHeight - starSize.height) / 2) + 1, starSize.width, starSize.height);
 
-			if (gig.favorite) {
+			if (YES /* gig.favorite */) {
 
 				CGContextSetFillColorWithColor(c, [UIColor colorWithRed:1.0f green:0.9f blue:0.7f alpha:0.4f].CGColor);
                 CGContextFillRect(c, gigRect);
