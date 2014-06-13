@@ -78,26 +78,41 @@
 
 - (RACSignal *)imageSignalFor:(NSString *)imagePath
 {
-    RACSignal *signal = self.signals[imagePath];
+    return [self imageSignalFor:imagePath withSize:CGSizeZero];
+}
+
+- (RACSignal *)imageSignalFor:(NSString *)imagePath withSize:(CGSize)size
+{
+    NSString *cacheKey = [NSString stringWithFormat:@"%@ %f %f", imagePath, size.width, size.height];
+    RACSignal *signal = self.signals[cacheKey];
     if (signal == nil) {
         NSString *md5path = [imagePath MD5];
 
         NSString *imageName = [NSString stringWithFormat:@"%@.jpg", md5path];
         NSString *imageFilePath = [self.directory stringByAppendingPathComponent:imageName];
 
-        UIImage *artistImage = [UIImage imageNamed:@"news_bg_flowers.png"];
-        if ([self.fileManager fileExistsAtPath:imageFilePath]) {
-            artistImage = [UIImage imageWithContentsOfFile:imageFilePath];
-        }
+        BOOL exists = [self.fileManager fileExistsAtPath:imageFilePath];
+        UIImage *artistImage = exists ? [UIImage imageWithContentsOfFile:imageFilePath] : [UIImage imageNamed:@"news_bg_flowers.png"];
+
+        // resize
+        artistImage = [FestImageManager imageWithImage:artistImage scaledToSize:size];
 
         // TODO: try cache
         RACSubject *subject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:artistImage];
         signal = subject;
 
-        self.signals[imagePath] = signal;
+        // Cache signal in memory if small
+        if (size.width * size.height < 10000) {
+            self.signals[cacheKey] = signal;
+        }
+
+        if (exists) {
+            return signal;
+        }
 
         [self GET:imagePath parameters:@{} success:^(NSURLSessionDataTask *task, UIImage *image) {
-            [subject sendNext:image];
+            UIImage *resizedImage = [FestImageManager imageWithImage:image scaledToSize:size];
+            [subject sendNext:resizedImage];
 
             // save file
             // TODO: make NSData and check an error
@@ -109,5 +124,29 @@
         }];
     }
     return signal;
+}
+
+#pragma mark - Utilities
+
+// Scale to fill
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    if (newSize.width <= 0.f || newSize.height <= 0.f) {
+        return image;
+    }
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+
+    CGFloat k = MAX(newSize.width / image.size.width, newSize.height / image.size.height);
+    CGFloat w = image.size.width * k;
+    CGFloat h = image.size.height * k;
+    CGFloat x = (w - newSize.width) / 2;
+    CGFloat y = (h - newSize.height) / 2;
+
+    [image drawInRect:CGRectMake(x, y, w, h)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 @end

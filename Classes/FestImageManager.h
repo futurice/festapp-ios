@@ -14,4 +14,5 @@
 + (FestImageManager *)sharedFestImageManager;
 
 - (RACSignal *)imageSignalFor:(NSString *)imagePath;
+- (RACSignal *)imageSignalFor:(NSString *)imagePath withSize:(CGSize)size;
 @end

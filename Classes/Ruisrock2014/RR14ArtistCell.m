@@ -50,7 +50,7 @@
 
     self.nameLabel.text = artist.artistName;
 
-    self.imageDisposable = [[[FestImageManager sharedFestImageManager] imageSignalFor:artist.imagePath] subscribeNext:^(UIImage *image) {
+    self.imageDisposable = [[[FestImageManager sharedFestImageManager] imageSignalFor:artist.imagePath withSize:self.artistImageView.frame.size] subscribeNext:^(UIImage *image) {
         self.artistImageView.image = image;
     }];
 }
