@@ -55,6 +55,9 @@
                         <constraint firstItem="cFC-R6-OQf" firstAttribute="leading" secondItem="QZU-Uj-jQk" secondAttribute="leading" id="rpO-Hc-iyz"/>
                         <constraint firstAttribute="bottom" secondItem="cFC-R6-OQf" secondAttribute="bottom" id="zT9-fH-QxI"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="tab-Wl-kKU"/>
+                    </connections>
                 </scrollView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fretboard_strings.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Wb-2J-l0R">
                     <rect key="frame" x="0.0" y="80" width="320" height="289"/>

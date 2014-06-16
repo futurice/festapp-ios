@@ -138,4 +138,29 @@
 
 }
 
+#pragma mark UIScrollDelegage
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.timelineVenuesView.alpha = 0.5;
+    }];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.timelineVenuesView.alpha = 1.0;
+    }];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.timelineVenuesView.alpha = 1.0;
+        }];
+    }
+}
+
 @end
