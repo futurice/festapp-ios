@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="dayChooser" destination="Beo-zt-EzU" id="hGu-RK-bHs"/>
                 <outlet property="timeLineView" destination="cFC-R6-OQf" id="cGg-Oo-fuU"/>
+                <outlet property="timelineVenuesView" destination="KhI-OU-by5" id="x7m-Ch-jpn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -59,6 +60,11 @@
                     <rect key="frame" x="0.0" y="80" width="320" height="289"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KhI-OU-by5">
+                    <rect key="frame" x="0.0" y="50" width="80" height="306"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

@@ -157,25 +157,6 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
         return;
     }
 
-    // venue labels
-    NSUInteger venueCount = self.venues.count;
-
-    for (NSUInteger venueIdx = 0; venueIdx < venueCount; venueIdx++) {
-        NSString *venue = self.venues[venueIdx];
-
-        CGRect frame = CGRectMake(10, kTopPadding + 10 + kRowHeight * venueIdx, kLeftPadding - 20, kRowHeight - 20);
-        UILabel *label = [[UILabel alloc] initWithFrame:frame];
-
-        label.text = venue;
-        label.textColor = [UIColor whiteColor];
-        label.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-        label.textAlignment = NSTextAlignmentCenter;
-
-        label.font = [UIFont systemFontOfSize:12];
-
-        [self addSubview:label];
-    }
-
     // timespan
     NSDate *begin = [NSDate distantFuture];
     NSDate *end = [NSDate distantPast];
@@ -229,6 +210,8 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
         // next
         fretDate = [NSDate dateWithTimeInterval:3600 sinceDate:fretDate];
     }
+
+    NSUInteger venueCount = self.venues.count;
 
     // buttons
     for (Artist *artist in self.currentArtists) {

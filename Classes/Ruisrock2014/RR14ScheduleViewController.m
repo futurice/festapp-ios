@@ -13,8 +13,14 @@
 #import "FestFavouritesManager.h"
 
 @interface RR14ScheduleViewController ()
-
+@property (nonatomic, strong) IBOutlet UIView *timelineVenuesView;
 @end
+
+#define kHourWidth 200
+#define kRowHeight 49
+#define kTopPadding 45
+#define kLeftPadding 80
+#define kRowPadding 5
 
 @implementation RR14ScheduleViewController
 
@@ -41,6 +47,7 @@
     RACSignal *artistsSignal = FestDataManager.sharedFestDataManager.artistsSignal;
     [artistsSignal subscribeNext:^(id x) {
         self.timeLineView.artists = x;
+        [self updateVenues:x];
     }];
 
     RACSignal *favouritesSignal = FestFavouritesManager.sharedFavouritesManager.favouritesSignal;
@@ -61,6 +68,36 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Venues
+- (void)updateVenues:(NSArray *)artists
+{
+    NSMutableArray *venues = [NSMutableArray arrayWithCapacity:6];
+    for (Artist *artist in artists) {
+        if (![venues containsObject:artist.venue]) {
+            [venues addObject:artist.venue];
+        }
+    }
+
+    // venue labels
+    NSUInteger venueCount = venues.count;
+
+    for (NSUInteger venueIdx = 0; venueIdx < venueCount; venueIdx++) {
+        NSString *venue = venues[venueIdx];
+
+        CGRect frame = CGRectMake(10, kTopPadding + 10 + kRowHeight * venueIdx, kLeftPadding - 20, kRowHeight - 20);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+
+        label.text = venue;
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        label.textAlignment = NSTextAlignmentCenter;
+
+        label.font = [UIFont systemFontOfSize:12];
+
+        [self.timelineVenuesView addSubview:label];
+    }
 }
 
 #pragma mark DaySelection
