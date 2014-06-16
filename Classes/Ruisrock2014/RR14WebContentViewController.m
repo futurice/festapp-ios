@@ -121,4 +121,33 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - UIWebViewDelegate
+
+- (BOOL)webView:(UIWebView *)theWebView
+shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+
+        NSString *link = [[request URL] absoluteString];
+        NSLog(@"%@", link);
+
+        if ([link rangeOfString:@"itms-apps://"].location != NSNotFound) {
+            [[UIApplication sharedApplication] openURL:request.URL];
+            return NO;
+        }
+
+        if ([link rangeOfString:@"tel:"].location == 0) {
+
+            return YES;
+
+        } else {
+            [[UIApplication sharedApplication] openURL:[request URL]];
+            return YES;
+        }
+    }
+    
+    return YES;
+}
+
 @end

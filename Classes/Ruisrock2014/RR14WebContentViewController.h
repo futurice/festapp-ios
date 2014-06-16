@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14WebContentViewController : UIViewController
+@interface RR14WebContentViewController : UIViewController <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 - (id)initWithContent:(NSString *)content title:(NSString *)title;
 @end

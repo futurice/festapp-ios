@@ -24,18 +24,21 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
-                <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-MF-qw4">
-                    <rect key="frame" x="10" y="10" width="300" height="494"/>
+                <webView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DtF-MF-qw4">
+                    <rect key="frame" x="0.0" y="10" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="HhO-q2-ey1"/>
+                    </connections>
                 </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="DtF-MF-qw4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="2xK-HX-SeW"/>
-                <constraint firstItem="DtF-MF-qw4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="BdN-nu-LnZ"/>
+                <constraint firstItem="DtF-MF-qw4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BdN-nu-LnZ"/>
                 <constraint firstAttribute="bottom" secondItem="DtF-MF-qw4" secondAttribute="bottom" id="Dqh-RY-o43"/>
-                <constraint firstAttribute="trailing" secondItem="DtF-MF-qw4" secondAttribute="trailing" constant="10" id="fdn-88-KaQ"/>
+                <constraint firstAttribute="trailing" secondItem="DtF-MF-qw4" secondAttribute="trailing" id="fdn-88-KaQ"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

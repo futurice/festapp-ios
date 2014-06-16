@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14NewsViewCell : UITableViewCell
+#import "NewsItem.h"
 
+@interface RR14NewsViewCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *datetimeLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *imageView;
+
+@property (nonatomic, strong) NewsItem *newsItem;
 @end

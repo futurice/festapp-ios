@@ -22,4 +22,29 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - setter
+- (void)setNewsItem:(NewsItem *)newsItem
+{
+    if (_newsItem == newsItem) {
+        return;
+    }
+
+    _newsItem = newsItem;
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d.MM.yyyy HH:mm"];
+
+    self.titleLabel.text = newsItem.title;
+    self.datetimeLabel.text = [dateFormatter stringFromDate:newsItem.datetime];
+    /*
+    [self.imageDisposable dispose];
+
+
+
+    self.imageDisposable = [[[FestImageManager sharedFestImageManager] imageSignalFor:artist.imagePath withSize:self.artistImageView.frame.size] subscribeNext:^(UIImage *image) {
+        self.artistImageView.image = image;
+    }];
+     */
+}
+
 @end

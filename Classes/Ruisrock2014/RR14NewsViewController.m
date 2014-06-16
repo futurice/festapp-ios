@@ -82,11 +82,12 @@
     if (cell == nil) {
         [tableView registerNib:[UINib nibWithNibName:@"RR14NewsViewCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
     }
 
-    NewsItem *news = self.news[idx];
-    cell.textLabel.text = news.title;
-    //cell.artist = self.artists[idx];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.newsItem = self.news[idx];
 
     return cell;
 }
@@ -106,11 +107,6 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     return [[UIView alloc] initWithFrame:CGRectZero];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return kCellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
