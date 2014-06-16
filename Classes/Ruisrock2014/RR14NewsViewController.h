@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14NewsViewController : UIViewController
-
+@interface RR14NewsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end

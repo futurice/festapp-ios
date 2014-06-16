@@ -75,6 +75,8 @@
 		88989F7A194EC72A0016BD15 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F77194EC72A0016BD15 /* spotify@2x.png */; };
 		88989F7B194EC72A0016BD15 /* youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F78194EC72A0016BD15 /* youtube@2x.png */; };
 		88989F7D194ECF9E0016BD15 /* web-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F7C194ECF9E0016BD15 /* web-bg@2x.png */; };
+		88989F81194ED0E30016BD15 /* RR14NewsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F7F194ED0E30016BD15 /* RR14NewsViewCell.m */; };
+		88989F82194ED0E30016BD15 /* RR14NewsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F80194ED0E30016BD15 /* RR14NewsViewCell.xib */; };
 		88B431911947185200589A83 /* RR14WebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4318F1947185100589A83 /* RR14WebContentViewController.m */; };
 		88B431921947185200589A83 /* RR14WebContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B431901947185100589A83 /* RR14WebContentViewController.xib */; };
 		88B4319C19471C2B00589A83 /* RR14MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4319A19471C2B00589A83 /* RR14MapViewController.m */; };
@@ -293,6 +295,9 @@
 		88989F77194EC72A0016BD15 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spotify@2x.png"; path = "Resources/Ruisrock2014/spotify@2x.png"; sourceTree = "<group>"; };
 		88989F78194EC72A0016BD15 /* youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "youtube@2x.png"; path = "Resources/Ruisrock2014/youtube@2x.png"; sourceTree = "<group>"; };
 		88989F7C194ECF9E0016BD15 /* web-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "web-bg@2x.png"; path = "Resources/Ruisrock2014/web-bg@2x.png"; sourceTree = "<group>"; };
+		88989F7E194ED0E20016BD15 /* RR14NewsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14NewsViewCell.h; path = Ruisrock2014/RR14NewsViewCell.h; sourceTree = "<group>"; };
+		88989F7F194ED0E30016BD15 /* RR14NewsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14NewsViewCell.m; path = Ruisrock2014/RR14NewsViewCell.m; sourceTree = "<group>"; };
+		88989F80194ED0E30016BD15 /* RR14NewsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14NewsViewCell.xib; path = Ruisrock2014/RR14NewsViewCell.xib; sourceTree = "<group>"; };
 		88B4318E1947185100589A83 /* RR14WebContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14WebContentViewController.h; path = Ruisrock2014/RR14WebContentViewController.h; sourceTree = "<group>"; };
 		88B4318F1947185100589A83 /* RR14WebContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14WebContentViewController.m; path = Ruisrock2014/RR14WebContentViewController.m; sourceTree = "<group>"; };
 		88B431901947185100589A83 /* RR14WebContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14WebContentViewController.xib; path = Ruisrock2014/RR14WebContentViewController.xib; sourceTree = "<group>"; };
@@ -657,6 +662,9 @@
 				88989F621949C0EF0016BD15 /* RR14ArtistCell.h */,
 				88989F631949C0EF0016BD15 /* RR14ArtistCell.m */,
 				88989F601949C0470016BD15 /* RR14ArtistCell.xib */,
+				88989F7E194ED0E20016BD15 /* RR14NewsViewCell.h */,
+				88989F7F194ED0E30016BD15 /* RR14NewsViewCell.m */,
+				88989F80194ED0E30016BD15 /* RR14NewsViewCell.xib */,
 				CD7853E5137AA39F00711F11 /* TimelineView.h */,
 				CD7853E6137AA39F00711F11 /* TimelineView.m */,
 				2840D7CD1179279E00D7F93C /* TimelineView.xib */,
@@ -942,6 +950,7 @@
 				AD68825019462C140015F409 /* schedule_favourite@2x.png in Resources */,
 				ADE7A208194617A00073C4D8 /* default-568h@2x.png in Resources */,
 				88B431A719473FC200589A83 /* ohjelma in Resources */,
+				88989F82194ED0E30016BD15 /* RR14NewsViewCell.xib in Resources */,
 				4D1ED386139C36B400BB1D47 /* Riff2.aif in Resources */,
 				88989F7A194EC72A0016BD15 /* spotify@2x.png in Resources */,
 				88204585194711C8006D8DB8 /* frontpage-menu-ribbon@2x.png in Resources */,
@@ -1023,6 +1032,7 @@
 				88C1839818DDCAAA0014495D /* AFURLResponseSerialization.m in Sources */,
 				88C1839718DDCAAA0014495D /* AFURLRequestSerialization.m in Sources */,
 				4D30E84A13980F1B007E9D0B /* ExternalWebContentViewController.m in Sources */,
+				88989F81194ED0E30016BD15 /* RR14NewsViewCell.m in Sources */,
 				88BCA3D018DEEFC800654E64 /* UIAlertView+AFNetworking.m in Sources */,
 				4DDA034B139C05590003FFA4 /* CalloutView.m in Sources */,
 				88B431A019473C4200589A83 /* NewsItem.m in Sources */,
