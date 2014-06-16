@@ -21,7 +21,12 @@
 
 - (id)initWithNewsItem:(NewsItem *)newsItem
 {
-    self = [super initWithContent:newsItem.contentHTML title:newsItem.title];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d.MM.yyyy HH:mm"];
+
+    NSString *content = [NSString stringWithFormat:@"<p><span class=\"datetime\">%@</span></p>%@", [dateFormatter stringFromDate:newsItem.datetime], newsItem.contentHTML];
+
+    self = [super initWithContent:content title:newsItem.title];
     if (self) {
 
     }

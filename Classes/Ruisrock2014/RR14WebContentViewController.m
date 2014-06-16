@@ -67,7 +67,7 @@
                              "      text-align: left; "
                              "      margin-bottom: 20px; "
                              "    } "
-
+                             "span.datetime { color: #a7c539; }"
                              "    h2.subtitle { "
                              "       "
                              "      color: #555; "
