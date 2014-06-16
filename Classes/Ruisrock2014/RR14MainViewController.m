@@ -153,7 +153,7 @@
 - (IBAction)showCurrentNewsItem:(id)sender
 {
     NSLog(@"show current news item");
-    [APPDELEGATE showNewsItem:self.currentNewsItem];
+    [APPDELEGATE showNews:sender];
 }
 
 
