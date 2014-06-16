@@ -152,23 +152,32 @@
 
 - (id)transformArtists:(id)artistsJSONValue
 {
-    return [Artist gigsFromArrayOfDicts:artistsJSONValue];
+    NSArray *artistsArray = artistsJSONValue;
+    NSMutableArray *artists = [NSMutableArray arrayWithCapacity:artistsArray.count];
+    NSUInteger len = [artistsArray count];
+
+    for (NSUInteger idx = 0; idx < len; idx++) {
+        NSDictionary *obj = artistsArray[idx];
+        Artist *artist = [[Artist alloc] initFromJSON:obj];
+        if (artist) {
+            [artists addObject:artist];
+        }
+    }
+
+    return artists;
 }
 
 - (id)transformNews:(id)newsJSONValue
 {
     NSArray *newsArray = newsJSONValue;
-    NSMutableArray *news = [newsArray mutableCopy];
-    NSUInteger len = [news count];
+    NSMutableArray *news = [NSMutableArray arrayWithCapacity:newsArray.count];
+    NSUInteger len = [newsArray count];
 
-    for (NSUInteger idx = 0; idx < len; ) {
-        NSDictionary *obj = news[idx];
+    for (NSUInteger idx = 0; idx < len; idx++) {
+        NSDictionary *obj = newsArray[idx];
         NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
         if (item) {
-            news[idx] = item;
-            idx += 1;
-        } else {
-            [news removeObjectAtIndex:idx];
+            [news addObject:item];
         }
     }
 

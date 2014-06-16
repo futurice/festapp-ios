@@ -20,58 +20,35 @@
 @dynamic stageAndTimeIntervalString;
 @dynamic duration;
 
-NSInteger alphabeticalGigSort(id gig1, id gig2, void *context)
+- (instancetype)initFromJSON:(NSDictionary *)json
 {
-    NSString *artist1 = [(Artist *) gig1 artistName];
-    NSString *artist2 = [(Artist *) gig2 artistName];
-    return [artist1 compare:artist2 options:NSCaseInsensitiveSearch];
-}
+    self = [super init];
+    if (self) {
+		_artistId        = json[@"id"];
+		_artistName      = json[@"nimi"];
+		_venue           = json[@"lava"];
+        _description     = json[@"kohokohtia"];
+        _day             = json[@"paiva"];
+        _quote           = json[@"quote"];
+        _founded         = json[@"perustettu"];
+        _members         = [json[@"jasenet"] stringByReplacingOccurrencesOfString:@"|" withString:@", "];
 
-NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
-{
-    NSDate *begin1 = [(Artist *) gig1 begin];
-    NSDate *begin2 = [(Artist *) gig2 begin];
-    return [begin1 compare:begin2];
-}
-
-+ (NSArray *)gigsFromArrayOfDicts:(NSArray *)dicts
-{
-	NSMutableArray *gigs = [NSMutableArray arrayWithCapacity:[dicts count]];
-
-    NSUInteger gigCount = [dicts count];
-    NSLog(@"parsing %d gigs", gigCount);
-
-	for (NSUInteger i = 0; i < gigCount; i++) {
-
-        NSDictionary *dict = dicts[i];
-
-		Artist *gig            = [[Artist alloc] init];
-		gig.artistId        = dict[@"id"];
-		gig.artistName      = dict[@"nimi"];
-		gig.venue           = dict[@"lava"];
-        gig.description     = dict[@"kohokohtia"];
-        gig.day             = dict[@"paiva"];
-        gig.quote           = dict[@"quote"];
-        gig.founded         = dict[@"perustettu"];
-        gig.members         = [dict[@"jasenet"] stringByReplacingOccurrencesOfString:@"|" withString:@", "];
-
-        NSString *spotifyUrlStr = dict[@"spotify"];
+        NSString *spotifyUrlStr = json[@"spotify"];
         if([spotifyUrlStr length] != 0) {
-            gig.spotifyUrl = [NSURL URLWithString:spotifyUrlStr];
+            _spotifyUrl = [NSURL URLWithString:spotifyUrlStr];
         }
         
-        NSString *youtubeUrlStr = dict[@"youtube"];
+        NSString *youtubeUrlStr = json[@"youtube"];
         if([youtubeUrlStr length] != 0) {
-            gig.youtubeUrl = [NSURL URLWithString:youtubeUrlStr];
+            _youtubeUrl = [NSURL URLWithString:youtubeUrlStr];
         }
 
-        NSString *imagePath = dict[@"kuva"];
+        NSString *imagePath = json[@"kuva"];
         if (imagePath) {
-            gig.imagePath = imagePath;
-            gig.imageURL = [NSURL URLWithString:[NSString stringWithFormat:kResourceImageURLFormat, imagePath]];
+            _imagePath = imagePath;
         }
 
-        NSScanner *scanner = [NSScanner scannerWithString:gig.artistName];
+        NSScanner *scanner = [NSScanner scannerWithString:_artistName];
         NSString *text = nil;
 
         while ([scanner isAtEnd] == NO) {
@@ -79,53 +56,36 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
             [scanner scanUpToString:@")" intoString:&text];
 
             if (text != nil) {
-                gig.country = [text substringFromIndex:1];  // omit the (
-                gig.artistName = [gig.artistName stringByReplacingOccurrencesOfString:gig.country withString:gig.country.uppercaseString];
+                _country = [text substringFromIndex:1];  // omit the (
+                _artistName = [_artistName stringByReplacingOccurrencesOfString:_country withString:_country.uppercaseString];
             }
         }
 
-        NSTimeInterval begin = [dict[@"aika"] doubleValue];
-        NSTimeInterval end   = [dict[@"aika_stop"] doubleValue];
+        NSTimeInterval begin = [json[@"aika"] doubleValue];
+        NSTimeInterval end   = [json[@"aika_stop"] doubleValue];
 
-        if (begin > 0 && end > 0 && gig.venue != nil && ![gig.venue isEqual:[NSNull null]]) {
+        if (begin > 0 && end > 0 && _venue != nil && ![_venue isEqual:[NSNull null]]) {
 
-            gig.begin = [NSDate dateWithTimeIntervalSince1970:begin];
-            gig.end = [NSDate dateWithTimeIntervalSince1970:end];
+            _begin = [NSDate dateWithTimeIntervalSince1970:begin];
+            _end = [NSDate dateWithTimeIntervalSince1970:end];
 
             // Taking into account the magical year 2103 summer gig:
-            if ([gig.end timeIntervalSinceDate:gig.begin] > 24 * kOneHour) {
-                gig.end = [gig.begin dateByAddingTimeInterval:(2 * kOneHour)];
+            if ([_end timeIntervalSinceDate:_begin] > 24 * kOneHour) {
+                _end = [_begin dateByAddingTimeInterval:(2 * kOneHour)];
             }
 
            // NSLog(@"%@ %@ - %@", gig.artistName, gig.begin, gig.end);
 
-            NSTimeInterval timeInterval = floor(-kOneHour*[gig.begin hourValueWithDayDelimiterHour:6]);
+            NSTimeInterval timeInterval = floor(-kOneHour*[_begin hourValueWithDayDelimiterHour:6]);
             if (((int)timeInterval)%10 != 0) {
                 timeInterval -= ((int)timeInterval)%10;
             }
-            gig.date = [gig.begin dateByAddingTimeInterval:timeInterval];
+
+            _date = [_begin dateByAddingTimeInterval:timeInterval];
             // NSLog(@"%f %@", timeInterval, gig.artistName);
-
-            for (Artist *existingGig in gigs) {
-
-                if ([existingGig.artistName isEqualToString:gig.artistName]) {
-
-                    if (existingGig.alternativeGigs == nil) {
-                        existingGig.alternativeGigs = [NSMutableArray array];
-                    }
-                    [existingGig.alternativeGigs addObject:gig];
-
-                    if (gig.alternativeGigs == nil) {
-                        gig.alternativeGigs = [NSMutableArray array];
-                    }
-                    [gig.alternativeGigs addObject:existingGig];
-                }
-            }
-
-            [gigs addObject:gig];
         }
-	}
-	return gigs;
+    }
+    return self;
 }
 
 - (NSString *)timeIntervalString
