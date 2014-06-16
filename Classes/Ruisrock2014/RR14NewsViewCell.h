@@ -13,7 +13,7 @@
 @interface RR14NewsViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *datetimeLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
 
 @property (nonatomic, strong) NewsItem *newsItem;
 @end
