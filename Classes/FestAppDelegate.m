@@ -117,6 +117,11 @@ void uncaughtExceptionHandler(NSException *exception)
     [self.navController pushViewController:self.artistsViewController animated:YES];
 }
 
+- (void)showScheduleAt:(Artist *)artist
+{
+    [self.navController pushViewController:self.scheduleViewController animated:YES];
+}
+
 - (IBAction)showMap:(id)sender
 {
     [self.navController pushViewController:self.mapViewController animated:YES];

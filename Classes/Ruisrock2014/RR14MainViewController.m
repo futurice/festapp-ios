@@ -123,7 +123,7 @@
 - (IBAction)showArtists:(id)sender
 {
     NSLog("@show artists");
-    [APPDELEGATE showArtists:sender];
+    [APPDELEGATE showScheduleAt:self.currentArtist];
 }
 
 - (IBAction)showMap:(id)sender
@@ -147,7 +147,7 @@
 - (IBAction)showCurrentArtist:(id)sender
 {
     NSLog(@"show current artist");
-    [APPDELEGATE showArtist:self.currentArtist];
+    [APPDELEGATE showScheduleAt:self.currentArtist];
 }
 
 - (IBAction)showCurrentNewsItem:(id)sender

@@ -42,5 +42,6 @@
 - (void)showNewsItem:(NewsItem *)newsItem;
 - (void)showInfoItem:(InfoItem *)infoItem;
 - (void)showArtist:(Artist *)artist;
+- (void)showScheduleAt:(Artist *)artist;
 
 @end
