@@ -31,9 +31,12 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" misplaced="YES" image="schedule-deco" translatesAutoresizingMaskIntoConstraints="NO" id="ZTU-Sj-zYo">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" image="schedule-deco" translatesAutoresizingMaskIntoConstraints="NO" id="ZTU-Sj-zYo">
                     <rect key="frame" x="0.0" y="358" width="320" height="146"/>
                     <autoresizingMask key="autoresizingMask"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="146" id="YXh-LZ-nuM"/>
+                    </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fretboard_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="odT-eg-r0K">
                     <rect key="frame" x="0.0" y="80" width="320" height="289"/>
