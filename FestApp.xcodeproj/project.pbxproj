@@ -52,6 +52,7 @@
 		88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */; };
 		88902DB1194F46F100A81879 /* artist-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88902DB0194F46F100A81879 /* artist-placeholder@2x.png */; };
 		88902DB9194F4DED00A81879 /* favourited-artist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88902DB8194F4DED00A81879 /* favourited-artist@2x.png */; };
+		88902DBB194F5B5500A81879 /* schedule_bottom_deco_r4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88902DBA194F5B5500A81879 /* schedule_bottom_deco_r4@2x.png */; };
 		8894AE3118DDF00000991593 /* FestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894AE3018DDF00000991593 /* FestDataManager.m */; };
 		8894AE4018DDF7C000991593 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8894AE1918DDE68F00991593 /* libReactiveCocoa-iOS.a */; };
 		88989F611949C0470016BD15 /* RR14ArtistViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F601949C0470016BD15 /* RR14ArtistViewCell.xib */; };
@@ -255,6 +256,7 @@
 		88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ruisrock_logo_w_date@2x.png"; path = "Resources/Ruisrock2014/ruisrock_logo_w_date@2x.png"; sourceTree = "<group>"; };
 		88902DB0194F46F100A81879 /* artist-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "artist-placeholder@2x.png"; path = "Resources/Ruisrock2014/artist-placeholder@2x.png"; sourceTree = "<group>"; };
 		88902DB8194F4DED00A81879 /* favourited-artist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favourited-artist@2x.png"; path = "Resources/Ruisrock2014/favourited-artist@2x.png"; sourceTree = "<group>"; };
+		88902DBA194F5B5500A81879 /* schedule_bottom_deco_r4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "schedule_bottom_deco_r4@2x.png"; path = "Resources/Ruisrock2014/schedule_bottom_deco_r4@2x.png"; sourceTree = "<group>"; };
 		8894AE0A18DDE68E00991593 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		8894AE2F18DDF00000991593 /* FestDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestDataManager.h; sourceTree = "<group>"; };
 		8894AE3018DDF00000991593 /* FestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestDataManager.m; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 		88355E8419460B94003E2F90 /* Ruisrock2014 */ = {
 			isa = PBXGroup;
 			children = (
+				88902DBA194F5B5500A81879 /* schedule_bottom_deco_r4@2x.png */,
 				88902DB8194F4DED00A81879 /* favourited-artist@2x.png */,
 				88902DB0194F46F100A81879 /* artist-placeholder@2x.png */,
 				88989F8C194F33A80016BD15 /* artist_diagonal_stripe@2x.png */,
@@ -866,6 +869,7 @@
 				88989F7B194EC72A0016BD15 /* youtube@2x.png in Resources */,
 				ADE7A21719461EA80073C4D8 /* Images.xcassets in Resources */,
 				88B431A819473FC200589A83 /* uutiset in Resources */,
+				88902DBB194F5B5500A81879 /* schedule_bottom_deco_r4@2x.png in Resources */,
 				88989F611949C0470016BD15 /* RR14ArtistViewCell.xib in Resources */,
 				882045811946EB6F006D8DB8 /* RR14ArtistsViewController.xib in Resources */,
 				88B431C9194963DB00589A83 /* ruisrock-80.png in Resources */,

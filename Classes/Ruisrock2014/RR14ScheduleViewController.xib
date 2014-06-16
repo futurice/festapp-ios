@@ -31,7 +31,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="schedule_bottom_deco.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZTU-Sj-zYo">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" misplaced="YES" image="schedule-deco" translatesAutoresizingMaskIntoConstraints="NO" id="ZTU-Sj-zYo">
                     <rect key="frame" x="0.0" y="358" width="320" height="146"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
@@ -70,6 +70,11 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZTU-Sj-zYo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IsB-l3-5fc"/>
+                <constraint firstAttribute="bottom" secondItem="ZTU-Sj-zYo" secondAttribute="bottom" id="Z2f-3X-Cgh"/>
+                <constraint firstAttribute="trailing" secondItem="ZTU-Sj-zYo" secondAttribute="trailing" id="fDR-A1-Aok"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -79,6 +84,6 @@
         <image name="bg_pattern_light.png" width="320" height="568"/>
         <image name="fretboard_bg.png" width="320" height="289"/>
         <image name="fretboard_strings.png" width="320" height="289"/>
-        <image name="schedule_bottom_deco.png" width="320" height="146"/>
+        <image name="schedule-deco" width="320" height="61"/>
     </resources>
 </document>
