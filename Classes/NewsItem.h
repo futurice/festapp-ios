@@ -14,6 +14,6 @@
 @property (nonatomic, strong) NSString *newsId;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *contentHTML;
-@property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, strong) NSString *imagePath;
 @property (nonatomic, strong) NSDate *datetime;
 @end

@@ -141,8 +141,8 @@
     CGFloat k = MAX(newSize.width / image.size.width, newSize.height / image.size.height);
     CGFloat w = image.size.width * k;
     CGFloat h = image.size.height * k;
-    CGFloat x = (w - newSize.width) / 2;
-    CGFloat y = (h - newSize.height) / 2;
+    CGFloat x = (newSize.width - w) / 2;
+    CGFloat y = (newSize.height - h) / 2;
 
     [image drawInRect:CGRectMake(x, y, w, h)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();

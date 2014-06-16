@@ -8,6 +8,12 @@
 
 #import "RR14NewsViewCell.h"
 
+#import "FestImageManager.h"
+
+@interface RR14NewsViewCell ()
+@property (nonatomic, strong) RACDisposable *imageDisposable;
+@end
+
 @implementation RR14NewsViewCell
 
 - (void)awakeFromNib
@@ -36,15 +42,12 @@
 
     self.titleLabel.text = newsItem.title;
     self.datetimeLabel.text = [dateFormatter stringFromDate:newsItem.datetime];
-    /*
+
     [self.imageDisposable dispose];
 
-
-
-    self.imageDisposable = [[[FestImageManager sharedFestImageManager] imageSignalFor:artist.imagePath withSize:self.artistImageView.frame.size] subscribeNext:^(UIImage *image) {
-        self.artistImageView.image = image;
+    self.imageDisposable = [[[FestImageManager sharedFestImageManager] imageSignalFor:newsItem.imagePath withSize:self.thumbnailImageView.frame.size] subscribeNext:^(UIImage *image) {
+        self.thumbnailImageView.image = image;
     }];
-     */
 }
 
 @end

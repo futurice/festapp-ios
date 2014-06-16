@@ -17,7 +17,7 @@
         _newsId = dict[@"id"];
         _title = dict[@"title"];
         _contentHTML = dict[@"content"]; // TODO: sanitize me
-        _imageURL = [NSURL URLWithString:[NSString stringWithFormat:kResourceImageURLFormat, dict[@"image"]]];
+        _imagePath = dict[@"image"];
         _datetime = [NSDate dateWithTimeIntervalSince1970:[dict[@"time"] intValue]];
     }
     return self;
