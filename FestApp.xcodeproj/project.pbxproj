@@ -11,7 +11,6 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2840D7CE1179279E00D7F93C /* TimelineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2840D7CD1179279E00D7F93C /* TimelineView.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		48AD03AD158A493F00546602 /* UIView+XYWidthHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 48AD03AC158A493F00546602 /* UIView+XYWidthHeight.m */; };
 		48AD03B1158A52F700546602 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48AD03B3158A52F700546602 /* Localizable.strings */; };
@@ -197,7 +196,6 @@
 		1D3623250D0F684500981E51 /* FestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FestAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1D6058910D05DD3D006BFB54 /* FestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2840D7CD1179279E00D7F93C /* TimelineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimelineView.xib; path = ../Resources/TimelineView.xib; sourceTree = "<group>"; };
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AB4B0D9B1048005BE974 /* FestApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestApp_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -613,7 +611,6 @@
 				88989F80194ED0E30016BD15 /* RR14NewsViewCell.xib */,
 				CD7853E5137AA39F00711F11 /* TimelineView.h */,
 				CD7853E6137AA39F00711F11 /* TimelineView.m */,
-				2840D7CD1179279E00D7F93C /* TimelineView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -867,7 +864,6 @@
 				88B4319D19471C2B00589A83 /* RR14MapViewController.xib in Resources */,
 				88B431BF1948347600589A83 /* ruisrock_iTunesArtwork@2x.png in Resources */,
 				88989F79194EC72A0016BD15 /* artist-top@2x.png in Resources */,
-				2840D7CE1179279E00D7F93C /* TimelineView.xib in Resources */,
 				AD68824B19462C140015F409 /* frontpage_bottom_deco@2x.png in Resources */,
 				AD68824919462C140015F409 /* fretboard_bg@2x.png in Resources */,
 				882045661946D735006D8DB8 /* RR14ScheduleViewController.xib in Resources */,
