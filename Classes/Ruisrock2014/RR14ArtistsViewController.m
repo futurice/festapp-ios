@@ -55,6 +55,24 @@
     // table background
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_pattern_light.png"]];
+
+    // Table header
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    headerLabel.text = @"BÄNDIT";
+    headerLabel.backgroundColor = RR_COLOR_DARKGREEN;
+    headerLabel.textColor = RR_COLOR_LIGHTGREEN;
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    headerLabel.font = [UIFont boldSystemFontOfSize:17];
+
+    UIImageView *waveView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"water_line.png"]];
+    waveView.y = 36;
+
+    [headerView addSubview:headerLabel];
+    [headerView addSubview:waveView];
+
+    self.tableView.tableHeaderView = headerView;
 }
 
 - (void)viewWillAppear:(BOOL)animated

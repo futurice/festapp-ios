@@ -14,6 +14,8 @@
 #import "NewsItem.h"
 #import "RR14NewsViewCell.h"
 
+#import "UIView+XYWidthHeight.h"
+
 @interface RR14NewsViewController ()
 @property (nonatomic, strong) NSArray *news;
 @end
@@ -41,6 +43,24 @@
         self.news = news;
         [self.tableView reloadData];
     }];
+
+    // Table header
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    headerLabel.text = @"UUTISET";
+    headerLabel.backgroundColor = RR_COLOR_DARKGREEN;
+    headerLabel.textColor = RR_COLOR_LIGHTGREEN;
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    headerLabel.font = [UIFont boldSystemFontOfSize:17];
+
+    UIImageView *waveView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"water_line.png"]];
+    waveView.y = 36;
+
+    [headerView addSubview:headerLabel];
+    [headerView addSubview:waveView];
+
+    self.tableView.tableHeaderView = headerView;
 
     // back button
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
