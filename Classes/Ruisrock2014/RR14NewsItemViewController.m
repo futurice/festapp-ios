@@ -26,7 +26,8 @@
 
     NSString *content = [NSString stringWithFormat:@"<p><span class=\"datetime\">%@</span></p>%@", [dateFormatter stringFromDate:newsItem.datetime], newsItem.contentHTML];
 
-    self = [super initWithContent:content title:newsItem.title];
+    NSURL *imageURL = [NSURL URLWithString:[RR_IMAGE_BASE_URL stringByAppendingString:newsItem.imagePath]];
+    self = [super initWithContent:content title:newsItem.title image:imageURL];
     if (self) {
 
     }

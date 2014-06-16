@@ -14,16 +14,18 @@
 @interface RR14WebContentViewController ()
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *contentTitle;
+@property (nonatomic, strong) NSURL *imageURL;
 @end
 
 @implementation RR14WebContentViewController
 
-- (id)initWithContent:(NSString *)content title:(NSString *)title
+- (id)initWithContent:(NSString *)content title:(NSString *)title image:(NSURL *)imageURL
 {
     self = [super initWithNibName:@"RR14WebContentViewController" bundle:nil];
     if (self) {
-        self.content = content;
-        self.contentTitle = title;
+        _content = content;
+        _contentTitle = title;
+        _imageURL = imageURL;
     }
     return self;
 }
@@ -82,6 +84,11 @@
 
     [html appendString:@"<body> "
      "<div id=\"main\"> "];
+
+    if (self.imageURL) {
+        [html appendFormat:@"<img width=\"280\" src=\"%@\") /><br />", self.imageURL.description];
+    }
+
     if (self.contentTitle) {
         [html appendFormat:@"<h1>%@</h1>", self.contentTitle];
     }

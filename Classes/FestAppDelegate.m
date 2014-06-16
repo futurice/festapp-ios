@@ -132,7 +132,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (IBAction)showFoodInfo:(id)sender
 {
-    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:@"<h1>RUOKAA!!!</h1>" title:nil];
+    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:@"<h1>RUOKAA!!!</h1>" title:nil image:nil];
     [self.navController pushViewController:controller animated:YES];
 }
 
@@ -149,7 +149,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (void)showInfoItem:(InfoItem *)infoItem
 {
-    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:infoItem.content title:infoItem.title];
+    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:infoItem.content title:infoItem.title image:nil];
     [self.navController pushViewController:controller animated:YES];
 }
 

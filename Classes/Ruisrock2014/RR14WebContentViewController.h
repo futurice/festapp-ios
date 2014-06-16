@@ -10,5 +10,5 @@
 
 @interface RR14WebContentViewController : UIViewController <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
-- (id)initWithContent:(NSString *)content title:(NSString *)title;
+- (id)initWithContent:(NSString *)content title:(NSString *)title image:(NSURL *)imageURL;
 @end
