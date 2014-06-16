@@ -92,7 +92,7 @@
         NSString *imageFilePath = [self.directory stringByAppendingPathComponent:imageName];
 
         BOOL exists = [self.fileManager fileExistsAtPath:imageFilePath];
-        UIImage *artistImage = exists ? [UIImage imageWithContentsOfFile:imageFilePath] : [UIImage imageNamed:@"news_bg_flowers.png"];
+        UIImage *artistImage = exists ? [UIImage imageWithContentsOfFile:imageFilePath] : [UIImage imageNamed:@"artist-placeholder.png"];
 
         // resize
         artistImage = [FestImageManager imageWithImage:artistImage scaledToSize:size];

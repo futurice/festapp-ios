@@ -50,6 +50,7 @@
 		88355E82194609E7003E2F90 /* RR14MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88355E80194609E7003E2F90 /* RR14MainViewController.m */; };
 		88355E83194609E7003E2F90 /* RR14MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88355E81194609E7003E2F90 /* RR14MainViewController.xib */; };
 		88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */; };
+		88902DB1194F46F100A81879 /* artist-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88902DB0194F46F100A81879 /* artist-placeholder@2x.png */; };
 		8894AE3118DDF00000991593 /* FestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894AE3018DDF00000991593 /* FestDataManager.m */; };
 		8894AE4018DDF7C000991593 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8894AE1918DDE68F00991593 /* libReactiveCocoa-iOS.a */; };
 		88989F611949C0470016BD15 /* RR14ArtistViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F601949C0470016BD15 /* RR14ArtistViewCell.xib */; };
@@ -251,6 +252,7 @@
 		88355E80194609E7003E2F90 /* RR14MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14MainViewController.m; path = Ruisrock2014/RR14MainViewController.m; sourceTree = "<group>"; };
 		88355E81194609E7003E2F90 /* RR14MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14MainViewController.xib; path = Ruisrock2014/RR14MainViewController.xib; sourceTree = "<group>"; };
 		88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ruisrock_logo_w_date@2x.png"; path = "Resources/Ruisrock2014/ruisrock_logo_w_date@2x.png"; sourceTree = "<group>"; };
+		88902DB0194F46F100A81879 /* artist-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "artist-placeholder@2x.png"; path = "Resources/Ruisrock2014/artist-placeholder@2x.png"; sourceTree = "<group>"; };
 		8894AE0A18DDE68E00991593 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		8894AE2F18DDF00000991593 /* FestDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestDataManager.h; sourceTree = "<group>"; };
 		8894AE3018DDF00000991593 /* FestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestDataManager.m; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 		88355E8419460B94003E2F90 /* Ruisrock2014 */ = {
 			isa = PBXGroup;
 			children = (
+				88902DB0194F46F100A81879 /* artist-placeholder@2x.png */,
 				88989F8C194F33A80016BD15 /* artist_diagonal_stripe@2x.png */,
 				882045691946DB6D006D8DB8 /* back_arrow@2x.png */,
 				ADE7A200194617A00073C4D8 /* bg_pattern_green@2x.png */,
@@ -880,6 +883,7 @@
 				4D2FA5F1139ACC5C00F03209 /* Stages.plist in Resources */,
 				88989F6A194B57320016BD15 /* daychooser-selected@2x.png in Resources */,
 				AD68825019462C140015F409 /* schedule_favourite@2x.png in Resources */,
+				88902DB1194F46F100A81879 /* artist-placeholder@2x.png in Resources */,
 				ADE7A208194617A00073C4D8 /* default-568h@2x.png in Resources */,
 				88989F84194ED5AA0016BD15 /* news-item-bg@2x.png in Resources */,
 				88B431A719473FC200589A83 /* ohjelma in Resources */,
