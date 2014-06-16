@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FestRR14InfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface RR14InfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end

@@ -10,7 +10,7 @@
 
 #import "Artist.h"
 
-@interface RR14ArtistCell : UITableViewCell
+@interface RR14ArtistViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *artistImageView;
 

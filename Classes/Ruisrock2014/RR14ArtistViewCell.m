@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Futurice Oy. All rights reserved.
 //
 
-#import "RR14ArtistCell.h"
+#import "RR14ArtistViewCell.h"
 
 #import "FestImageManager.h"
 
-@interface RR14ArtistCell ()
+@interface RR14ArtistViewCell ()
 @property (nonatomic, strong) RACDisposable *imageDisposable;
 @end
 
-@implementation RR14ArtistCell
+@implementation RR14ArtistViewCell
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

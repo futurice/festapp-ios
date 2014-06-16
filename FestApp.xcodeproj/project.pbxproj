@@ -62,15 +62,15 @@
 		88355E8619460C46003E2F90 /* ruisrock_logo_w_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88355E8519460C46003E2F90 /* ruisrock_logo_w_date@2x.png */; };
 		8894AE3118DDF00000991593 /* FestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894AE3018DDF00000991593 /* FestDataManager.m */; };
 		8894AE4018DDF7C000991593 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8894AE1918DDE68F00991593 /* libReactiveCocoa-iOS.a */; };
-		88989F611949C0470016BD15 /* RR14ArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F601949C0470016BD15 /* RR14ArtistCell.xib */; };
-		88989F641949C0EF0016BD15 /* RR14ArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F631949C0EF0016BD15 /* RR14ArtistCell.m */; };
+		88989F611949C0470016BD15 /* RR14ArtistViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F601949C0470016BD15 /* RR14ArtistViewCell.xib */; };
+		88989F641949C0EF0016BD15 /* RR14ArtistViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F631949C0EF0016BD15 /* RR14ArtistViewCell.m */; };
 		88989F67194AE5A10016BD15 /* FestFavouritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F66194AE5A10016BD15 /* FestFavouritesManager.m */; };
 		88989F6A194B57320016BD15 /* daychooser-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F68194B57320016BD15 /* daychooser-selected@2x.png */; };
 		88989F6B194B57320016BD15 /* daychooser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F69194B57320016BD15 /* daychooser@2x.png */; };
 		88989F6D194B8E3D0016BD15 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F6C194B8E3D0016BD15 /* map.png */; };
 		88989F70194B9EDC0016BD15 /* InfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F6F194B9EDC0016BD15 /* InfoItem.m */; };
-		88989F74194BA2BB0016BD15 /* FestRR14InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F72194BA2BB0016BD15 /* FestRR14InfoViewController.m */; };
-		88989F75194BA2BB0016BD15 /* FestRR14InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F73194BA2BB0016BD15 /* FestRR14InfoViewController.xib */; };
+		88989F74194BA2BB0016BD15 /* RR14InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88989F72194BA2BB0016BD15 /* RR14InfoViewController.m */; };
+		88989F75194BA2BB0016BD15 /* RR14InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88989F73194BA2BB0016BD15 /* RR14InfoViewController.xib */; };
 		88989F79194EC72A0016BD15 /* artist-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F76194EC72A0016BD15 /* artist-top@2x.png */; };
 		88989F7A194EC72A0016BD15 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F77194EC72A0016BD15 /* spotify@2x.png */; };
 		88989F7B194EC72A0016BD15 /* youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88989F78194EC72A0016BD15 /* youtube@2x.png */; };
@@ -279,9 +279,9 @@
 		8894AE0A18DDE68E00991593 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		8894AE2F18DDF00000991593 /* FestDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestDataManager.h; sourceTree = "<group>"; };
 		8894AE3018DDF00000991593 /* FestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestDataManager.m; sourceTree = "<group>"; };
-		88989F601949C0470016BD15 /* RR14ArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14ArtistCell.xib; path = Ruisrock2014/RR14ArtistCell.xib; sourceTree = "<group>"; };
-		88989F621949C0EF0016BD15 /* RR14ArtistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14ArtistCell.h; path = Ruisrock2014/RR14ArtistCell.h; sourceTree = "<group>"; };
-		88989F631949C0EF0016BD15 /* RR14ArtistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14ArtistCell.m; path = Ruisrock2014/RR14ArtistCell.m; sourceTree = "<group>"; };
+		88989F601949C0470016BD15 /* RR14ArtistViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14ArtistViewCell.xib; path = Ruisrock2014/RR14ArtistViewCell.xib; sourceTree = "<group>"; };
+		88989F621949C0EF0016BD15 /* RR14ArtistViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14ArtistViewCell.h; path = Ruisrock2014/RR14ArtistViewCell.h; sourceTree = "<group>"; };
+		88989F631949C0EF0016BD15 /* RR14ArtistViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14ArtistViewCell.m; path = Ruisrock2014/RR14ArtistViewCell.m; sourceTree = "<group>"; };
 		88989F65194AE5A10016BD15 /* FestFavouritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestFavouritesManager.h; sourceTree = "<group>"; };
 		88989F66194AE5A10016BD15 /* FestFavouritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestFavouritesManager.m; sourceTree = "<group>"; };
 		88989F68194B57320016BD15 /* daychooser-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "daychooser-selected@2x.png"; path = "Resources/Ruisrock2014/daychooser-selected@2x.png"; sourceTree = "<group>"; };
@@ -289,9 +289,9 @@
 		88989F6C194B8E3D0016BD15 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Resources/Ruisrock2014/map.png; sourceTree = "<group>"; };
 		88989F6E194B9EDC0016BD15 /* InfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoItem.h; sourceTree = "<group>"; };
 		88989F6F194B9EDC0016BD15 /* InfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoItem.m; sourceTree = "<group>"; };
-		88989F71194BA2BB0016BD15 /* FestRR14InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FestRR14InfoViewController.h; path = Ruisrock2014/FestRR14InfoViewController.h; sourceTree = "<group>"; };
-		88989F72194BA2BB0016BD15 /* FestRR14InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FestRR14InfoViewController.m; path = Ruisrock2014/FestRR14InfoViewController.m; sourceTree = "<group>"; };
-		88989F73194BA2BB0016BD15 /* FestRR14InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FestRR14InfoViewController.xib; path = Ruisrock2014/FestRR14InfoViewController.xib; sourceTree = "<group>"; };
+		88989F71194BA2BB0016BD15 /* RR14InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RR14InfoViewController.h; path = Ruisrock2014/RR14InfoViewController.h; sourceTree = "<group>"; };
+		88989F72194BA2BB0016BD15 /* RR14InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RR14InfoViewController.m; path = Ruisrock2014/RR14InfoViewController.m; sourceTree = "<group>"; };
+		88989F73194BA2BB0016BD15 /* RR14InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RR14InfoViewController.xib; path = Ruisrock2014/RR14InfoViewController.xib; sourceTree = "<group>"; };
 		88989F76194EC72A0016BD15 /* artist-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "artist-top@2x.png"; path = "Resources/Ruisrock2014/artist-top@2x.png"; sourceTree = "<group>"; };
 		88989F77194EC72A0016BD15 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spotify@2x.png"; path = "Resources/Ruisrock2014/spotify@2x.png"; sourceTree = "<group>"; };
 		88989F78194EC72A0016BD15 /* youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "youtube@2x.png"; path = "Resources/Ruisrock2014/youtube@2x.png"; sourceTree = "<group>"; };
@@ -578,9 +578,9 @@
 		88355E6D194600EF003E2F90 /* Ruisrock2014 */ = {
 			isa = PBXGroup;
 			children = (
-				88989F71194BA2BB0016BD15 /* FestRR14InfoViewController.h */,
-				88989F72194BA2BB0016BD15 /* FestRR14InfoViewController.m */,
-				88989F73194BA2BB0016BD15 /* FestRR14InfoViewController.xib */,
+				88989F71194BA2BB0016BD15 /* RR14InfoViewController.h */,
+				88989F72194BA2BB0016BD15 /* RR14InfoViewController.m */,
+				88989F73194BA2BB0016BD15 /* RR14InfoViewController.xib */,
 				8820457D1946EB6F006D8DB8 /* RR14ArtistsViewController.h */,
 				8820457E1946EB6F006D8DB8 /* RR14ArtistsViewController.m */,
 				8820457F1946EB6F006D8DB8 /* RR14ArtistsViewController.xib */,
@@ -662,9 +662,9 @@
 			children = (
 				4D587153138C854500B0A0BC /* DayChooser.h */,
 				4D587154138C854500B0A0BC /* DayChooser.m */,
-				88989F621949C0EF0016BD15 /* RR14ArtistCell.h */,
-				88989F631949C0EF0016BD15 /* RR14ArtistCell.m */,
-				88989F601949C0470016BD15 /* RR14ArtistCell.xib */,
+				88989F621949C0EF0016BD15 /* RR14ArtistViewCell.h */,
+				88989F631949C0EF0016BD15 /* RR14ArtistViewCell.m */,
+				88989F601949C0470016BD15 /* RR14ArtistViewCell.xib */,
 				88989F7E194ED0E20016BD15 /* RR14NewsViewCell.h */,
 				88989F7F194ED0E30016BD15 /* RR14NewsViewCell.m */,
 				88989F80194ED0E30016BD15 /* RR14NewsViewCell.xib */,
@@ -926,7 +926,7 @@
 				88989F7B194EC72A0016BD15 /* youtube@2x.png in Resources */,
 				ADE7A21719461EA80073C4D8 /* Images.xcassets in Resources */,
 				88B431A819473FC200589A83 /* uutiset in Resources */,
-				88989F611949C0470016BD15 /* RR14ArtistCell.xib in Resources */,
+				88989F611949C0470016BD15 /* RR14ArtistViewCell.xib in Resources */,
 				882045811946EB6F006D8DB8 /* RR14ArtistsViewController.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* MapView.xib in Resources */,
 				88B431C9194963DB00589A83 /* ruisrock-80.png in Resources */,
@@ -946,7 +946,7 @@
 				88B431BE1948347600589A83 /* ruisrock_iTunesArtwork.png in Resources */,
 				4D30E81E1396802F007E9D0B /* NavigableContentView.xib in Resources */,
 				88B431921947185200589A83 /* RR14WebContentViewController.xib in Resources */,
-				88989F75194BA2BB0016BD15 /* FestRR14InfoViewController.xib in Resources */,
+				88989F75194BA2BB0016BD15 /* RR14InfoViewController.xib in Resources */,
 				4D30E84D13981818007E9D0B /* ExternalWebContentView.xib in Resources */,
 				4D2FA5F1139ACC5C00F03209 /* Stages.plist in Resources */,
 				88989F6A194B57320016BD15 /* daychooser-selected@2x.png in Resources */,
@@ -1007,7 +1007,7 @@
 				CD7852531378B36E00711F11 /* MapViewController.m in Sources */,
 				8820456E1946EA39006D8DB8 /* RR14NewsViewController.m in Sources */,
 				88BCA3D218DEEFC800654E64 /* UIImageView+AFNetworking.m in Sources */,
-				88989F74194BA2BB0016BD15 /* FestRR14InfoViewController.m in Sources */,
+				88989F74194BA2BB0016BD15 /* RR14InfoViewController.m in Sources */,
 				882045651946D735006D8DB8 /* RR14ScheduleViewController.m in Sources */,
 				88BCA3D518DEEFC800654E64 /* UIWebView+AFNetworking.m in Sources */,
 				8894AE3118DDF00000991593 /* FestDataManager.m in Sources */,
@@ -1019,7 +1019,7 @@
 				88355E82194609E7003E2F90 /* RR14MainViewController.m in Sources */,
 				88989F67194AE5A10016BD15 /* FestFavouritesManager.m in Sources */,
 				4D587155138C854500B0A0BC /* DayChooser.m in Sources */,
-				88989F641949C0EF0016BD15 /* RR14ArtistCell.m in Sources */,
+				88989F641949C0EF0016BD15 /* RR14ArtistViewCell.m in Sources */,
 				88C1839118DDCAAA0014495D /* AFHTTPRequestOperation.m in Sources */,
 				4D186E681393CC5200CDA3DB /* UIViewController+Additions.m in Sources */,
 				88C1839418DDCAAA0014495D /* AFNetworkReachabilityManager.m in Sources */,

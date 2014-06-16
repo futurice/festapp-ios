@@ -39,7 +39,7 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </viewController>
-        <viewController id="51w-2Q-Uy5" customClass="FestRR14InfoViewController">
+        <viewController id="51w-2Q-Uy5" customClass="RR14InfoViewController">
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

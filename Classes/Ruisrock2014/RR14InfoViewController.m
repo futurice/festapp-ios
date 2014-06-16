@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Futurice Oy. All rights reserved.
 //
 
-#import "FestRR14InfoViewController.h"
+#import "RR14InfoViewController.h"
 
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
 
-@interface FestRR14InfoViewController ()
+@interface RR14InfoViewController ()
 @property (nonatomic, strong) NSArray *info;
 @end
 
-@implementation FestRR14InfoViewController
+@implementation RR14InfoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

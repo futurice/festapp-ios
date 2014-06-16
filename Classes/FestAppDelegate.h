@@ -9,7 +9,7 @@
 #import "RR14NewsViewController.h"
 #import "RR14ArtistsViewController.h"
 #import "RR14MapViewController.h"
-#import "FestRR14InfoViewController.h"
+#import "RR14InfoViewController.h"
 
 #import "Artist.h"
 #import "NewsItem.h"
@@ -29,7 +29,7 @@
 @property (nonatomic, strong) IBOutlet RR14NewsViewController *newsViewController;
 @property (nonatomic, strong) IBOutlet RR14ArtistsViewController *artistsViewController;
 @property (nonatomic, strong) IBOutlet RR14MapViewController *mapViewController;
-@property (nonatomic, strong) IBOutlet FestRR14InfoViewController *infoViewController;
+@property (nonatomic, strong) IBOutlet RR14InfoViewController *infoViewController;
 - (IBAction)goBack:(id)sender;
 
 - (IBAction)showSchedule:(id)sender;

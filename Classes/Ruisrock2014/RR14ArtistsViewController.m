@@ -11,7 +11,7 @@
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
 #import "FestImageManager.h"
-#import "RR14ArtistCell.h"
+#import "RR14ArtistViewCell.h"
 
 @interface RR14ArtistsViewController ()
 @property (nonatomic, strong) NSArray *artists;
@@ -90,7 +90,7 @@
     NSUInteger idx = indexPath.row;
 
     static NSString *CellIdentifier = @"ArtistCell";
-    RR14ArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    RR14ArtistViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
         [tableView registerNib:[UINib nibWithNibName:@"RR14ArtistCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
