@@ -10,17 +10,17 @@
 
 @implementation NewsItem
 
-+ (NewsItem *)newFromJSON:(NSDictionary *)dict
+- (instancetype)initFromJSON:(NSDictionary *)dict
 {
-    NewsItem *item = [[NewsItem alloc] init];
-
-    item.newsId = dict[@"id"];
-    item.title = dict[@"title"];
-    item.contentHTML = dict[@"content"]; // TODO: sanitize me
-    item.imageURL = [NSURL URLWithString:[NSString stringWithFormat:kResourceImageURLFormat, dict[@"image"]]];
-    item.datetime = [NSDate dateWithTimeIntervalSince1970:[dict[@"time"] intValue]];
-
-    return item;
+    self = [super init];
+    if (self) {
+        _newsId = dict[@"id"];
+        _title = dict[@"title"];
+        _contentHTML = dict[@"content"]; // TODO: sanitize me
+        _imageURL = [NSURL URLWithString:[NSString stringWithFormat:kResourceImageURLFormat, dict[@"image"]]];
+        _datetime = [NSDate dateWithTimeIntervalSince1970:[dict[@"time"] intValue]];
+    }
+    return self;
 }
 
 @end

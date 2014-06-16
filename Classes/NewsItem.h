@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NewsItem : NSObject
-+ (NewsItem *) newFromJSON:(NSDictionary *)dict;
+- (instancetype) initFromJSON:(NSDictionary *)dict;
 
 @property (nonatomic, strong) NSString *newsId;
 @property (nonatomic, strong) NSString *title;

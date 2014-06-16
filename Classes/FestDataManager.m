@@ -163,7 +163,7 @@
 
     for (NSUInteger idx = 0; idx < len; ) {
         NSDictionary *obj = news[idx];
-        NewsItem *item = [NewsItem newFromJSON:obj];
+        NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
         if (item) {
             news[idx] = item;
             idx += 1;
