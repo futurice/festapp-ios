@@ -93,7 +93,7 @@
     RR14ArtistViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"RR14ArtistCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"RR14ArtistViewCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         /*
         cell.backgroundView = nil;
