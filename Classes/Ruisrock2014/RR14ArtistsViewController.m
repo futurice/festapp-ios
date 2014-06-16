@@ -15,6 +15,10 @@
 
 @interface RR14ArtistsViewController ()
 @property (nonatomic, strong) NSArray *artists;
+@property (nonatomic, strong) NSArray *currentArtists;
+@property (nonatomic, strong) NSString *currentDay;
+
+- (void)reloadData;
 @end
 
 #define kCellButtonTag 1000
@@ -38,17 +42,12 @@
     // Subscribe
     RACSignal *artistsSignal = [FestDataManager.sharedFestDataManager artistsSignal];
     [artistsSignal subscribeNext:^(NSArray *artists) {
-        NSArray *sortedArtists = [artists sortedArrayUsingComparator:^NSComparisonResult(Artist* a, Artist *b) {
-            return [a.artistName compare:b.artistName];
-        }];
-
-        NSArray *foreignArtists = [sortedArtists filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Artist *artist, NSDictionary *bindings) {
-            return artist.country != nil;
-        }]];
-
-        self.artists = [foreignArtists arrayByAddingObjectsFromArray:sortedArtists] ;
-        [self.tableView reloadData];
+        self.artists = artists;
+        [self reloadData];
     }];
+
+    self.dayChooser.delegate = self;
+    self.dayChooser.dayNames = @[@"Perjantai", @"Lauantai", @"Sunnuntai"];
 
     // back button
     self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
@@ -69,6 +68,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark TableDataReload
+
+- (void)reloadData
+{
+    NSMutableArray *currentArtists = [NSMutableArray arrayWithCapacity:self.artists.count / 2];
+    for (Artist *artist in self.artists) {
+        if ([artist.day isEqualToString:self.currentDay]) {
+            [currentArtists addObject:artist];
+        }
+    }
+    self.currentArtists = currentArtists;
+    [self.tableView reloadData];
+}
+
+#pragma mark DayChooserDelegate
+
+- (void)dayChooser:(DayChooser *)dayChooser selectedDayWithIndex:(NSUInteger)dayIndex
+{
+    NSString *currentDay = @"Perjantai";
+    switch (dayIndex) {
+        case 0: currentDay = @"Perjantai"; break;
+        case 1: currentDay = @"Lauantai"; break;
+        case 2: currentDay = @"Sunnuntai"; break;
+    }
+
+    self.currentDay = currentDay;
+
+    [self reloadData];
+}
+
 
 #pragma mark UITableViewDataSource
 
@@ -82,7 +111,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.artists.count;
+    return self.currentArtists.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,7 +132,7 @@
 
     cell.backgroundColor = (idx % 2 == 0) ? RR_COLOR_LIGHTGREEN : RR_COLOR_GREEN;
 
-    cell.artist = self.artists[idx];
+    cell.artist = self.currentArtists[idx];
 
     return cell;
 }
@@ -132,7 +161,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Artist *artist = self.artists[indexPath.row];
+    Artist *artist = self.currentArtists[indexPath.row];
     [APPDELEGATE showArtist:artist];
 }
 

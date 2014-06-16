@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RR14ArtistsViewController">
             <connections>
+                <outlet property="dayChooser" destination="Lu5-Ys-2fW" id="JgH-PF-P7u"/>
                 <outlet property="tableView" destination="UGT-dn-7gb" id="bcm-bc-PPV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,8 +16,18 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4P-pu-GRG">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.98431372549999996" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lu5-Ys-2fW" customClass="DayChooser">
+                    <rect key="frame" x="0.0" y="8" width="320" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="49" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="UGT-dn-7gb">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="40" width="320" height="464"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -29,7 +40,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="UGT-dn-7gb" secondAttribute="trailing" id="0W3-jN-lMH"/>
                 <constraint firstItem="UGT-dn-7gb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1dG-W6-fOW"/>
-                <constraint firstItem="UGT-dn-7gb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fBH-lQ-la1"/>
+                <constraint firstItem="UGT-dn-7gb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="fBH-lQ-la1"/>
                 <constraint firstAttribute="bottom" secondItem="UGT-dn-7gb" secondAttribute="bottom" id="tbm-fm-qr7"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

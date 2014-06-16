@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RR14ArtistsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+#import "DayChooser.h"
+
+@interface RR14ArtistsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DayChooserDelegate>
+@property (nonatomic, strong) IBOutlet DayChooser *dayChooser;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end
