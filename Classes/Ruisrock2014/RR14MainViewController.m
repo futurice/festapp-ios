@@ -93,9 +93,6 @@
     [imageSignal subscribeNext:^(UIImage *image) {
         self.artistImageView.image = image;
     }];
-
-    // No back text
-    self.navigationItem.backBarButtonItem.title = @"foo";
 }
 
 - (void)viewWillAppear:(BOOL)animated

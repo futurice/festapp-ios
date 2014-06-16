@@ -46,26 +46,26 @@ NSInteger chronologicalGigSort(id gig1, id gig2, void *context)
         NSDictionary *dict = dicts[i];
 
 		Artist *gig            = [[Artist alloc] init];
-		gig.artistId        = [NSString cast:dict[@"id"]];
-		gig.artistName      = [NSString cast:dict[@"nimi"]];
-		gig.venue           = [[NSString cast:dict[@"lava"]] capitalizedString];
-        gig.description     = [NSString cast:dict[@"kohokohtia"]];
-        gig.day             = [[NSString cast:dict[@"paiva"]] capitalizedString];
+		gig.artistId        = dict[@"id"];
+		gig.artistName      = dict[@"nimi"];
+		gig.venue           = dict[@"lava"];
+        gig.description     = dict[@"kohokohtia"];
+        gig.day             = dict[@"paiva"];
         gig.quote           = dict[@"quote"];
         gig.founded         = dict[@"perustettu"];
         gig.members         = [dict[@"jasenet"] stringByReplacingOccurrencesOfString:@"|" withString:@", "];
 
-        NSString *spotifyUrlStr = [NSString cast:dict[@"spotify"]];
+        NSString *spotifyUrlStr = dict[@"spotify"];
         if([spotifyUrlStr length] != 0) {
             gig.spotifyUrl = [NSURL URLWithString:spotifyUrlStr];
         }
         
-        NSString *youtubeUrlStr = [NSString cast:dict[@"youtube"]];
+        NSString *youtubeUrlStr = dict[@"youtube"];
         if([youtubeUrlStr length] != 0) {
             gig.youtubeUrl = [NSURL URLWithString:youtubeUrlStr];
         }
 
-        NSString *imagePath = [NSString cast:dict[@"kuva"]];
+        NSString *imagePath = dict[@"kuva"];
         if (imagePath) {
             gig.imagePath = imagePath;
             gig.imageURL = [NSURL URLWithString:[NSString stringWithFormat:kResourceImageURLFormat, imagePath]];

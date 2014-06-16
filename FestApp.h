@@ -89,13 +89,3 @@ typedef enum FestResourceEnum {
 
 #define iOS7 ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending)
 
-@interface NSObject (Cast)
-+ (instancetype)cast:(id)object;
-@end
-
-@implementation NSObject (Cast)
-+ (instancetype)cast:(id)object
-{
-    return [object isKindOfClass:self] ? object : nil;
-}
-@end

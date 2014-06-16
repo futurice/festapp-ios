@@ -58,19 +58,19 @@
         id artistsValue = [self preloadResource:@"artistit" selector:@selector(transformArtists:)];
         RACSubject *artistsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:artistsValue];
         [self reloadResource:@"artistit" path:RR_ARTISTS_JSON_URL selector:@selector(transformArtists:) subject:artistsSubject force:NO];
-        self.artistsSignal = artistsSubject;
+        _artistsSignal = artistsSubject;
 
         // News
         id newsValue = [self preloadResource:@"uutiset" selector:@selector(transformNews:)];
         RACSubject *newsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:newsValue];
         [self reloadResource:@"uutiset" path:RR_NEWS_JSON_URL selector:@selector(transformNews:) subject:newsSubject force:NO];
-        self.newsSignal = newsSubject;
+        _newsSignal = newsSubject;
 
         // Info
         id infoValue = [self preloadResource:@"info" selector:@selector(transformInfo:)];
         RACSubject *infoSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:infoValue];
         [self reloadResource:@"info" path:RR_INFO_JSON_URL selector:@selector(transformInfo:) subject:infoSubject force:NO];
-        self.infoSignal = infoSubject;
+        _infoSignal = infoSubject;
     }
     return self;
 }
@@ -162,10 +162,10 @@
     NSUInteger len = [news count];
 
     for (NSUInteger idx = 0; idx < len; ) {
-        NSDictionary *obj = [news objectAtIndex:idx];
+        NSDictionary *obj = news[idx];
         NewsItem *item = [NewsItem newFromJSON:obj];
         if (item) {
-            [news replaceObjectAtIndex:idx withObject:item];
+            news[idx] = item;
             idx += 1;
         } else {
             [news removeObjectAtIndex:idx];
@@ -186,7 +186,7 @@
     NSUInteger len = [infoArray count];
 
     for (NSUInteger idx = 0; idx < len; idx++) {
-        NSDictionary *obj = [infoArray objectAtIndex:idx];
+        NSDictionary *obj = infoArray[idx];
 
         if (![@"kyllä" isEqualToString:obj[@"julkaistu"]]) {
             continue;

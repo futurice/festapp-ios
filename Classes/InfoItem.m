@@ -13,13 +13,13 @@
 {
     self = [super init];
     if (self) {
-        self.title = [[dict[@"desc"] stringByReplacingOccurrencesOfString:@"Ruisrock 2014 |" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _title = [[dict[@"desc"] stringByReplacingOccurrencesOfString:@"Ruisrock 2014 |" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-        if ([self.title isEqualToString:@"UKK"]) {
-            self.title = @"Usein kysytyt kysymykset";
+        if ([_title isEqualToString:@"UKK"]) {
+            _title = @"Usein kysytyt kysymykset";
         }
 
-        self.content = dict[@"content"];
+        _content = dict[@"content"];
     }
     return self;
 }

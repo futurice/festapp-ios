@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="108" width="320" height="158"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" image="lilyallen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-Hx-XEM">
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-Hx-XEM" userLabel="Image View - Artist">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </imageView>
@@ -198,7 +198,6 @@
         <image name="frontpage-menu-ribbon.png" width="310" height="94"/>
         <image name="frontpage_bottom_deco.png" width="320" height="92"/>
         <image name="frontpage_header_tree.png" width="49" height="120"/>
-        <image name="lilyallen.jpg" width="320" height="200"/>
         <image name="news_bg_flowers.png" width="57" height="92"/>
         <image name="ruisrock_logo_w_date.png" width="232" height="64"/>
         <image name="water_line.png" width="320" height="8"/>

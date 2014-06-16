@@ -34,7 +34,7 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSArray *favourites = [defaults arrayForKey:kFestFavouriteKey];
 
-        self.favouritesSignal = [RACBehaviorSubject behaviorSubjectWithDefaultValue:favourites];
+        _favouritesSignal = [RACBehaviorSubject behaviorSubjectWithDefaultValue:favourites];
     }
     return self;
 }

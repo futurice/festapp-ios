@@ -54,13 +54,13 @@
         }];
 
         // signals
-        self.signals = [NSMutableDictionary dictionaryWithCapacity:64]; // arbitrary size
+        _signals = [NSMutableDictionary dictionaryWithCapacity:64]; // arbitrary size
 
         // image directory
-        self.fileManager = [NSFileManager defaultManager];
+        _fileManager = [NSFileManager defaultManager];
 
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        self.directory = [paths[0] stringByAppendingPathComponent:@"ArtistImages"];
+        _directory = [paths[0] stringByAppendingPathComponent:@"ArtistImages"];
 
         NSError *fileError;
         if (![self.fileManager fileExistsAtPath:self.directory]) {
