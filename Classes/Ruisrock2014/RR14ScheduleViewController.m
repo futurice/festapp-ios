@@ -135,7 +135,8 @@
 
 - (void)timeLineView:(TimelineView *)timeLineView artistFavourited:(Artist *)artist favourite:(BOOL)favourite
 {
-
+    FestFavouritesManager *favouriteManager = [FestFavouritesManager sharedFavouritesManager];
+    [favouriteManager toggleFavourite:artist favourite:favourite];
 }
 
 #pragma mark UIScrollDelegage

@@ -43,6 +43,21 @@
 }
 @end
 
+@interface FavButton : UIButton
+@property (nonatomic, readonly) Artist *artist;
+- (id)initWithFrame:(CGRect)frame artist:(Artist *)artist;
+@end
+
+@implementation FavButton
+- (id)initWithFrame:(CGRect)frame artist:(Artist *)artist
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _artist = artist;
+    }
+    return self;
+}
+@end
 
 #pragma mark - TimeLineView
 
@@ -110,16 +125,10 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
         if ([view isKindOfClass:[ArtistButton class]]) {
             ArtistButton *button = (ArtistButton *)view;
 
-            BOOL favourited = NO;
-            for (NSString *favouriteArtistId in self.favouritedArtists) {
-                if ([favouriteArtistId isEqualToString:button.artist.artistId]) {
-                    favourited = YES;
-                    break;
-                }
-            }
+            BOOL favourited = [self.favouritedArtists containsObject:button.artist.artistId];
 
             button.selected = favourited;
-            self.alpha = favourited ? 1.0f : 0.9f;
+            button.alpha = favourited ? 1.0f : 0.8f;
         }
     }
 }
@@ -221,26 +230,31 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
                 break;
             }
         }
-        BOOL favourited = NO;
-        for (NSString *favouriteArtistId in self.favouritedArtists) {
-            if ([favouriteArtistId isEqualToString:artist.artistId]) {
-                favourited = YES;
-                break;
-            }
-        }
+
+        BOOL favourited = [self.favouritedArtists containsObject:artist.artistId];
 
         CGFloat x = kLeftPadding + timeWidthFrom(self.begin, artist.begin);
+        CGFloat y =kTopPadding + kRowPadding + kRowHeight * venueIdx;
         CGFloat w = MAX(timeWidthFrom(artist.begin, artist.end), kHourWidth);
-        CGRect frame = CGRectMake(x, kTopPadding + kRowPadding + kRowHeight * venueIdx, w, kRowHeight - kRowPadding * 2);
+        CGFloat h = kRowHeight - kRowPadding * 2;
+        CGRect frame = CGRectMake(x, y, w, h);
 
         ArtistButton *button = [[ArtistButton alloc] initWithFrame:frame artist:artist];
 
         button.selected = favourited;
-        self.alpha = favourited ? 1.0f : 0.9f;
+        button.alpha = favourited ? 1.0f : 0.8f;
+
+        [button setBackgroundImage:[UIImage imageNamed:@"favourited-artist.png"] forState:UIControlStateSelected];
 
         [button addTarget:self action:@selector(artistButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
+        CGRect favFrame = CGRectMake(x, y, 40, h);
+        FavButton *favButton = [[FavButton alloc] initWithFrame:favFrame artist:artist];
+
+        [favButton addTarget:self action:@selector(favButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
         [self addSubview:button];
+        [self addSubview:favButton];
     }
 }
 
@@ -250,6 +264,12 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
     [self.delegate timeLineView:self artistSelected:sender.artist];
 }
 
+- (void)favButtonPressed:(FavButton *)sender
+{
+    Artist *artist = sender.artist;
+    BOOL favourited = [self.favouritedArtists containsObject:artist.artistId];
+    [self.delegate timeLineView:self artistFavourited:artist favourite:!favourited];
+}
 
 #pragma mark - AutoLayout
 - (CGSize)intrinsicContentSize
