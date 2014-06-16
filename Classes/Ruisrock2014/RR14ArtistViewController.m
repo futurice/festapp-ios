@@ -129,7 +129,12 @@
 
 - (IBAction)openSpotify:(id)sender
 {
-    [UIApplication.sharedApplication openURL:self.artist.spotifyUrl];
+    BOOL opened = [UIApplication.sharedApplication openURL:self.artist.spotifyUrl];
+    if (!opened) {
+        NSString *url = [self.artist.spotifyUrl description];
+        NSString *openSpotifyUrl = [[url stringByReplacingOccurrencesOfString:@":" withString:@"/"] stringByReplacingOccurrencesOfString:@"spotify/" withString:@"http://open.spotify.com/"];
+        [UIApplication.sharedApplication openURL:[NSURL URLWithString:openSpotifyUrl]];
+    }
 }
 
 - (void)openYoutube:(id)sender
