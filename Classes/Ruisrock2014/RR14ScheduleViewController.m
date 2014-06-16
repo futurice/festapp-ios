@@ -63,6 +63,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark DaySelection
+- (void)selectDay:(NSString *)day
+{
+    if ([day isEqualToString:@"Perjantai"]) {
+        self.dayChooser.selectedDayIndex = 0;
+    } else if ([day isEqualToString:@"Lauantai"]) {
+        self.dayChooser.selectedDayIndex = 1;
+    } else if ([day isEqualToString:@"Sunnuntai"]) {
+        self.dayChooser.selectedDayIndex = 2;
+    }
+}
+
 #pragma mark DayChooserDelegate
 
 - (void)dayChooser:(DayChooser *)dayChooser selectedDayWithIndex:(NSUInteger)dayIndex

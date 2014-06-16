@@ -120,6 +120,7 @@ void uncaughtExceptionHandler(NSException *exception)
 - (void)showScheduleAt:(Artist *)artist
 {
     [self.navController pushViewController:self.scheduleViewController animated:YES];
+    [self.scheduleViewController selectDay:artist.day];
 }
 
 - (IBAction)showMap:(id)sender

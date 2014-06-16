@@ -16,4 +16,6 @@
 @property (nonatomic, strong) IBOutlet DayChooser *dayChooser;
 @property (nonatomic, strong) IBOutlet TimelineView *timeLineView;
 
+- (void)selectDay:(NSString *)day;
+
 @end
