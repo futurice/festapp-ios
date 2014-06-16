@@ -28,6 +28,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *youtubeButton;
 @property (nonatomic, strong) IBOutlet UIButton *spotifyButton;
 
+@property (nonatomic, strong) IBOutlet UIImageView *buttonRibbon;
+
 + (RR14ArtistViewController *) newWithArtist:(Artist *)artist;
 
 - (IBAction)toggleFavourite:(id)sender;

@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RR14ArtistViewController">
             <connections>
                 <outlet property="artistLabel" destination="rs5-oC-si9" id="CtF-tq-dEf"/>
+                <outlet property="buttonRibbon" destination="HW8-Xw-WHc" id="Bv6-Fd-JOj"/>
                 <outlet property="favouriteButton" destination="9Xb-9r-cb4" id="OsE-SX-qeO"/>
                 <outlet property="foundedLabel" destination="0gb-Xm-fX4" id="maj-lV-Bvr"/>
                 <outlet property="foundedTitleLabel" destination="OHU-sJ-0Gh" id="Eks-G5-I4v"/>
@@ -25,7 +26,7 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_pattern_light.png" translatesAutoresizingMaskIntoConstraints="NO" id="A56-ot-hu0">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_pattern_light.png" translatesAutoresizingMaskIntoConstraints="NO" id="A56-ot-hu0">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -36,51 +37,64 @@
                         <constraint firstAttribute="height" constant="149" id="3aW-QF-uCT"/>
                     </constraints>
                 </imageView>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="artist-top.png" translatesAutoresizingMaskIntoConstraints="NO" id="OhH-XT-c9D">
-                    <rect key="frame" x="0.0" y="149" width="320" height="50"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ej-5U-5bM" userLabel="Button - Youtube">
-                    <rect key="frame" x="14" y="160" width="50" height="40"/>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSt-1N-7L2">
+                    <rect key="frame" x="20" y="149" width="300" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="youtube.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="openYoutube:" destination="-1" eventType="touchUpInside" id="5ZN-kN-6e7"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-it-EUm" userLabel="Button - Spotify">
-                    <rect key="frame" x="72" y="160" width="50" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="spotify.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="openSpotify:" destination="-1" eventType="touchUpInside" id="Q3c-XY-thW"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xb-9r-cb4">
-                    <rect key="frame" x="130" y="160" width="190" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="PmR-G9-i1o"/>
-                        <constraint firstAttribute="width" constant="190" id="wdc-ja-4T8"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Lisää suosikiksi" image="schedule_favourite.png">
-                        <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="toggleFavourite:" destination="-1" eventType="touchUpInside" id="hCm-t2-9Rk"/>
-                    </connections>
-                </button>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpA-rJ-cRh">
-                    <rect key="frame" x="0.0" y="205" width="320" height="299"/>
+                    <subviews>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" image="artist_diagonal_stripe.png" translatesAutoresizingMaskIntoConstraints="NO" id="HW8-Xw-WHc">
+                            <rect key="frame" x="0.0" y="0.0" width="127" height="54"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="127" id="MTm-d9-LP2"/>
+                                <constraint firstAttribute="height" constant="54" id="kGe-V6-jM1"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ej-5U-5bM" userLabel="Button - Youtube">
+                            <rect key="frame" x="0.0" y="14" width="50" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="8n8-3w-rxa"/>
+                            </constraints>
+                            <state key="normal" image="youtube.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="openYoutube:" destination="-1" eventType="touchUpInside" id="5ZN-kN-6e7"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-it-EUm" userLabel="Button - Spotify">
+                            <rect key="frame" x="58" y="14" width="50" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="1CA-M2-V5Q"/>
+                            </constraints>
+                            <state key="normal" image="spotify.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="openSpotify:" destination="-1" eventType="touchUpInside" id="Q3c-XY-thW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xb-9r-cb4">
+                            <rect key="frame" x="116" y="14" width="184" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Lisää suosikiksi" image="schedule_favourite.png">
+                                <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="toggleFavourite:" destination="-1" eventType="touchUpInside" id="hCm-t2-9Rk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpA-rJ-cRh">
+                    <rect key="frame" x="0.0" y="209" width="320" height="295"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Missäkoska" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPE-Ag-agZ">
@@ -159,19 +173,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" constant="11" id="9y0-Jr-dal"/>
-                <constraint firstItem="MEP-b4-8Cf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C6x-HM-rqA"/>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="130" id="Gej-Rb-whD"/>
-                <constraint firstAttribute="trailing" secondItem="MEP-b4-8Cf" secondAttribute="trailing" id="UFv-Iu-qaQ"/>
-                <constraint firstAttribute="trailing" secondItem="NpA-rJ-cRh" secondAttribute="trailing" id="VQk-4z-p6q"/>
-                <constraint firstItem="NpA-rJ-cRh" firstAttribute="top" secondItem="9Xb-9r-cb4" secondAttribute="bottom" constant="5" id="W1h-FR-UdV"/>
-                <constraint firstAttribute="trailing" secondItem="9Xb-9r-cb4" secondAttribute="trailing" id="YE6-vV-IZa"/>
-                <constraint firstItem="MEP-b4-8Cf" firstAttribute="top" secondItem="A56-ot-hu0" secondAttribute="top" id="dsi-Mb-v3q"/>
-                <constraint firstAttribute="bottom" secondItem="NpA-rJ-cRh" secondAttribute="bottom" id="gEP-18-WrX"/>
-                <constraint firstItem="MEP-b4-8Cf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nfF-GO-Wlz"/>
-                <constraint firstItem="NpA-rJ-cRh" firstAttribute="bottom" secondItem="A56-ot-hu0" secondAttribute="bottom" id="oVk-gR-FZY"/>
-                <constraint firstItem="MEP-b4-8Cf" firstAttribute="leading" secondItem="A56-ot-hu0" secondAttribute="leading" id="vbI-Xx-OgM"/>
-                <constraint firstItem="NpA-rJ-cRh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wG6-QY-XFU"/>
+                <constraint firstAttribute="bottom" secondItem="NpA-rJ-cRh" secondAttribute="bottom" id="NdZ-T6-B9M"/>
+                <constraint firstItem="NpA-rJ-cRh" firstAttribute="top" secondItem="tSt-1N-7L2" secondAttribute="bottom" id="QPV-Lq-3j7"/>
+                <constraint firstAttribute="trailing" secondItem="NpA-rJ-cRh" secondAttribute="trailing" id="bWA-Cd-l41"/>
+                <constraint firstItem="MEP-b4-8Cf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jMp-QZ-NYq"/>
+                <constraint firstAttribute="trailing" secondItem="tSt-1N-7L2" secondAttribute="trailing" id="lFG-Xp-bI1"/>
+                <constraint firstItem="NpA-rJ-cRh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mWh-EG-aUA"/>
+                <constraint firstItem="MEP-b4-8Cf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mxq-QQ-tt2"/>
+                <constraint firstItem="tSt-1N-7L2" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" id="o3W-xk-pdR"/>
+                <constraint firstAttribute="trailing" secondItem="MEP-b4-8Cf" secondAttribute="trailing" id="qBb-iE-XPa"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -179,7 +189,7 @@
         </view>
     </objects>
     <resources>
-        <image name="artist-top.png" width="320" height="50"/>
+        <image name="artist_diagonal_stripe.png" width="127" height="54"/>
         <image name="bg_pattern_light.png" width="320" height="568"/>
         <image name="schedule_favourite.png" width="40" height="40"/>
         <image name="spotify.png" width="50" height="40"/>

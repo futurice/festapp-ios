@@ -71,7 +71,7 @@
                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="showSchedule:" destination="-1" eventType="touchUpInside" id="wEa-Wa-WK8"/>
+                                <action selector="showCurrentArtist:" destination="-1" eventType="touchUpInside" id="I23-IC-vEX"/>
                             </connections>
                         </button>
                     </subviews>

@@ -13,6 +13,8 @@
 #import "FestImageManager.h"
 #import "FestFavouritesManager.h"
 
+#import "UIView+XYWidthHeight.h"
+
 @interface RR14ArtistViewController ()
 @property (nonatomic, strong) Artist *artist;
 @end
@@ -64,9 +66,17 @@
     // Favourite
     [self.favouriteButton setImage:[UIImage imageNamed:@"schedule_favourite_selected.png"] forState:UIControlStateSelected];
 
+    [self.favouriteButton setTitle:@"Merkitse suosikiksi" forState:UIControlStateNormal];
+    [self.favouriteButton setTitle:@"Merkitty suosikiksi" forState:UIControlStateSelected];
+
+    [self.favouriteButton setTitleColor:RR_COLOR_DARKGREEN forState:UIControlStateNormal];
+    [self.favouriteButton setTitleColor:RR_COLOR_LIGHTGREEN forState:UIControlStateSelected];
+
     FestFavouritesManager *favouriteManager = [FestFavouritesManager sharedFavouritesManager];
     [favouriteManager.favouritesSignal subscribeNext:^(NSArray *favourites) {
-        self.favouriteButton.selected = [favourites containsObject:self.artist.artistId];
+        BOOL favourited = [favourites containsObject:self.artist.artistId];
+        self.favouriteButton.selected = favourited;
+        self.favouriteButton.backgroundColor = favourited ? RR_COLOR_DARKGREEN : RR_COLOR_LIGHTGREEN;
     }];
 
     // Load image
@@ -76,18 +86,31 @@
     }];
 
     // youtube & spotify buttons
-    if (self.artist.spotifyUrl == nil) {
-        self.spotifyButton.hidden = YES;
+    if (self.artist.spotifyUrl == nil && self.artist.youtubeUrl == nil) {
+        [self.spotifyButton removeFromSuperview];
+        [self.youtubeButton removeFromSuperview];
+
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.buttonRibbon attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.favouriteButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0]];
+
+    } else if (self.artist.youtubeUrl == nil) {
+        [self.youtubeButton removeFromSuperview];
+
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.buttonRibbon attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.spotifyButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0]];
+    } else if (self.artist.spotifyUrl == nil) {
+        [self.spotifyButton removeFromSuperview];
+
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.buttonRibbon attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.youtubeButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0]];
+
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.favouriteButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.youtubeButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:58.0]];
     }
 
-    if (self.artist.youtubeUrl == nil) {
-        self.youtubeButton.hidden = YES;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:NO animated:animated];
+
+
 }
 
 - (void)didReceiveMemoryWarning
