@@ -91,7 +91,7 @@
 
         label.text = venue;
         label.textColor = [UIColor whiteColor];
-        label.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        label.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f];
         label.textAlignment = NSTextAlignmentCenter;
 
         label.font = [UIFont systemFontOfSize:12];

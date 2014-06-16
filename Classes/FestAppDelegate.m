@@ -52,6 +52,8 @@ void uncaughtExceptionHandler(NSException *exception)
     // Navigation bar
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation-bar.png"] forBarMetrics:UIBarMetricsDefault];
 
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+
     // Custom back bar button item
     self.backBarButtonItem.target = self;
     self.backBarButtonItem.action = @selector(backAction);
