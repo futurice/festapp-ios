@@ -25,7 +25,12 @@
 @property (nonatomic, strong) IBOutlet UILabel *foundedTitleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *foundedLabel;
 
+@property (nonatomic, strong) IBOutlet UIButton *youtubeButton;
+@property (nonatomic, strong) IBOutlet UIButton *spotifyButton;
+
 + (RR14ArtistViewController *) newWithArtist:(Artist *)artist;
 
 - (IBAction)toggleFavourite:(id)sender;
+- (IBAction)openYoutube:(id)sender;
+- (IBAction)openSpotify:(id)sender;
 @end

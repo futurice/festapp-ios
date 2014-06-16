@@ -14,8 +14,10 @@
                 <outlet property="membersLabel" destination="pF2-ro-rMI" id="Pdz-fb-RCB"/>
                 <outlet property="membersTitleLabel" destination="p7N-Vn-rbZ" id="HVN-mt-16g"/>
                 <outlet property="quoteLabel" destination="ewC-tA-wNj" id="bEE-GR-lK1"/>
+                <outlet property="spotifyButton" destination="raQ-it-EUm" id="qe0-Ca-VwV"/>
                 <outlet property="stageLabel" destination="bPE-Ag-agZ" id="hkh-uE-HFk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="youtubeButton" destination="7Ej-5U-5bM" id="DBV-vf-tZm"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,20 +29,46 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MEP-b4-8Cf">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MEP-b4-8Cf" userLabel="Image View - Artist">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="149" id="3aW-QF-uCT"/>
                     </constraints>
                 </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="artist-top.png" translatesAutoresizingMaskIntoConstraints="NO" id="OhH-XT-c9D">
+                    <rect key="frame" x="0.0" y="149" width="320" height="50"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ej-5U-5bM" userLabel="Button - Youtube">
+                    <rect key="frame" x="14" y="160" width="50" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="youtube.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openYoutube:" destination="-1" eventType="touchUpInside" id="5ZN-kN-6e7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-it-EUm" userLabel="Button - Spotify">
+                    <rect key="frame" x="72" y="160" width="50" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="spotify.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="openSpotify:" destination="-1" eventType="touchUpInside" id="Q3c-XY-thW"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xb-9r-cb4">
-                    <rect key="frame" x="144" y="157" width="162" height="40"/>
+                    <rect key="frame" x="130" y="160" width="190" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.65490196079999996" green="0.77647058820000003" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="PmR-G9-i1o"/>
-                        <constraint firstAttribute="width" constant="162" id="wdc-ja-4T8"/>
+                        <constraint firstAttribute="width" constant="190" id="wdc-ja-4T8"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="Lisää suosikiksi" image="schedule_favourite.png">
@@ -131,13 +159,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" constant="8" id="9y0-Jr-dal"/>
+                <constraint firstItem="9Xb-9r-cb4" firstAttribute="top" secondItem="MEP-b4-8Cf" secondAttribute="bottom" constant="11" id="9y0-Jr-dal"/>
                 <constraint firstItem="MEP-b4-8Cf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C6x-HM-rqA"/>
-                <constraint firstItem="9Xb-9r-cb4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="144" id="Gej-Rb-whD"/>
+                <constraint firstItem="9Xb-9r-cb4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="130" id="Gej-Rb-whD"/>
                 <constraint firstAttribute="trailing" secondItem="MEP-b4-8Cf" secondAttribute="trailing" id="UFv-Iu-qaQ"/>
                 <constraint firstAttribute="trailing" secondItem="NpA-rJ-cRh" secondAttribute="trailing" id="VQk-4z-p6q"/>
-                <constraint firstItem="NpA-rJ-cRh" firstAttribute="top" secondItem="9Xb-9r-cb4" secondAttribute="bottom" constant="8" id="W1h-FR-UdV"/>
-                <constraint firstAttribute="trailing" secondItem="9Xb-9r-cb4" secondAttribute="trailing" constant="14" id="YE6-vV-IZa"/>
+                <constraint firstItem="NpA-rJ-cRh" firstAttribute="top" secondItem="9Xb-9r-cb4" secondAttribute="bottom" constant="5" id="W1h-FR-UdV"/>
+                <constraint firstAttribute="trailing" secondItem="9Xb-9r-cb4" secondAttribute="trailing" id="YE6-vV-IZa"/>
                 <constraint firstItem="MEP-b4-8Cf" firstAttribute="top" secondItem="A56-ot-hu0" secondAttribute="top" id="dsi-Mb-v3q"/>
                 <constraint firstAttribute="bottom" secondItem="NpA-rJ-cRh" secondAttribute="bottom" id="gEP-18-WrX"/>
                 <constraint firstItem="MEP-b4-8Cf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nfF-GO-Wlz"/>
@@ -151,7 +179,10 @@
         </view>
     </objects>
     <resources>
+        <image name="artist-top.png" width="320" height="50"/>
         <image name="bg_pattern_light.png" width="320" height="568"/>
         <image name="schedule_favourite.png" width="40" height="40"/>
+        <image name="spotify.png" width="50" height="40"/>
+        <image name="youtube.png" width="50" height="40"/>
     </resources>
 </document>

@@ -74,6 +74,15 @@
     [[imageManager imageSignalFor:self.artist.imagePath] subscribeNext:^(UIImage *image) {
         self.imageView.image = image;
     }];
+
+    // youtube & spotify buttons
+    if (self.artist.spotifyUrl == nil) {
+        self.spotifyButton.hidden = YES;
+    }
+
+    if (self.artist.youtubeUrl == nil) {
+        self.youtubeButton.hidden = YES;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,4 +104,13 @@
     [favouriteManager toggleFavourite:self.artist favourite:!self.favouriteButton.selected];
 }
 
+- (IBAction)openSpotify:(id)sender
+{
+    [UIApplication.sharedApplication openURL:self.artist.spotifyUrl];
+}
+
+- (void)openYoutube:(id)sender
+{
+    [UIApplication.sharedApplication openURL:self.artist.youtubeUrl];
+}
 @end
