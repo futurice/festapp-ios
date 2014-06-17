@@ -128,7 +128,7 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 {
     _favouritedArtists = favouritedArtists;
 
-    for (UIView *view in self.subviews) {
+    for (UIView *view in self.innerView.subviews) {
         if ([view isKindOfClass:[ArtistButton class]]) {
             ArtistButton *button = (ArtistButton *)view;
 
