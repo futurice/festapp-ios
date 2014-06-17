@@ -14,7 +14,7 @@
 @interface FestImageManager ()
 @property (strong, nonatomic) NSString *directory;
 @property (strong, nonatomic) NSFileManager *fileManager;
-@property (strong, nonatomic) NSMutableDictionary *signals;
+@property (strong, nonatomic) NSCache *signals;
 @end
 
 @implementation FestImageManager
@@ -54,7 +54,7 @@
         }];
 
         // signals
-        _signals = [NSMutableDictionary dictionaryWithCapacity:64]; // arbitrary size
+        _signals = [[NSCache alloc] init]; // arbitrary size
 
         // image directory
         _fileManager = [NSFileManager defaultManager];
@@ -84,7 +84,7 @@
 - (RACSignal *)imageSignalFor:(NSString *)imagePath withSize:(CGSize)size
 {
     NSString *cacheKey = [NSString stringWithFormat:@"%@ %f %f", imagePath, size.width, size.height];
-    RACSignal *signal = self.signals[cacheKey];
+    RACSignal *signal = [self.signals objectForKey:cacheKey];
     if (signal == nil) {
         NSString *md5path = [imagePath MD5];
 
@@ -102,8 +102,9 @@
         signal = subject;
 
         // Cache signal in memory if small
-        if (size.width * size.height < 10000) {
-            self.signals[cacheKey] = signal;
+        CGFloat area = size.width * size.height;
+        if (0.0f < area && area < 10000.0f) {
+            [self.signals setObject:signal forKey:cacheKey];
         }
 
         if (exists) {
@@ -120,6 +121,7 @@
                                       contents:UIImagePNGRepresentation(image)
                                     attributes:nil];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [self.signals removeObjectForKey:cacheKey];
             NSLog(@"%@", error);
         }];
     }
