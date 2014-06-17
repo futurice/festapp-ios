@@ -274,7 +274,7 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 
         CGFloat x = timeWidthFrom(self.begin, artist.begin);
         CGFloat y = kTopPadding + kRowPadding + kRowHeight * venueIdx;
-        CGFloat w = MAX(timeWidthFrom(artist.begin, artist.end), kHourWidth);
+        CGFloat w = timeWidthFrom(artist.begin, artist.end);
         CGFloat h = kRowHeight - kRowPadding * 2;
         CGRect frame = CGRectMake(x, y, w, h);
 
