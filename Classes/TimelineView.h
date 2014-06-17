@@ -20,4 +20,6 @@
 @property (nonatomic, strong) NSArray *favouritedArtists;
 
 @property (nonatomic, weak) id<TimelineViewDelegate> delegate;
+
+- (CGRect)artistRect:(Artist *)artist;
 @end

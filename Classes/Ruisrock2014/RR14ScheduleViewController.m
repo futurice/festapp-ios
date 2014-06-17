@@ -99,7 +99,15 @@
     }
 }
 
-#pragma mark DaySelection
+#pragma mark Artist viewing
+- (void)scrollToArtist:(Artist *)artist
+{
+    [self selectDay:artist.day];
+
+    CGRect artistRect = [self.timeLineView artistRect:artist];
+    [self.timelineScrollView setContentOffset:CGPointMake(artistRect.origin.x + artistRect.size.width/2, 0) animated:YES];
+}
+
 - (void)selectDay:(NSString *)day
 {
     if ([day isEqualToString:@"Perjantai"]) {

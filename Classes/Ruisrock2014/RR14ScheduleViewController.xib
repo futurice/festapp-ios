@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="dayChooser" destination="Beo-zt-EzU" id="hGu-RK-bHs"/>
                 <outlet property="timeLineView" destination="cFC-R6-OQf" id="cGg-Oo-fuU"/>
+                <outlet property="timelineScrollView" destination="QZU-Uj-jQk" id="6ma-nT-GNN"/>
                 <outlet property="timelineVenuesView" destination="KhI-OU-by5" id="x7m-Ch-jpn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

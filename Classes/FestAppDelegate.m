@@ -121,7 +121,12 @@ void uncaughtExceptionHandler(NSException *exception)
 - (void)showScheduleAt:(Artist *)artist
 {
     [self.navController pushViewController:self.scheduleViewController animated:YES];
-    [self.scheduleViewController selectDay:artist.day];
+
+    // Perform scroll after short delay
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC / 10);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.scheduleViewController scrollToArtist:artist];
+    });
 }
 
 - (IBAction)showMap:(id)sender

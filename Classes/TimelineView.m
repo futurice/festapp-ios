@@ -103,6 +103,17 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
     [self addSubview:self.innerView];
 }
 
+- (CGRect)artistRect:(Artist *)artist
+{
+    if ([artist.day isEqualToString:self.currentDay]) {
+        CGFloat x = - kLeftPadding + timeWidthFrom(self.dayBegin, artist.begin);
+        CGFloat w = timeWidthFrom(artist.begin, artist.end);
+        return CGRectMake(x, 0, w, 1);
+    } else {
+        return CGRectMake(0, 0, 1, 1);
+    }
+}
+
 #pragma mark - DataSetters
 - (void)setArtists:(NSArray *)artists
 {

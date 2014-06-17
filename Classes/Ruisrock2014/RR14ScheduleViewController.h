@@ -15,7 +15,8 @@
 
 @property (nonatomic, strong) IBOutlet DayChooser *dayChooser;
 @property (nonatomic, strong) IBOutlet TimelineView *timeLineView;
+@property (nonatomic, strong) IBOutlet UIScrollView *timelineScrollView;
 
-- (void)selectDay:(NSString *)day;
+- (void)scrollToArtist:(Artist *)artist;
 
 @end
