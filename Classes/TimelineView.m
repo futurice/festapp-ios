@@ -65,16 +65,21 @@
 @property (strong) AVAudioPlayer *currentPlayer;
 
 @property (nonatomic, strong) NSArray *venues;
-@property (nonatomic, strong) NSArray *currentArtists;
 
 @property (nonatomic, strong) NSDate *begin;
 @property (nonatomic, strong) NSDate *end;
+
+@property (nonatomic, strong) NSDate *dayBegin;
+@property (nonatomic, strong) NSDate *dayEnd;
+
+@property (nonatomic, strong) UIView *innerView;
 @end
 
 #define kHourWidth 200
 #define kRowHeight 49
 #define kTopPadding 45
 #define kLeftPadding 80
+#define kRightPadding 40
 #define kRowPadding 5
 
 CGFloat timeWidthFrom(NSDate *from, NSDate *to);
@@ -93,6 +98,9 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 {
     self.backgroundColor = [UIColor clearColor];
     [self performSelectorInBackground:@selector(preloadGroovyGuitarSounds) withObject:nil];
+
+    self.innerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [self addSubview:self.innerView];
 }
 
 #pragma mark - DataSetters
@@ -112,7 +120,6 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 
     self.venues = venues;
 
-    [self updateCurrentArtists];
     [self recreate];
     [self invalidateIntrinsicContentSize];
 }
@@ -136,32 +143,53 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 - (void)setCurrentDay:(NSString *)currentDay
 {
     _currentDay = currentDay;
-    [self updateCurrentArtists];
-    [self recreate];
+
+    [self recreateDay];
     [self invalidateIntrinsicContentSize];
 }
 
 #pragma mark - Internals
-- (void)updateCurrentArtists
+
+- (void)recreateDay
 {
-    NSMutableArray *currentArtists = [NSMutableArray arrayWithCapacity:self.artists.count / 2];
-    NSUInteger count = _artists.count;
-    for (NSUInteger idx = 0; idx < count; idx++) {
-        Artist *artist = self.artists[idx];
-        if ([artist.day isEqualToString:self.currentDay]) {
-            [currentArtists addObject:artist];
+    NSDate *begin = [NSDate distantFuture];
+    NSDate *end = [NSDate distantPast];
+
+    for (Artist *artist in self.artists) {
+        if (![artist.day isEqualToString:self.currentDay]) {
+            continue;
+        }
+
+        if ([artist.begin compare:begin] == NSOrderedAscending ) {
+            begin = artist.begin;
+        }
+
+        if ([artist.end compare:end] == NSOrderedDescending) {
+            end = artist.end;
         }
     }
-    self.currentArtists = currentArtists;
+
+    self.dayBegin = begin;
+    self.dayEnd = end;
+
+
+    CGFloat x = kLeftPadding - timeWidthFrom(self.begin, self.dayBegin);
+    CGFloat y = 0;
+    CGFloat w = timeWidthFrom(self.begin, self.end) + kRightPadding;
+    CGFloat h = kTopPadding + kRowHeight * 5;
+
+    [UIView animateWithDuration:0.5 animations:^{
+        self.innerView.frame = CGRectMake(x, y, w, h);
+    }];
 }
 
 - (void)recreate
 {
-    for (UIView *view in self.subviews) {
+    for (UIView *view in self.innerView.subviews) {
         [view removeFromSuperview];
     }
 
-    NSUInteger count = self.currentArtists.count;
+    NSUInteger count = self.artists.count;
     if (count == 0) {
         return;
     }
@@ -170,7 +198,7 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
     NSDate *begin = [NSDate distantFuture];
     NSDate *end = [NSDate distantPast];
 
-    for (Artist *artist in self.currentArtists) {
+    for (Artist *artist in self.artists) {
         if ([artist.begin compare:begin] == NSOrderedAscending ) {
             begin = artist.begin;
         }
@@ -203,7 +231,7 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
         imageView.image = fretImage;
 
-        [self addSubview:imageView];
+        [self.innerView addSubview:imageView];
 
         // time label
         CGRect timeFrame = CGRectMake(kLeftPadding + timeWidthFrom(self.begin, fretDate) - 28, 0, 60, 30);
@@ -214,7 +242,7 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
         timeLabel.textAlignment = NSTextAlignmentCenter;
         timeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
 
-        [self addSubview:timeLabel];
+        [self.innerView addSubview:timeLabel];
 
         // next
         fretDate = [NSDate dateWithTimeInterval:3600 sinceDate:fretDate];
@@ -223,7 +251,7 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
     NSUInteger venueCount = self.venues.count;
 
     // buttons
-    for (Artist *artist in self.currentArtists) {
+    for (Artist *artist in self.artists) {
         NSUInteger venueIdx = 0;
         for (; venueIdx < venueCount; venueIdx++) {
             if ([artist.venue isEqualToString:self.venues[venueIdx]]) {
@@ -233,8 +261,8 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 
         BOOL favourited = [self.favouritedArtists containsObject:artist.artistId];
 
-        CGFloat x = kLeftPadding + timeWidthFrom(self.begin, artist.begin);
-        CGFloat y =kTopPadding + kRowPadding + kRowHeight * venueIdx;
+        CGFloat x = timeWidthFrom(self.begin, artist.begin);
+        CGFloat y = kTopPadding + kRowPadding + kRowHeight * venueIdx;
         CGFloat w = MAX(timeWidthFrom(artist.begin, artist.end), kHourWidth);
         CGFloat h = kRowHeight - kRowPadding * 2;
         CGRect frame = CGRectMake(x, y, w, h);
@@ -253,12 +281,15 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 
         [favButton addTarget:self action:@selector(favButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
-        [self addSubview:button];
-        [self addSubview:favButton];
+        [self.innerView addSubview:button];
+        [self.innerView addSubview:favButton];
     }
+
+    [self recreateDay];
 }
 
 #pragma mark - Actions
+
 - (void)artistButtonPressed:(ArtistButton *)sender
 {
     [self.delegate timeLineView:self artistSelected:sender.artist];
@@ -274,7 +305,7 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 #pragma mark - AutoLayout
 - (CGSize)intrinsicContentSize
 {
-    return CGSizeMake(timeWidthFrom(self.begin, self.end) + kLeftPadding, 100);
+    return CGSizeMake(timeWidthFrom(self.dayBegin, self.dayEnd) + kLeftPadding, 100);
 }
 
 #pragma mark - Audio
