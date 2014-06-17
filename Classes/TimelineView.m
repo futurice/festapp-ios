@@ -238,14 +238,14 @@ CGFloat timeWidthFrom(NSDate *from, NSDate *to)
 
     while ([fretDate compare:self.end] == NSOrderedAscending) {
         // fret
-        CGRect frame = CGRectMake(kLeftPadding + timeWidthFrom(self.begin, fretDate) - 10, 30, 17, 276);
+        CGRect frame = CGRectMake(timeWidthFrom(self.begin, fretDate) - 10, 30, 17, 276);
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
         imageView.image = fretImage;
 
         [self.innerView addSubview:imageView];
 
         // time label
-        CGRect timeFrame = CGRectMake(kLeftPadding + timeWidthFrom(self.begin, fretDate) - 28, 0, 60, 30);
+        CGRect timeFrame = CGRectMake(timeWidthFrom(self.begin, fretDate) - 28, 0, 60, 30);
         UILabel *timeLabel = [[UILabel alloc] initWithFrame:timeFrame];
 
         timeLabel.textColor = RR_COLOR_DARKGREEN;
