@@ -105,8 +105,7 @@
     swipeGecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeGecognizer];
 
-    // back button
-    self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
+    self.navigationItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated

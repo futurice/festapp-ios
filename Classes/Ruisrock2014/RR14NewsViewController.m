@@ -62,8 +62,7 @@
 
     self.tableView.tableHeaderView = headerView;
 
-    // back button
-    self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
+    self.navigationItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated

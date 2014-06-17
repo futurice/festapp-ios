@@ -36,7 +36,7 @@
         [self.tableView reloadData];
     }];
 
-    self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
+    self.navigationItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated

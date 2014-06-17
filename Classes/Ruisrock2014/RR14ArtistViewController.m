@@ -45,8 +45,6 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
-
     self.artistLabel.text = self.artist.artistName;
     self.stageLabel.text = self.artist.stageAndTimeIntervalString;
     self.quoteLabel.text = self.artist.quote;
@@ -104,6 +102,7 @@
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.favouriteButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.youtubeButton attribute:NSLayoutAttributeLeft multiplier:1.0 constant:58.0]];
     }
 
+    self.navigationItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated

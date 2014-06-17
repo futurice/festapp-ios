@@ -24,7 +24,6 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </viewController>
-        <barButtonItem image="back_arrow.png" id="hAs-hv-Enl" userLabel="Back button bar item"/>
         <viewController id="p8D-nx-hLr" customClass="RR14NewsViewController">
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -56,7 +55,6 @@
         <customObject id="1ZY-Wy-gHT" customClass="FestAppDelegate">
             <connections>
                 <outlet property="artistsViewController" destination="Nzh-j7-12v" id="Lnw-d7-ime"/>
-                <outlet property="backBarButtonItem" destination="hAs-hv-Enl" id="Vki-6Q-CXn"/>
                 <outlet property="infoViewController" destination="51w-2Q-Uy5" id="frL-xb-afP"/>
                 <outlet property="mapViewController" destination="wtX-07-iwD" id="uiQ-r3-QW2"/>
                 <outlet property="navController" destination="BLL-2i-fiZ" id="eoI-8c-9z9"/>
@@ -88,7 +86,4 @@
             </viewControllers>
         </navigationController>
     </objects>
-    <resources>
-        <image name="back_arrow.png" width="17" height="24"/>
-    </resources>
 </document>

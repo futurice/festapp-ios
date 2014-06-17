@@ -30,8 +30,7 @@
 {
     [super viewDidLoad];
 
-    // back button
-    self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
+    self.navigationItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated

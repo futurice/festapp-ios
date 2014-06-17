@@ -93,6 +93,8 @@
     [imageSignal subscribeNext:^(UIImage *image) {
         self.artistImageView.image = image;
     }];
+
+    self.navigationItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated

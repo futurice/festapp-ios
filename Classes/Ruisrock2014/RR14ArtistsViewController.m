@@ -49,9 +49,6 @@
     self.dayChooser.delegate = self;
     self.dayChooser.dayNames = @[@"Perjantai", @"Lauantai", @"Sunnuntai"];
 
-    // back button
-    self.navigationItem.leftBarButtonItem = [APPDELEGATE backBarButtonItem];
-
     // table background
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_pattern_light.png"]];
@@ -73,6 +70,8 @@
     [headerView addSubview:waveView];
 
     self.tableView.tableHeaderView = headerView;
+
+    self.navigationItem.title = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated
