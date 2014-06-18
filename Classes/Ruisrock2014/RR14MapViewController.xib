@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="mapView" destination="xpv-xK-ajA" id="JrI-8m-X3H"/>
                 <outlet property="scrollView" destination="veI-nH-9Oz" id="4eS-s0-azR"/>
+                <outlet property="tapGestureRecognizer" destination="crI-sb-qEu" id="G2L-no-TCU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -37,6 +38,7 @@
                     </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="fvq-1J-7lF"/>
+                        <outletCollection property="gestureRecognizers" destination="crI-sb-qEu" appends="YES" id="FBW-xq-Skr"/>
                     </connections>
                 </scrollView>
             </subviews>
@@ -51,6 +53,11 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <tapGestureRecognizer numberOfTapsRequired="2" id="crI-sb-qEu">
+            <connections>
+                <action selector="doubleTap:" destination="-1" id="Hvx-AF-i7G"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="bg_pattern_light.png" width="320" height="568"/>

@@ -12,7 +12,8 @@
 #import "FestAppDelegate.h"
 
 @interface RR14MapViewController ()
-
+@property (nonatomic, strong) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
+- (IBAction)doubleTap:(id)sender;
 @end
 
 @implementation RR14MapViewController
@@ -61,6 +62,18 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return self.mapView;
+}
+
+#pragma mark Actions
+
+- (IBAction)doubleTap:(id)sender
+{
+    CGFloat zoomScale = self.scrollView.zoomScale;
+    if (zoomScale > self.scrollView.minimumZoomScale) {
+        [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
+    } else {
+        [self.scrollView setZoomScale:1.0f animated:YES];
+    }
 }
 
 @end
