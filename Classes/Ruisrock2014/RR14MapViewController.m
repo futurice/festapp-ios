@@ -41,8 +41,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     // minZoom
-    CGFloat minZoomScale = MAX(self.scrollView.frame.size.height / self.mapView.frame.size.height,
-                               self.scrollView.frame.size.width / self.mapView.frame.size.width);
+    CGFloat minZoomScale = MAX(self.scrollView.frame.size.height / self.mapView.image.size.height,
+                               self.scrollView.frame.size.width / self.mapView.image.size.height);
 
     self.scrollView.minimumZoomScale = minZoomScale;
 
