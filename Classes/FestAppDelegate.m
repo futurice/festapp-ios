@@ -18,7 +18,7 @@
 #import "RR14WebContentViewController.h"
 
 @interface FestAppDelegate ()
-
+@property (nonatomic, strong) InfoItem *foodItem;
 @end
 
 @implementation FestAppDelegate
@@ -62,6 +62,11 @@ void uncaughtExceptionHandler(NSException *exception)
     self.window.rootViewController = self.navController;
 
     [self.window makeKeyAndVisible];
+
+    RACSignal *foodSignal = FestDataManager.sharedFestDataManager.foodSignal;
+    [foodSignal subscribeNext:^(id x) {
+        self.foodItem = x;
+    }];
 
     return YES;
 }
@@ -136,8 +141,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (IBAction)showFoodInfo:(id)sender
 {
-    UIViewController *controller = [[RR14WebContentViewController alloc] initWithContent:@"<h1>RUOKAA!!!</h1>" title:nil image:nil];
-    [self.navController pushViewController:controller animated:YES];
+    [self showInfoItem:self.foodItem];
 }
 
 - (IBAction)showGeneralInfo:(id)sender

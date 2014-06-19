@@ -1,14 +1,13 @@
-//
-//  Localizable.strings
-//  FestApp
-//
+/*
+ Localizable.strings
+ FestApp
+ */
 
+"lang" = "fi";
 
-"lang" = "en";
-
-"Friday" = "Friday";
-"Saturday" = "Saturday";
-"Sunday" = "Sunday";
+"Friday" = "Perjantai";
+"Saturday" = "Lauantai";
+"Sunday" = "Sunnuntai";
 
 "button.ok" = "OK";
 
@@ -19,26 +18,26 @@
 "title.arrival" = "Liikkuminen";
 "title.news" = "Uutiset";
 
-"gig.favorite.label" = "Marked as Favorite";
-"gig.nonfavorite.label" = "Mark as Favorite";
-"gig.reminder.title" = "A gig will soon begin!";
-"gig.reminder.instruction" = "Create your own schedule by tapping on the star symbol and marking a gig as a favorite. You will be alerted 15 minutes before a favorited gig begins.";
+"gig.favorite.label" = "Merkitty suosikiksi";
+"gig.nonfavorite.label" = "Merkitse suosikiksi";
+"gig.reminder.title" = "Kohta alkaa keikka!";
+"gig.reminder.instruction" = "Voit luoda oman aikataulun painamalla tähtisymbolia ja merkitsemällä keikan suosikiksi. Merkityistä keikoista tulee hälytys 15 minuuttia ennen keikan alkua.";
 
-"map.accuracyformat" = "Accuracy:  %.0f m";
-"map.userlocation.label" = "You Are Here";
-"map.venue.nomoregigs" = "More gigs in 2013!";
+"map.accuracyformat" = "Tarkkuus:  %.0f m";
+"map.userlocation.label" = "Olet tässä";
+"map.venue.nomoregigs" = "Keikkoja jälleen 2013!";
 
-"navigation.back" = "Back";
-"navigation.cancel" = "Cancel";
+"navigation.back" = "Takaisin";
+"navigation.cancel" = "Peruuta";
 "navigation.ok" = "OK";
 
-"fonecta.call" = "Call";
-"fonecta.cancel" = "Cancel";
-"fonecta.confirmation" = "You are about to dial Fonecta's 020202 directory service. Do you wish to continue?";
+"fonecta.call" = "Soita";
+"fonecta.cancel" = "Peruuta";
+"fonecta.confirmation" = "Olet soittamassa Fonectan maksulliseen 020202-palveluun. Haluatko jatkaa?";
 
-"link.open" = "Open in Safari";
-"link.copy" = "Copy URL";
-"link.copied" = "URL copied to clipboard";
+"link.open" = "Avaa Safarissa";
+"link.copy" = "Kopioi osoite";
+"link.copied" = "Osoite kopioitu leikepöydälle";
 
-"conn.problem" = "Connection problem";
-"conn.pagenotloaded" = "The page could not be loaded.";
+"conn.problem" = "Yhteysongelma";
+"conn.pagenotloaded" = "Sivua ei saatu ladattua.";

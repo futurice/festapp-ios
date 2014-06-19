@@ -13,12 +13,7 @@
 {
     self = [super init];
     if (self) {
-        _title = [[dict[@"desc"] stringByReplacingOccurrencesOfString:@"Ruisrock 2014 |" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-        if ([_title isEqualToString:@"UKK"]) {
-            _title = @"Usein kysytyt kysymykset";
-        }
-
+        _title = dict[@"title"];
         _content = dict[@"content"];
     }
     return self;

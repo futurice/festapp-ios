@@ -63,6 +63,8 @@
 
                              "    } "
 
+                             "img { width: 100%; max-width: 280px; } "
+
                              "    h1.title { "
                              "      font-size: 22px; "
                              "      font-weight: 200; "
@@ -86,7 +88,7 @@
      "<div id=\"main\"> "];
 
     if (self.imageURL) {
-        [html appendFormat:@"<img width=\"280\" src=\"%@\") /><br />", self.imageURL.description];
+        [html appendFormat:@"<img src=\"%@\") /><br />", self.imageURL.description];
     }
 
     if (self.contentTitle) {
