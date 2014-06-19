@@ -61,6 +61,6 @@
     </objects>
     <resources>
         <image name="bg_pattern_light.png" width="320" height="568"/>
-        <image name="map.png" width="1200" height="849"/>
+        <image name="map.png" width="4961" height="3508"/>
     </resources>
 </document>

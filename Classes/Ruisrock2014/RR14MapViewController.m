@@ -48,7 +48,7 @@
     self.scrollView.minimumZoomScale = minZoomScale;
 
     [self.scrollView setZoomScale:minZoomScale animated:YES];
-    [self.scrollView setContentOffset:CGPointMake(self.mapView.frame.size.width / 4, 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

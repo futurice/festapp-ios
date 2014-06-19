@@ -17,6 +17,27 @@
 
 #define kUpdateInterval 30
 
+#define kNextInterval 3600
+
+@interface RandomDate : NSObject
+@property (nonatomic, readonly, strong) NSDate *date;
+@property (nonatomic, readonly, assign) NSUInteger random;
+
+- (instancetype)initWithRandom:(NSUInteger)random date:(NSDate *)date;
+@end
+
+@implementation RandomDate
+- (instancetype)initWithRandom:(NSUInteger)random date:(NSDate *)date
+{
+    self = [super init];
+    if (self) {
+        _random = random;
+        _date = date;
+    }
+    return self;
+}
+@end
+
 @interface RR14MainViewController ()
 @property (nonatomic, strong) NewsItem *currentNewsItem;
 @property (nonatomic, strong) Artist *currentArtist;
@@ -50,21 +71,39 @@
 
     // Poor man random signal updated at the interval
     RACSignal *intervalSignal =
-    [[[[RACSignal interval:kUpdateInterval onScheduler:[RACScheduler mainThreadScheduler]] startWith:nil]
-     scanWithStart:@(arc4random())
-     reduce:^id(NSNumber *running, id unused) {
-            return @((1103515245 * running.unsignedIntegerValue + 12345) % 0x100000000);
-     }] replayLast];
+    [[[[RACSignal interval:kUpdateInterval onScheduler:[RACScheduler mainThreadScheduler]] startWith:[NSDate date]]
+      scanWithStart:[[RandomDate alloc] initWithRandom:arc4random() date:[NSDate date]]
+      reduce:^id(RandomDate *rd, NSDate *now) {
+          NSUInteger r = (1103515245 * rd.random + 12345) % 0x100000000;
+          return [[RandomDate alloc] initWithRandom:r date:now];
+      }] replayLast];
 
     RACSignal *artistsSignal = FestDataManager.sharedFestDataManager.artistsSignal;
     RACSignal *favouritesSignal = FestFavouritesManager.sharedFavouritesManager.favouritesSignal;
 
     RACSignal *currentArtistSignal =
     [RACSignal combineLatest:@[intervalSignal, artistsSignal, favouritesSignal]
-                      reduce:^id(NSNumber *number, NSArray *artists, NSArray *favourites) {
+                      reduce:^id(RandomDate *rd, NSArray *artists, NSArray *favourites) {
                           // if there is favourites, pick one from that list
+                          Artist *nextArtist = nil;
+                          for (Artist *artist in artists) {
+                              if ([artist.begin after:rd.date]) {
+                                  if (nextArtist == nil) {
+                                      nextArtist = artist;
+                                  } else if ([artist.begin before:nextArtist.begin]) {
+                                      nextArtist = artist;
+                                  }
+                              }
+                          }
+
+                          // If less than interval to the beginning of the gig
+                          // show it!
+                          if ([nextArtist.begin timeIntervalSinceDate:rd.date] < kNextInterval) {
+                              return nextArtist;
+                          }
+
                           if (favourites.count != 0) {
-                              NSString *artistId = favourites[number.unsignedIntegerValue % favourites.count];
+                              NSString *artistId = favourites[rd.random % favourites.count];
                               NSUInteger artistIdx = [artists indexOfObjectPassingTest:^BOOL(Artist* art, NSUInteger idx, BOOL *stop) {
                                   return [art.artistId isEqualToString:artistId];
                               }];
@@ -75,15 +114,20 @@
                           }
 
                           // fallback, return random artist
-                          NSUInteger randomIdx = number.unsignedIntegerValue % MAX(artists.count, 1);
+                          NSUInteger randomIdx = rd.random % MAX(artists.count, 1);
                           return artists[randomIdx];
                       }];
 
     [currentArtistSignal subscribeNext:^(Artist *artist) {
         self.currentArtist = artist;
 
-        self.artistLabel.text = artist.artistName;
-        self.artistSublabel.text = artist.stageAndTimeIntervalString;
+        if ([artist.begin timeIntervalSinceNow] < kNextInterval) {
+            self.artistLabel.text = [NSString stringWithFormat:@"Seuraavaksi: %@", artist.artistName];
+            self.artistSublabel.text = artist.stageAndTimeIntervalString;
+        } else {
+            self.artistLabel.text = artist.artistName;
+            self.artistSublabel.text = artist.stageAndTimeIntervalString;
+        }
     }];
 
     RACSignal *imageSignal = [[currentArtistSignal map:^id(Artist *artist) {
