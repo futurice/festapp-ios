@@ -8,130 +8,81 @@
 
 #import "FestDataManager.h"
 #import "FestHTTPSessionManager.h"
+
 #import "Gig.h"
+#import "NewsItem.h"
+#import "InfoItem.h"
 
 @interface FestDataManager()
-@property (nonatomic, strong) NSArray *resourceConfig;
-@property (nonatomic, strong) NSArray *signals;
+@property (nonatomic, strong) RACSubject *gigsSignal;
+@property (nonatomic, strong) RACSubject *newsSignal;
+@property (nonatomic, strong) RACSubject *infoSignal;
 
-- (instancetype)initWithResourceConfig:(NSArray *)resourceConfig;
-
-- (void)loadResource:(FestResource)resourceId;
+- (id)preloadResource:(NSString *)name selector:(SEL)selector;
+- (BOOL)reloadResource:(NSString *)name path:(NSString *)path selector:(SEL)selector subject:(RACSubject *)subject force:(BOOL)force;
 
 - (id)transformGigs:(id)gigsJSONValue;
 - (id)transformNews:(id)newsJSONValue;
-- (id)transformFaq:(id)faqJSONValue;
-- (id)transformProgram:(id)programJSONValue;
-- (id)transformGeneral:(id)generalJSONValue;
-- (id)transformServices:(id)servicesJSONValue;
+- (id)transformInfo:(id)infoJSONValue;
 
-- (NSString *)contentByResourceName:(NSString *)name type:(NSString *)type;
-- (NSString *)pathToResourceByName:(NSString *)name type:(NSString *)type;
+- (NSString *)pathToResourceByName:(NSString *)name;
+- (NSString *)contentByResourceName:(NSString *)name;
 @end
 
 @implementation FestDataManager
+
 + (FestDataManager *)sharedFestDataManager
 {
     static FestDataManager *_sharedFestDataManager = nil;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedFestDataManager = [[self alloc]
-                                   initWithResourceConfig:@[
-                                                            @{
-                                                                @"name": kResourceNameBands,
-                                                                @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/v1/artists",
-                                                                @"selector": @"transformGigs:"
-                                                                },
-                                                            @{
-                                                                @"name": kResourceNameNews,
-                                                                @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/v1/news",
-                                                                @"selector": @"transformNews:"
-                                                                },
-                                                            @{
-                                                                @"name": kResourceNameFAQ,
-                                                                @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/v1/faq",
-                                                                @"selector": @"transformFaq:"
-                                                                },
-                                                            @{
-                                                                @"name": kResourceNameNews,
-                                                                @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/v1/program",
-                                                                @"selector": @"transformProgram:"
-                                                                },
-                                                            @{
-                                                                @"name": kResourceNameGeneral,
-                                                                @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/v1/general",
-                                                                @"selector": @"transformGeneral:"
-                                                                },
-                                                            @{
-                                                                @"name": kResourceNameServices,
-                                                                @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/v1/services",
-                                                                @"selector": @"transformServices:"
-                                                                },
-                                                            @{
-                                                                @"name": kResourceNameStages,
-                                                                @"suffix": kResourceTypeSuffix,
-                                                                @"url": @"/api/v1/stages",
-                                                                @"selector": @"transformStages:"
-                                                                }
-                                                            ]];
+        _sharedFestDataManager = [[self alloc] init];
     });
 
     return _sharedFestDataManager;
 }
 
-- (instancetype)initWithResourceConfig:(NSArray *)resourceConfig
+- (instancetype)init
 {
     self = [super init];
     if (self) {
-        _resourceConfig = resourceConfig;
+        // We could use RACBehaviourSubject here, but until loaded we don't have first value!
 
-        NSMutableArray *signals = [NSMutableArray arrayWithCapacity:kFestResourceCount];
-        NSAssert(resourceConfig.count == kFestResourceCount, @"There should be seven resources");
+        // Gigs
+        id gigsValue = [self preloadResource:@"gigs" selector:@selector(transformGigs:)];
+        RACSubject *gigsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:gigsValue];
+        [self reloadResource:@"gigs" path:FEST_GIGS_JSON_URL selector:@selector(transformGigs:) subject:gigsSubject force:NO];
+        _gigsSignal = gigsSubject;
 
-        for (NSUInteger i = 0; i < kFestResourceCount; i++) {
-            signals[i] = [RACReplaySubject replaySubjectWithCapacity:2];
-        }
+        // News
+        id newsValue = [self preloadResource:@"news" selector:@selector(transformNews:)];
+        RACSubject *newsSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:newsValue];
+        [self reloadResource:@"news" path:FEST_NEWS_JSON_URL selector:@selector(transformNews:) subject:newsSubject force:NO];
+        _newsSignal = newsSubject;
 
-        _signals = signals;
-
-        for (NSUInteger i = 0; i < kFestResourceCount; i++) {
-            [self loadResource:i];
-        }
+        // Info
+        id infoValue = [self preloadResource:@"info" selector:@selector(transformInfo:)];
+        RACSubject *infoSubject = [RACBehaviorSubject behaviorSubjectWithDefaultValue:infoValue];
+        [self reloadResource:@"info" path:FEST_INFO_JSON_URL selector:@selector(transformInfo:) subject:infoSubject force:NO];
+        _infoSignal = infoSubject;
     }
     return self;
 }
 
-# pragma mark - Signals
-
-- (RACSignal *)signalForResource:(FestResource)resourceId
-{
-    return self.signals[resourceId];
-}
 
 # pragma mark - Resource polling
 
-- (BOOL)reloadResource:(FestResource)resourceId forced:(BOOL)forced
+- (BOOL)reloadResource:(NSString *)name path:(NSString *)path selector:(SEL)selector subject:(RACSubject *)subject force:(BOOL)force
 {
-    NSString *resourceName = self.resourceConfig[resourceId][@"name"];
-    NSString *resourceUrl = self.resourceConfig[resourceId][@"url"];
-    SEL selector = NSSelectorFromString(self.resourceConfig[resourceId][@"selector"]);
-    NSString *suffix = self.resourceConfig[resourceId][@"suffix"];
-
-    NSString *keyForLastUpdated = [NSString stringWithFormat:@"%@%@", kResourceLastUpdatedPrefix, resourceName];
+    NSString *keyForLastUpdated = [NSString stringWithFormat:@"%@%@", kResourceLastUpdatedPrefix, name];
 
     // Check when we updated gigs last
-    if (!forced) {
+    if (!force) {
         NSDate *lastUpdated = [[NSUserDefaults standardUserDefaults] objectForKey:keyForLastUpdated];
 
         if (lastUpdated && -[lastUpdated timeIntervalSinceNow] < kResourcePollInterval) {
-            NSLog(@"%@ are recent enough", resourceName);
+            NSLog(@"%@ are recent enough", name);
             return NO;
         }
     }
@@ -140,23 +91,23 @@
 
     // TODO: implement HEAD fetching as well
 
-    [sessionManager GET:resourceUrl parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [sessionManager GET:path parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         (void) task;
 
-        NSLog(@"fetched %@", resourceName);
+        NSLog(@"fetched %@", name);
 
         // save to file
         NSError *error;
 
-        NSString *path = [self pathToResourceByName:resourceName type:suffix];
         NSData *content = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:&error];
 
         if (!error) {
-            if (![content writeToFile:path options:NSDataWritingAtomic error:&error]) {
-                NSLog(@"Error writing updated %@: %@", resourceName, error);
+            NSString *filePath = [self pathToResourceByName:name];
+            if (![content writeToFile:filePath options:NSDataWritingAtomic error:&error]) {
+                NSLog(@"Error writing updated %@: %@", name, error);
             }
         } else {
-            NSLog(@"Error serializing %@: %@", resourceName, error);
+            NSLog(@"Error serializing %@: %@", name, error);
         }
 
         // push into subject
@@ -165,14 +116,14 @@
         id (*transform)(id, SEL, id) = (void *)imp;
         id object = transform(self, selector, responseObject);
 
-        RACReplaySubject *subject = (RACReplaySubject *) self.signals[resourceId];
         [subject sendNext: object];
 
         // store last updated field
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:keyForLastUpdated];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         (void) task;
-        NSLog(@"failed to fetch %@: %@", resourceName, error);
+        NSLog(@"failed to fetch %@: %@", name, error);
     }];
 
     return YES;
@@ -180,73 +131,78 @@
 
 # pragma mark - Resource preloading
 
-- (void)loadResource:(FestResource)resourceId
+- (id)preloadResource:(NSString *)name selector:(SEL)selector
 {
-    NSString *resourceName = self.resourceConfig[resourceId][@"name"];
-    SEL selector = NSSelectorFromString(self.resourceConfig[resourceId][@"selector"]);
     IMP imp = [self methodForSelector:selector];
     id (*transform)(id, SEL, id) = (void *)imp;
 
-    NSString *suffix = self.resourceConfig[resourceId][@"suffix"];
-
-    NSString *resourceDataString = [self contentByResourceName:resourceName type:suffix];
+    NSString *resourceDataString = [self contentByResourceName:name];
     NSDictionary *resourceJSON = [resourceDataString JSONValue];
     id object = transform(self, selector, resourceJSON);
 
-    RACReplaySubject *subject = (RACReplaySubject *) self.signals[resourceId];
-    [subject sendNext: object];
+    return object;
 }
 
 #pragma mark - Resource transformers
 
 - (id)transformGigs:(id)gigsJSONValue
 {
-    return [Gig gigsFromArrayOfDicts:gigsJSONValue];
+    NSArray *gigsArray = gigsJSONValue;
+    NSMutableArray *gigs = [NSMutableArray arrayWithCapacity:gigsArray.count];
+    NSUInteger len = [gigsArray count];
+
+    for (NSUInteger idx = 0; idx < len; idx++) {
+        NSDictionary *obj = gigsArray[idx];
+        Gig *gig = [[Gig alloc] initFromJSON:obj];
+        if (gig) {
+            [gigs addObject:gig];
+        }
+    }
+
+    return gigs;
 }
 
 - (id)transformNews:(id)newsJSONValue
 {
     NSArray *newsArray = newsJSONValue;
-    NSMutableArray *news = [newsArray mutableCopy];
+    NSMutableArray *news = [NSMutableArray arrayWithCapacity:newsArray.count];
+    NSUInteger len = [newsArray count];
 
-    [news sortUsingComparator:^NSComparisonResult(id dict1, id dict2) {
-        NSTimeInterval time1 = [dict1[@"time"] doubleValue];
-        NSTimeInterval time2 = [dict2[@"time"] doubleValue];
-        return (time2 - time1);  // most recent, i.e. bigger time value, will be first. i.e. "smaller"
+    for (NSUInteger idx = 0; idx < len; idx++) {
+        NSDictionary *obj = newsArray[idx];
+        NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
+        if (item) {
+            [news addObject:item];
+        }
+    }
+
+    [news sortUsingComparator:^NSComparisonResult(NewsItem *a, NewsItem *b) {
+        return [b.published compare:a.published];
     }];
 
     return news;
 }
 
-- (id)transformFaq:(id)faqJSONValue
+- (id)transformInfo:(id)infoJSONValue
 {
-    NSArray *faqJSONArray = faqJSONValue;
-    return [faqJSONArray lastObject];
-}
+    NSArray *infoArray = infoJSONValue;
+    NSMutableArray *info = [NSMutableArray arrayWithCapacity:infoArray.count];
+    NSUInteger len = [infoArray count];
 
-- (id)transformProgram:(id)programJSONValue
-{
-    return programJSONValue[0];
-}
+    for (NSUInteger idx = 0; idx < len; idx++) {
+        NSDictionary *obj = infoArray[idx];
+        NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
+        if (item) {
+            [info addObject:item];
+        }
+    }
 
-- (id)transformGeneral:(id)generalJSONValue
-{
-    return generalJSONValue;
-}
-
-- (id)transformServices:(id)servicesJSONValue
-{
-    return servicesJSONValue;
-}
-
-- (id)transformStages:(id)stagesJSONValue
-{
-    return stagesJSONValue;
+    return info;
 }
 
 #pragma mark - Resource storing
 
-- (NSString *)pathToResourceByName:(NSString *)name type:(NSString *)type
+- (NSString *)pathToResourceByName:(NSString *)name
 {
     NSString *path;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -262,22 +218,22 @@
 		}
 	}
 
-    return [path stringByAppendingPathComponent:[name stringByAppendingPathExtension:type]];
+    return [path stringByAppendingPathComponent:name];
 }
 
-- (NSString *)contentByResourceName:(NSString *)name type:(NSString *)type
+- (NSString *)contentByResourceName:(NSString *)name
 {
     NSString *path;
     NSError *error;
 
     // dynamic resource, let's use the locally saved version if available:
-    path = [self pathToResourceByName:name type:type];
+    path = [self pathToResourceByName:name];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
     if (![fileManager fileExistsAtPath:path]) {
 
-        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:name ofType:type];
+        NSString *sourcePath = [[NSBundle mainBundle] pathForResource:name ofType:nil];
         if (sourcePath == nil) {
             return nil;
         }
@@ -300,4 +256,5 @@
         return nil;
     }
 }
+
 @end

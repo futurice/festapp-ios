@@ -5,20 +5,40 @@
 
 #import <UIKit/UIKit.h>
 
-@class InfoViewController;
-@class MapViewController;
-@class TimelineViewController;
-@class NewsViewController;
+#import "FestScheduleViewController.h"
+#import "FestNewsViewController.h"
+#import "FestArtistsViewController.h"
+#import "FestMapViewController.h"
+#import "FestInfoViewController.h"
 
-#define kLogoViewTag 22
+#import "Gig.h"
+#import "NewsItem.h"
+#import "InfoItem.h"
+
+@class InfoViewController;
 
 @interface FestAppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
-@property (nonatomic, strong) IBOutlet UITabBarController *tabBarController;
-@property (nonatomic, strong) IBOutlet InfoViewController *infoViewController;
-@property (nonatomic, strong) IBOutlet MapViewController *mapViewController;
-@property (nonatomic, strong) IBOutlet TimelineViewController *timelineViewController;
-@property (nonatomic, strong) IBOutlet NewsViewController *newsViewController;
+@property (nonatomic, strong) IBOutlet UINavigationController *navController;
+
+@property (nonatomic, strong) IBOutlet FestScheduleViewController *scheduleViewController;
+@property (nonatomic, strong) IBOutlet FestNewsViewController *newsViewController;
+@property (nonatomic, strong) IBOutlet FestArtistsViewController *gigsViewController;
+@property (nonatomic, strong) IBOutlet FestMapViewController *mapViewController;
+@property (nonatomic, strong) IBOutlet FestInfoViewController *infoViewController;
+- (IBAction)goBack:(id)sender;
+
+- (IBAction)showSchedule:(id)sender;
+- (IBAction)showNews:(id)sender;
+- (IBAction)showGigs:(id)sender;
+- (IBAction)showMap:(id)sender;
+- (IBAction)showGeneralInfo:(id)sender;
+
+- (IBAction)showLambdaCalculus:(id)sender;
+
+- (void)showNewsItem:(NewsItem *)newsItem;
+- (void)showInfoItem:(InfoItem *)infoItem;
+- (void)showGig:(Gig *)gig;
 
 @end

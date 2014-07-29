@@ -68,6 +68,14 @@
     return NSLocalizedString(dayName, nil);
 }
 
+- (NSString *)posixWeekdayName
+{
+    NSDateFormatter *dateFormatter = [NSDate dateFormatterWithFormat:@"EEEE"];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    NSString *dayName = [dateFormatter stringFromDate:self];
+    return dayName;
+}
+
 - (NSDate *)sameDateWithMidnightTimestamp
 {
     NSDateFormatter *dateFormatter = [NSDate dateFormatterWithFormat:@"dd-MM-yyyy"];

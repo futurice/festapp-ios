@@ -5,37 +5,28 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Gig : NSObject {
+@interface Gig : NSObject
 
-    BOOL favorite;
-}
+- (instancetype)initFromJSON:(NSDictionary *)json;
 
-@property (nonatomic, strong) NSString *artistId;
-@property (nonatomic, strong) NSString *artistName;
-@property (nonatomic, strong) NSString *artistNameForTimelineDisplay;
-@property (nonatomic, strong) NSString *country;
-@property (nonatomic, strong) NSDate *date;
+// Gig properties
 @property (nonatomic, strong) NSDate *begin;
 @property (nonatomic, strong) NSDate *end;
-@property (nonatomic, strong) NSString *venue;
-@property (nonatomic, strong) NSString *descriptionHTML;
-@property (nonatomic, strong) NSURL *imageURL;
-@property (nonatomic, strong) NSMutableArray *alternativeGigs;
-@property (nonatomic, strong) NSURL *spotifyUrl;
-@property (nonatomic, strong) NSURL *youtubeUrl;
+@property (nonatomic, strong) NSString *stage;
+@property (nonatomic, strong) NSString *day;
 
-@property (nonatomic, readonly) UIImage *image;
-@property (nonatomic, readonly) BOOL isLoadingArtistImage;
-@property (nonatomic, readonly) BOOL hasLoadedArtistImage;
+// Gig properties
+@property (nonatomic, strong) NSString *gigId;
+@property (nonatomic, strong) NSString *gigName;
+@property (nonatomic, strong) NSString *info;
+@property (nonatomic, strong) NSString *imagePath;
 
+// optional
+@property (nonatomic, strong) NSURL *wikipediaUrl;
+
+// Helper selectors
 @property (nonatomic, readonly) NSString *timeIntervalString;
 @property (nonatomic, readonly) NSString *stageAndTimeIntervalString;
 @property (nonatomic, readonly) NSTimeInterval duration;
-@property (nonatomic, assign, getter=isFavorite) BOOL favorite;
-
-+ (NSArray *)gigsFromArrayOfDicts:(NSArray *)dicts;
-
-NSInteger alphabeticalGigSort(id gig1, id gig2, void *context);
-NSInteger chronologicalGigSort(id gig1, id gig2, void *context);
 
 @end

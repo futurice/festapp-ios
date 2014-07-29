@@ -16,90 +16,124 @@
 
 @end
 
+#define kDayChooserPadding 20
+
 @implementation DayChooser
 
 @synthesize selectedDayIndex;
 @synthesize delegate;
 
-- (id)initWithDayNames:(NSArray *)dayNames
+- (id)init
 {
-    self = [super initWithFrame:CGRectMake(0, 0, 320, 29)];
+    self = [super initWithFrame:CGRectMake(0, 0, 320, kDayChooserHeight)];
 
     if (self) {
-
-        self.backgroundColor = [UIColor clearColor];
-
-        self.selectedImage = [[UIImage imageNamed:@"timeline_fri_sun_bg_selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
-        self.unselectedImage = [[UIImage imageNamed:@"timeline_fri_sun_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
-
-        _dayNames = dayNames;
-        NSUInteger dayCount = [dayNames count];
-
-        buttons = [NSMutableArray arrayWithCapacity:dayCount];
-
-        buttonContainer = [[UIView alloc] init];
-        buttonContainer.backgroundColor = [UIColor clearColor];
-        [self addSubview:buttonContainer];
-
-        CGFloat fontPointSize = ([NSLocalizedString(@"lang", nil) isEqualToString:@"en"]) ? 16 : 14;
-
-        for (NSUInteger i = 0; i < dayCount; i++) {
-
-            NSString *dayName = dayNames[i];
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.tag = (NSInteger) i;
-            button.titleLabel.font = [UIFont boldSystemFontOfSize:fontPointSize];
-            [button setTitle:dayName.uppercaseString forState:UIControlStateNormal];
-            [button setTitleColor:kColorYellowLight forState:UIControlStateNormal];
-            [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
-
-            [buttons addObject:button];
-            [buttonContainer addSubview:button];
-        }
-
-        if (buttons.count) {
-            [self buttonPressed:buttons[0]];
-        }
+        [self awakeFromNib];
     }
     return self;
 }
 
-
-- (void)setSelectedDayIndex:(NSUInteger)index
+- (void)awakeFromNib
 {
-    [self buttonPressed:buttons[index]];
+    self.backgroundColor = [UIColor clearColor];
+
+    self.selectedImage = [UIImage imageNamed:@"daychooser-selected"];
+    self.unselectedImage = [UIImage imageNamed:@"daychooser"];
+
+    selectedDayIndex = NSNotFound;
+}
+
+- (void)setDayNames:(NSArray *)dayNames
+{
+    _dayNames = dayNames;
+    NSUInteger dayCount = [dayNames count];
+
+    // remove old buttons
+    [buttonContainer removeFromSuperview];
+
+    // create buttons
+    buttons = [NSMutableArray arrayWithCapacity:dayCount];
+
+    buttonContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kDayChooserHeight)];
+    buttonContainer.backgroundColor = [UIColor clearColor];
+    [self addSubview:buttonContainer];
+
+    CGFloat fontPointSize = 14;
+
+    // TODO: use autolayouting engine
+
+    CGFloat totalWidth = 0;
+
+    for (NSUInteger i = 0; i < dayCount; i++) {
+        NSString *dayName = dayNames[i];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:fontPointSize];
+        [button setTitle:dayName.uppercaseString forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [button setTitleColor:FEST_COLOR_GOLD forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchDown];
+        button.titleLabel.font = [UIFont fontWithName:@"Palatino-Roman" size:19];
+
+        [button setBackgroundImage:self.unselectedImage forState:UIControlStateNormal];
+        [button setBackgroundImage:self.selectedImage forState:UIControlStateSelected];
+
+        CGSize size = [button intrinsicContentSize];
+        totalWidth += size.width;
+
+        [buttons addObject:button];
+        [buttonContainer addSubview:button];
+    }
+
+    CGFloat additional = (320 - totalWidth)/dayCount;
+    CGFloat left = 0;
+    for (NSUInteger i = 0; i < dayCount; i++) {
+        UIButton *button = buttons[i];
+        CGSize size = [button intrinsicContentSize];
+        CGFloat w = size.width + additional;
+        button.frame = CGRectMake(left, 0, w, kDayChooserHeight);
+
+        left += w;
+    }
+
+    if (self.selectedDayIndex == NSNotFound) {
+        self.selectedDayIndex = 0;
+    }
+}
+
+- (void)setSelectedDayIndex:(NSUInteger)_selectedDayIndex
+{
+    if (selectedDayIndex == _selectedDayIndex || _selectedDayIndex >= _dayNames.count) {
+        return;
+    }
+
+    selectedDayIndex = _selectedDayIndex;
+
+    for (NSUInteger idx = 0; idx < _dayNames.count; idx++) {
+        UIButton *b = buttons[idx];
+
+        if (idx == selectedDayIndex) {
+            b.selected = YES;
+        } else {
+            b.selected = NO;
+        }
+    }
+
+    [delegate dayChooser:self selectedDayWithIndex:selectedDayIndex];
 }
 
 - (IBAction)buttonPressed:(UIButton *)button
 {
-    selectedDayIndex = (NSUInteger)button.tag;
-
     NSUInteger buttonCount = [buttons count];
-    int xTotal = 0;
 
-    for (NSUInteger i = 0; i < buttonCount; i++) {
+    for (NSUInteger idx = 0; idx < buttonCount; idx++) {
+        UIButton *b = buttons[idx];
 
-        UIButton *b = buttons[i];
-        NSString *dayName = self.dayNames[i];
-
-        if (selectedDayIndex == i) {
-
-            [b setBackgroundImage:self.selectedImage forState:UIControlStateNormal];
-
-        } else {
-
-            [b setBackgroundImage:self.unselectedImage forState:UIControlStateNormal];
+        if (b == button) {
+            self.selectedDayIndex = idx;
+            return;
         }
-
-        CGFloat buttonWidth = (int) (1.7 * [dayName sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}].width);
-        button.frame = CGRectMake(xTotal, 0, buttonWidth, self.height);
-        xTotal += buttonWidth - 3;
     }
-
-    int xMargin = (int) (self.frame.size.width - xTotal) / 2;
-    buttonContainer.frame = CGRectMake(xMargin, 0, xTotal, self.frame.size.height);
-
-    [delegate dayChooser:self selectedDayWithIndex:selectedDayIndex];
 }
 
 @end

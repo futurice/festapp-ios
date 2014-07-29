@@ -30,19 +30,11 @@ ReactiveCocoa/script/bootstrap
 ## Fetching newest content
 
 ```sh
-rake fetch_content
+sh scripts/fetch_content.sh
 ```
 
-## Run tests
 
-You can run tests once with:
+### Lambda Festival design guides
 
-```sh
-rake test
-```
-
-Or you can use guard to watch changed files and notify results:
-
-```sh
-bin/guard
-```
+- colors: `#333`, `#c90` and `#000`
+- fonts: Palatino and Inconsolata

@@ -3,19 +3,13 @@
 set -e
 set -x
 
-BASEURL="http://festapp-server.heroku.com"
+HOST="127.0.0.1:3000"
+
+BASEURL="http://${HOST}/api"
 OUTPUTDIR="Resources/Content"
 
-JSONS="artists faqs news programs festivals stages"
-ASSETS="arrival.html map.png"
-
-JSONURL="${BASEURL}/api/v1"
-HTMLURL="${BASEURL}/public"
+JSONS="festival gigs news info"
 
 for json in $JSONS; do
-	curl -o "${OUTPUTDIR}/${json}.json" "${JSONURL}/${json}"
-done
-
-for asset in $ASSETS; do
-	curl -o "${OUTPUTDIR}/${asset}" "${HTMLURL}/${asset}"
+	curl -o "${OUTPUTDIR}/${json}" "${BASEURL}/${json}"
 done
