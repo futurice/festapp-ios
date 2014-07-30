@@ -5,6 +5,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kDayChooserHeight 50
+
 @class DayChooser;
 
 @protocol DayChooserDelegate
@@ -15,11 +17,10 @@
 
 @interface DayChooser : UIView
 
-@property (strong, nonatomic) NSArray *dayNames;
+// Array<String>
+@property (nonatomic, strong) NSArray *dayNames;
 @property (nonatomic, assign) NSUInteger selectedDayIndex;
 @property (nonatomic, weak) id<DayChooserDelegate> delegate;
-
-- (id)initWithDayNames:(NSArray *)dayNames;
 
 - (IBAction)buttonPressed:(UIButton *)button;
 

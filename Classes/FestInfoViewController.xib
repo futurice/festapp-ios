@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FestInfoViewController">
+            <connections>
+                <outlet property="tableView" destination="v97-rY-J58" id="yhb-on-lJV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="urq-LR-dCR">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="v97-rY-J58">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="zuY-FF-fcx"/>
+                        <outlet property="delegate" destination="-1" id="Sw8-Bp-T2b"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="urq-LR-dCR" secondAttribute="bottom" id="Fic-F7-MSJ"/>
+                <constraint firstAttribute="bottom" secondItem="v97-rY-J58" secondAttribute="bottom" id="QlR-lv-240"/>
+                <constraint firstAttribute="trailing" secondItem="v97-rY-J58" secondAttribute="trailing" id="TYq-Td-Btf"/>
+                <constraint firstItem="urq-LR-dCR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iuu-A2-2hq"/>
+                <constraint firstAttribute="trailing" secondItem="urq-LR-dCR" secondAttribute="trailing" id="jPa-qm-R0J"/>
+                <constraint firstItem="v97-rY-J58" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kfl-oy-JoQ"/>
+                <constraint firstItem="urq-LR-dCR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="q9d-hP-rKT"/>
+                <constraint firstItem="v97-rY-J58" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ui0-Yz-0VY"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background.png" width="320" height="568"/>
+    </resources>
+</document>

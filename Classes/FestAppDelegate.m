@@ -4,13 +4,7 @@
 //
 
 #import "FestAppDelegate.h"
-#import "InfoViewController.h"
-#import "MapViewController.h"
-#import "TimelineViewController.h"
-#import "NavigableContentViewController.h"
-#import "NewsViewController.h"
-#import "ExternalWebContentViewController.h"
-#import "CustomNavigationBar.h"
+
 #import "Gig.h"
 #import "NSDate+Additions.h"
 #import "UIViewController+Additions.h"
@@ -19,15 +13,15 @@
 #import "FestDataManager.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
+#import "FestArtistViewController.h"
+#import "FestNewsItemViewController.h"
+#import "FestWebContentViewController.h"
+
+@interface FestAppDelegate ()
+
+@end
+
 @implementation FestAppDelegate
-
-@synthesize window;
-@synthesize tabBarController;
-
-@synthesize infoViewController;
-@synthesize mapViewController;
-@synthesize timelineViewController;
-@synthesize newsViewController;
 
 #pragma mark Application lifecycle
 
@@ -47,15 +41,27 @@ void uncaughtExceptionHandler(NSException *exception)
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    int favoriteInstructionShownCount = [defaults integerForKey:kFavoritingInstructionShownCounterKey];
+    NSInteger favoriteInstructionShownCount = [defaults integerForKey:kFavoritingInstructionShownCounterKey];
     if (favoriteInstructionShownCount < 3) {
         [defaults setBool:NO forKey:kFavoritingInstructionAlreadyShownKey];
         [defaults setInteger:(favoriteInstructionShownCount+1) forKey:kFavoritingInstructionShownCounterKey];
     }
 
     [defaults synchronize];
-    self.tabBarController.tabBar.selectedImageTintColor = kColorRed;
-    self.window.rootViewController = self.tabBarController;
+
+    // Navigation bar
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation-bar.png"] forBarMetrics:UIBarMetricsDefault];
+
+    // No navbar shadow
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+
+    // Custom back bar button item
+    // [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"back_arrow.png"]];
+    // [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back_arrow.png"]];
+
+
+    // Navigation view controller as root
+    self.window.rootViewController = self.navController;
 
     [self.window makeKeyAndVisible];
 
@@ -64,14 +70,14 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    [mapViewController.locationManager stopUpdatingLocation];
+    // [mapViewController.locationManager stopUpdatingLocation];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // TODO: refresh data in festdatamanager?
-    [mapViewController.locationManager startUpdatingLocation];
-    [timelineViewController selectCurrentDayIfViable];
+    // [mapViewController.locationManager startUpdatingLocation];
+    // [timelineViewController selectCurrentDayIfViable];
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
@@ -87,22 +93,61 @@ void uncaughtExceptionHandler(NSException *exception)
     }
 }
 
-#pragma mark - UINavigationControllerDelegate methods
+#pragma mark - Navigation Actions
 
-- (void)navigationController:(UINavigationController *)navigationController
-      willShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated
+- (IBAction)showSchedule:(id)sender
 {
-    [navigationController.navigationBar.topItem.titleView setHidden:YES];
+    [self.navController pushViewController:self.scheduleViewController animated:YES];
+}
 
-    if (navigationController.viewControllers.count > 1) {
-        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backButton.frame = CGRectMake(0, 0, 28, 44);
-        [backButton setImage:[UIImage imageNamed:@"back_arrow"] forState:UIControlStateNormal];
-        [backButton addTarget:viewController action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-        viewController.navigationItem.leftBarButtonItem = backBarButton;
-    }
+- (IBAction)showNews:(id)sender
+{
+    [self.navController pushViewController:self.newsViewController animated:YES];
+}
+
+- (IBAction)showGigs:(id)sender
+{
+    [self.navController pushViewController:self.gigsViewController animated:YES];
+}
+
+- (IBAction)showMap:(id)sender
+{
+    [self.navController pushViewController:self.mapViewController animated:YES];
+}
+
+- (IBAction)showLambdaCalculus:(id)sender
+{
+    RACSignal *infoSignal = FestDataManager.sharedFestDataManager.infoSignal;
+    [[infoSignal sample:[RACSignal return:nil]] subscribeNext:^(NSArray *info) {
+        for (InfoItem *item in info) {
+            if ([item.title isEqualToString:@"Lambda Calculus"]) {
+                [self showInfoItem:item];
+            }
+        }
+    }];
+}
+
+- (IBAction)showGeneralInfo:(id)sender
+{
+    [self.navController pushViewController:self.infoViewController animated:YES];
+}
+
+- (void)showNewsItem:(NewsItem *)newsItem
+{
+    UIViewController *controller = [[FestNewsItemViewController alloc] initWithNewsItem:newsItem];
+    [self.navController pushViewController:controller animated:YES];
+}
+
+- (void)showInfoItem:(InfoItem *)infoItem
+{
+    UIViewController *controller = [[FestWebContentViewController alloc] initWithContent:infoItem.content title:infoItem.title];
+    [self.navController pushViewController:controller animated:YES];
+}
+
+- (void)showGig:(Gig *)gig
+{
+    UIViewController *controller = [FestArtistViewController newWithGig:gig];
+    [self.navController pushViewController:controller animated:YES];
 }
 
 @end

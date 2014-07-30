@@ -4,45 +4,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Gig.h"
 
-#define kOneHour (60*60)
-#define kStarAreaWidth 32
-#define kMinWidthForArtistName 60
-
-@class Gig;
-
-
-@protocol TimelineViewDataSource
-
-- (NSUInteger)numberOfVenues;
-- (NSArray *)gigsForVenueAtIndex:(NSUInteger)index;
-- (NSDate *)earliestHour;
-- (NSDate *)latestHour;
-
-@end
-
+@class TimelineView;
 
 @protocol TimelineViewDelegate
-
-- (NSInteger)heightForVenueRow;
-- (NSInteger)widthForVenueLabel;
-- (NSInteger)heightForTimeScale;
-- (NSInteger)widthForOneHour;
-- (void)gigSelected:(Gig *)gig;
-- (void)gigFavoriteStatusToggled:(Gig *)gig;
-
+- (void)timeLineView:(TimelineView *)timeLineView gigSelected:(Gig *)gig;
+- (void)timeLineView:(TimelineView *)timeLineView gigFavourited:(Gig *)gig favourite:(BOOL)favourite;
 @end
 
 
-@interface TimelineView : UIView {
+@interface TimelineView : UIView
+@property (nonatomic, strong) NSArray *gigs;
+@property (nonatomic, strong) NSString *currentDay;
+@property (nonatomic, strong) NSArray *favouritedGigs;
 
-    CGPoint pointOfBeginTouch;
-}
-
-@property (nonatomic, weak) id<TimelineViewDataSource> dataSource;
 @property (nonatomic, weak) id<TimelineViewDelegate> delegate;
 
-- (void)reloadData;
-- (NSInteger)xFromDate:(NSDate *)date;
-
+- (CGRect)gigRect:(Gig *)gig;
 @end

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FestScheduleViewController">
+            <connections>
+                <outlet property="dayChooser" destination="Beo-zt-EzU" id="hGu-RK-bHs"/>
+                <outlet property="timeLineView" destination="cFC-R6-OQf" id="cGg-Oo-fuU"/>
+                <outlet property="timelineVenuesView" destination="zEK-Vt-yOf" id="d7Q-JE-Wnw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-Ay-SXA">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qvb-69-9rC">
+                    <rect key="frame" x="0.0" y="154" width="320" height="350"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="schedule-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="gES-qe-7v2">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZU-Uj-jQk">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFC-R6-OQf" customClass="TimelineView">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="cFC-R6-OQf" firstAttribute="top" secondItem="QZU-Uj-jQk" secondAttribute="top" id="RTD-5a-ICQ"/>
+                                <constraint firstAttribute="trailing" secondItem="cFC-R6-OQf" secondAttribute="trailing" id="iH9-g0-lO8"/>
+                                <constraint firstItem="cFC-R6-OQf" firstAttribute="leading" secondItem="QZU-Uj-jQk" secondAttribute="leading" id="rpO-Hc-iyz"/>
+                                <constraint firstAttribute="bottom" secondItem="cFC-R6-OQf" secondAttribute="bottom" id="zT9-fH-QxI"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="QV6-ob-fCF"/>
+                            </connections>
+                        </scrollView>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="schedule-stages.png" translatesAutoresizingMaskIntoConstraints="NO" id="zEK-Vt-yOf">
+                            <rect key="frame" x="0.0" y="0.0" width="43" height="350"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="350" id="zt0-wA-Bde"/>
+                    </constraints>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qib-Zm-jch">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Beo-zt-EzU" customClass="DayChooser">
+                            <rect key="frame" x="0.0" y="52" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Beo-zt-EzU" firstAttribute="centerY" secondItem="qib-Zm-jch" secondAttribute="centerY" id="ToU-e0-e1i"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qib-Zm-jch" secondAttribute="trailing" id="RKX-Em-waH"/>
+                <constraint firstItem="Qvb-69-9rC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dSd-hf-xQZ"/>
+                <constraint firstItem="qib-Zm-jch" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g4y-E4-47V"/>
+                <constraint firstAttribute="trailing" secondItem="Qvb-69-9rC" secondAttribute="trailing" id="iEX-3E-nbH"/>
+                <constraint firstItem="qib-Zm-jch" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rky-2g-4FS"/>
+                <constraint firstAttribute="bottom" secondItem="Qvb-69-9rC" secondAttribute="bottom" id="wQP-rs-1fk"/>
+                <constraint firstItem="Qvb-69-9rC" firstAttribute="top" secondItem="qib-Zm-jch" secondAttribute="bottom" id="zC8-Gb-qnB"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background.png" width="320" height="568"/>
+        <image name="schedule-bg.png" width="320" height="350"/>
+        <image name="schedule-stages.png" width="43" height="350"/>
+    </resources>
+</document>

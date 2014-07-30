@@ -15,6 +15,7 @@
 - (float)hourValueWithDayDelimiterHour:(int)dayDelimiterHour;
 - (NSString *)hourAndMinuteString;
 - (NSString *)weekdayName;
+- (NSString *)posixWeekdayName;
 
 + (NSDateFormatter *)dateFormatterWithFormat:(NSString *)format;
 
