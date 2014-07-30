@@ -27,7 +27,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="map.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-xK-ajA">
-                            <rect key="frame" x="0.0" y="0.0" width="1700" height="1059"/>
+                            <rect key="frame" x="0.0" y="0.0" width="3072" height="1059"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </imageView>
                     </subviews>

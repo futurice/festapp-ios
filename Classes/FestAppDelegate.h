@@ -27,7 +27,6 @@
 @property (nonatomic, strong) IBOutlet FestArtistsViewController *gigsViewController;
 @property (nonatomic, strong) IBOutlet FestMapViewController *mapViewController;
 @property (nonatomic, strong) IBOutlet FestInfoViewController *infoViewController;
-- (IBAction)goBack:(id)sender;
 
 - (IBAction)showSchedule:(id)sender;
 - (IBAction)showNews:(id)sender;
