@@ -15,7 +15,8 @@
 
 #import "NewsItem.h"
 
-#define kUpdateInterval 30
+#define kUpdateInterval 10
+#define kTransitionAnimationDuration 1.0f
 
 #define kNextInterval 3600
 
@@ -125,8 +126,13 @@
     [currentGigSignal subscribeNext:^(Gig *gig) {
         self.currentGig = gig;
 
-        self.gigLabel.text = gig.gigName;
-        self.gigSublabel.text = gig.stageAndTimeIntervalString;
+        [UIView transitionWithView:self.view
+                          duration:kTransitionAnimationDuration
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.gigLabel.text = gig.gigName;
+                            self.gigSublabel.text = gig.stageAndTimeIntervalString;
+                        } completion:NULL];
     }];
 
     RACSignal *imageSignal = [[currentGigSignal map:^id(Gig *gig) {
@@ -135,7 +141,12 @@
 
     [imageSignal subscribeNext:^(UIImage *image) {
         if (image) {
-            self.gigImageView.image = image;
+            [UIView transitionWithView:self.view
+                              duration:kTransitionAnimationDuration
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                self.gigImageView.image = image;
+                            } completion:NULL];
         }
     }];
 
