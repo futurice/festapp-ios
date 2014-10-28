@@ -9,10 +9,10 @@
 
 - (BOOL)before:(NSDate *)other;
 - (BOOL)after:(NSDate *)other;
-- (int)hour;
-- (int)minute;
+- (NSInteger)hour;
+- (NSInteger)minute;
 - (NSDate *)sameDateWithMidnightTimestamp;
-- (float)hourValueWithDayDelimiterHour:(int)dayDelimiterHour;
+- (float)hourValueWithDayDelimiterHour:(NSInteger)dayDelimiterHour;
 - (NSString *)hourAndMinuteString;
 - (NSString *)weekdayName;
 - (NSString *)posixWeekdayName;
