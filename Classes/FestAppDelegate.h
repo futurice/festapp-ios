@@ -13,7 +13,7 @@
 
 #import "Gig.h"
 #import "NewsItem.h"
-#import "InfoItem.h"
+#import "FestApp-Swift.h"
 
 @class InfoViewController;
 

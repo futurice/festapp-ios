@@ -25,6 +25,7 @@
 		7449289418F8595C00924012 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		7449289A18F8595D00924012 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7449289818F8595D00924012 /* InfoPlist.strings */; };
 		7449289C18F8595D00924012 /* FestApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449289B18F8595D00924012 /* FestApp_Tests.m */; };
+		8895310119FFD78A0092F563 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895310019FFD78A0092F563 /* InfoItem.swift */; };
 		88A78C8719890CB7005F4D70 /* info in Resources */ = {isa = PBXBuildFile; fileRef = 88A78C8619890CB7005F4D70 /* info */; };
 		88A78C8F19891660005F4D70 /* map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88A78C8E19891660005F4D70 /* map.jpg */; };
 		88C00DE91988046900AF869A /* festival in Resources */ = {isa = PBXBuildFile; fileRef = 88C00DCE1988046900AF869A /* festival */; };
@@ -77,7 +78,6 @@
 		88C00E6F1988047600AF869A /* FestWebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E311988047500AF869A /* FestWebContentViewController.m */; };
 		88C00E701988047600AF869A /* FestWebContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E321988047500AF869A /* FestWebContentViewController.xib */; };
 		88C00E711988047600AF869A /* FestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E331988047500AF869A /* FestWindow.xib */; };
-		88C00E741988047600AF869A /* InfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E391988047500AF869A /* InfoItem.m */; };
 		88C00E781988047600AF869A /* NewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E411988047600AF869A /* NewsItem.m */; };
 		88C00E7A1988047600AF869A /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E451988047600AF869A /* NSDate+Additions.m */; };
 		88C00E7B1988047600AF869A /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E471988047600AF869A /* NSString+Additions.m */; };
@@ -135,6 +135,8 @@
 		7449289918F8595D00924012 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7449289B18F8595D00924012 /* FestApp_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FestApp_Tests.m; sourceTree = "<group>"; };
 		7449289D18F8595D00924012 /* FestApp Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp Tests-Prefix.pch"; sourceTree = "<group>"; };
+		889530FF19FFD78A0092F563 /* FestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		8895310019FFD78A0092F563 /* InfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		88A78C8619890CB7005F4D70 /* info */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info; sourceTree = "<group>"; };
 		88A78C8E19891660005F4D70 /* map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpg; sourceTree = "<group>"; };
 		88C00DCE1988046900AF869A /* festival */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = festival; sourceTree = "<group>"; };
@@ -204,8 +206,6 @@
 		88C00E311988047500AF869A /* FestWebContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestWebContentViewController.m; sourceTree = "<group>"; };
 		88C00E321988047500AF869A /* FestWebContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FestWebContentViewController.xib; sourceTree = "<group>"; };
 		88C00E331988047500AF869A /* FestWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FestWindow.xib; sourceTree = "<group>"; };
-		88C00E381988047500AF869A /* InfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoItem.h; sourceTree = "<group>"; };
-		88C00E391988047500AF869A /* InfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoItem.m; sourceTree = "<group>"; };
 		88C00E401988047600AF869A /* NewsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsItem.h; sourceTree = "<group>"; };
 		88C00E411988047600AF869A /* NewsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsItem.m; sourceTree = "<group>"; };
 		88C00E441988047600AF869A /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additions.h"; sourceTree = "<group>"; };
@@ -438,10 +438,10 @@
 			children = (
 				88C00E021988047500AF869A /* Gig.h */,
 				88C00E031988047500AF869A /* Gig.m */,
-				88C00E381988047500AF869A /* InfoItem.h */,
-				88C00E391988047500AF869A /* InfoItem.m */,
 				88C00E401988047600AF869A /* NewsItem.h */,
 				88C00E411988047600AF869A /* NewsItem.m */,
+				8895310019FFD78A0092F563 /* InfoItem.swift */,
+				889530FF19FFD78A0092F563 /* FestApp-Bridging-Header.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -748,11 +748,11 @@
 				88C00E5A1988047600AF869A /* FestArtistCell.m in Sources */,
 				88C00E621988047600AF869A /* FestInfoViewController.m in Sources */,
 				88C00E6F1988047600AF869A /* FestWebContentViewController.m in Sources */,
+				8895310119FFD78A0092F563 /* InfoItem.swift in Sources */,
 				88C00E7D1988047600AF869A /* TimelineView.m in Sources */,
 				88C00E7C1988047600AF869A /* NSString+MD5.m in Sources */,
 				88C00E541988047600AF869A /* Gig.m in Sources */,
 				88C00E7A1988047600AF869A /* NSDate+Additions.m in Sources */,
-				88C00E741988047600AF869A /* InfoItem.m in Sources */,
 				88C00E641988047600AF869A /* FestHTTPSessionManager.m in Sources */,
 				88C00E7B1988047600AF869A /* NSString+Additions.m in Sources */,
 				88C00E7F1988047600AF869A /* UIView+XYWidthHeight.m in Sources */,
@@ -803,6 +803,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -819,6 +820,7 @@
 				);
 				INFOPLIST_FILE = "FestApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-Wall",
@@ -838,6 +840,8 @@
 				PRODUCT_NAME = FestApp;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/FestApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -848,6 +852,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -867,6 +872,7 @@
 				);
 				INFOPLIST_FILE = "FestApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-Wall",
@@ -886,6 +892,7 @@
 				PRODUCT_NAME = FestApp;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/FestApp-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

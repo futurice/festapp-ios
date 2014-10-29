@@ -11,7 +11,7 @@
 
 #import "Gig.h"
 #import "NewsItem.h"
-#import "InfoItem.h"
+#import "FestApp-Swift.h"
 
 @interface FestDataManager()
 @property (nonatomic, strong) RACSubject *gigsSignal;
@@ -191,7 +191,7 @@
 
     for (NSUInteger idx = 0; idx < len; idx++) {
         NSDictionary *obj = infoArray[idx];
-        InfoItem *item = [[InfoItem alloc] initWithJSON:obj];
+        InfoItem *item = [[InfoItem alloc] initWithDictionary:obj];
         if (item) {
             [info addObject:item];
         }
