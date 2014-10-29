@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "FestWebContentViewController.h"
-#import "NewsItem.h"
+#import "FestApp-Swift.h"
 
 @interface FestNewsItemViewController : FestWebContentViewController
 - (id)initWithNewsItem:(NewsItem *)newsItem;

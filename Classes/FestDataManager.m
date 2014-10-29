@@ -10,7 +10,6 @@
 #import "FestHTTPSessionManager.h"
 
 #import "Gig.h"
-#import "NewsItem.h"
 #import "FestApp-Swift.h"
 
 @interface FestDataManager()
@@ -170,7 +169,7 @@
 
     for (NSUInteger idx = 0; idx < len; idx++) {
         NSDictionary *obj = newsArray[idx];
-        NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
+        NewsItem *item = [[NewsItem alloc] initWithDictionary:obj];
         if (item) {
             [news addObject:item];
         }

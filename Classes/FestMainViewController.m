@@ -13,7 +13,7 @@
 #import "FestImageManager.h"
 #import "FestFavouritesManager.h"
 
-#import "NewsItem.h"
+#import "FestApp-Swift.h"
 
 #define kUpdateInterval 10
 #define kTransitionAnimationDuration 1.0f
