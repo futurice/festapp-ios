@@ -50,6 +50,12 @@ extension Optional {
     }
 }
 
+func dateHourAndMinuteString(date: NSDate) -> String {
+    let formatter: NSDateFormatter = NSDateFormatter()
+    formatter.dateFormat = "HH:mm";
+    return formatter.stringFromDate(date)
+}
+
 extension NSDate {
     func hourAndMinuteString() -> String {
         return "xx-xx";

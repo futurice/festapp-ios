@@ -5,7 +5,7 @@
 
 #import "FestAppDelegate.h"
 
-#import "Gig.h"
+#import "FestApp-Swift.h"
 #import "NSDate+Additions.h"
 #import "UIViewController+Additions.h"
 #import <AudioToolbox/AudioToolbox.h>

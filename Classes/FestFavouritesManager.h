@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Gig.h"
+#import "FestApp-Swift.h"
 
 @interface FestFavouritesManager : NSObject
 // NSArray of gigIds

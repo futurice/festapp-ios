@@ -9,7 +9,6 @@
 #import "FestDataManager.h"
 #import "FestHTTPSessionManager.h"
 
-#import "Gig.h"
 #import "FestApp-Swift.h"
 
 @interface FestDataManager()
@@ -152,7 +151,7 @@
 
     for (NSUInteger idx = 0; idx < len; idx++) {
         NSDictionary *obj = gigsArray[idx];
-        Gig *gig = [[Gig alloc] initFromJSON:obj];
+        Gig *gig = [[Gig alloc] initWithDictionary:obj];
         if (gig) {
             [gigs addObject:gig];
         }

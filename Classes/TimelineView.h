@@ -4,7 +4,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Gig.h"
+#import "FestApp-Swift.h"
 
 @class TimelineView;
 

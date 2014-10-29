@@ -4,7 +4,7 @@
 //
 
 #import "TimelineView.h"
-#import "Gig.h"
+#import "FestApp-Swift.h"
 #import "NSDate+Additions.h"
 #import <AudioToolbox/AudioServices.h>
 #import <AVFoundation/AVFoundation.h>

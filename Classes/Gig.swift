@@ -50,7 +50,7 @@ class Gig: NSObject {
 
     func stageAndTimeIntervalString() -> String {
         // String interpolation
-        return "\(day), \(begin.hourAndMinuteString)-\(end.hourAndMinuteString) \(stage)"
+        return "\(day), \(dateHourAndMinuteString(begin))-\(dateHourAndMinuteString(end)) \(stage)"
     }
 
     func duration() -> NSTimeInterval {

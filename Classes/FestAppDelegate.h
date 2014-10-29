@@ -11,8 +11,6 @@
 #import "FestMapViewController.h"
 #import "FestInfoViewController.h"
 
-#import "Gig.h"
-
 #import "FestApp-Swift.h"
 
 @class InfoViewController;

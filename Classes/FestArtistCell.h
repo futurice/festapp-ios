@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Gig.h"
+#import "FestApp-Swift.h"
 
 @interface FestArtistCell : UITableViewCell
 @property (nonatomic, strong) Gig *gig;
