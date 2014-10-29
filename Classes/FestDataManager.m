@@ -191,7 +191,7 @@
 
     for (NSUInteger idx = 0; idx < len; idx++) {
         NSDictionary *obj = infoArray[idx];
-        NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
+        InfoItem *item = [[InfoItem alloc] initWithJSON:obj];
         if (item) {
             [info addObject:item];
         }
