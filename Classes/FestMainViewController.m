@@ -119,7 +119,7 @@
                           }
 
                           // fallback, return random gig
-                          NSUInteger randomIdx = rd.random % MAX(gigs.count, 1);
+                          NSUInteger randomIdx = rd.random % MAX(gigs.count, 1U);
                           return gigs[randomIdx];
                       }] replayLast];
 
