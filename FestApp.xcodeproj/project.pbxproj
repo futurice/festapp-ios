@@ -27,6 +27,7 @@
 		7449289C18F8595D00924012 /* FestApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449289B18F8595D00924012 /* FestApp_Tests.m */; };
 		8895310119FFD78A0092F563 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895310019FFD78A0092F563 /* InfoItem.swift */; };
 		889531031A00AE3C0092F563 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889531021A00AE3C0092F563 /* NewsItem.swift */; };
+		889531051A00B1C20092F563 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889531041A00B1C20092F563 /* Utils.swift */; };
 		88A78C8719890CB7005F4D70 /* info in Resources */ = {isa = PBXBuildFile; fileRef = 88A78C8619890CB7005F4D70 /* info */; };
 		88A78C8F19891660005F4D70 /* map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88A78C8E19891660005F4D70 /* map.jpg */; };
 		88C00DE91988046900AF869A /* festival in Resources */ = {isa = PBXBuildFile; fileRef = 88C00DCE1988046900AF869A /* festival */; };
@@ -138,6 +139,7 @@
 		889530FF19FFD78A0092F563 /* FestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		8895310019FFD78A0092F563 /* InfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		889531021A00AE3C0092F563 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		889531041A00B1C20092F563 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		88A78C8619890CB7005F4D70 /* info */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = info; sourceTree = "<group>"; };
 		88A78C8E19891660005F4D70 /* map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpg; sourceTree = "<group>"; };
 		88C00DCE1988046900AF869A /* festival */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = festival; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 				88C00E031988047500AF869A /* Gig.m */,
 				8895310019FFD78A0092F563 /* InfoItem.swift */,
 				889531021A00AE3C0092F563 /* NewsItem.swift */,
+				889531041A00B1C20092F563 /* Utils.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 			files = (
 				88C00E801988047600AF869A /* UIViewController+Additions.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				889531051A00B1C20092F563 /* Utils.swift in Sources */,
 				88C00E661988047600AF869A /* FestMainViewController.m in Sources */,
 				88C00E5E1988047600AF869A /* FestArtistViewController.m in Sources */,
 				88C00E591988047600AF869A /* FestAppDelegate.m in Sources */,

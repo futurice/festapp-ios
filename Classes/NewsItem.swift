@@ -20,13 +20,10 @@ class NewsItem: NSObject {
     }
 
     init(dictionary: NSDictionary) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-
         title = dictionary["title"] as? String ?? "" // ???
         content = dictionary["content"] as? String ?? ""
 
-        // https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSDate_Class/#//apple_ref/occ/clm/NSDate/distantPast
-        published = dateFormatter.dateFromString(dictionary["published"] as String) ?? (NSDate.distantPast() as NSDate) // unsafe downcasts
+        // Optional Chaining - https://developer.apple.com/library/ios/documentation/swift/conceptual/swift_programming_language/OptionalChaining.html
+        published = (dictionary["published"] as? String)?.asIsoDate() ?? swiftDistantPast
     }
 }
