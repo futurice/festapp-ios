@@ -26,3 +26,32 @@ extension String {
 
 // https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSDate_Class/#//apple_ref/occ/clm/NSDate/distantPast
 let swiftDistantPast: NSDate = NSDate.distantPast() as NSDate
+let swiftDistantFuture: NSDate = NSDate.distantFuture() as NSDate
+
+extension Optional {
+    func filter(predicate: (T) -> Bool) -> T? {
+        if let x = self {
+            if (predicate(x)) {
+                return x
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
+
+    func flatmap<U>(f: (T) -> U?) -> U? {
+        if let x = self {
+            return f(x)
+        } else {
+            return nil
+        }
+    }
+}
+
+extension NSDate {
+    func hourAndMinuteString() -> String {
+        return "xx-xx";
+    }
+}
