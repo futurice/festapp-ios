@@ -25,6 +25,8 @@
 		7449289418F8595C00924012 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		7449289A18F8595D00924012 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7449289818F8595D00924012 /* InfoPlist.strings */; };
 		7449289C18F8595D00924012 /* FestApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449289B18F8595D00924012 /* FestApp_Tests.m */; };
+		887F193F1A02192200B87BF1 /* FestNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F193E1A02192200B87BF1 /* FestNewsViewController.swift */; };
+		887F19411A0219DE00B87BF1 /* FestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F19401A0219DE00B87BF1 /* FestApp.swift */; };
 		8895310119FFD78A0092F563 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895310019FFD78A0092F563 /* InfoItem.swift */; };
 		889531031A00AE3C0092F563 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889531021A00AE3C0092F563 /* NewsItem.swift */; };
 		889531051A00B1C20092F563 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889531041A00B1C20092F563 /* Utils.swift */; };
@@ -136,6 +138,8 @@
 		7449289918F8595D00924012 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7449289B18F8595D00924012 /* FestApp_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FestApp_Tests.m; sourceTree = "<group>"; };
 		7449289D18F8595D00924012 /* FestApp Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp Tests-Prefix.pch"; sourceTree = "<group>"; };
+		887F193E1A02192200B87BF1 /* FestNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestNewsViewController.swift; sourceTree = "<group>"; };
+		887F19401A0219DE00B87BF1 /* FestApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestApp.swift; sourceTree = "<group>"; };
 		889530FF19FFD78A0092F563 /* FestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		8895310019FFD78A0092F563 /* InfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		889531021A00AE3C0092F563 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
@@ -472,6 +476,7 @@
 				88C00E291988047500AF869A /* FestNewsItemViewController.m */,
 				88C00E2A1988047500AF869A /* FestNewsViewController.h */,
 				88C00E2B1988047500AF869A /* FestNewsViewController.m */,
+				887F193E1A02192200B87BF1 /* FestNewsViewController.swift */,
 				88C00E2C1988047500AF869A /* FestNewsViewController.xib */,
 				88C00E2D1988047500AF869A /* FestScheduleViewController.h */,
 				88C00E2E1988047500AF869A /* FestScheduleViewController.m */,
@@ -524,6 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				88C00E8B19880E3600AF869A /* FestApp.h */,
+				887F19401A0219DE00B87BF1 /* FestApp.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -737,6 +743,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C00E801988047600AF869A /* UIViewController+Additions.m in Sources */,
+				887F19411A0219DE00B87BF1 /* FestApp.swift in Sources */,
+				887F193F1A02192200B87BF1 /* FestNewsViewController.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				889531051A00B1C20092F563 /* Utils.swift in Sources */,
 				889531071A00B6600092F563 /* Gig.swift in Sources */,

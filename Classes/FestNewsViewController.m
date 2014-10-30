@@ -10,16 +10,7 @@
 
 #import "FestAppDelegate.h"
 #import "FestDataManager.h"
-
-@interface NewsTableCellView : UITableViewCell
-@end
-
-@implementation NewsTableCellView
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
-{
-    self.textLabel.textColor = highlighted ? FEST_COLOR_GOLD : [UIColor blackColor];
-}
-@end
+#import "FestApp-Swift.h"
 
 @interface FestNewsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *news;
