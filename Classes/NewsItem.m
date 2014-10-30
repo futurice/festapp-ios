@@ -10,7 +10,7 @@
 
 @implementation NewsItem
 
-- (instancetype)initFromJSON:(NSDictionary *)dict
+- (instancetype)initWithDictionary:(NSDictionary *)dict
 {
     self = [super init];
     if (self) {

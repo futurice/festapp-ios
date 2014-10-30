@@ -20,7 +20,7 @@
 @dynamic stageAndTimeIntervalString;
 @dynamic duration;
 
-- (instancetype)initFromJSON:(NSDictionary *)json
+- (instancetype)initWithDictionary:(NSDictionary *)json
 {
     self = [super init];
     if (self) {

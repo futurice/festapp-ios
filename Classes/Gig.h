@@ -7,7 +7,7 @@
 
 @interface Gig : NSObject
 
-- (instancetype)initFromJSON:(NSDictionary *)json;
+- (instancetype)initWithDictionary:(NSDictionary *)json;
 
 // Gig properties
 @property (nonatomic, strong) NSDate *begin;

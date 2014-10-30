@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface InfoItem : NSObject
-- (instancetype)initFromJSON:(NSDictionary *)json;
+- (instancetype)initWithDictionary:(NSDictionary *)json;
 
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *content;

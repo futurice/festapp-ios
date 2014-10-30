@@ -9,7 +9,7 @@
 #import "InfoItem.h"
 
 @implementation InfoItem
-- (instancetype)initFromJSON:(NSDictionary *)json
+- (instancetype)initWithDictionary:(NSDictionary *)json
 {
     self = [super init];
     if (self) {

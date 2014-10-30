@@ -153,7 +153,7 @@
 
     for (NSUInteger idx = 0; idx < len; idx++) {
         NSDictionary *obj = gigsArray[idx];
-        Gig *gig = [[Gig alloc] initFromJSON:obj];
+        Gig *gig = [[Gig alloc] initWithDictionary:obj];
         if (gig) {
             [gigs addObject:gig];
         }
@@ -170,7 +170,7 @@
 
     for (NSUInteger idx = 0; idx < len; idx++) {
         NSDictionary *obj = newsArray[idx];
-        NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
+        NewsItem *item = [[NewsItem alloc] initWithDictionary:obj];
         if (item) {
             [news addObject:item];
         }
@@ -191,7 +191,7 @@
 
     for (NSUInteger idx = 0; idx < len; idx++) {
         NSDictionary *obj = infoArray[idx];
-        NewsItem *item = [[NewsItem alloc] initFromJSON:obj];
+        InfoItem *item = [[InfoItem alloc] initWithDictionary:obj];
         if (item) {
             [info addObject:item];
         }
