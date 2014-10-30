@@ -23,4 +23,8 @@ class InfoItem: NSObject {
         title = dictionary["title"] as? String ?? "" // ???
         content = dictionary["content"] as? String ?? ""
     }
+
+    class func infoItemWithDictionary(dictionary: NSDictionary) -> InfoItem? {
+        return InfoItem(dictionary: dictionary)
+    }
 }

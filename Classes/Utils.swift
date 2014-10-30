@@ -48,6 +48,18 @@ extension Optional {
             return nil
         }
     }
+
+    static func combine<A1,A2,B>(a1: A1?, a2: A2?, f: (A1, A2) -> B) -> B? {
+        if let x1 = a1 {
+            if let x2 = a2 {
+                return f(x1, x2)
+            } else {
+                return nil;
+            }
+        } else {
+            return nil;
+        }
+    }
 }
 
 func dateHourAndMinuteString(date: NSDate) -> String {
