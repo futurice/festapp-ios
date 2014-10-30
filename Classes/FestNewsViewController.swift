@@ -10,118 +10,97 @@ import Foundation
 import UIKit
 
 class NewsTableCellView: UITableViewCell {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.postInit()
+    }
+
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        self.postInit()
+    }
+
+    private func postInit() -> Void {
+        self.selectionStyle = UITableViewCellSelectionStyle.None
+        self.backgroundColor = UIColor.clearColor()
+        self.textLabel.textColor = UIColor.blackColor()
+        self.textLabel.font = UIFont(name: "Palatino-Roman", size: 23)
+    }
+
     override func setHighlighted(highlighted: Bool, animated: Bool) {
         self.textLabel.textColor = highlighted ? FEST_COLOR_GOLD : UIColor.blackColor()
     }
 }
 
-/*
+// WTF:
+// http://stackoverflow.com/questions/25149604/are-view-controllers-with-nib-files-broken-in-ios-8-beta-5/25152545#25152545
+class FestNewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    // This is a mirror of data managers' news signal
+    // it's much easier to provide table view with stuff,
+    // if we have it here
+    private var news: Array<NewsItem> = []
 
-@interface FestNewsViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) NSArray *news;
+    // https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/WritingSwiftClassesWithObjective-CBehavior.html
+    @IBOutlet var tableView: UITableView! // <-- Implicitly Unwrapped Optionals
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-@end
+    override func viewDidLoad() {
+        let newsSignal = FestDataManager.sharedFestDataManager().newsSignal
+        newsSignal.subscribeNext { (news: AnyObject!) -> Void in
+            // Have to do cast here, as ReactiveCocoa isn't as typed
+            // as it would be good for swift!
+            self.news = news as? Array<NewsItem> ?? []
+            self.tableView.reloadData()
+        }
 
-@implementation FestNewsViewController
+        self.navigationItem.title = ""
+    }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-if (self) {
-// Custom initialization
+    // http://stackoverflow.com/questions/24017316/pragma-mark-in-swift
+    // MARK: UITableViewDataSource
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let idx = indexPath.row
+
+        let cellIdentfier = "NewsItemCell"
+        let cell: NewsTableCellView = tableView.dequeueReusableCellWithIdentifier(cellIdentfier) as? NewsTableCellView ?? NewsTableCellView(style:UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentfier)
+
+
+        let newsItem: NewsItem = news[idx]
+
+        cell.textLabel.text = newsItem.title
+        cell.detailTextLabel?.text = newsItem.published.description // TODO
+
+        return cell
+    }
+
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+        return nil
+    }
+
+    // MARK: UITableViewDelegate
+
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRectZero)
+    }
+
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: CGRectZero)
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let newsItem = self.news[indexPath.row]
+
+        FestDispatcher.sharedFestDispatcher().showNewsItem(newsItem)
+    }
 }
-return self;
-}
-
-- (void)viewDidLoad
-{
-[super viewDidLoad];
-
-RACSignal *NewsSignal = FestDataManager.sharedFestDataManager.newsSignal;
-[NewsSignal subscribeNext:^(NSArray *news) {
-self.news = news;
-[self.tableView reloadData];
-}];
-
-self.navigationItem.title = @"";
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-[[self navigationController] setNavigationBarHidden:NO animated:animated];
-}
-
-- (void)didReceiveMemoryWarning
-{
-[super didReceiveMemoryWarning];
-// Dispose of any resources that can be recreated.
-}
-
-#pragma mark UITableViewDataSource
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wsign-conversion"
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-return self.news.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-NSUInteger idx = indexPath.row;
-
-static NSString *cellIdentifier = @"NewsItemCell";
-UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
-if (cell == nil) {
-cell = [[NewsTableCellView alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-cell.selectionStyle = UITableViewCellSelectionStyleNone;
-// cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-}
-
-NewsItem *NewsItem = self.news[idx];
-
-cell.backgroundColor = [UIColor clearColor];
-cell.textLabel.text = NewsItem.title;
-cell.detailTextLabel.text = NewsItem.published.description; // TODO
-cell.textLabel.textColor = [UIColor blackColor];
-cell.textLabel.font = [UIFont fontWithName:@"Palatino-Roman" size:23];
-
-return cell;
-}
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-return nil;
-}
-
-#pragma mark UITableViewDelegate
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-return [[UIView alloc] initWithFrame:CGRectZero];
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-return [[UIView alloc] initWithFrame:CGRectZero];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-NewsItem *newsItem = self.news[indexPath.row];
-[APPDELEGATE showNewsItem:newsItem];
-}
-
-#pragma clang diagnostic pop
-
-@end
-
-*/

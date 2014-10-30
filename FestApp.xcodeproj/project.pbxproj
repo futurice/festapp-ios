@@ -27,6 +27,7 @@
 		7449289C18F8595D00924012 /* FestApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449289B18F8595D00924012 /* FestApp_Tests.m */; };
 		887F193F1A02192200B87BF1 /* FestNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F193E1A02192200B87BF1 /* FestNewsViewController.swift */; };
 		887F19411A0219DE00B87BF1 /* FestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F19401A0219DE00B87BF1 /* FestApp.swift */; };
+		887F19471A022BD700B87BF1 /* FestDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 887F19461A022BD700B87BF1 /* FestDispatcher.m */; };
 		8895310119FFD78A0092F563 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895310019FFD78A0092F563 /* InfoItem.swift */; };
 		889531031A00AE3C0092F563 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889531021A00AE3C0092F563 /* NewsItem.swift */; };
 		889531051A00B1C20092F563 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889531041A00B1C20092F563 /* Utils.swift */; };
@@ -75,8 +76,7 @@
 		88C00E681988047600AF869A /* FestMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E261988047500AF869A /* FestMapViewController.m */; };
 		88C00E691988047600AF869A /* FestMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E271988047500AF869A /* FestMapViewController.xib */; };
 		88C00E6A1988047600AF869A /* FestNewsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E291988047500AF869A /* FestNewsItemViewController.m */; };
-		88C00E6B1988047600AF869A /* FestNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E2B1988047500AF869A /* FestNewsViewController.m */; };
-		88C00E6C1988047600AF869A /* FestNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E2C1988047500AF869A /* FestNewsViewController.xib */; };
+		88C00E6C1988047600AF869A /* FestApp.FestNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E2C1988047500AF869A /* FestApp.FestNewsViewController.xib */; };
 		88C00E6D1988047600AF869A /* FestScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E2E1988047500AF869A /* FestScheduleViewController.m */; };
 		88C00E6E1988047600AF869A /* FestScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E2F1988047500AF869A /* FestScheduleViewController.xib */; };
 		88C00E6F1988047600AF869A /* FestWebContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E311988047500AF869A /* FestWebContentViewController.m */; };
@@ -140,6 +140,8 @@
 		7449289D18F8595D00924012 /* FestApp Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp Tests-Prefix.pch"; sourceTree = "<group>"; };
 		887F193E1A02192200B87BF1 /* FestNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestNewsViewController.swift; sourceTree = "<group>"; };
 		887F19401A0219DE00B87BF1 /* FestApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestApp.swift; sourceTree = "<group>"; };
+		887F19451A022BD700B87BF1 /* FestDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestDispatcher.h; sourceTree = "<group>"; };
+		887F19461A022BD700B87BF1 /* FestDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestDispatcher.m; sourceTree = "<group>"; };
 		889530FF19FFD78A0092F563 /* FestApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FestApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		8895310019FFD78A0092F563 /* InfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		889531021A00AE3C0092F563 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
@@ -202,9 +204,7 @@
 		88C00E271988047500AF869A /* FestMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FestMapViewController.xib; sourceTree = "<group>"; };
 		88C00E281988047500AF869A /* FestNewsItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestNewsItemViewController.h; sourceTree = "<group>"; };
 		88C00E291988047500AF869A /* FestNewsItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestNewsItemViewController.m; sourceTree = "<group>"; };
-		88C00E2A1988047500AF869A /* FestNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestNewsViewController.h; sourceTree = "<group>"; };
-		88C00E2B1988047500AF869A /* FestNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestNewsViewController.m; sourceTree = "<group>"; };
-		88C00E2C1988047500AF869A /* FestNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FestNewsViewController.xib; sourceTree = "<group>"; };
+		88C00E2C1988047500AF869A /* FestApp.FestNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FestApp.FestNewsViewController.xib; sourceTree = "<group>"; };
 		88C00E2D1988047500AF869A /* FestScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestScheduleViewController.h; sourceTree = "<group>"; };
 		88C00E2E1988047500AF869A /* FestScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestScheduleViewController.m; sourceTree = "<group>"; };
 		88C00E2F1988047500AF869A /* FestScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FestScheduleViewController.xib; sourceTree = "<group>"; };
@@ -474,10 +474,8 @@
 				88C00E271988047500AF869A /* FestMapViewController.xib */,
 				88C00E281988047500AF869A /* FestNewsItemViewController.h */,
 				88C00E291988047500AF869A /* FestNewsItemViewController.m */,
-				88C00E2A1988047500AF869A /* FestNewsViewController.h */,
-				88C00E2B1988047500AF869A /* FestNewsViewController.m */,
 				887F193E1A02192200B87BF1 /* FestNewsViewController.swift */,
-				88C00E2C1988047500AF869A /* FestNewsViewController.xib */,
+				88C00E2C1988047500AF869A /* FestApp.FestNewsViewController.xib */,
 				88C00E2D1988047500AF869A /* FestScheduleViewController.h */,
 				88C00E2E1988047500AF869A /* FestScheduleViewController.m */,
 				88C00E2F1988047500AF869A /* FestScheduleViewController.xib */,
@@ -504,6 +502,8 @@
 				88C00E1F1988047500AF869A /* FestHTTPSessionManager.m */,
 				88C00E201988047500AF869A /* FestImageManager.h */,
 				88C00E211988047500AF869A /* FestImageManager.m */,
+				887F19451A022BD700B87BF1 /* FestDispatcher.h */,
+				887F19461A022BD700B87BF1 /* FestDispatcher.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -677,7 +677,7 @@
 				88C00DEE1988046900AF869A /* icon58.png in Resources */,
 				88C00DEA1988046900AF869A /* gigs in Resources */,
 				88C00E001988046900AF869A /* star@2x.png in Resources */,
-				88C00E6C1988047600AF869A /* FestNewsViewController.xib in Resources */,
+				88C00E6C1988047600AF869A /* FestApp.FestNewsViewController.xib in Resources */,
 				88C00DF01988046900AF869A /* background@2x.png in Resources */,
 				88A78C8F19891660005F4D70 /* map.jpg in Resources */,
 				88C00EA01988E1F400AF869A /* martin-lof.jpg in Resources */,
@@ -743,6 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C00E801988047600AF869A /* UIViewController+Additions.m in Sources */,
+				887F19471A022BD700B87BF1 /* FestDispatcher.m in Sources */,
 				887F19411A0219DE00B87BF1 /* FestApp.swift in Sources */,
 				887F193F1A02192200B87BF1 /* FestNewsViewController.swift in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
@@ -751,7 +752,6 @@
 				88C00E661988047600AF869A /* FestMainViewController.m in Sources */,
 				88C00E5E1988047600AF869A /* FestArtistViewController.m in Sources */,
 				88C00E591988047600AF869A /* FestAppDelegate.m in Sources */,
-				88C00E6B1988047600AF869A /* FestNewsViewController.m in Sources */,
 				88C00E6D1988047600AF869A /* FestScheduleViewController.m in Sources */,
 				88C00E611988047600AF869A /* FestFavouritesManager.m in Sources */,
 				88C00E5A1988047600AF869A /* FestArtistCell.m in Sources */,

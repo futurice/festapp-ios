@@ -6,7 +6,6 @@
 #import <UIKit/UIKit.h>
 
 #import "FestScheduleViewController.h"
-#import "FestNewsViewController.h"
 #import "FestArtistsViewController.h"
 #import "FestMapViewController.h"
 #import "FestInfoViewController.h"
