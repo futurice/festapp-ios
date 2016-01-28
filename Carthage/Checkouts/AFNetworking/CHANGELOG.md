@@ -4,48 +4,6 @@ All notable changes to this project will be documented in this file.
 
 --- 
 
-## [3.0.4](https://github.com/AFNetworking/AFNetworking/releases/tag/3.0.4) (12/18/2015)
-Released on Friday, December 18, 2015. All issues associated with this milestone can be found using this [filter](https://github.com/AFNetworking/AFNetworking/issues?q=milestone%3A3.0.4+is%3Aclosed).
-
-#### Fixed
-* Fixed issue where `AFNSURLSessionTaskDidResumeNotification` was removed twice
- * Implemented by Kevin Harwood in [#3236](https://github.com/AFNetworking/AFNetworking/pull/3236).
- 
-
-## [3.0.3](https://github.com/AFNetworking/AFNetworking/releases/tag/3.0.3) (12/16/2015)
-Released on Wednesday, December 16, 2015. All issues associated with this milestone can be found using this [filter](https://github.com/AFNetworking/AFNetworking/issues?q=milestone%3A3.0.3+is%3Aclosed).
-
-#### Added
-* Added tests for response serializers to increase test coverage
- * Implemented by Kevin Harwood in [#3233](https://github.com/AFNetworking/AFNetworking/pull/3233).
-
-#### Fixed
-* Fixed `AFImageResponseSerializer` serialization macros on watchOS and tvOS
- * Implemented by Charles Joseph in [#3229](https://github.com/AFNetworking/AFNetworking/pull/3229).
- 
-
-## [3.0.2](https://github.com/AFNetworking/AFNetworking/releases/tag/3.0.2) (12/14/2015)
-Released on Monday, December 14, 2015. All issues associated with this milestone can be found using this [filter](https://github.com/AFNetworking/AFNetworking/issues?q=milestone%3A3.0.2+is%3Aclosed).
-
-#### Fixed
-* Fixed a crash in `AFURLSessionManager` when resuming download tasks
- * Implemented by Chongyu Zhu in [#3222](https://github.com/AFNetworking/AFNetworking/pull/3222).
-* Fixed issue where background button image would not be updated
- * Implemented by eofs in [#3220](https://github.com/AFNetworking/AFNetworking/pull/3220).
- 
-
-## [3.0.1](https://github.com/AFNetworking/AFNetworking/releases/tag/3.0.1) (12/11/2015)
-Released on Friday, December 11, 2015. All issues associated with this milestone can be found using this [filter](https://github.com/AFNetworking/AFNetworking/issues?q=milestone%3A3.0.1+is%3Aclosed).
-
-#### Added
-* Added Xcode 7.2 support to Travis
- * Implemented by Kevin Harwood in [#3216](https://github.com/AFNetworking/AFNetworking/pull/3216).
-
-#### Fixed
-* Fixed race condition with ImageView/Button image downloading when starting/cancelling/starting the same request
- * Implemented by Kevin Harwood in [#3215](https://github.com/AFNetworking/AFNetworking/pull/3215).
- 
-
 ## [3.0.0](https://github.com/AFNetworking/AFNetworking/releases/tag/3.0.0) (12/10/2015)
 Released on Thursday, December 10, 2015. All issues associated with this milestone can be found using this [filter](https://github.com/AFNetworking/AFNetworking/issues?q=milestone%3A3.0.0+is%3Aclosed).
 

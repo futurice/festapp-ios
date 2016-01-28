@@ -103,37 +103,35 @@
         } else {
             self.image = cachedImage;
         }
-        [self clearActiveDownloadInformation];
+        self.af_activeImageDownloadReceipt = nil;
     } else {
         if (placeholderImage) {
             self.image = placeholderImage;
         }
 
         __weak __typeof(self)weakSelf = self;
-        NSUUID *downloadID = [NSUUID UUID];
         AFImageDownloadReceipt *receipt;
         receipt = [downloader
                    downloadImageForURLRequest:urlRequest
-                   withReceiptID:downloadID
                    success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull responseObject) {
                        __strong __typeof(weakSelf)strongSelf = weakSelf;
-                       if ([strongSelf.af_activeImageDownloadReceipt.receiptID isEqual:downloadID]) {
+                       if ([strongSelf isActiveTaskURLEqualToURLRequest:request]) {
                            if (success) {
                                success(request, response, responseObject);
                            } else if(responseObject) {
                                strongSelf.image = responseObject;
                            }
-                           [strongSelf clearActiveDownloadInformation];
+                           strongSelf.af_activeImageDownloadReceipt = nil;
                        }
 
                    }
                    failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
                        __strong __typeof(weakSelf)strongSelf = weakSelf;
-                        if ([strongSelf.af_activeImageDownloadReceipt.receiptID isEqual:downloadID]) {
+                        if ([strongSelf isActiveTaskURLEqualToURLRequest:request]) {
                             if (failure) {
                                 failure(request, response, error);
                             }
-                            [strongSelf clearActiveDownloadInformation];
+                            strongSelf.af_activeImageDownloadReceipt = nil;
                         }
                    }];
 
@@ -144,12 +142,8 @@
 - (void)cancelImageDownloadTask {
     if (self.af_activeImageDownloadReceipt != nil) {
         [[self.class sharedImageDownloader] cancelTaskForImageDownloadReceipt:self.af_activeImageDownloadReceipt];
-        [self clearActiveDownloadInformation];
+        self.af_activeImageDownloadReceipt = nil;
      }
-}
-
-- (void)clearActiveDownloadInformation {
-    self.af_activeImageDownloadReceipt = nil;
 }
 
 - (BOOL)isActiveTaskURLEqualToURLRequest:(NSURLRequest *)urlRequest {
