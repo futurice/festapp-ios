@@ -19,32 +19,15 @@
 		4D1ED38D139CBB7600BB1D47 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1ED38C139CBB7600BB1D47 /* AudioToolbox.framework */; };
 		4D30E8411396CBAB007E9D0B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D30E8401396CBA9007E9D0B /* AVFoundation.framework */; };
 		4D587128138C13A700B0A0BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D587127138C13A700B0A0BC /* MapKit.framework */; };
+		6FD6DCBF1C5A69F300AC088C /* FestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E181988047500AF869A /* FestDataManager.m */; };
+		6FD6DCC21C5A6B4800AC088C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD6DCC01C5A6B2C00AC088C /* AFNetworking.framework */; };
 		7449289318F8595C00924012 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		7449289418F8595C00924012 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		7449289A18F8595D00924012 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7449289818F8595D00924012 /* InfoPlist.strings */; };
 		7449289C18F8595D00924012 /* FestApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7449289B18F8595D00924012 /* FestApp_Tests.m */; };
 		88A78C8719890CB7005F4D70 /* info in Resources */ = {isa = PBXBuildFile; fileRef = 88A78C8619890CB7005F4D70 /* info */; };
 		88A78C8F19891660005F4D70 /* map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88A78C8E19891660005F4D70 /* map.jpg */; };
-		88B472201AF0CE5A0059CC8A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4720E1AF0CE5A0059CC8A /* AFHTTPRequestOperation.m */; };
-		88B472211AF0CE5A0059CC8A /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472101AF0CE5A0059CC8A /* AFHTTPRequestOperationManager.m */; };
-		88B472221AF0CE5A0059CC8A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472121AF0CE5A0059CC8A /* AFHTTPSessionManager.m */; };
-		88B472231AF0CE5A0059CC8A /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472151AF0CE5A0059CC8A /* AFNetworkReachabilityManager.m */; };
-		88B472241AF0CE5A0059CC8A /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472171AF0CE5A0059CC8A /* AFSecurityPolicy.m */; };
-		88B472251AF0CE5A0059CC8A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472191AF0CE5A0059CC8A /* AFURLConnectionOperation.m */; };
-		88B472261AF0CE5A0059CC8A /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4721B1AF0CE5A0059CC8A /* AFURLRequestSerialization.m */; };
-		88B472271AF0CE5A0059CC8A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4721D1AF0CE5A0059CC8A /* AFURLResponseSerialization.m */; };
-		88B472281AF0CE5A0059CC8A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4721F1AF0CE5A0059CC8A /* AFURLSessionManager.m */; };
-		88B4723B1AF0CE730059CC8A /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4722B1AF0CE730059CC8A /* AFNetworkActivityIndicatorManager.m */; };
-		88B4723C1AF0CE730059CC8A /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4722D1AF0CE730059CC8A /* UIActivityIndicatorView+AFNetworking.m */; };
-		88B4723D1AF0CE730059CC8A /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4722F1AF0CE730059CC8A /* UIAlertView+AFNetworking.m */; };
-		88B4723E1AF0CE730059CC8A /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472311AF0CE730059CC8A /* UIButton+AFNetworking.m */; };
-		88B4723F1AF0CE730059CC8A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472331AF0CE730059CC8A /* UIImageView+AFNetworking.m */; };
-		88B472401AF0CE730059CC8A /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472361AF0CE730059CC8A /* UIProgressView+AFNetworking.m */; };
-		88B472411AF0CE730059CC8A /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B472381AF0CE730059CC8A /* UIRefreshControl+AFNetworking.m */; };
-		88B472421AF0CE730059CC8A /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B4723A1AF0CE730059CC8A /* UIWebView+AFNetworking.m */; };
-		88B472461AF0D1570059CC8A /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B472011AF0CA350059CC8A /* ReactiveCocoa.framework */; };
 		88B472471AF0D2600059CC8A /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B472011AF0CA350059CC8A /* ReactiveCocoa.framework */; };
-		88B472481AF0D2600059CC8A /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88B472011AF0CA350059CC8A /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88C00DE91988046900AF869A /* festival in Resources */ = {isa = PBXBuildFile; fileRef = 88C00DCE1988046900AF869A /* festival */; };
 		88C00DEA1988046900AF869A /* gigs in Resources */ = {isa = PBXBuildFile; fileRef = 88C00DCF1988046900AF869A /* gigs */; };
 		88C00DEB1988046900AF869A /* news in Resources */ = {isa = PBXBuildFile; fileRef = 88C00DD01988046900AF869A /* news */; };
@@ -77,7 +60,6 @@
 		88C00E5D1988047600AF869A /* FestArtistsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E131988047500AF869A /* FestArtistsViewController.xib */; };
 		88C00E5E1988047600AF869A /* FestArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E151988047500AF869A /* FestArtistViewController.m */; };
 		88C00E5F1988047600AF869A /* FestArtistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E161988047500AF869A /* FestArtistViewController.xib */; };
-		88C00E601988047600AF869A /* FestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E181988047500AF869A /* FestDataManager.m */; };
 		88C00E611988047600AF869A /* FestFavouritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E1A1988047500AF869A /* FestFavouritesManager.m */; };
 		88C00E621988047600AF869A /* FestInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C00E1C1988047500AF869A /* FestInfoViewController.m */; };
 		88C00E631988047600AF869A /* FestInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C00E1D1988047500AF869A /* FestInfoViewController.xib */; };
@@ -130,20 +112,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		88B472491AF0D2610059CC8A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				88B472481AF0D2600059CC8A /* ReactiveCocoa.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* FestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +128,7 @@
 		4D1ED38C139CBB7600BB1D47 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4D30E8401396CBA9007E9D0B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4D587127138C13A700B0A0BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6FD6DCC01C5A6B2C00AC088C /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		7449289018F8595C00924012 /* FestApp Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FestApp Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7449289718F8595C00924012 /* FestApp Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FestApp Tests-Info.plist"; sourceTree = "<group>"; };
 		7449289918F8595D00924012 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -311,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FD6DCC21C5A6B4800AC088C /* AFNetworking.framework in Frameworks */,
 				88C1835F18DDC89C0014495D /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -324,7 +294,6 @@
 				4D186E6A1393CCA900CDA3DB /* QuartzCore.framework in Frameworks */,
 				48EE8C45158B725B00C5345E /* MobileCoreServices.framework in Frameworks */,
 				48EE8C41158B721200C5345E /* SystemConfiguration.framework in Frameworks */,
-				88B472461AF0D1570059CC8A /* ReactiveCocoa.framework in Frameworks */,
 				48EE8C43158B725000C5345E /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +334,7 @@
 		29B97314FDCFA39411CA2CEA /* Ruisrock */ = {
 			isa = PBXGroup;
 			children = (
+				6FD6DCC01C5A6B2C00AC088C /* AFNetworking.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -691,7 +661,6 @@
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				88B472431AF0CFA20059CC8A /* ShellScript */,
-				88B472491AF0D2610059CC8A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -727,7 +696,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Fest;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Futurice Oy";
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
@@ -842,6 +811,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
 			);
 			outputPaths = (
 			);
@@ -856,49 +826,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88B472201AF0CE5A0059CC8A /* AFHTTPRequestOperation.m in Sources */,
 				88C00E801988047600AF869A /* UIViewController+Additions.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				88C00E661988047600AF869A /* FestMainViewController.m in Sources */,
+				6FD6DCBF1C5A69F300AC088C /* FestDataManager.m in Sources */,
 				88C00E5E1988047600AF869A /* FestArtistViewController.m in Sources */,
 				88C00E591988047600AF869A /* FestAppDelegate.m in Sources */,
-				88B472421AF0CE730059CC8A /* UIWebView+AFNetworking.m in Sources */,
-				88B472221AF0CE5A0059CC8A /* AFHTTPSessionManager.m in Sources */,
 				88C00E6B1988047600AF869A /* FestNewsViewController.m in Sources */,
-				88B472411AF0CE730059CC8A /* UIRefreshControl+AFNetworking.m in Sources */,
-				88B4723B1AF0CE730059CC8A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				88C00E6D1988047600AF869A /* FestScheduleViewController.m in Sources */,
 				88C00E611988047600AF869A /* FestFavouritesManager.m in Sources */,
-				88B4723F1AF0CE730059CC8A /* UIImageView+AFNetworking.m in Sources */,
-				88B4723E1AF0CE730059CC8A /* UIButton+AFNetworking.m in Sources */,
-				88B4723C1AF0CE730059CC8A /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				88B472281AF0CE5A0059CC8A /* AFURLSessionManager.m in Sources */,
 				88C00E5A1988047600AF869A /* FestArtistCell.m in Sources */,
-				88B472241AF0CE5A0059CC8A /* AFSecurityPolicy.m in Sources */,
-				88B472271AF0CE5A0059CC8A /* AFURLResponseSerialization.m in Sources */,
-				88B472401AF0CE730059CC8A /* UIProgressView+AFNetworking.m in Sources */,
 				88C00E621988047600AF869A /* FestInfoViewController.m in Sources */,
 				88C00E6F1988047600AF869A /* FestWebContentViewController.m in Sources */,
 				88C00E7D1988047600AF869A /* TimelineView.m in Sources */,
 				88C00E7C1988047600AF869A /* NSString+MD5.m in Sources */,
-				88B472251AF0CE5A0059CC8A /* AFURLConnectionOperation.m in Sources */,
 				88C00E541988047600AF869A /* Gig.m in Sources */,
-				88B4723D1AF0CE730059CC8A /* UIAlertView+AFNetworking.m in Sources */,
-				88B472261AF0CE5A0059CC8A /* AFURLRequestSerialization.m in Sources */,
 				88C00E7A1988047600AF869A /* NSDate+Additions.m in Sources */,
 				88C00E741988047600AF869A /* InfoItem.m in Sources */,
 				88C00E641988047600AF869A /* FestHTTPSessionManager.m in Sources */,
-				88B472211AF0CE5A0059CC8A /* AFHTTPRequestOperationManager.m in Sources */,
 				88C00E7B1988047600AF869A /* NSString+Additions.m in Sources */,
 				88C00E7F1988047600AF869A /* UIView+XYWidthHeight.m in Sources */,
-				88B472231AF0CE5A0059CC8A /* AFNetworkReachabilityManager.m in Sources */,
 				88C00E681988047600AF869A /* FestMapViewController.m in Sources */,
 				88C00E5C1988047600AF869A /* FestArtistsViewController.m in Sources */,
 				88C00E571988047600AF869A /* DayChooser.m in Sources */,
 				88C00E781988047600AF869A /* NewsItem.m in Sources */,
 				88C00E6A1988047600AF869A /* FestNewsItemViewController.m in Sources */,
 				88C00E651988047600AF869A /* FestImageManager.m in Sources */,
-				88C00E601988047600AF869A /* FestDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,11 +950,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FestApp_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"NS_BLOCK_ASSERTIONS=1",
-					NDEBUG,
-				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1126,6 +1074,10 @@
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

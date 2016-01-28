@@ -1,1 +1,2 @@
 github "ReactiveCocoa/ReactiveCocoa" == 2.5
+github "AFNetworking/AFNetworking" == 3.04
