@@ -91,7 +91,7 @@
 
     // TODO: implement HEAD fetching as well
 
-    [sessionManager GET:path parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [sessionManager GET:path parameters:@{} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         (void) task;
 
         NSLog(@"fetched %@", name);

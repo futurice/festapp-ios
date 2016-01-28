@@ -44,13 +44,13 @@
 
 - (NSInteger)hour
 {
-	NSDateComponents *components = [[NSDate currentCalendar] components:NSHourCalendarUnit fromDate:self];
+	NSDateComponents *components = [[NSDate currentCalendar] components:NSCalendarUnitHour fromDate:self];
 	return [components hour];
 }
 
 - (NSInteger)minute
 {
-	NSDateComponents *components = [[NSDate currentCalendar] components:NSHourCalendarUnit fromDate:self];
+	NSDateComponents *components = [[NSDate currentCalendar] components:NSCalendarUnitHour fromDate:self];
 	return [components minute];
 }
 
