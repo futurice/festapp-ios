@@ -2,6 +2,6 @@
   "-project", "FestApp.xcodeproj",
   "-scheme", "FestApp",
   "-configuration", "Debug",
-  "-sdk", "iphonesimulator8.1",
+  "-sdk", "iphonesimulator9.2",
   "-destination", "platform=iOS Simulator,name=iPhone 6 Plus"
 ]
