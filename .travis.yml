@@ -5,6 +5,7 @@ xcode_scheme: FestApp
 xcode_sdk: iphonesimulator9.2
 before_install:
   - brew update
+  - brew install xctool || brew outdated xctool || brew upgrade xctool
   - brew install carthage || brew outdated carthage || brew upgrade carthage
 install:
   - carthage bootstrap --no-use-binaries --platform ios
