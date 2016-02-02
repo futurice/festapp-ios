@@ -1,1 +1,2 @@
+github "AFNetworking/AFNetworking" "3.0.4"
 github "ReactiveCocoa/ReactiveCocoa" "v2.5"

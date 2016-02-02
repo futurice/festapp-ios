@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AFHTTPSessionManager.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface FestImageManager : AFHTTPSessionManager
 + (FestImageManager *)sharedFestImageManager;

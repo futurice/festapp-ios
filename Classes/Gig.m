@@ -7,7 +7,7 @@
 #import "NSDate+Additions.h"
 #import <CoreLocation/CoreLocation.h>
 
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 #import "FestHTTPSessionManager.h"
 
 @interface Gig ()

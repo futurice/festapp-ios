@@ -4,7 +4,7 @@
 //
 //
 
-#import "AFHTTPSessionManager.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface FestHTTPSessionManager : AFHTTPSessionManager
 + (FestHTTPSessionManager *)sharedFestHTTPSessionManager;
